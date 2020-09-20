@@ -1,0 +1,1249 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>pipeline · python 学习记录</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="HHG">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-vs.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-ace/ace.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-emphasize/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-local-video/video-js.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Pipeline.html" />
+    
+    
+    <link rel="prev" href="../model_selection/验证曲线validation_curve.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Chapter1/">
+            
+                <a href="../Chapter1/">
+            
+                    
+                    常用模型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Chapter1/决策树.html">
+            
+                <a href="../Chapter1/决策树.html">
+            
+                    
+                    决策树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Chapter1/随机森林.html">
+            
+                <a href="../Chapter1/随机森林.html">
+            
+                    
+                    随机森林
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../Chapter1/主成分分析PCA.html">
+            
+                <a href="../Chapter1/主成分分析PCA.html">
+            
+                    
+                    主成分分析PCA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../Chapter1/逻辑回归.html">
+            
+                <a href="../Chapter1/逻辑回归.html">
+            
+                    
+                    逻辑回归
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../Chapter1/聚类算法K-Means.html">
+            
+                <a href="../Chapter1/聚类算法K-Means.html">
+            
+                    
+                    聚类算法K-Means
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../Chapter1/支持向量机.html">
+            
+                <a href="../Chapter1/支持向量机.html">
+            
+                    
+                    支持向量机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../Chapter1/朴素贝叶斯.html">
+            
+                <a href="../Chapter1/朴素贝叶斯.html">
+            
+                    
+                    朴素贝叶斯
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../Chapter1/回归大家族.html">
+            
+                <a href="../Chapter1/回归大家族.html">
+            
+                    
+                    回归大家族
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../Chapter1/XGBoost.html">
+            
+                <a href="../Chapter1/XGBoost.html">
+            
+                    
+                    XGBoost
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../Chapter1/模型融合stacking.html">
+            
+                <a href="../Chapter1/模型融合stacking.html">
+            
+                    
+                    模型融合stacking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../Chapter1/模型融合Blending.html">
+            
+                <a href="../Chapter1/模型融合Blending.html">
+            
+                    
+                    模型融合Blending
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Chapter2/">
+            
+                <a href="../Chapter2/">
+            
+                    
+                    sklearn.metrics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Chapter2/sklearn.metrics.mean_squared_error用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.mean_squared_error用法.html">
+            
+                    
+                    sklearn.metrics.mean_squared_error用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Chapter2/sklearn.metrics.mean_absolute_error用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.mean_absolute_error用法.html">
+            
+                    
+                    sklearn.metrics.mean_absolute_error用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Chapter2/sklearn.metrics.r2_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.r2_score用法.html">
+            
+                    
+                    sklearn.metrics.r2_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Chapter2/sklearn.metrics.explained_variance_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.explained_variance_score用法.html">
+            
+                    
+                    sklearn.metrics.explained_variance_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../Chapter2/标准差计算.html">
+            
+                <a href="../Chapter2/标准差计算.html">
+            
+                    
+                    标准差计算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../Chapter2/sklearn.metrics.confusion_matrix用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.confusion_matrix用法.html">
+            
+                    
+                    sklearn.metrics.confusion_matrix用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../Chapter2/sklearn.metrics.accuracy_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.accuracy_score用法.html">
+            
+                    
+                    sklearn.metrics.accuracy_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../Chapter2/sklearn.metrics.precision_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.precision_score用法.html">
+            
+                    
+                    sklearn.metrics.precision_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../Chapter2/sklearn.metrics.recall_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.recall_score用法.html">
+            
+                    
+                    sklearn.metrics.recall_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../Chapter2/sklearn.metrics.f1_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.f1_score用法.html">
+            
+                    
+                    sklearn.metrics.f1_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="../Chapter2/sklearn.metrics.roc_curve用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.roc_curve用法.html">
+            
+                    
+                    sklearn.metrics.roc_curve用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="../Chapter2/ROC曲线下的面积auc.html">
+            
+                <a href="../Chapter2/ROC曲线下的面积auc.html">
+            
+                    
+                    ROC曲线下的面积auc
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13" data-path="../Chapter2/sklearn.metrics.roc_auc_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.roc_auc_score用法.html">
+            
+                    
+                    sklearn.metrics.roc_auc_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Chapter3/">
+            
+                <a href="../Chapter3/">
+            
+                    
+                    数据处理 Preprocessing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../Chapter3/preprocessing.MinMaxScaler用法.html">
+            
+                <a href="../Chapter3/preprocessing.MinMaxScaler用法.html">
+            
+                    
+                    preprocessing.MinMaxScaler用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../Chapter3/preprocessing.StandardScaler用法.html">
+            
+                <a href="../Chapter3/preprocessing.StandardScaler用法.html">
+            
+                    
+                    preprocessing.StandardScaler用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../Chapter3/preprocessing.Binarizer用法.html">
+            
+                <a href="../Chapter3/preprocessing.Binarizer用法.html">
+            
+                    
+                    preprocessing.Binarizer用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../Chapter3/preprocessing.KBinsDiscretizer用法.html">
+            
+                <a href="../Chapter3/preprocessing.KBinsDiscretizer用法.html">
+            
+                    
+                    preprocessing.KBinsDiscretizer用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../Chapter3/preprocessing.LabelEncoder用法.html">
+            
+                <a href="../Chapter3/preprocessing.LabelEncoder用法.html">
+            
+                    
+                    preprocessing.LabelEncoder用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../Chapter3/preprocessing.OneHotEncoder用法.html">
+            
+                <a href="../Chapter3/preprocessing.OneHotEncoder用法.html">
+            
+                    
+                    preprocessing.OneHotEncoder用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Chapter4/">
+            
+                <a href="../Chapter4/">
+            
+                    
+                    缺失值处理 sklearn.impute
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../Chapter4/impute.SimpleImputer用法.html">
+            
+                <a href="../Chapter4/impute.SimpleImputer用法.html">
+            
+                    
+                    impute.SimpleImputer用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Chapter5/">
+            
+                <a href="../Chapter5/">
+            
+                    
+                    特征选择 feature_selection
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../Chapter5/feature_selection.VarianceThreshold 用法.html">
+            
+                <a href="../Chapter5/feature_selection.VarianceThreshold 用法.html">
+            
+                    
+                    feature_selection.VarianceThreshold用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../Chapter5/feature_selection.SelectKBest用法.html">
+            
+                <a href="../Chapter5/feature_selection.SelectKBest用法.html">
+            
+                    
+                    feature_selection.SelectKBest用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../Chapter5/feature_selection.chi2用法.html">
+            
+                <a href="../Chapter5/feature_selection.chi2用法.html">
+            
+                    
+                    feature_selection.chi2用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../Chapter5/feature_selection.f_classif用法.html">
+            
+                <a href="../Chapter5/feature_selection.f_classif用法.html">
+            
+                    
+                    feature_selection.f_classif用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../Chapter5/feature_selection.f_regression用法.html">
+            
+                <a href="../Chapter5/feature_selection.f_regression用法.html">
+            
+                    
+                    feature_selection.f_regression用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../Chapter5/feature_selection.mutual_info_classif用法.html">
+            
+                <a href="../Chapter5/feature_selection.mutual_info_classif用法.html">
+            
+                    
+                    feature_selection.mutual_info_classif用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../Chapter5/feature_selection.mutual_info_regression用法.html">
+            
+                <a href="../Chapter5/feature_selection.mutual_info_regression用法.html">
+            
+                    
+                    feature_selection.mutual_info_regression用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../Chapter5/过滤法总结.html">
+            
+                <a href="../Chapter5/过滤法总结.html">
+            
+                    
+                    过滤法总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="../Chapter5/feature_selection.SelectFromModel用法.html">
+            
+                <a href="../Chapter5/feature_selection.SelectFromModel用法.html">
+            
+                    
+                    feature_selection.SelectFromModel用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="../Chapter5/feature_selection.RFE用法.html">
+            
+                <a href="../Chapter5/feature_selection.RFE用法.html">
+            
+                    
+                    feature_selection.RFE用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../model_selection/">
+            
+                <a href="../model_selection/">
+            
+                    
+                    模型选择 model_selection
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../model_selection/数据集划分train_test_split.html">
+            
+                <a href="../model_selection/数据集划分train_test_split.html">
+            
+                    
+                    数据集划分train_test_split
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../model_selection/数据集划分K折交叉验证KFold.html">
+            
+                <a href="../model_selection/数据集划分K折交叉验证KFold.html">
+            
+                    
+                    数据集划分K折交叉验证KFold
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../model_selection/数据集划分K折交叉验证StratifiedKFold.html">
+            
+                <a href="../model_selection/数据集划分K折交叉验证StratifiedKFold.html">
+            
+                    
+                    数据集划分K折交叉验证StratifiedKFold
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../model_selection/随机数据集划分ShuffleSplit.html">
+            
+                <a href="../model_selection/随机数据集划分ShuffleSplit.html">
+            
+                    
+                    随机数据集划分ShuffleSplit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../model_selection/随机分层数据集划分StratifiedShuffleSplit.html">
+            
+                <a href="../model_selection/随机分层数据集划分StratifiedShuffleSplit.html">
+            
+                    
+                    随机分层数据集划分StratifiedShuffleSplit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../model_selection/交叉验证cross_val_score.html">
+            
+                <a href="../model_selection/交叉验证cross_val_score.html">
+            
+                    
+                    交叉验证cross_val_score
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../model_selection/学习曲线learning_curve.html">
+            
+                <a href="../model_selection/学习曲线learning_curve.html">
+            
+                    
+                    学习曲线learning_curve
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="../model_selection/验证曲线validation_curve.html">
+            
+                <a href="../model_selection/验证曲线validation_curve.html">
+            
+                    
+                    验证曲线validation_curve
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.8" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    pipeline
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="Pipeline.html">
+            
+                <a href="Pipeline.html">
+            
+                    
+                    Pipeline
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="make_pipeline.html">
+            
+                <a href="make_pipeline.html">
+            
+                    
+                    make_pipeline
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../compose/">
+            
+                <a href="../compose/">
+            
+                    
+                    compose
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../compose/ColumnTransformer.html">
+            
+                <a href="../compose/ColumnTransformer.html">
+            
+                    
+                    ColumnTransformer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../mlxtend库/">
+            
+                <a href="../mlxtend库/">
+            
+                    
+                    mlxtend库
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../mlxtend库/StackingRegressor.html">
+            
+                <a href="../mlxtend库/StackingRegressor.html">
+            
+                    
+                    StackingRegressor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../mlxtend库/StackingClassifier.html">
+            
+                <a href="../mlxtend库/StackingClassifier.html">
+            
+                    
+                    StackingClassifier
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../mlxtend库/feature_selection/">
+            
+                <a href="../mlxtend库/feature_selection/">
+            
+                    
+                    feature_selection
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.3.1" data-path="../mlxtend库/feature_selection/SequentialFeatureSelector.html">
+            
+                <a href="../mlxtend库/feature_selection/SequentialFeatureSelector.html">
+            
+                    
+                    SequentialFeatureSelector
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3.2" data-path="../mlxtend库/feature_selection/ExhaustiveFeatureSelector.html">
+            
+                <a href="../mlxtend库/feature_selection/ExhaustiveFeatureSelector.html">
+            
+                    
+                    ExhaustiveFeatureSelector
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >pipeline</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><a href="#pipeline">pipeline</a></li></ul></div><a href="#pipeline" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="pipeline"><a name="pipeline" class="anchor-navigation-ex-anchor" href="#pipeline"><i class="fa fa-link" aria-hidden="true"></i></a>pipeline</h1>
+<footer class="page-footer"><span class="copyright">  </span><span class="footer-modification">Update time&#xFF1A;
+2020-07-08 
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../model_selection/验证曲线validation_curve.html" class="navigation navigation-prev " aria-label="Previous page: 验证曲线validation_curve">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Pipeline.html" class="navigation navigation-next " aria-label="Next page: Pipeline">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"pipeline","level":"1.8","depth":1,"next":{"title":"Pipeline","level":"1.8.1","depth":2,"path":"pipeline/Pipeline.md","ref":"pipeline/Pipeline.md","articles":[]},"previous":{"title":"验证曲线validation_curve","level":"1.7.8","depth":2,"path":"model_selection/验证曲线validation_curve.md","ref":"model_selection/验证曲线validation_curve.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-highlight","-livereload","search-plus@^0.0.11","simple-page-toc@^0.1.1","disqus@^0.1.0","prism@^2.1.0","prism-themes@^0.0.2","theme-comscore","anchors@^0.7.1","ace@^0.3.2","emphasize@^1.1.0","katex@^1.1.3","splitter@^0.0.8","expandable-chapters","local-video@^1.0.1","anchor-navigation-ex@0.1.8","custom-favicon","todo@^0.1.3","hide-element","copy-code-button","tbfed-pagefooter","advanced-emoji","lightbox","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":" ","modify_label":"Update time：","modify_format":"YYYY-MM-DD "},"prism":{"css":["prism-themes/themes/prism-vs.css"]},"disqus":{"useIdentifier":false,"shortName":"HG1227"},"styles":{"website":"styles/website.css"},"emphasize":{},"ace":{},"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"todo":{},"splitter":{},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"isRewritePageTitle":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right"},"favicon":"favicon.ico","lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"prism-themes":{},"custom-favicon":{},"local-video":{},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"template":"ace","unindent":true,"edit":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{},"search-plus":{}},"theme":"default","author":"HHG","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"readme.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python 学习记录","language":"zh-hans","output.name":"site","links":{"sidebar":{"Home":""}},"gitbook":"*","description":"。"},"file":{"path":"pipeline/README.md","mtime":"2020-07-08T08:17:43.711Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-20T03:19:39.807Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ace/ace/ace.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ace/ace.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-local-video/video.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

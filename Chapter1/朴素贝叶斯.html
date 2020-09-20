@@ -1,0 +1,1576 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>朴素贝叶斯 · python 学习记录</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="HHG">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-vs.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-ace/ace.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-emphasize/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-local-video/video-js.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="回归大家族.html" />
+    
+    
+    <link rel="prev" href="支持向量机.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    常用模型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="决策树.html">
+            
+                <a href="决策树.html">
+            
+                    
+                    决策树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="随机森林.html">
+            
+                <a href="随机森林.html">
+            
+                    
+                    随机森林
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="主成分分析PCA.html">
+            
+                <a href="主成分分析PCA.html">
+            
+                    
+                    主成分分析PCA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="逻辑回归.html">
+            
+                <a href="逻辑回归.html">
+            
+                    
+                    逻辑回归
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="聚类算法K-Means.html">
+            
+                <a href="聚类算法K-Means.html">
+            
+                    
+                    聚类算法K-Means
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="支持向量机.html">
+            
+                <a href="支持向量机.html">
+            
+                    
+                    支持向量机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.7" data-path="朴素贝叶斯.html">
+            
+                <a href="朴素贝叶斯.html">
+            
+                    
+                    朴素贝叶斯
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="回归大家族.html">
+            
+                <a href="回归大家族.html">
+            
+                    
+                    回归大家族
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="XGBoost.html">
+            
+                <a href="XGBoost.html">
+            
+                    
+                    XGBoost
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="模型融合stacking.html">
+            
+                <a href="模型融合stacking.html">
+            
+                    
+                    模型融合stacking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="模型融合Blending.html">
+            
+                <a href="模型融合Blending.html">
+            
+                    
+                    模型融合Blending
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Chapter2/">
+            
+                <a href="../Chapter2/">
+            
+                    
+                    sklearn.metrics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Chapter2/sklearn.metrics.mean_squared_error用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.mean_squared_error用法.html">
+            
+                    
+                    sklearn.metrics.mean_squared_error用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Chapter2/sklearn.metrics.mean_absolute_error用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.mean_absolute_error用法.html">
+            
+                    
+                    sklearn.metrics.mean_absolute_error用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Chapter2/sklearn.metrics.r2_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.r2_score用法.html">
+            
+                    
+                    sklearn.metrics.r2_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Chapter2/sklearn.metrics.explained_variance_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.explained_variance_score用法.html">
+            
+                    
+                    sklearn.metrics.explained_variance_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../Chapter2/标准差计算.html">
+            
+                <a href="../Chapter2/标准差计算.html">
+            
+                    
+                    标准差计算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../Chapter2/sklearn.metrics.confusion_matrix用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.confusion_matrix用法.html">
+            
+                    
+                    sklearn.metrics.confusion_matrix用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../Chapter2/sklearn.metrics.accuracy_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.accuracy_score用法.html">
+            
+                    
+                    sklearn.metrics.accuracy_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../Chapter2/sklearn.metrics.precision_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.precision_score用法.html">
+            
+                    
+                    sklearn.metrics.precision_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../Chapter2/sklearn.metrics.recall_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.recall_score用法.html">
+            
+                    
+                    sklearn.metrics.recall_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../Chapter2/sklearn.metrics.f1_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.f1_score用法.html">
+            
+                    
+                    sklearn.metrics.f1_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="../Chapter2/sklearn.metrics.roc_curve用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.roc_curve用法.html">
+            
+                    
+                    sklearn.metrics.roc_curve用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="../Chapter2/ROC曲线下的面积auc.html">
+            
+                <a href="../Chapter2/ROC曲线下的面积auc.html">
+            
+                    
+                    ROC曲线下的面积auc
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13" data-path="../Chapter2/sklearn.metrics.roc_auc_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.roc_auc_score用法.html">
+            
+                    
+                    sklearn.metrics.roc_auc_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Chapter3/">
+            
+                <a href="../Chapter3/">
+            
+                    
+                    数据处理 Preprocessing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../Chapter3/preprocessing.MinMaxScaler用法.html">
+            
+                <a href="../Chapter3/preprocessing.MinMaxScaler用法.html">
+            
+                    
+                    preprocessing.MinMaxScaler用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../Chapter3/preprocessing.StandardScaler用法.html">
+            
+                <a href="../Chapter3/preprocessing.StandardScaler用法.html">
+            
+                    
+                    preprocessing.StandardScaler用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../Chapter3/preprocessing.Binarizer用法.html">
+            
+                <a href="../Chapter3/preprocessing.Binarizer用法.html">
+            
+                    
+                    preprocessing.Binarizer用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../Chapter3/preprocessing.KBinsDiscretizer用法.html">
+            
+                <a href="../Chapter3/preprocessing.KBinsDiscretizer用法.html">
+            
+                    
+                    preprocessing.KBinsDiscretizer用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../Chapter3/preprocessing.LabelEncoder用法.html">
+            
+                <a href="../Chapter3/preprocessing.LabelEncoder用法.html">
+            
+                    
+                    preprocessing.LabelEncoder用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../Chapter3/preprocessing.OneHotEncoder用法.html">
+            
+                <a href="../Chapter3/preprocessing.OneHotEncoder用法.html">
+            
+                    
+                    preprocessing.OneHotEncoder用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Chapter4/">
+            
+                <a href="../Chapter4/">
+            
+                    
+                    缺失值处理 sklearn.impute
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../Chapter4/impute.SimpleImputer用法.html">
+            
+                <a href="../Chapter4/impute.SimpleImputer用法.html">
+            
+                    
+                    impute.SimpleImputer用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Chapter5/">
+            
+                <a href="../Chapter5/">
+            
+                    
+                    特征选择 feature_selection
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../Chapter5/feature_selection.VarianceThreshold 用法.html">
+            
+                <a href="../Chapter5/feature_selection.VarianceThreshold 用法.html">
+            
+                    
+                    feature_selection.VarianceThreshold用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../Chapter5/feature_selection.SelectKBest用法.html">
+            
+                <a href="../Chapter5/feature_selection.SelectKBest用法.html">
+            
+                    
+                    feature_selection.SelectKBest用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../Chapter5/feature_selection.chi2用法.html">
+            
+                <a href="../Chapter5/feature_selection.chi2用法.html">
+            
+                    
+                    feature_selection.chi2用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../Chapter5/feature_selection.f_classif用法.html">
+            
+                <a href="../Chapter5/feature_selection.f_classif用法.html">
+            
+                    
+                    feature_selection.f_classif用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../Chapter5/feature_selection.f_regression用法.html">
+            
+                <a href="../Chapter5/feature_selection.f_regression用法.html">
+            
+                    
+                    feature_selection.f_regression用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../Chapter5/feature_selection.mutual_info_classif用法.html">
+            
+                <a href="../Chapter5/feature_selection.mutual_info_classif用法.html">
+            
+                    
+                    feature_selection.mutual_info_classif用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../Chapter5/feature_selection.mutual_info_regression用法.html">
+            
+                <a href="../Chapter5/feature_selection.mutual_info_regression用法.html">
+            
+                    
+                    feature_selection.mutual_info_regression用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../Chapter5/过滤法总结.html">
+            
+                <a href="../Chapter5/过滤法总结.html">
+            
+                    
+                    过滤法总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="../Chapter5/feature_selection.SelectFromModel用法.html">
+            
+                <a href="../Chapter5/feature_selection.SelectFromModel用法.html">
+            
+                    
+                    feature_selection.SelectFromModel用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="../Chapter5/feature_selection.RFE用法.html">
+            
+                <a href="../Chapter5/feature_selection.RFE用法.html">
+            
+                    
+                    feature_selection.RFE用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../model_selection/">
+            
+                <a href="../model_selection/">
+            
+                    
+                    模型选择 model_selection
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../model_selection/数据集划分train_test_split.html">
+            
+                <a href="../model_selection/数据集划分train_test_split.html">
+            
+                    
+                    数据集划分train_test_split
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../model_selection/数据集划分K折交叉验证KFold.html">
+            
+                <a href="../model_selection/数据集划分K折交叉验证KFold.html">
+            
+                    
+                    数据集划分K折交叉验证KFold
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../model_selection/数据集划分K折交叉验证StratifiedKFold.html">
+            
+                <a href="../model_selection/数据集划分K折交叉验证StratifiedKFold.html">
+            
+                    
+                    数据集划分K折交叉验证StratifiedKFold
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../model_selection/随机数据集划分ShuffleSplit.html">
+            
+                <a href="../model_selection/随机数据集划分ShuffleSplit.html">
+            
+                    
+                    随机数据集划分ShuffleSplit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../model_selection/随机分层数据集划分StratifiedShuffleSplit.html">
+            
+                <a href="../model_selection/随机分层数据集划分StratifiedShuffleSplit.html">
+            
+                    
+                    随机分层数据集划分StratifiedShuffleSplit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../model_selection/交叉验证cross_val_score.html">
+            
+                <a href="../model_selection/交叉验证cross_val_score.html">
+            
+                    
+                    交叉验证cross_val_score
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../model_selection/学习曲线learning_curve.html">
+            
+                <a href="../model_selection/学习曲线learning_curve.html">
+            
+                    
+                    学习曲线learning_curve
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="../model_selection/验证曲线validation_curve.html">
+            
+                <a href="../model_selection/验证曲线validation_curve.html">
+            
+                    
+                    验证曲线validation_curve
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../pipeline/">
+            
+                <a href="../pipeline/">
+            
+                    
+                    pipeline
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../pipeline/Pipeline.html">
+            
+                <a href="../pipeline/Pipeline.html">
+            
+                    
+                    Pipeline
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../pipeline/make_pipeline.html">
+            
+                <a href="../pipeline/make_pipeline.html">
+            
+                    
+                    make_pipeline
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../compose/">
+            
+                <a href="../compose/">
+            
+                    
+                    compose
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../compose/ColumnTransformer.html">
+            
+                <a href="../compose/ColumnTransformer.html">
+            
+                    
+                    ColumnTransformer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../mlxtend库/">
+            
+                <a href="../mlxtend库/">
+            
+                    
+                    mlxtend库
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../mlxtend库/StackingRegressor.html">
+            
+                <a href="../mlxtend库/StackingRegressor.html">
+            
+                    
+                    StackingRegressor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../mlxtend库/StackingClassifier.html">
+            
+                <a href="../mlxtend库/StackingClassifier.html">
+            
+                    
+                    StackingClassifier
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../mlxtend库/feature_selection/">
+            
+                <a href="../mlxtend库/feature_selection/">
+            
+                    
+                    feature_selection
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.3.1" data-path="../mlxtend库/feature_selection/SequentialFeatureSelector.html">
+            
+                <a href="../mlxtend库/feature_selection/SequentialFeatureSelector.html">
+            
+                    
+                    SequentialFeatureSelector
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3.2" data-path="../mlxtend库/feature_selection/ExhaustiveFeatureSelector.html">
+            
+                <a href="../mlxtend库/feature_selection/ExhaustiveFeatureSelector.html">
+            
+                    
+                    ExhaustiveFeatureSelector
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >朴素贝叶斯</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><a href="#&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;">&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;</a></li><ul><li><a href="#1-&#x9AD8;&#x65AF;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;-gaussiannb">1. &#x9AD8;&#x65AF;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF; GaussianNB</a></li><li><a href="#2-&#x591A;&#x9879;&#x5F0F;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;-multinomialnb">2. &#x591A;&#x9879;&#x5F0F;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF; MultinomialNB</a></li><li><a href="#3-&#x4F2F;&#x52AA;&#x5229;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;-bernoullinb">3. &#x4F2F;&#x52AA;&#x5229;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF; BernoulliNB</a></li><li><a href="#4-&#x8865;&#x96C6;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;complementnb">4. &#x8865;&#x96C6;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;ComplementNB</a></li><li><a href="#&#x53C2;&#x8003;">&#x53C2;&#x8003;</a></li></ul></ul></div><a href="#&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;"><a name="&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;" class="anchor-navigation-ex-anchor" href="#&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;</h1>
+<p>sklearn&#x4E2D;&#x7684;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">&#x7C7B;</th>
+<th style="text-align:center">&#x542B;&#x4E49;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>naive_bayes.GaussianNB</strong></td>
+<td style="text-align:center">&#x9AD8;&#x65AF;&#x5206;&#x5E03;&#x4E0B;&#x7684;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>naive_bayes.BernoulliNB</strong></td>
+<td style="text-align:center">&#x4F2F;&#x52AA;&#x5229;&#x5206;&#x5E03;&#x4E0B;&#x7684;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>naive_bayes.MultinomialNB</strong></td>
+<td style="text-align:center">&#x591A;&#x9879;&#x5F0F;&#x5206;&#x5E03;&#x4E0B;&#x7684;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>naive_bayes.ComplementNB</strong></td>
+<td style="text-align:center">&#x8865;&#x96C6;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h2 id="1-&#x9AD8;&#x65AF;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;-gaussiannb"><a name="1-&#x9AD8;&#x65AF;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;-gaussiannb" class="anchor-navigation-ex-anchor" href="#1-&#x9AD8;&#x65AF;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;-gaussiannb"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x9AD8;&#x65AF;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF; GaussianNB</h2>
+<pre class="language-"><code class="lang-python"><span class="token keyword">class</span> <span class="token class-name">sklearn</span><span class="token punctuation">.</span>naive_bayes<span class="token punctuation">.</span>GaussianNB <span class="token punctuation">(</span>priors<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> var_smoothing<span class="token operator">=</span><span class="token number">1e</span><span class="token operator">-</span><span class="token number">09</span><span class="token punctuation">)</span>
+</code></pre>
+<p><strong>&#x53C2;&#x6570;&#xFF1A;</strong></p>
+<ul>
+<li><strong>prior</strong> &#xFF1A;&#x53EF;&#x8F93;&#x5165;&#x4EFB;&#x4F55;&#x7C7B;&#x6570;&#x7EC4;&#x7ED3;&#x6784;&#xFF0C;&#x5F62;&#x72B6;&#x4E3A;&#xFF08;n_classes&#xFF0C;&#xFF09; &#x8868;&#x793A;&#x7C7B;&#x7684;&#x5148;&#x9A8C;&#x6982;&#x7387;&#x3002;&#x5982;&#x679C;&#x6307;&#x5B9A;&#xFF0C;&#x5219;&#x4E0D;&#x6839;&#x636E;&#x6570;&#x636E;&#x8C03;&#x6574;&#x5148;&#x9A8C;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x6307;&#x5B9A;&#xFF0C;&#x5219;&#x81EA;&#x884C;&#x6839;&#x636E;&#x6570;&#x636E;&#x8BA1; &#x7B97;&#x5148;&#x9A8C;&#x6982;&#x7387; $P(Y)$</li>
+<li><strong>var_smoothing</strong> : &#x6D6E;&#x70B9;&#x6570;&#xFF0C;&#x53EF;&#x4E0D;&#x586B;&#xFF08;&#x9ED8;&#x8BA4;&#x503C;= 1e-9&#xFF09; &#x5728;&#x4F30;&#x8BA1;&#x65B9;&#x5DEE;&#x65F6;&#xFF0C;&#x4E3A;&#x4E86;&#x8FFD;&#x6C42;&#x4F30;&#x8BA1;&#x7684;&#x7A33;&#x5B9A;&#x6027;&#xFF0C;&#x5C06;&#x6240;&#x6709;&#x7279;&#x5F81;&#x7684;&#x65B9;&#x5DEE;&#x4E2D;&#x6700;&#x5927;&#x7684;&#x65B9;&#x5DEE;&#x4EE5;&#x67D0;&#x4E2A;&#x6BD4;&#x4F8B;&#x6DFB;&#x52A0; &#x5230;&#x4F30;&#x8BA1;&#x7684;&#x65B9;&#x5DEE;&#x4E2D;&#x3002;&#x8FD9;&#x4E2A;&#x6BD4;&#x4F8B;&#xFF0C;&#x7531;var_smoothing&#x53C2;&#x6570;&#x63A7;&#x5236;</li>
+</ul>
+<p><strong>Examples</strong>:</p>
+<pre class="language-"><code class="lang-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>naive_bayes <span class="token keyword">import</span> GaussianNB
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>datasets <span class="token keyword">import</span> load_digits
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>model_selection <span class="token keyword">import</span> train_test_split
+
+digits <span class="token operator">=</span> load_digits<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">#&#x624B;&#x5199;&#x6570;&#x636E;&#x96C6;</span>
+X<span class="token punctuation">,</span> y <span class="token operator">=</span> digits<span class="token punctuation">.</span>data<span class="token punctuation">,</span> digits<span class="token punctuation">.</span>target
+<span class="token comment"># &#x5212;&#x5206;&#x6570;&#x636E;&#x96C6;</span>
+Xtrain<span class="token punctuation">,</span>Xtest<span class="token punctuation">,</span>Ytrain<span class="token punctuation">,</span>Ytest <span class="token operator">=</span> train_test_split<span class="token punctuation">(</span>X<span class="token punctuation">,</span>y<span class="token punctuation">,</span>test_size<span class="token operator">=</span><span class="token number">0.3</span><span class="token punctuation">,</span>random_state<span class="token operator">=</span><span class="token number">420</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class="language-"><code class="lang-python">np<span class="token punctuation">.</span>unique<span class="token punctuation">(</span>Ytrain<span class="token punctuation">)</span> <span class="token comment">#&#x591A;&#x5206;&#x7C7B;&#x95EE;&#x9898;&#xFF0C;&#x7C7B;&#x522B;&#x662F;10&#x4E2A;</span>
+
+gnb <span class="token operator">=</span> GaussianNB<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>fit<span class="token punctuation">(</span>Xtrain<span class="token punctuation">,</span>Ytrain<span class="token punctuation">)</span>
+
+<span class="token comment">#&#x67E5;&#x770B;&#x5206;&#x6570;</span>
+acc_score <span class="token operator">=</span> gnb<span class="token punctuation">.</span>score<span class="token punctuation">(</span>Xtest<span class="token punctuation">,</span>Ytest<span class="token punctuation">)</span> <span class="token comment">#&#x8FD4;&#x56DE;&#x9884;&#x6D4B;&#x7684;&#x7CBE;&#x786E;&#x6027; accuracy</span>
+
+<span class="token comment">#&#x67E5;&#x770B;&#x9884;&#x6D4B;&#x7ED3;&#x679C;</span>
+Y_pred <span class="token operator">=</span> gnb<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>Xtest<span class="token punctuation">)</span>
+
+<span class="token comment">#&#x67E5;&#x770B;&#x9884;&#x6D4B;&#x7684;&#x6982;&#x7387;&#x7ED3;&#x679C;</span>
+prob <span class="token operator">=</span> gnb<span class="token punctuation">.</span>predict_proba<span class="token punctuation">(</span>Xtest<span class="token punctuation">)</span>
+prob<span class="token punctuation">.</span>shape <span class="token comment">#&#x6BCF;&#x4E00;&#x5217;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;&#x6807;&#x7B7E;&#x7C7B;&#x522B;&#x4E0B;&#x7684;&#x6982;&#x7387;</span>
+<span class="token comment"># (540, 10)</span>
+</code></pre>
+<p>&#x4F7F;&#x7528;&#x6DF7;&#x6DC6;&#x77E9;&#x9635;&#x6765;&#x67E5;&#x770B;&#x8D1D;&#x53F6;&#x65AF;&#x7684;&#x5206;&#x7C7B;&#x7ED3;&#x679C;  </p>
+<pre class="language-"><code class="lang-python"><span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>metrics <span class="token keyword">import</span> confusion_matrix <span class="token keyword">as</span> CM
+
+CM<span class="token punctuation">(</span>Ytest<span class="token punctuation">,</span>Y_pred<span class="token punctuation">)</span>
+
+<span class="token comment">#&#x6CE8;&#x610F;&#xFF0C;ROC&#x66F2;&#x7EBF;&#x662F;&#x4E0D;&#x80FD;&#x7528;&#x4E8E;&#x591A;&#x5206;&#x7C7B;&#x7684;&#x3002;&#x591A;&#x5206;&#x7C7B;&#x72B6;&#x51B5;&#x4E0B;&#x6700;&#x4F73;&#x7684;&#x6A21;&#x578B;&#x8BC4;&#x4F30;&#x6307;&#x6807;&#x662F;&#x6DF7;&#x6DC6;&#x77E9;&#x9635;&#x548C;&#x6574;&#x4F53;&#x7684;&#x51C6;&#x786E;&#x5EA6;</span>
+
+<span class="token comment">#array([[47,  0,  0,  0,  0,  0,  0,  1,  0,  0],</span>
+<span class="token comment">#       [ 0, 46,  2,  0,  0,  0,  0,  3,  6,  2],</span>
+<span class="token comment">#       [ 0,  2, 35,  0,  0,  0,  1,  0, 16,  0],</span>
+<span class="token comment">#       [ 0,  0,  1, 40,  0,  1,  0,  3,  4,  0],</span>
+<span class="token comment">#       [ 0,  0,  1,  0, 39,  0,  1,  4,  0,  0],</span>
+<span class="token comment">#       [ 0,  0,  0,  2,  0, 58,  1,  1,  1,  0],</span>
+<span class="token comment">#       [ 0,  0,  1,  0,  0,  1, 49,  0,  0,  0],</span>
+<span class="token comment">#       [ 0,  0,  0,  0,  0,  0,  0, 54,  0,  0],</span>
+<span class="token comment">#       [ 0,  3,  0,  1,  0,  0,  0,  2, 55,  0],</span>
+<span class="token comment">#       [ 1,  1,  0,  1,  2,  0,  0,  3,  7, 41]], dtype=int64)</span>
+</code></pre>
+<h2 id="2-&#x591A;&#x9879;&#x5F0F;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;-multinomialnb"><a name="2-&#x591A;&#x9879;&#x5F0F;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;-multinomialnb" class="anchor-navigation-ex-anchor" href="#2-&#x591A;&#x9879;&#x5F0F;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;-multinomialnb"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x591A;&#x9879;&#x5F0F;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF; MultinomialNB</h2>
+<p>&#x591A;&#x9879;&#x5F0F;&#x8D1D;&#x53F6;&#x65AF;&#x53EF;&#x80FD;&#x662F;&#x9664;&#x4E86;&#x9AD8;&#x65AF;&#x4E4B;&#x5916;&#xFF0C;&#x6700;&#x4E3A;&#x4EBA;&#x6240;&#x77E5;&#x7684;&#x8D1D;&#x53F6;&#x65AF;&#x7B97;&#x6CD5;&#x4E86;&#x3002;&#x5B83;&#x4E5F;&#x662F;&#x57FA;&#x4E8E;&#x539F;&#x59CB;&#x7684;&#x8D1D;&#x53F6;&#x65AF;&#x7406;&#x8BBA;&#xFF0C;&#x4F46;&#x5047;&#x8BBE;&#x6982;&#x7387;&#x5206;&#x5E03;&#x662F;&#x670D;&#x4ECE;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x591A;&#x9879;&#x5F0F;&#x5206;&#x5E03;&#x3002;&#x591A;&#x9879;&#x5F0F;&#x5206;&#x5E03;&#x6765;&#x6E90;&#x4E8E;&#x7EDF;&#x8BA1;&#x5B66;&#x4E2D;&#x7684;&#x591A;&#x9879;&#x5F0F;&#x5B9E;&#x9A8C;&#xFF0C;&#x8FD9;&#x79CD;&#x5B9E;&#x9A8C;&#x53EF;&#x4EE5;&#x5177;&#x4F53;&#x89E3;&#x91CA;&#x4E3A;&#xFF1A;&#x5B9E;&#x9A8C;&#x5305;&#x62EC;n&#x6B21;&#x91CD;&#x590D;&#x8BD5;&#x9A8C;&#xFF0C;&#x6BCF;&#x9879;&#x8BD5;&#x9A8C;&#x90FD;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x53EF;&#x80FD;&#x7ED3;&#x679C;&#x3002;&#x5728;&#x4EFB;&#x4F55;&#x7ED9;&#x5B9A;&#x7684;&#x8BD5;&#x9A8C;&#x4E2D;&#xFF0C;&#x7279;&#x5B9A;&#x7ED3;&#x679C;&#x53D1;&#x751F;&#x7684;&#x6982;&#x7387;&#x662F;&#x4E0D;&#x53D8;&#x7684;&#x3002;  </p>
+<ol>
+<li>&#x591A;&#x9879;&#x5F0F;&#x5206;&#x5E03;&#x64C5;&#x957F;&#x7684;&#x662F;&#x5206;&#x7C7B;&#x578B;&#x53D8;&#x91CF;  </li>
+<li>&#x591A;&#x9879;&#x5F0F;&#x5B9E;&#x9A8C;&#x4E2D;&#x7684;&#x5B9E;&#x9A8C;&#x7ED3;&#x679C;&#x90FD;&#x5F88;&#x5177;&#x4F53;&#xFF0C;&#x5B83;&#x6240;&#x6D89;&#x53CA;&#x7684;&#x7279;&#x5F81;&#x5F80;&#x5F80;&#x662F;&#x6B21;&#x6570;&#xFF0C;&#x9891;&#x7387;&#xFF0C;&#x8BA1;&#x6570;&#xFF0C;&#x51FA;&#x73B0;&#x4E0E;&#x5426;&#x8FD9;&#x6837;&#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x8FD9;&#x4E9B;&#x6982;&#x5FF5;&#x90FD;&#x662F;&#x79BB;&#x6563;&#x7684;&#x6B63;&#x6574;&#x6570;&#xFF0C;&#x56E0;&#x6B64;<strong>sklearn&#x4E2D;&#x7684;&#x591A;&#x9879;&#x5F0F;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x4E0D;&#x63A5;&#x53D7;&#x8D1F;&#x503C;&#x7684;&#x8F93;&#x5165;</strong>  &#x3002;</li>
+</ol>
+<p>&#x7531;&#x4E8E;&#x8FD9;&#x6837;&#x7684;&#x7279;&#x6027;&#xFF0C;&#x591A;&#x9879;&#x5F0F;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x7684;&#x7279;&#x5F81;&#x77E9;&#x9635;&#x7ECF;&#x5E38;&#x662F;&#x7A00;&#x758F;&#x77E9;&#x9635;&#xFF08;&#x4E0D;&#x4E00;&#x5B9A;&#x603B;&#x662F;&#x7A00;&#x758F;&#x77E9;&#x9635;&#xFF09;&#xFF0C;&#x5E76;&#x4E14;&#x5B83;&#x7ECF;&#x5E38;&#x88AB;&#x7528;&#x4E8E;&#x6587;&#x672C;&#x5206;&#x7C7B;  </p>
+<p>&#x591A;&#x9879;&#x5F0F;&#x6A21;&#x578B;&#x5728;&#x8BA1;&#x7B97;&#x5148;&#x9A8C;&#x6982;&#x7387; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mo>(</mo><msub><mi>y</mi><mrow><mi>k</mi></mrow></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">P(y_{k})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose">)</span></span></span></span> &#x548C;&#x6761;&#x4EF6;&#x6982;&#x7387; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mo>(</mo><msub><mi>x</mi><mrow><mi>i</mi></mrow></msub><mi mathvariant="normal">&#x2223;</mi><msub><mi>y</mi><mrow><mi>k</mi></mrow></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">P(x_{i}|y_{k})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord mathrm">&#x2223;</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose">)</span></span></span></span>  &#x65F6;&#xFF0C;&#x4F1A;&#x505A;&#x4E00;&#x4E9B;<strong>&#x5E73;&#x6ED1;&#x5904;&#x7406;</strong>&#xFF0C;&#x5177;&#x4F53;&#x516C;&#x5F0F;&#x4E3A;&#xFF1A;</p>
+<center>
+    <a href="https://raw.githubusercontent.com/HG1227/image/master/img_tuchuang/20200102220440.png" data-lightbox="a0162960-48e4-4fee-ae63-b328f88a14dc" data-title="undefined" target="_blank"><img src="https://raw.githubusercontent.com/HG1227/image/master/img_tuchuang/20200102220440.png" alt="undefined"></a>
+</center>
+
+<p>N&#x662F;&#x603B;&#x7684;&#x6837;&#x672C;&#x4E2A;&#x6570;&#xFF0C;k&#x662F;&#x603B;&#x7684;&#x7C7B;&#x522B;&#x4E2A;&#x6570;&#xFF0C;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>N</mi><mrow><msub><mi>y</mi><mrow><mi>k</mi></mrow></msub></mrow></msub></mrow><annotation encoding="application/x-tex">N_{y_{k}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10903em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mtight"><span class="mord mathit mtight" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist"><span style="top:0.15122857142857138em;margin-right:0.07142857142857144em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-scriptstyle scriptscriptstyle cramped mtight"><span class="mord scriptscriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span> &#x662F;&#x7C7B;&#x522B;&#x4E3A; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>y</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">y_k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span> &#x7684;&#x6837;&#x672C;&#x4E2A;&#x6570;&#xFF0C;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3B1;</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.0037em;">&#x3B1;</span></span></span></span> &#x662F;&#x5E73;&#x6ED1;&#x503C;&#x3002;</p>
+<center>
+    <a href="https://raw.githubusercontent.com/HG1227/image/master/img_tuchuang/20200102220603.png" data-lightbox="48e0b6fe-494f-4434-a03d-04c3e7a6e7f4" data-title="undefined" target="_blank"><img src="https://raw.githubusercontent.com/HG1227/image/master/img_tuchuang/20200102220603.png" alt="undefined"></a>
+</center>
+
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>N</mi><mrow><msub><mi>y</mi><mrow><mi>k</mi></mrow></msub></mrow></msub></mrow><annotation encoding="application/x-tex">N_{y_{k}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10903em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mtight"><span class="mord mathit mtight" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist"><span style="top:0.15122857142857138em;margin-right:0.07142857142857144em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-scriptstyle scriptscriptstyle cramped mtight"><span class="mord scriptscriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span> &#x662F;&#x7C7B;&#x522B;&#x4E3A; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>y</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">y_k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span> &#x7684;&#x6837;&#x672C;&#x4E2A;&#x6570;&#xFF0C;n&#x662F;&#x7279;&#x5F81;&#x7684;&#x7EF4;&#x6570;&#xFF0C;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>N</mi><mrow><msub><mi>y</mi><mrow><mi>k</mi></mrow></msub><mo separator="true">,</mo><msub><mi>x</mi><mrow><mi>i</mi></mrow></msub></mrow></msub></mrow><annotation encoding="application/x-tex">N_{y_{k},x_{i}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10903em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mtight"><span class="mord mathit mtight" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist"><span style="top:0.15122857142857138em;margin-right:0.07142857142857144em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-scriptstyle scriptscriptstyle cramped mtight"><span class="mord scriptscriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mpunct mtight">,</span><span class="mord mtight"><span class="mord mathit mtight">x</span><span class="msupsub"><span class="vlist"><span style="top:0.143em;margin-right:0.07142857142857144em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-scriptstyle scriptscriptstyle cramped mtight"><span class="mord scriptscriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span> &#x662F;&#x7C7B;&#x522B;&#x4E3A; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>y</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">y_k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span> &#x7684;&#x6837;&#x672C;&#x4E2D;&#xFF0C;&#x7B2C; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span> &#x7EF4;&#x7279;&#x5F81;&#x7684;&#x503C;&#x662F;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>x</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">x_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span> &#x7684;&#x6837;&#x672C;&#x4E2A;&#x6570;&#xFF0C;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3B1;</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.0037em;">&#x3B1;</span></span></span></span>  &#x662F;&#x5E73;&#x6ED1;&#x503C;&#x3002;</p>
+<p>&#x5728;sklearn&#x4E2D;&#xFF0C;&#x7528;&#x6765;&#x6267;&#x884C;&#x591A;&#x9879;&#x5F0F;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x7684;&#x7C7B;MultinomialNB&#x5305;&#x542B;&#x5982;&#x4E0B;&#x7684;&#x53C2;&#x6570;&#x548C;&#x5C5E;&#x6027;  &#x3002;</p>
+<pre class="language-"><code class="lang-python"><span class="token keyword">class</span> <span class="token class-name">sklearn</span><span class="token punctuation">.</span>naive_bayes<span class="token punctuation">.</span>MultinomialNB <span class="token punctuation">(</span>alpha<span class="token operator">=</span><span class="token number">1.0</span><span class="token punctuation">,</span> fit_prior<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> class_prior<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span>
+</code></pre>
+<p><strong>&#x53C2;&#x6570;&#xFF1A;</strong></p>
+<ul>
+<li><p><strong>alpha</strong> : &#x6D6E;&#x70B9;&#x6570;, &#x53EF;&#x4E0D;&#x586B; (&#x9ED8;&#x8BA4;&#x4E3A;1.0) </p>
+<p>&#x62C9;&#x666E;&#x62C9;&#x65AF;&#x6216;&#x5229;&#x5FB7;&#x65AF;&#x901A;&#x5E73;&#x6ED1;&#x7684;&#x53C2;&#x6570; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3B1;</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.0037em;">&#x3B1;</span></span></span></span>  &#xFF0C;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E3A;0&#x5219;&#x8868;&#x793A;&#x5B8C;&#x5168;&#x6CA1;&#x6709;&#x5E73;&#x6ED1;&#x9009;&#x9879;&#x3002;&#x4F46;&#x662F;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x5E73;&#x6ED1;&#x76F8;&#x5F53;&#x4E8E;&#x4EBA; &#x4E3A;&#x7ED9;&#x6982;&#x7387;&#x52A0;&#x4E0A;&#x4E00;&#x4E9B;&#x566A;&#x97F3;&#xFF0C;&#x56E0;&#x6B64; $\alpha$ &#x8BBE;&#x7F6E;&#x5F97;&#x8D8A;&#x5927;&#xFF0C;&#x591A;&#x9879;&#x5F0F;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x7684;&#x7CBE;&#x786E;&#x6027;&#x4F1A;&#x8D8A;&#x4F4E;&#xFF08;&#x867D;&#x7136;&#x5F71;&#x54CD;&#x4E0D;&#x662F;&#x975E;&#x5E38;&#x5927;&#xFF09;&#xFF0C;&#x5E03;&#x91CC; &#x5C14;&#x5206;&#x6570;&#x4E5F;&#x4F1A;&#x9010;&#x6E10;&#x5347;&#x9AD8;</p>
+</li>
+<li><p><strong>fit_prior</strong> : &#x5E03;&#x5C14;&#x503C;, &#x53EF;&#x4E0D;&#x586B; (&#x9ED8;&#x8BA4;&#x4E3A;True) </p>
+<p>&#x662F;&#x5426;&#x5B66;&#x4E60;&#x5148;&#x9A8C;&#x6982;&#x7387; &#x3002;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E3A;false&#xFF0C;&#x5219;&#x4E0D;&#x4F7F;&#x7528;&#x5148;&#x9A8C;&#x6982;&#x7387;&#xFF0C;&#x800C;&#x4F7F;&#x7528;&#x7EDF;&#x4E00;&#x5148;&#x9A8C;&#x6982;&#x7387;&#xFF08;uniform prior&#xFF09;&#xFF0C;&#x5373;&#x8BA4;&#x4E3A;&#x6BCF;&#x4E2A;&#x6807;&#x7B7E;&#x7C7B;&#x51FA;&#x73B0;&#x7684;&#x6982;&#x7387;&#x662F; 1 / n_classes </p>
+</li>
+<li><p>class_prior&#xFF1A;&#x5F62;&#x4F3C;&#x6570;&#x7EC4;&#x7684;&#x7ED3;&#x6784;&#xFF0C;&#x7ED3;&#x6784;&#x4E3A;(n_classes, )&#xFF0C;&#x53EF;&#x4E0D;&#x586B;&#xFF08;&#x9ED8;&#x8BA4;&#x4E3A;None&#xFF09; </p>
+<p>&#x7C7B;&#x7684;&#x5148;&#x9A8C;&#x6982;&#x7387; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mo>(</mo><mi>Y</mi><mo>=</mo><mi>c</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">P(Y=c)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="mrel">=</span><span class="mord mathit">c</span><span class="mclose">)</span></span></span></span>&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x7ED9;&#x51FA;&#x5177;&#x4F53;&#x7684;&#x5148;&#x9A8C;&#x6982;&#x7387;&#x5219;&#x81EA;&#x52A8;&#x6839;&#x636E;&#x6570;&#x636E;&#x6765;&#x8FDB;&#x884C;&#x8BA1;&#x7B97;</p>
+</li>
+</ul>
+<p><br></p>
+<p><strong>Examples</strong>:</p>
+<p>&#x5BFC;&#x5165;&#x9700;&#x8981;&#x7684;&#x6A21;&#x5757;&#x548C;&#x5E93;  </p>
+<pre class="language-"><code class="lang-python"><span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>preprocessing <span class="token keyword">import</span> MinMaxScaler
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>naive_bayes <span class="token keyword">import</span> MultinomialNB
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>model_selection <span class="token keyword">import</span> train_test_split
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>datasets <span class="token keyword">import</span> make_blobs
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>metrics <span class="token keyword">import</span> brier_score_los
+</code></pre>
+<p>&#x5EFA;&#x7ACB;&#x6570;&#x636E;&#x96C6;  </p>
+<pre class="language-"><code class="lang-python">class_1 <span class="token operator">=</span> <span class="token number">500</span>
+class_2 <span class="token operator">=</span> <span class="token number">500</span> <span class="token comment">#&#x4E24;&#x4E2A;&#x7C7B;&#x522B;&#x5206;&#x522B;&#x8BBE;&#x5B9A;500&#x4E2A;&#x6837;&#x672C;</span>
+centers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">2.0</span><span class="token punctuation">,</span> <span class="token number">2.0</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token comment">#&#x8BBE;&#x5B9A;&#x4E24;&#x4E2A;&#x7C7B;&#x522B;&#x7684;&#x4E2D;&#x5FC3;</span>
+clusters_std <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">]</span> <span class="token comment">#&#x8BBE;&#x5B9A;&#x4E24;&#x4E2A;&#x7C7B;&#x522B;&#x7684;&#x65B9;&#x5DEE;</span>
+X<span class="token punctuation">,</span> y <span class="token operator">=</span> make_blobs<span class="token punctuation">(</span>n_samples<span class="token operator">=</span><span class="token punctuation">[</span>class_1<span class="token punctuation">,</span> class_2<span class="token punctuation">]</span><span class="token punctuation">,</span>
+                  centers<span class="token operator">=</span>centers<span class="token punctuation">,</span>
+                  cluster_std<span class="token operator">=</span>clusters_std<span class="token punctuation">,</span>
+                  random_state<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> shuffle<span class="token operator">=</span><span class="token boolean">False</span>
+                 <span class="token punctuation">)</span>
+
+Xtrain<span class="token punctuation">,</span> Xtest<span class="token punctuation">,</span> Ytrain<span class="token punctuation">,</span> Ytest <span class="token operator">=</span> train_test_split<span class="token punctuation">(</span>X<span class="token punctuation">,</span>y
+                                                <span class="token punctuation">,</span>test_size<span class="token operator">=</span><span class="token number">0.3</span>
+                                                <span class="token punctuation">,</span>random_state<span class="token operator">=</span><span class="token number">420</span>
+                                               <span class="token punctuation">)</span>
+</code></pre>
+<p>&#x5F52;&#x4E00;&#x5316;&#xFF0C;&#x786E;&#x4FDD;&#x8F93;&#x5165;&#x7684;&#x77E9;&#x9635;&#x4E0D;&#x5E26;&#x6709;&#x8D1F;&#x6570;  </p>
+<pre class="language-"><code class="lang-python"><span class="token comment">#&#x5148;&#x5F52;&#x4E00;&#x5316;&#xFF0C;&#x4FDD;&#x8BC1;&#x8F93;&#x5165;&#x591A;&#x9879;&#x5F0F;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x7684;&#x7279;&#x5F81;&#x77E9;&#x9635;&#x4E2D;&#x4E0D;&#x5E26;&#x6709;&#x8D1F;&#x6570;</span>
+mms <span class="token operator">=</span> MinMaxScaler<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>fit<span class="token punctuation">(</span>Xtrain<span class="token punctuation">)</span>
+Xtrain_ <span class="token operator">=</span> mms<span class="token punctuation">.</span>transform<span class="token punctuation">(</span>Xtrain<span class="token punctuation">)</span>
+Xtest_ <span class="token operator">=</span> mms<span class="token punctuation">.</span>transform<span class="token punctuation">(</span>Xtest<span class="token punctuation">)</span>
+</code></pre>
+<p>&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x591A;&#x9879;&#x5F0F;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x5206;&#x7C7B;&#x5668;</p>
+<pre class="language-"><code class="lang-python">
+mnb <span class="token operator">=</span> MultinomialNB<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>fit<span class="token punctuation">(</span>Xtrain_<span class="token punctuation">,</span> Ytrain<span class="token punctuation">)</span>
+<span class="token comment">#&#x91CD;&#x8981;&#x5C5E;&#x6027;&#xFF1A;&#x8C03;&#x7528;&#x6839;&#x636E;&#x6570;&#x636E;&#x83B7;&#x53D6;&#x7684;&#xFF0C;&#x6BCF;&#x4E2A;&#x6807;&#x7B7E;&#x7C7B;&#x7684;&#x5BF9;&#x6570;&#x5148;&#x9A8C;&#x6982;&#x7387;log(P(Y))</span>
+<span class="token comment">#&#x7531;&#x4E8E;&#x6982;&#x7387;&#x6C38;&#x8FDC;&#x662F;&#x5728;[0,1]&#x4E4B;&#x95F4;&#xFF0C;&#x56E0;&#x6B64;&#x5BF9;&#x6570;&#x5148;&#x9A8C;&#x6982;&#x7387;&#x8FD4;&#x56DE;&#x7684;&#x6C38;&#x8FDC;&#x662F;&#x8D1F;&#x503C;</span>
+mnb<span class="token punctuation">.</span>class_log_prior_
+<span class="token comment"># &#x4E24;&#x7C7B;&#x7684;&#x5148;&#x9A8C;&#x6982;&#x7387;</span>
+<span class="token comment"># array([-0.69029411, -0.69600841])</span>
+mnb<span class="token punctuation">.</span>class_log_prior_<span class="token punctuation">.</span>shape
+
+
+np<span class="token punctuation">.</span>unique<span class="token punctuation">(</span>Ytrain<span class="token punctuation">)</span>
+<span class="token comment"># array([0, 1])</span>
+
+<span class="token comment">#&#x53EF;&#x4EE5;&#x4F7F;&#x7528;np.exp&#x6765;&#x67E5;&#x770B;&#x771F;&#x6B63;&#x7684;&#x6982;&#x7387;&#x503C;</span>
+np<span class="token punctuation">.</span>exp<span class="token punctuation">(</span>mnb<span class="token punctuation">.</span>class_log_prior_<span class="token punctuation">)</span>
+<span class="token comment"># &#x4E24;&#x7C7B;&#x7684;&#x6982;&#x7387;&#x503C;</span>
+<span class="token comment"># array([0.50142857, 0.49857143])</span>
+
+<span class="token comment">#&#x91CD;&#x8981;&#x5C5E;&#x6027;&#xFF1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x56FA;&#x5B9A;&#x6807;&#x7B7E;&#x7C7B;&#x522B;&#x4E0B;&#x7684;&#x6BCF;&#x4E2A;&#x7279;&#x5F81;&#x7684;&#x5BF9;&#x6570;&#x6982;&#x7387;log(P(Xi|y))</span>
+mnb<span class="token punctuation">.</span>feature_log_prob_
+
+<span class="token comment"># array([[-0.76164788, -0.62903951],</span>
+<span class="token comment">#       [-0.72500918, -0.6622691 ]])</span>
+mnb<span class="token punctuation">.</span>feature_log_prob_<span class="token punctuation">.</span>shape
+<span class="token comment"># 2 &#x4E2A;&#x7279;&#x5F81;&#xFF0C;2 &#x4E2A;&#x6807;&#x7B7E;</span>
+<span class="token comment"># (2, 2)</span>
+
+<span class="token comment">#&#x91CD;&#x8981;&#x5C5E;&#x6027;&#xFF1A;&#x5728;fit&#x65F6;&#x6BCF;&#x4E2A;&#x6807;&#x7B7E;&#x7C7B;&#x522B;&#x4E0B;&#x5305;&#x542B;&#x7684;&#x6837;&#x672C;&#x6570;&#x3002;&#x5F53;fit&#x63A5;&#x53E3;&#x4E2D;&#x7684;sample_weight&#x88AB;&#x8BBE;&#x7F6E;&#x65F6;&#xFF0C;</span>
+<span class="token comment">#&#x8BE5;&#x63A5;&#x53E3;&#x8FD4;&#x56DE;&#x7684;&#x503C;&#x4E5F;&#x4F1A;&#x53D7;&#x5230;&#x52A0;&#x6743;&#x7684;&#x5F71;&#x54CD;</span>
+mnb<span class="token punctuation">.</span>class_count_
+<span class="token comment"># &#x6BCF;&#x4E2A;&#x7C7B;&#x522B;&#x6837;&#x672C;&#x7684;&#x6570;&#x91CF;</span>
+<span class="token comment">#array([351., 349.])</span>
+mnb<span class="token punctuation">.</span>class_count_<span class="token punctuation">.</span>shape
+</code></pre>
+<p>&#x5206;&#x7C7B;&#x5668;&#x7684;&#x6548;&#x679C;&#x5982;&#x4F55;&#x5462;&#xFF1F;</p>
+<pre class="language-"><code class="lang-python"><span class="token comment">#&#x4E00;&#x4E9B;&#x4F20;&#x7EDF;&#x7684;&#x63A5;&#x53E3;</span>
+mnb<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>Xtest_<span class="token punctuation">)</span>
+mnb<span class="token punctuation">.</span>predict_proba<span class="token punctuation">(</span>Xtest_<span class="token punctuation">)</span>
+mnb<span class="token punctuation">.</span>score<span class="token punctuation">(</span>Xtest_<span class="token punctuation">,</span>Ytest<span class="token punctuation">)</span>
+<span class="token comment"># 0.5433333333333333</span>
+</code></pre>
+<p>&#x6548;&#x679C;&#x4E0D;&#x592A;&#x7406;&#x60F3;</p>
+<pre class="language-"><code class="lang-python"><span class="token comment">#&#x6765;&#x8BD5;&#x8BD5;&#x770B;&#x628A;Xtiain&#x8F6C;&#x6362;&#x6210;&#x5206;&#x7C7B;&#x578B;&#x6570;&#x636E;&#x5427;</span>
+<span class="token comment">#&#x6CE8;&#x610F;&#x6211;&#x4EEC;&#x7684;Xtrain&#x6CA1;&#x6709;&#x7ECF;&#x8FC7;&#x5F52;&#x4E00;&#x5316;&#xFF0C;&#x56E0;&#x4E3A;&#x505A;&#x54D1;&#x53D8;&#x91CF;&#x4E4B;&#x540E;&#x81EA;&#x7136;&#x6240;&#x6709;&#x7684;&#x6570;&#x636E;&#x5C31;&#x4E0D;&#x4F1A;&#x53C8;&#x8D1F;&#x6570;&#x4E86;</span>
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>preprocessing <span class="token keyword">import</span> KBinsDiscretizer
+kbs <span class="token operator">=</span> KBinsDiscretizer<span class="token punctuation">(</span>n_bins<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">,</span> encode<span class="token operator">=</span><span class="token string">&apos;onehot&apos;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>fit<span class="token punctuation">(</span>Xtrain<span class="token punctuation">)</span>
+Xtrain_ <span class="token operator">=</span> kbs<span class="token punctuation">.</span>transform<span class="token punctuation">(</span>Xtrain<span class="token punctuation">)</span>
+Xtest_ <span class="token operator">=</span> kbs<span class="token punctuation">.</span>transform<span class="token punctuation">(</span>Xtest<span class="token punctuation">)</span>
+mnb <span class="token operator">=</span> MultinomialNB<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>fit<span class="token punctuation">(</span>Xtrain_<span class="token punctuation">,</span> Ytrain<span class="token punctuation">)</span>
+mnb<span class="token punctuation">.</span>score<span class="token punctuation">(</span>Xtest_<span class="token punctuation">,</span>Ytest<span class="token punctuation">)</span>
+<span class="token comment"># 0.9966666666666667</span>
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x591A;&#x9879;&#x5F0F;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x7684;&#x57FA;&#x672C;&#x64CD;&#x4F5C;&#x548C;&#x4EE3;&#x7801;&#x90FD;&#x975E;&#x5E38;&#x7B80;&#x5355;&#x3002;&#x540C;&#x6837;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5982;&#x679C;&#x91C7;&#x7528;&#x54D1;&#x53D8;&#x91CF;&#x65B9;&#x5F0F;&#x7684;&#x5206;&#x7BB1;&#x5904;&#x7406;&#xFF0C;&#x591A;&#x9879;&#x5F0F;&#x8D1D;&#x53F6;&#x65AF;&#x7684;&#x6548;&#x679C;&#x4F1A;&#x7A81;&#x98DE;&#x731B;&#x8FDB;</p>
+<h2 id="3-&#x4F2F;&#x52AA;&#x5229;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;-bernoullinb"><a name="3-&#x4F2F;&#x52AA;&#x5229;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;-bernoullinb" class="anchor-navigation-ex-anchor" href="#3-&#x4F2F;&#x52AA;&#x5229;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;-bernoullinb"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x4F2F;&#x52AA;&#x5229;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF; BernoulliNB</h2>
+<p>&#x591A;&#x9879;&#x5F0F;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x53EF;&#x540C;&#x65F6;&#x5904;&#x7406;&#x4E8C;&#x9879;&#x5206;&#x5E03;&#xFF08;&#x629B;&#x786C;&#x5E01;&#xFF09;&#x548C;&#x591A;&#x9879;&#x5206;&#x5E03;&#xFF08;&#x63B7;&#x9AB0;&#x5B50;&#xFF09;&#xFF0C;&#x5176;&#x4E2D;&#x4E8C;&#x9879;&#x5206;&#x5E03;&#x53C8;&#x53EB;&#x505A;&#x4F2F;&#x52AA;&#x5229;&#x5206;&#x5E03;&#xFF0C;&#x5B83;&#x662F;&#x4E00;&#x79CD;&#x73B0;&#x5B9E;&#x4E2D;&#x5E38;&#x89C1;&#xFF0C;&#x5E76;&#x4E14;&#x62E5;&#x6709;&#x5F88;&#x591A;&#x4F18;&#x8D8A;&#x6570;&#x5B66;&#x6027;&#x8D28;&#x7684;&#x5206;&#x5E03;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x65E2;&#x7136;&#x6709;&#x7740;&#x591A;&#x9879;&#x5F0F;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#xFF0C;&#x6211;&#x4EEC;&#x81EA;&#x7136;&#x4E5F;&#x5C31;&#x53C8;&#x4E13;&#x95E8;&#x7528;&#x6765;&#x5904;&#x7406;&#x4E8C;&#x9879;&#x5206;&#x5E03;&#x7684;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#xFF1A;&#x4F2F;&#x52AA;&#x5229;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x3002;</p>
+<p>&#x4F2F;&#x52AA;&#x5229;&#x8D1D;&#x53F6;&#x65AF;&#x7C7B;BernoulliN&#x5047;&#x8BBE;&#x6570;&#x636E;&#x670D;&#x4ECE;&#x591A;&#x5143;&#x4F2F;&#x52AA;&#x5229;&#x5206;&#x5E03;&#xFF0C;&#x5E76;&#x5728;&#x6B64;&#x57FA;&#x7840;&#x4E0A;&#x5E94;&#x7528;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x7684;&#x8BAD;&#x7EC3;&#x548C;&#x5206;&#x7C7B;&#x8FC7;&#x7A0B;&#x3002;&#x591A;&#x5143;&#x4F2F;&#x52AA;&#x5229;&#x5206;&#x5E03;&#x7B80;&#x5355;&#x6765;&#x8BF4;&#xFF0C;&#x5C31;&#x662F;&#x6570;&#x636E;&#x96C6;&#x4E2D;&#x53EF;&#x4EE5;&#x5B58;&#x5728;&#x591A;&#x4E2A;&#x7279;&#x5F81;&#xFF0C;&#x4F46;&#x6BCF;&#x4E2A;&#x7279;&#x5F81;&#x90FD;&#x662F;&#x4E8C;&#x5206;&#x7C7B;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x4EE5;&#x5E03;&#x5C14;&#x53D8;&#x91CF;&#x8868;&#x793A;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x8868;&#x793A;&#x4E3A;{0&#xFF0C;1}&#x6216;&#x8005;{-1&#xFF0C;1}&#x7B49;&#x4EFB;&#x610F;&#x4E8C;&#x5206;&#x7C7B;&#x7EC4;&#x5408;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x8FD9;&#x4E2A;&#x7C7B;&#x8981;&#x6C42;&#x5C06;&#x6837;&#x672C;&#x8F6C;&#x6362;&#x4E3A;&#x4E8C;&#x5206;&#x7C7B;&#x7279;&#x5F81;&#x5411;&#x91CF;&#xFF0C;&#x5982;&#x679C;&#x6570;&#x636E;&#x672C;&#x8EAB;&#x4E0D;&#x662F;&#x4E8C;&#x5206;&#x7C7B;&#x7684;&#xFF0C;&#x90A3;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7C7B;&#x4E2D;&#x4E13;&#x95E8;&#x7528;&#x6765;&#x4E8C;&#x503C;&#x5316;&#x7684;&#x53C2;&#x6570;binarize&#x6765;&#x6539;&#x53D8;&#x6570;&#x636E;&#x3002;  </p>
+<p>&#x4F2F;&#x52AA;&#x5229;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x4E0E;&#x591A;&#x9879;&#x5F0F;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x975E;&#x5E38;&#x76F8;&#x4F3C;&#xFF0C;&#x90FD;&#x5E38;&#x7528;&#x4E8E;&#x5904;&#x7406;&#x6587;&#x672C;&#x5206;&#x7C7B;&#x6570;&#x636E;&#x3002;&#x4F46;&#x7531;&#x4E8E;&#x4F2F;&#x52AA;&#x5229;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x662F;&#x5904;&#x7406;&#x4E8C;&#x9879;&#x5206;&#x5E03;&#xFF0C;&#x6240;&#x4EE5;&#x5B83;&#x66F4;&#x52A0;&#x5728;&#x610F;&#x7684;&#x662F;&#x201C;&#x5B58;&#x5728;&#x4E0E;&#x5426;&#x201D;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x201C;&#x51FA;&#x73B0;&#x591A;&#x5C11;&#x6B21;&#x201D;&#x8FD9;&#x6837;&#x7684;&#x6B21;&#x6570;&#x6216;&#x9891;&#x7387;&#xFF0C;&#x8FD9;&#x662F;&#x4F2F;&#x52AA;&#x5229;&#x8D1D;&#x53F6;&#x65AF;&#x4E0E;&#x591A;&#x9879;&#x5F0F;&#x8D1D;&#x53F6;&#x65AF;&#x7684;&#x6839;&#x672C;&#x6027;&#x4E0D;&#x540C;&#x3002;&#x5728;&#x6587;&#x672C;&#x5206;&#x7C7B;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4F2F;&#x52AA;&#x5229;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5355;&#x8BCD;&#x51FA;&#x73B0;&#x5411;&#x91CF;&#xFF08;&#x800C;&#x4E0D;&#x662F;&#x5355;&#x8BCD;&#x8BA1;&#x6570;&#x5411;&#x91CF;&#xFF09;&#x6765;&#x8BAD;&#x7EC3;&#x5206;&#x7C7B;&#x5668;&#x3002;&#x6587;&#x6863;&#x8F83;&#x77ED;&#x7684;&#x6570;&#x636E;&#x96C6;&#x4E0A;&#xFF0C;&#x4F2F;&#x52AA;&#x5229;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x7684;&#x6548;&#x679C;&#x4F1A;&#x66F4;&#x52A0;&#x597D;  </p>
+<p><br></p>
+<pre class="language-"><code class="lang-python"><span class="token keyword">class</span> <span class="token class-name">sklearn</span><span class="token punctuation">.</span>naive_bayes<span class="token punctuation">.</span>BernoulliNB <span class="token punctuation">(</span>alpha<span class="token operator">=</span><span class="token number">1.0</span><span class="token punctuation">,</span> binarize<span class="token operator">=</span><span class="token number">0.0</span><span class="token punctuation">,</span> 
+                                       fit_prior<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> class_prior<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span>
+</code></pre>
+<p><strong>&#x53C2;&#x6570;&#xFF1A;</strong></p>
+<ul>
+<li><p><strong>alpha</strong> : &#x6D6E;&#x70B9;&#x6570;, &#x53EF;&#x4E0D;&#x586B; (&#x9ED8;&#x8BA4;&#x4E3A;1.0) </p>
+<p>&#x62C9;&#x666E;&#x62C9;&#x65AF;&#x6216;&#x5229;&#x5FB7;&#x65AF;&#x901A;&#x5E73;&#x6ED1;&#x7684;&#x53C2;&#x6570; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3B1;</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.0037em;">&#x3B1;</span></span></span></span> &#xFF0C;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E3A;0&#x5219;&#x8868;&#x793A;&#x5B8C;&#x5168;&#x6CA1;&#x6709;&#x5E73;&#x6ED1;&#x9009;&#x9879;&#x3002;&#x4F46;&#x662F;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x5E73;&#x6ED1;&#x76F8;&#x5F53;&#x4E8E;&#x4EBA; &#x4E3A;&#x7ED9;&#x6982;&#x7387;&#x52A0;&#x4E0A;&#x4E00;&#x4E9B;&#x566A;&#x97F3;&#xFF0C;&#x56E0;&#x6B64; &#x8BBE;&#x7F6E;&#x5F97;&#x8D8A;&#x5927;&#xFF0C;&#x591A;&#x9879;&#x5F0F;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x7684;&#x7CBE;&#x786E;&#x6027;&#x4F1A;&#x8D8A;&#x4F4E;&#xFF08;&#x867D;&#x7136;&#x5F71;&#x54CD;&#x4E0D;&#x662F;&#x975E;&#x5E38;&#x5927;&#xFF09;&#xFF0C;&#x5E03;&#x91CC; &#x5C14;&#x5206;&#x6570;&#x4E5F;&#x4F1A;&#x9010;&#x6E10;&#x5347;&#x9AD8;</p>
+</li>
+<li><p><strong>binarize</strong> : &#x6D6E;&#x70B9;&#x6570;&#x6216;None&#xFF0C;&#x53EF;&#x4E0D;&#x586B;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;0 </p>
+<p>&#x5C06;&#x7279;&#x5F81;&#x4E8C;&#x503C;&#x5316;&#x7684;&#x9608;&#x503C;&#xFF0C;&#x5982;&#x679C;&#x8BBE;&#x5B9A;&#x4E3A;None&#xFF0C;&#x5219;&#x4F1A;&#x5047;&#x5B9A;&#x8BF4;&#x7279;&#x5F81;&#x5DF2;&#x7ECF;&#x88AB;&#x4E8C;&#x503C;&#x5316;&#x5B8C;&#x6BD5;</p>
+</li>
+<li><p><strong>fit_prior</strong> : &#x5E03;&#x5C14;&#x503C;, &#x53EF;&#x4E0D;&#x586B; (&#x9ED8;&#x8BA4;&#x4E3A;True) </p>
+<p>&#x662F;&#x5426;&#x5B66;&#x4E60;&#x5148;&#x9A8C;&#x6982;&#x7387; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mo>(</mo><mi>Y</mi><mo>=</mo><mi>c</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">P(Y=c)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="mrel">=</span><span class="mord mathit">c</span><span class="mclose">)</span></span></span></span> &#x3002;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E3A;false&#xFF0C;&#x5219;&#x4E0D;&#x4F7F;&#x7528;&#x5148;&#x9A8C;&#x6982;&#x7387;&#xFF0C;&#x800C;&#x4F7F;&#x7528;&#x7EDF;&#x4E00;&#x5148;&#x9A8C;&#x6982;&#x7387;&#xFF08;uniform prior&#xFF09;&#xFF0C;&#x5373;&#x8BA4;&#x4E3A;&#x6BCF;&#x4E2A;&#x6807;&#x7B7E;&#x7C7B;&#x51FA;&#x73B0;&#x7684;&#x6982;&#x7387;&#x662F; 1 / n_classes.</p>
+</li>
+<li><p>class_prior&#xFF1A;&#x5F62;&#x4F3C;&#x6570;&#x7EC4;&#x7684;&#x7ED3;&#x6784;&#xFF0C;&#x7ED3;&#x6784;&#x4E3A;(n_classes, )&#xFF0C;&#x53EF;&#x4E0D;&#x586B;&#xFF08;&#x9ED8;&#x8BA4;&#x4E3A;None&#xFF09; </p>
+<p>&#x7C7B;&#x7684;&#x5148;&#x9A8C;&#x6982;&#x7387;  <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mo>(</mo><mi>Y</mi><mo>=</mo><mi>c</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">P(Y=c)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="mrel">=</span><span class="mord mathit">c</span><span class="mclose">)</span></span></span></span> &#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x7ED9;&#x51FA;&#x5177;&#x4F53;&#x7684;&#x5148;&#x9A8C;&#x6982;&#x7387;&#x5219;&#x81EA;&#x52A8;&#x6839;&#x636E;&#x6570;&#x636E;&#x6765;&#x8FDB;&#x884C;&#x8BA1;&#x7B97;&#x3002;</p>
+</li>
+</ul>
+<p><br></p>
+<p><strong>Examples</strong>:</p>
+<pre class="language-"><code class="lang-python"><span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>naive_bayes <span class="token keyword">import</span> BernoulliNB
+<span class="token comment">#&#x666E;&#x901A;&#x6765;&#x8BF4;&#x6211;&#x4EEC;&#x5E94;&#x8BE5;&#x4F7F;&#x7528;&#x4E8C;&#x503C;&#x5316;&#x7684;&#x7C7B;sklearn.preprocessing.Binarizer&#x6765;&#x5C06;&#x7279;&#x5F81;&#x4E00;&#x4E2A;&#x4E2A;&#x4E8C;&#x503C;&#x5316;</span>
+<span class="token comment">#&#x7136;&#x800C;&#x8FD9;&#x6837;&#x6548;&#x7387;&#x8FC7;&#x4F4E;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x9009;&#x62E9;&#x5F52;&#x4E00;&#x5316;&#x4E4B;&#x540E;&#x76F4;&#x63A5;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x9608;&#x503C;</span>
+mms <span class="token operator">=</span> MinMaxScaler<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>fit<span class="token punctuation">(</span>Xtrain<span class="token punctuation">)</span>
+Xtrain_ <span class="token operator">=</span> mms<span class="token punctuation">.</span>transform<span class="token punctuation">(</span>Xtrain<span class="token punctuation">)</span>
+Xtest_ <span class="token operator">=</span> mms<span class="token punctuation">.</span>transform<span class="token punctuation">(</span>Xtest<span class="token punctuation">)</span>
+
+<span class="token comment">#&#x4E0D;&#x8BBE;&#x7F6E;&#x4E8C;&#x503C;&#x5316;</span>
+bnl_ <span class="token operator">=</span> BernoulliNB<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>fit<span class="token punctuation">(</span>Xtrain_<span class="token punctuation">,</span> Ytrain<span class="token punctuation">)</span>
+bnl_<span class="token punctuation">.</span>score<span class="token punctuation">(</span>Xtest_<span class="token punctuation">,</span>Ytest<span class="token punctuation">)</span>
+brier_score_loss<span class="token punctuation">(</span>Ytest<span class="token punctuation">,</span>bnl_<span class="token punctuation">.</span>predict_proba<span class="token punctuation">(</span>Xtest_<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>pos_label<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+<span class="token comment">#&#x8BBE;&#x7F6E;&#x4E8C;&#x503C;&#x5316;&#x9608;&#x503C;&#x4E3A;0.5</span>
+bnl <span class="token operator">=</span> BernoulliNB<span class="token punctuation">(</span>binarize<span class="token operator">=</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">.</span>fit<span class="token punctuation">(</span>Xtrain_<span class="token punctuation">,</span> Ytrain<span class="token punctuation">)</span>
+bnl<span class="token punctuation">.</span>score<span class="token punctuation">(</span>Xtest_<span class="token punctuation">,</span>Ytest<span class="token punctuation">)</span>
+brier_score_loss<span class="token punctuation">(</span>Ytest<span class="token punctuation">,</span>bnl<span class="token punctuation">.</span>predict_proba<span class="token punctuation">(</span>Xtest_<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>pos_label<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+</code></pre>
+<p><br></p>
+<h2 id="4-&#x8865;&#x96C6;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;complementnb"><a name="4-&#x8865;&#x96C6;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;complementnb" class="anchor-navigation-ex-anchor" href="#4-&#x8865;&#x96C6;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;complementnb"><i class="fa fa-link" aria-hidden="true"></i></a>4. &#x8865;&#x96C6;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;ComplementNB</h2>
+<p>&#x8865;&#x96C6;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#xFF08;complement naive Bayes&#xFF0C;CNB&#xFF09;&#x7B97;&#x6CD5;&#x662F;&#x6807;&#x51C6;&#x591A;&#x9879;&#x5F0F;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x7B97;&#x6CD5;&#x7684;&#x6539;&#x8FDB;&#x3002;CNB&#x7684;&#x53D1;&#x660E;&#x5C0F;&#x7EC4;&#x521B;&#x9020;&#x51FA;CNB&#x7684;&#x521D;&#x8877;&#x662F;&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x8D1D;&#x53F6;&#x65AF;&#x4E2D;&#x7684;&#x201C;&#x6734;&#x7D20;&#x201D;&#x5047;&#x8BBE;&#x5E26;&#x6765;&#x7684;&#x5404;&#x79CD;&#x95EE;&#x9898;&#xFF0C;&#x4ED6;&#x4EEC;&#x5E0C;&#x671B;&#x80FD;&#x591F;&#x521B;&#x9020;&#x51FA;&#x6570;&#x5B66;&#x65B9;&#x6CD5;&#x4EE5;&#x9003;&#x907F;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x4E2D;&#x7684;&#x6734;&#x7D20;&#x5047;&#x8BBE;&#xFF0C;&#x8BA9;&#x7B97;&#x6CD5;&#x80FD;&#x591F;&#x4E0D;&#x53BB;&#x5173;&#x5FC3;&#x6240;&#x6709;&#x7279;&#x5F81;&#x4E4B;&#x95F4;&#x662F;&#x5426;&#x662F;&#x6761;&#x4EF6;&#x72EC;&#x7ACB;&#x7684;&#x3002;&#x4EE5;&#x6B64;&#x4E3A;&#x57FA;&#x7840;&#xFF0C;&#x4ED6;&#x4EEC;&#x521B;&#x9020;&#x51FA;&#x4E86;&#x80FD;&#x591F;<strong>&#x89E3;&#x51B3;&#x6837;&#x672C;&#x4E0D;&#x5E73;&#x8861;&#x95EE;&#x9898;&#xFF0C;&#x5E76;&#x4E14;&#x80FD;&#x591F;&#x4E00;&#x5B9A;&#x7A0B;&#x5EA6;&#x4E0A;&#x5FFD;&#x7565;&#x6734;&#x7D20;&#x5047;&#x8BBE;&#x7684;&#x8865;&#x96C6;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;</strong>&#x3002;</p>
+<p>&#x5728;&#x5B9E;&#x9A8C;&#x4E2D;&#xFF0C;<strong>CNB&#x7684;&#x53C2;&#x6570;&#x4F30;&#x8BA1;&#x5DF2;&#x7ECF;&#x88AB;&#x8BC1;&#x660E;&#x6BD4;&#x666E;&#x901A;&#x591A;&#x9879;&#x5F0F;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x66F4;&#x7A33;&#x5B9A;&#xFF0C;&#x5E76;&#x4E14;&#x5B83;&#x7279;&#x522B;&#x9002;&#x5408;&#x4E8E;&#x6837;&#x672C;&#x4E0D;&#x5E73;&#x8861;&#x7684;&#x6570;&#x636E;&#x96C6;</strong>&#x3002;&#x6709;&#x65F6;&#x5019;&#xFF0C;CNB&#x5728;&#x6587;&#x672C;&#x5206;&#x7C7B;&#x4EFB;&#x52A1;&#x4E0A;&#x7684;&#x8868;&#x73B0;&#x6709;&#x65F6;&#x80FD;&#x591F;&#x4F18;&#x4E8E;&#x591A;&#x9879;&#x5F0F;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#xFF0C;&#x56E0;&#x6B64;&#x73B0;&#x5728;&#x8865;&#x96C6;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x4E5F;&#x5F00;&#x59CB;&#x9010;&#x6E10;&#x6D41;&#x884C;  </p>
+<p><br></p>
+<p>&#x5728;sklearn&#x4E2D;&#xFF0C;&#x8865;&#x96C6;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x7531;&#x7C7B;ComplementNB&#x5B8C;&#x6210;&#xFF0C;&#x5B83;&#x5305;&#x542B;&#x7684;&#x53C2;&#x6570;&#x548C;&#x591A;&#x9879;&#x5F0F;&#x8D1D;&#x53F6;&#x65AF;&#x4E5F;&#x975E;&#x5E38;&#x76F8;&#x4F3C;&#xFF1A;  </p>
+<pre class="language-"><code class="lang-python"><span class="token keyword">class</span> <span class="token class-name">sklearn</span><span class="token punctuation">.</span>naive_bayes<span class="token punctuation">.</span>ComplementNB <span class="token punctuation">(</span>alpha<span class="token operator">=</span><span class="token number">1.0</span><span class="token punctuation">,</span> fit_prior<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> 
+                                        class_prior<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> norm<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+</code></pre>
+<p><strong>&#x53C2;&#x6570;&#xFF1A;</strong></p>
+<ul>
+<li><p><strong>alpha</strong> : &#x6D6E;&#x70B9;&#x6570;, &#x53EF;&#x4E0D;&#x586B; (&#x9ED8;&#x8BA4;&#x4E3A;1.0) </p>
+<p>&#x62C9;&#x666E;&#x62C9;&#x65AF;&#x6216;&#x5229;&#x5FB7;&#x65AF;&#x901A;&#x5E73;&#x6ED1;&#x7684;&#x53C2;&#x6570; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3B1;</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.0037em;">&#x3B1;</span></span></span></span>  &#xFF0C;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E3A;0&#x5219;&#x8868;&#x793A;&#x5B8C;&#x5168;&#x6CA1;&#x6709;&#x5E73;&#x6ED1;&#x9009;&#x9879;&#x3002;&#x4F46;&#x662F;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x5E73;&#x6ED1;&#x76F8;&#x5F53;&#x4E8E;&#x4EBA; &#x4E3A;&#x7ED9;&#x6982;&#x7387;&#x52A0;&#x4E0A;&#x4E00;&#x4E9B;&#x566A;&#x97F3;&#xFF0C;&#x56E0;&#x6B64; $\alpha$ &#x8BBE;&#x7F6E;&#x5F97;&#x8D8A;&#x5927;&#xFF0C;&#x591A;&#x9879;&#x5F0F;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x7684;&#x7CBE;&#x786E;&#x6027;&#x4F1A;&#x8D8A;&#x4F4E;&#xFF08;&#x867D;&#x7136;&#x5F71;&#x54CD;&#x4E0D;&#x662F;&#x975E;&#x5E38;&#x5927;&#xFF09;&#xFF0C;&#x5E03;&#x91CC; &#x5C14;&#x5206;&#x6570;&#x4E5F;&#x4F1A;&#x9010;&#x6E10;&#x5347;&#x9AD8;</p>
+</li>
+<li><p><strong>norm</strong> : &#x5E03;&#x5C14;&#x503C;&#xFF0C;&#x53EF;&#x4E0D;&#x586B;&#xFF0C;&#x9ED8;&#x8BA4;False </p>
+<p>&#x5728;&#x8BA1;&#x7B97;&#x6743;&#x91CD;&#x7684;&#x65F6;&#x5019;&#x662F;&#x5426;&#x9002;&#x7528;L2&#x8303;&#x5F0F;&#x6765;&#x89C4;&#x8303;&#x6743;&#x91CD;&#x7684;&#x5927;&#x5C0F;&#x3002;&#x9ED8;&#x8BA4;&#x4E0D;&#x8FDB;&#x884C;&#x89C4;&#x8303;&#xFF0C;&#x5373;&#x4E0D;&#x8DDF;&#x4ECE;&#x8865;&#x96C6;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x7B97;&#x6CD5;&#x7684;&#x5168;&#x90E8; &#x5185;&#x5BB9;&#xFF0C;&#x5982;&#x679C;&#x5E0C;&#x671B;&#x8FDB;&#x884C;&#x89C4;&#x8303;&#xFF0C;&#x8BF7;&#x8BBE;&#x7F6E;&#x4E3A;True</p>
+</li>
+<li><p><strong>fit_prior</strong> : &#x5E03;&#x5C14;&#x503C;, &#x53EF;&#x4E0D;&#x586B; (&#x9ED8;&#x8BA4;&#x4E3A;True) </p>
+<p>&#x662F;&#x5426;&#x5B66;&#x4E60;&#x5148;&#x9A8C;&#x6982;&#x7387; &#x3002;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E3A;false&#xFF0C;&#x5219;&#x4E0D;&#x4F7F;&#x7528;&#x5148;&#x9A8C;&#x6982;&#x7387;&#xFF0C;&#x800C;&#x4F7F;&#x7528;&#x7EDF;&#x4E00;&#x5148;&#x9A8C;&#x6982;&#x7387;&#xFF08;uniform prior&#xFF09;&#xFF0C;&#x5373;&#x8BA4;&#x4E3A;&#x6BCF;&#x4E2A;&#x6807;&#x7B7E;&#x7C7B;&#x51FA;&#x73B0;&#x7684;&#x6982;&#x7387;&#x662F; 1 / n_classes </p>
+</li>
+<li><p>class_prior&#xFF1A;&#x5F62;&#x4F3C;&#x6570;&#x7EC4;&#x7684;&#x7ED3;&#x6784;&#xFF0C;&#x7ED3;&#x6784;&#x4E3A;(n_classes, )&#xFF0C;&#x53EF;&#x4E0D;&#x586B;&#xFF08;&#x9ED8;&#x8BA4;&#x4E3A;None&#xFF09; </p>
+<p>&#x7C7B;&#x7684;&#x5148;&#x9A8C;&#x6982;&#x7387; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mo>(</mo><mi>Y</mi><mo>=</mo><mi>c</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">P(Y=c)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="mrel">=</span><span class="mord mathit">c</span><span class="mclose">)</span></span></span></span>&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x7ED9;&#x51FA;&#x5177;&#x4F53;&#x7684;&#x5148;&#x9A8C;&#x6982;&#x7387;&#x5219;&#x81EA;&#x52A8;&#x6839;&#x636E;&#x6570;&#x636E;&#x6765;&#x8FDB;&#x884C;&#x8BA1;&#x7B97;</p>
+</li>
+</ul>
+<p><strong>Examples</strong>:</p>
+<p>&#x90A3;&#x6765;&#x770B;&#x770B;&#xFF0C;&#x8865;&#x96C6;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x5728;&#x4E0D;&#x5E73;&#x8861;&#x6837;&#x672C;&#x4E0A;&#x7684;&#x8868;&#x73B0;&#x5427;&#xFF0C;&#x540C;&#x65F6;&#x6211;&#x4EEC;&#x6765;&#x8BA1;&#x7B97;&#x4E00;&#x4E0B;&#x6BCF;&#x79CD;&#x8D1D;&#x53F6;&#x65AF;&#x7684;&#x8BA1;&#x7B97;&#x901F;&#x5EA6;&#xFF1A;  </p>
+<pre class="language-"><code class="lang-python"><span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>naive_bayes <span class="token keyword">import</span> ComplementNB
+<span class="token keyword">from</span> time <span class="token keyword">import</span> time
+<span class="token keyword">import</span> datetime
+
+name <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&quot;Multinomial&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;Gaussian&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;Bernoulli&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;Complement&quot;</span><span class="token punctuation">]</span>
+models <span class="token operator">=</span> <span class="token punctuation">[</span>MultinomialNB<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>GaussianNB<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>BernoulliNB<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>ComplementNB<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+
+<span class="token keyword">for</span> name<span class="token punctuation">,</span>clf <span class="token keyword">in</span> <span class="token builtin">zip</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>models<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    times <span class="token operator">=</span> time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    Xtrain<span class="token punctuation">,</span> Xtest<span class="token punctuation">,</span> Ytrain<span class="token punctuation">,</span> Ytest <span class="token operator">=</span> train_test_split<span class="token punctuation">(</span>X<span class="token punctuation">,</span>y
+                                                    <span class="token punctuation">,</span>test_size<span class="token operator">=</span><span class="token number">0.3</span>
+                                                    <span class="token punctuation">,</span>random_state<span class="token operator">=</span><span class="token number">420</span><span class="token punctuation">)</span>
+
+    <span class="token comment">#&#x9884;&#x5904;&#x7406;</span>
+    <span class="token keyword">if</span> name <span class="token operator">!=</span> <span class="token string">&quot;Gaussian&quot;</span><span class="token punctuation">:</span>
+        kbs <span class="token operator">=</span> KBinsDiscretizer<span class="token punctuation">(</span>n_bins<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">,</span> encode<span class="token operator">=</span><span class="token string">&apos;onehot&apos;</span><span class="token punctuation">)</span><span class="token punctuation">.</span>fit<span class="token punctuation">(</span>Xtrain<span class="token punctuation">)</span>
+        Xtrain <span class="token operator">=</span> kbs<span class="token punctuation">.</span>transform<span class="token punctuation">(</span>Xtrain<span class="token punctuation">)</span>
+        Xtest <span class="token operator">=</span> kbs<span class="token punctuation">.</span>transform<span class="token punctuation">(</span>Xtest<span class="token punctuation">)</span>
+
+    clf<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>Xtrain<span class="token punctuation">,</span>Ytrain<span class="token punctuation">)</span>
+    y_pred <span class="token operator">=</span> clf<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>Xtest<span class="token punctuation">)</span>
+    proba <span class="token operator">=</span> clf<span class="token punctuation">.</span>predict_proba<span class="token punctuation">(</span>Xtest<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span>
+    score <span class="token operator">=</span> clf<span class="token punctuation">.</span>score<span class="token punctuation">(</span>Xtest<span class="token punctuation">,</span>Ytest<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;\tBrier:{:.3f}&quot;</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>BS<span class="token punctuation">(</span>Ytest<span class="token punctuation">,</span>proba<span class="token punctuation">,</span>pos_label<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;\tAccuracy:{:.3f}&quot;</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>score<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;\tRecall:{:.3f}&quot;</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>recall_score<span class="token punctuation">(</span>Ytest<span class="token punctuation">,</span>y_pred<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;\tAUC:{:.3f}&quot;</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>AUC<span class="token punctuation">(</span>Ytest<span class="token punctuation">,</span>proba<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>datetime<span class="token punctuation">.</span>datetime<span class="token punctuation">.</span>fromtimestamp<span class="token punctuation">(</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span>times<span class="token punctuation">)</span><span class="token punctuation">.</span>strftime<span class="token punctuation">(</span><span class="token string">&quot;%M:%S:%f&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>&#x8F93;&#x51FA;&#xFF1A;</p>
+<pre class="language-"><code>Multinomial
+    Brier:0.007
+    Accuracy:0.990
+    Recall:0.000
+    AUC:0.991
+00:00:050863
+Gaussian
+    Brier:0.006
+    Accuracy:0.990
+    Recall:0.438
+    AUC:0.993
+00:00:038898
+Bernoulli
+    Brier:0.009
+    Accuracy:0.987
+    Recall:0.771
+    AUC:0.987
+00:00:049866
+Complement
+    Brier:0.038
+    Accuracy:0.953
+    Recall:0.987
+    AUC:0.991
+00:00:044881
+</code></pre><h2 id="&#x53C2;&#x8003;"><a name="&#x53C2;&#x8003;" class="anchor-navigation-ex-anchor" href="#&#x53C2;&#x8003;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x53C2;&#x8003;</h2>
+<ol>
+<li><a href="https://www.letiantian.me/2014-10-12-three-models-of-naive-nayes/" target="_blank">&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x7684;&#x4E09;&#x4E2A;&#x5E38;&#x7528;&#x6A21;&#x578B;&#xFF1A;&#x9AD8;&#x65AF;&#x3001;&#x591A;&#x9879;&#x5F0F;&#x3001;&#x4F2F;&#x52AA;&#x5229;</a></li>
+<li><a href="https://blog.csdn.net/u012162613/article/details/48323777" target="_blank">&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x7406;&#x8BBA;&#x63A8;&#x5BFC;&#x4E0E;&#x4E09;&#x79CD;&#x5E38;&#x89C1;&#x6A21;&#x578B;</a></li>
+</ol>
+<footer class="page-footer"><span class="copyright">  </span><span class="footer-modification">Update time&#xFF1A;
+2020-05-23 
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="支持向量机.html" class="navigation navigation-prev " aria-label="Previous page: 支持向量机">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="回归大家族.html" class="navigation navigation-next " aria-label="Next page: 回归大家族">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"朴素贝叶斯","level":"1.2.7","depth":2,"next":{"title":"回归大家族","level":"1.2.8","depth":2,"path":"Chapter1/回归大家族.md","ref":"Chapter1/回归大家族.md","articles":[]},"previous":{"title":"支持向量机","level":"1.2.6","depth":2,"path":"Chapter1/支持向量机.md","ref":"Chapter1/支持向量机.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-highlight","-livereload","search-plus@^0.0.11","simple-page-toc@^0.1.1","disqus@^0.1.0","prism@^2.1.0","prism-themes@^0.0.2","theme-comscore","anchors@^0.7.1","ace@^0.3.2","emphasize@^1.1.0","katex@^1.1.3","splitter@^0.0.8","expandable-chapters","local-video@^1.0.1","anchor-navigation-ex@0.1.8","custom-favicon","todo@^0.1.3","hide-element","copy-code-button","tbfed-pagefooter","advanced-emoji","lightbox","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":" ","modify_label":"Update time：","modify_format":"YYYY-MM-DD "},"prism":{"css":["prism-themes/themes/prism-vs.css"]},"disqus":{"useIdentifier":false,"shortName":"HG1227"},"styles":{"website":"styles/website.css"},"emphasize":{},"ace":{},"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"todo":{},"splitter":{},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"isRewritePageTitle":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right"},"favicon":"favicon.ico","lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"prism-themes":{},"custom-favicon":{},"local-video":{},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"template":"ace","unindent":true,"edit":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{},"search-plus":{}},"theme":"default","author":"HHG","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"readme.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python 学习记录","language":"zh-hans","output.name":"site","links":{"sidebar":{"Home":""}},"gitbook":"*","description":"。"},"file":{"path":"Chapter1/朴素贝叶斯.md","mtime":"2020-05-23T07:57:11.255Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-20T03:19:39.807Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ace/ace/ace.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ace/ace.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-local-video/video.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

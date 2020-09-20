@@ -1,0 +1,1278 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>sklearn.metrics.r2_score用法 · python 学习记录</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="HHG">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-vs.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-ace/ace.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-emphasize/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-local-video/video-js.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="sklearn.metrics.explained_variance_score用法.html" />
+    
+    
+    <link rel="prev" href="sklearn.metrics.mean_absolute_error用法.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Chapter1/">
+            
+                <a href="../Chapter1/">
+            
+                    
+                    常用模型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Chapter1/决策树.html">
+            
+                <a href="../Chapter1/决策树.html">
+            
+                    
+                    决策树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Chapter1/随机森林.html">
+            
+                <a href="../Chapter1/随机森林.html">
+            
+                    
+                    随机森林
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../Chapter1/主成分分析PCA.html">
+            
+                <a href="../Chapter1/主成分分析PCA.html">
+            
+                    
+                    主成分分析PCA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../Chapter1/逻辑回归.html">
+            
+                <a href="../Chapter1/逻辑回归.html">
+            
+                    
+                    逻辑回归
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../Chapter1/聚类算法K-Means.html">
+            
+                <a href="../Chapter1/聚类算法K-Means.html">
+            
+                    
+                    聚类算法K-Means
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../Chapter1/支持向量机.html">
+            
+                <a href="../Chapter1/支持向量机.html">
+            
+                    
+                    支持向量机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../Chapter1/朴素贝叶斯.html">
+            
+                <a href="../Chapter1/朴素贝叶斯.html">
+            
+                    
+                    朴素贝叶斯
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../Chapter1/回归大家族.html">
+            
+                <a href="../Chapter1/回归大家族.html">
+            
+                    
+                    回归大家族
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../Chapter1/XGBoost.html">
+            
+                <a href="../Chapter1/XGBoost.html">
+            
+                    
+                    XGBoost
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../Chapter1/模型融合stacking.html">
+            
+                <a href="../Chapter1/模型融合stacking.html">
+            
+                    
+                    模型融合stacking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../Chapter1/模型融合Blending.html">
+            
+                <a href="../Chapter1/模型融合Blending.html">
+            
+                    
+                    模型融合Blending
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    sklearn.metrics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="sklearn.metrics.mean_squared_error用法.html">
+            
+                <a href="sklearn.metrics.mean_squared_error用法.html">
+            
+                    
+                    sklearn.metrics.mean_squared_error用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="sklearn.metrics.mean_absolute_error用法.html">
+            
+                <a href="sklearn.metrics.mean_absolute_error用法.html">
+            
+                    
+                    sklearn.metrics.mean_absolute_error用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.3" data-path="sklearn.metrics.r2_score用法.html">
+            
+                <a href="sklearn.metrics.r2_score用法.html">
+            
+                    
+                    sklearn.metrics.r2_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="sklearn.metrics.explained_variance_score用法.html">
+            
+                <a href="sklearn.metrics.explained_variance_score用法.html">
+            
+                    
+                    sklearn.metrics.explained_variance_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="标准差计算.html">
+            
+                <a href="标准差计算.html">
+            
+                    
+                    标准差计算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="sklearn.metrics.confusion_matrix用法.html">
+            
+                <a href="sklearn.metrics.confusion_matrix用法.html">
+            
+                    
+                    sklearn.metrics.confusion_matrix用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="sklearn.metrics.accuracy_score用法.html">
+            
+                <a href="sklearn.metrics.accuracy_score用法.html">
+            
+                    
+                    sklearn.metrics.accuracy_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="sklearn.metrics.precision_score用法.html">
+            
+                <a href="sklearn.metrics.precision_score用法.html">
+            
+                    
+                    sklearn.metrics.precision_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="sklearn.metrics.recall_score用法.html">
+            
+                <a href="sklearn.metrics.recall_score用法.html">
+            
+                    
+                    sklearn.metrics.recall_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="sklearn.metrics.f1_score用法.html">
+            
+                <a href="sklearn.metrics.f1_score用法.html">
+            
+                    
+                    sklearn.metrics.f1_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="sklearn.metrics.roc_curve用法.html">
+            
+                <a href="sklearn.metrics.roc_curve用法.html">
+            
+                    
+                    sklearn.metrics.roc_curve用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="ROC曲线下的面积auc.html">
+            
+                <a href="ROC曲线下的面积auc.html">
+            
+                    
+                    ROC曲线下的面积auc
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13" data-path="sklearn.metrics.roc_auc_score用法.html">
+            
+                <a href="sklearn.metrics.roc_auc_score用法.html">
+            
+                    
+                    sklearn.metrics.roc_auc_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Chapter3/">
+            
+                <a href="../Chapter3/">
+            
+                    
+                    数据处理 Preprocessing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../Chapter3/preprocessing.MinMaxScaler用法.html">
+            
+                <a href="../Chapter3/preprocessing.MinMaxScaler用法.html">
+            
+                    
+                    preprocessing.MinMaxScaler用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../Chapter3/preprocessing.StandardScaler用法.html">
+            
+                <a href="../Chapter3/preprocessing.StandardScaler用法.html">
+            
+                    
+                    preprocessing.StandardScaler用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../Chapter3/preprocessing.Binarizer用法.html">
+            
+                <a href="../Chapter3/preprocessing.Binarizer用法.html">
+            
+                    
+                    preprocessing.Binarizer用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../Chapter3/preprocessing.KBinsDiscretizer用法.html">
+            
+                <a href="../Chapter3/preprocessing.KBinsDiscretizer用法.html">
+            
+                    
+                    preprocessing.KBinsDiscretizer用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../Chapter3/preprocessing.LabelEncoder用法.html">
+            
+                <a href="../Chapter3/preprocessing.LabelEncoder用法.html">
+            
+                    
+                    preprocessing.LabelEncoder用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../Chapter3/preprocessing.OneHotEncoder用法.html">
+            
+                <a href="../Chapter3/preprocessing.OneHotEncoder用法.html">
+            
+                    
+                    preprocessing.OneHotEncoder用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Chapter4/">
+            
+                <a href="../Chapter4/">
+            
+                    
+                    缺失值处理 sklearn.impute
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../Chapter4/impute.SimpleImputer用法.html">
+            
+                <a href="../Chapter4/impute.SimpleImputer用法.html">
+            
+                    
+                    impute.SimpleImputer用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Chapter5/">
+            
+                <a href="../Chapter5/">
+            
+                    
+                    特征选择 feature_selection
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../Chapter5/feature_selection.VarianceThreshold 用法.html">
+            
+                <a href="../Chapter5/feature_selection.VarianceThreshold 用法.html">
+            
+                    
+                    feature_selection.VarianceThreshold用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../Chapter5/feature_selection.SelectKBest用法.html">
+            
+                <a href="../Chapter5/feature_selection.SelectKBest用法.html">
+            
+                    
+                    feature_selection.SelectKBest用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../Chapter5/feature_selection.chi2用法.html">
+            
+                <a href="../Chapter5/feature_selection.chi2用法.html">
+            
+                    
+                    feature_selection.chi2用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../Chapter5/feature_selection.f_classif用法.html">
+            
+                <a href="../Chapter5/feature_selection.f_classif用法.html">
+            
+                    
+                    feature_selection.f_classif用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../Chapter5/feature_selection.f_regression用法.html">
+            
+                <a href="../Chapter5/feature_selection.f_regression用法.html">
+            
+                    
+                    feature_selection.f_regression用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../Chapter5/feature_selection.mutual_info_classif用法.html">
+            
+                <a href="../Chapter5/feature_selection.mutual_info_classif用法.html">
+            
+                    
+                    feature_selection.mutual_info_classif用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../Chapter5/feature_selection.mutual_info_regression用法.html">
+            
+                <a href="../Chapter5/feature_selection.mutual_info_regression用法.html">
+            
+                    
+                    feature_selection.mutual_info_regression用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../Chapter5/过滤法总结.html">
+            
+                <a href="../Chapter5/过滤法总结.html">
+            
+                    
+                    过滤法总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="../Chapter5/feature_selection.SelectFromModel用法.html">
+            
+                <a href="../Chapter5/feature_selection.SelectFromModel用法.html">
+            
+                    
+                    feature_selection.SelectFromModel用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="../Chapter5/feature_selection.RFE用法.html">
+            
+                <a href="../Chapter5/feature_selection.RFE用法.html">
+            
+                    
+                    feature_selection.RFE用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../model_selection/">
+            
+                <a href="../model_selection/">
+            
+                    
+                    模型选择 model_selection
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../model_selection/数据集划分train_test_split.html">
+            
+                <a href="../model_selection/数据集划分train_test_split.html">
+            
+                    
+                    数据集划分train_test_split
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../model_selection/数据集划分K折交叉验证KFold.html">
+            
+                <a href="../model_selection/数据集划分K折交叉验证KFold.html">
+            
+                    
+                    数据集划分K折交叉验证KFold
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../model_selection/数据集划分K折交叉验证StratifiedKFold.html">
+            
+                <a href="../model_selection/数据集划分K折交叉验证StratifiedKFold.html">
+            
+                    
+                    数据集划分K折交叉验证StratifiedKFold
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../model_selection/随机数据集划分ShuffleSplit.html">
+            
+                <a href="../model_selection/随机数据集划分ShuffleSplit.html">
+            
+                    
+                    随机数据集划分ShuffleSplit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../model_selection/随机分层数据集划分StratifiedShuffleSplit.html">
+            
+                <a href="../model_selection/随机分层数据集划分StratifiedShuffleSplit.html">
+            
+                    
+                    随机分层数据集划分StratifiedShuffleSplit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../model_selection/交叉验证cross_val_score.html">
+            
+                <a href="../model_selection/交叉验证cross_val_score.html">
+            
+                    
+                    交叉验证cross_val_score
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../model_selection/学习曲线learning_curve.html">
+            
+                <a href="../model_selection/学习曲线learning_curve.html">
+            
+                    
+                    学习曲线learning_curve
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="../model_selection/验证曲线validation_curve.html">
+            
+                <a href="../model_selection/验证曲线validation_curve.html">
+            
+                    
+                    验证曲线validation_curve
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../pipeline/">
+            
+                <a href="../pipeline/">
+            
+                    
+                    pipeline
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../pipeline/Pipeline.html">
+            
+                <a href="../pipeline/Pipeline.html">
+            
+                    
+                    Pipeline
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../pipeline/make_pipeline.html">
+            
+                <a href="../pipeline/make_pipeline.html">
+            
+                    
+                    make_pipeline
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../compose/">
+            
+                <a href="../compose/">
+            
+                    
+                    compose
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../compose/ColumnTransformer.html">
+            
+                <a href="../compose/ColumnTransformer.html">
+            
+                    
+                    ColumnTransformer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../mlxtend库/">
+            
+                <a href="../mlxtend库/">
+            
+                    
+                    mlxtend库
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../mlxtend库/StackingRegressor.html">
+            
+                <a href="../mlxtend库/StackingRegressor.html">
+            
+                    
+                    StackingRegressor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../mlxtend库/StackingClassifier.html">
+            
+                <a href="../mlxtend库/StackingClassifier.html">
+            
+                    
+                    StackingClassifier
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../mlxtend库/feature_selection/">
+            
+                <a href="../mlxtend库/feature_selection/">
+            
+                    
+                    feature_selection
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.3.1" data-path="../mlxtend库/feature_selection/SequentialFeatureSelector.html">
+            
+                <a href="../mlxtend库/feature_selection/SequentialFeatureSelector.html">
+            
+                    
+                    SequentialFeatureSelector
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3.2" data-path="../mlxtend库/feature_selection/ExhaustiveFeatureSelector.html">
+            
+                <a href="../mlxtend库/feature_selection/ExhaustiveFeatureSelector.html">
+            
+                    
+                    ExhaustiveFeatureSelector
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >sklearn.metrics.r2_score用法</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><a href="#r2-&#x8BA1;&#x7B97;">$R^2$ &#x8BA1;&#x7B97;</a></li><li><a href="#&#x662F;&#x5426;&#x62DF;&#x5408;&#x4E86;&#x8DB3;&#x591F;&#x7684;&#x4FE1;&#x606F;">&#x662F;&#x5426;&#x62DF;&#x5408;&#x4E86;&#x8DB3;&#x591F;&#x7684;&#x4FE1;&#x606F;</a></li></ul></div><a href="#r2-&#x8BA1;&#x7B97;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="r2-&#x8BA1;&#x7B97;"><a name="r2-&#x8BA1;&#x7B97;" class="anchor-navigation-ex-anchor" href="#r2-&#x8BA1;&#x7B97;"><i class="fa fa-link" aria-hidden="true"></i></a>$R^2$ &#x8BA1;&#x7B97;</h1>
+<h1 id="&#x662F;&#x5426;&#x62DF;&#x5408;&#x4E86;&#x8DB3;&#x591F;&#x7684;&#x4FE1;&#x606F;"><a name="&#x662F;&#x5426;&#x62DF;&#x5408;&#x4E86;&#x8DB3;&#x591F;&#x7684;&#x4FE1;&#x606F;" class="anchor-navigation-ex-anchor" href="#&#x662F;&#x5426;&#x62DF;&#x5408;&#x4E86;&#x8DB3;&#x591F;&#x7684;&#x4FE1;&#x606F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x662F;&#x5426;&#x62DF;&#x5408;&#x4E86;&#x8DB3;&#x591F;&#x7684;&#x4FE1;&#x606F;</h1>
+<p>&#x5BF9;&#x4E8E;&#x56DE;&#x5F52;&#x7C7B;&#x7B97;&#x6CD5;&#x800C;&#x8A00;&#xFF0C;&#x53EA;&#x63A2;&#x7D22;&#x6570;&#x636E;&#x9884;&#x6D4B;&#x662F;&#x5426;&#x51C6;&#x786E;&#x662F;&#x4E0D;&#x8DB3;&#x591F;&#x7684;&#x3002;&#x9664;&#x4E86;&#x6570;&#x636E;&#x672C;&#x8EAB;&#x7684;&#x6570;&#x503C;&#x5927;&#x5C0F;&#x4E4B;&#x5916;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x5E0C;&#x671B;&#x6211;&#x4EEC;&#x7684;&#x6A21;&#x578B;&#x80FD;&#x591F;&#x6355;&#x6349;&#x5230;&#x6570;&#x636E;&#x7684;&#x201D;&#x89C4;&#x5F8B;&#x201C;&#xFF0C;&#x6BD4;&#x5982;&#x6570;&#x636E;&#x7684;&#x5206;&#x5E03;&#x89C4;&#x5F8B;&#xFF0C;&#x5355;&#x8C03;&#x6027;&#x7B49;&#x7B49;&#xFF0C;&#x800C;&#x662F;&#x5426;&#x6355;&#x83B7;&#x4E86;&#x8FD9;&#x4E9B;&#x4FE1;&#x606F;&#x5E76;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;MSE&#x6765;&#x8861;&#x91CF;  &#x3002;</p>
+<center>
+    <a href="https://raw.githubusercontent.com/HG1227/image/master/img_tuchuang/20200113171026.png" data-lightbox="320cb41f-e0d7-4404-9eb5-18c963cd8197" data-title="undefined" target="_blank"><img src="https://raw.githubusercontent.com/HG1227/image/master/img_tuchuang/20200113171026.png" alt="undefined"></a>
+</center>
+
+<p>&#x6765;&#x770B;&#x8FD9;&#x5F20;&#x56FE;&#xFF0C;&#x5176;&#x4E2D;&#x7EA2;&#x8272;&#x7EBF;&#x662F;&#x6211;&#x4EEC;&#x7684;&#x771F;&#x5B9E;&#x6807;&#x7B7E;&#xFF0C;&#x800C;&#x84DD;&#x8272;&#x7EBF;&#x662F;&#x6211;&#x4EEC;&#x7684;&#x62DF;&#x5408;&#x6A21;&#x578B;&#x3002;&#x8FD9;&#x662F;&#x4E00;&#x79CD;&#x6BD4;&#x8F83;&#x6781;&#x7AEF;&#xFF0C;&#x4F46;&#x7684;&#x786E;&#x53EF;&#x80FD;&#x53D1;&#x751F;&#x7684;&#x60C5;&#x51B5;&#x3002;&#x8FD9;&#x5F20;&#x56FE;&#x50CF;&#x4E0A;&#xFF0C;&#x524D;&#x534A;&#x90E8;&#x5206;&#x7684;&#x62DF;&#x5408;&#x975E;&#x5E38;&#x6210;&#x529F;&#xFF0C;&#x770B;&#x4E0A;&#x53BB;&#x6211;&#x4EEC;&#x7684;&#x771F;&#x5B9E;&#x6807;&#x7B7E;&#x548C;&#x6211;&#x4EEC;&#x7684;&#x9884;&#x6D4B;&#x7ED3;&#x679C;&#x51E0;&#x4E4E;&#x91CD;&#x5408;&#xFF0C;&#x4F46;&#x540E;&#x534A;&#x90E8;&#x5206;&#x7684;&#x62DF;&#x5408;&#x5374;&#x975E;&#x5E38;&#x7CDF;&#x7CD5;&#xFF0C;&#x6A21;&#x578B;&#x5411;&#x7740;&#x4E0E;&#x771F;&#x5B9E;&#x6807;&#x7B7E;&#x5B8C;&#x5168;&#x76F8;&#x53CD;&#x7684;&#x65B9;&#x5411;&#x53BB;&#x4E86;&#x3002;&#x5BF9;&#x4E8E;&#x8FD9;&#x6837;&#x7684;&#x4E00;&#x4E2A;&#x62DF;&#x5408;&#x6A21;&#x578B;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x4F7F;&#x7528;MSE&#x6765;&#x5BF9;&#x5B83;&#x8FDB;&#x884C;&#x5224;&#x65AD;&#xFF0C;&#x5B83;&#x7684;MSE&#x4F1A;&#x5F88;&#x5C0F;&#xFF0C;&#x56E0;&#x4E3A;&#x5927;&#x90E8;&#x5206;&#x6837;&#x672C;&#x5176;&#x5B9E;&#x90FD;&#x88AB;&#x5B8C;&#x7F8E;&#x62DF;&#x5408;&#x4E86;&#xFF0C;&#x5C11;&#x6570;&#x6837;&#x672C;&#x7684;&#x771F;&#x5B9E;&#x503C;&#x548C;&#x9884;&#x6D4B;&#x503C;&#x7684;&#x5DE8;&#x5927;&#x5DEE;&#x5F02;&#x5728;&#x88AB;&#x5747;&#x5206;&#x5230;&#x6BCF;&#x4E2A;&#x6837;&#x672C;&#x4E0A;&#x4E4B;&#x540E;&#xFF0C;MSE&#x5C31;&#x4F1A;&#x5F88;&#x5C0F;&#x3002;&#x4F46;&#x8FD9;&#x6837;&#x7684;&#x62DF;&#x5408;&#x7ED3;&#x679C;&#x5FC5;&#x7136;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x597D;&#x7ED3;&#x679C;&#xFF0C;&#x56E0;&#x4E3A;&#x4E00;&#x65E6;&#x6211;&#x7684;&#x65B0;&#x6837;&#x672C;&#x662F;&#x5904;&#x4E8E;&#x62DF;&#x5408;&#x66F2;&#x7EBF;&#x7684;&#x540E;&#x534A;&#x6BB5;&#x7684;&#xFF0C;&#x6211;&#x7684;&#x9884;&#x6D4B;&#x7ED3;&#x679C;&#x5FC5;&#x7136;&#x4F1A;&#x6709;&#x5DE8;&#x5927;&#x7684;&#x504F;&#x5DEE;&#xFF0C;&#x800C;&#x8FD9;&#x4E0D;&#x662F;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x770B;&#x5230;&#x7684;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x627E;&#x5230;&#x65B0;&#x7684;&#x6307;&#x6807;&#xFF0C;&#x9664;&#x4E86;&#x5224;&#x65AD;&#x9884;&#x6D4B;&#x7684;&#x6570;&#x503C;&#x662F;&#x5426;&#x6B63;&#x786E;&#x4E4B;&#x5916;&#xFF0C;&#x8FD8;&#x80FD;&#x591F;&#x5224;&#x65AD;&#x6211;&#x4EEC;&#x7684;&#x6A21;&#x578B;&#x662F;&#x5426;&#x62DF;&#x5408;&#x4E86;&#x8DB3;&#x591F;&#x591A;&#x7684;&#xFF0C;&#x6570;&#x503C;&#x4E4B;&#x5916;&#x7684;&#x4FE1;&#x606F;  </p>
+<p>&#x964D;&#x7EF4;&#x7B97;&#x6CD5;PCA&#xFF0C;&#x4F7F;&#x7528;&#x65B9;&#x5DEE;&#x6765;&#x8861;&#x91CF;&#x6570;&#x636E;&#x4E0A;&#x7684;&#x4FE1;&#x606F;&#x91CF;&#x3002;&#x5982;&#x679C;&#x65B9;&#x5DEE;&#x8D8A;&#x5927;&#xFF0C;&#x4EE3;&#x8868;&#x6570;&#x636E;&#x4E0A;&#x7684;&#x4FE1;&#x606F;&#x91CF;&#x8D8A;&#x591A;&#xFF0C;&#x800C;&#x8FD9;&#x4E2A;&#x4FE1;&#x606F;&#x91CF;&#x4E0D;&#x4EC5;&#x5305;&#x62EC;&#x4E86;&#x6570;&#x503C;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x8FD8;&#x5305;&#x62EC;&#x4E86;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x6A21;&#x578B;&#x6355;&#x6349;&#x7684;&#x90A3;&#x4E9B;&#x89C4;&#x5F8B;&#x3002;&#x4E3A;&#x4E86;&#x8861;&#x91CF;&#x6A21;&#x578B;&#x5BF9;&#x6570;&#x636E;&#x4E0A;&#x7684;&#x4FE1;&#x606F;&#x91CF;&#x7684;&#x6355;&#x6349;&#xFF0C;&#x6211;&#x4EEC;&#x5B9A;&#x4E49;&#x4E86; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>R</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">R^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>  &#x6765;&#x5E2E;&#x52A9;&#x6211;&#x4EEC;&#xFF1A;  </p>
+<center>
+    <a href="https://raw.githubusercontent.com/HG1227/image/master/img_tuchuang/20200113171325.png" data-lightbox="05958ae7-a538-46f8-a509-db73bf2b316c" data-title="undefined" target="_blank"><img src="https://raw.githubusercontent.com/HG1227/image/master/img_tuchuang/20200113171325.png" alt="undefined"></a>
+</center>
+
+
+
+<p>&#x5176;&#x4E2D; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">y</span></span></span></span> &#x662F;&#x6211;&#x4EEC;&#x7684;&#x771F;&#x5B9E;&#x6807;&#x7B7E;&#xFF0C;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mi>y</mi><mo>^</mo></mover></mrow><annotation encoding="application/x-tex">\hat y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord accent"><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord mathit" style="margin-right:0.03588em;">y</span></span><span style="top:0em;margin-left:0.11112em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="accent-body"><span>^</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span> &#x662F;&#x6211;&#x4EEC;&#x7684;&#x9884;&#x6D4B;&#x7ED3;&#x679C;, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mi>y</mi><mo>&#xAF;</mo></mover></mrow><annotation encoding="application/x-tex">\bar y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.56778em;"></span><span class="strut bottom" style="height:0.7622199999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord accent"><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord mathit" style="margin-right:0.03588em;">y</span></span><span style="top:0em;margin-left:0.11112em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="accent-body"><span>&#xAF;</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span> &#x662F;&#x6211;&#x4EEC;&#x7684;&#x5747;&#x503C;&#xFF0C;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi><mo>&#x2212;</mo><mover accent="true"><mi>y</mi><mo>&#xAF;</mo></mover></mrow><annotation encoding="application/x-tex">y - \bar y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.58333em;"></span><span class="strut bottom" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mbin">&#x2212;</span><span class="mord accent"><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord mathit" style="margin-right:0.03588em;">y</span></span><span style="top:0em;margin-left:0.11112em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="accent-body"><span>&#xAF;</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span> &#x5982;&#x679C;&#x9664;&#x4EE5;&#x6837;&#x672C;&#x91CF;m&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x7684;&#x65B9;&#x5DEE;&#x3002;&#x65B9;&#x5DEE;&#x7684;&#x672C;&#x8D28;&#x662F;&#x4EFB;&#x610F;&#x4E00;&#x4E2A; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">y</span></span></span></span> &#x503C;&#x548C;&#x6837;&#x672C;&#x5747;&#x503C;&#x7684;&#x5DEE;&#x5F02;&#xFF0C;&#x5DEE;&#x5F02;&#x8D8A;&#x5927;&#xFF0C;&#x8FD9;&#x4E9B;&#x503C;&#x6240;&#x5E26;&#x7684;&#x4FE1;&#x606F;&#x8D8A;&#x591A;&#x3002;&#x5728; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>R</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">R^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span> &#x4E2D;&#xFF0C;&#x5206;&#x5B50;&#x662F;&#x771F;&#x5B9E;&#x503C;&#x548C;&#x9884;&#x6D4B;&#x503C;&#x4E4B;&#x5DEE;&#x7684;&#x5DEE;&#x503C;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x7684;&#x6A21;&#x578B;&#x6CA1;&#x6709;&#x6355;&#x83B7;&#x5230;&#x7684;&#x4FE1;&#x606F;&#x603B;&#x91CF; , &#x5206;&#x6BCD;&#x662F;&#x771F;&#x5B9E;&#x6807;&#x7B7E;&#x6240;&#x5E26;&#x7684;&#x4FE1;&#x606F;&#x91CF;&#xFF0C;&#x6240;&#x4EE5;&#x5176;&#x8861;&#x91CF;&#x7684;&#x662F;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>&#x2212;</mo></mrow><annotation encoding="application/x-tex">1 -</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mord">&#x2212;</span></span></span></span>&#x6211;&#x4EEC;&#x7684;&#x6A21;&#x578B;&#x6CA1;&#x6709;&#x6355;&#x83B7;&#x5230;&#x7684;&#x4FE1;&#x606F;&#x91CF;&#x5360;&#x771F;&#x5B9E;&#x6807;&#x7B7E;&#x4E2D;&#x6240;&#x5E26;&#x7684;&#x4FE1;&#x606F;&#x91CF;&#x7684;&#x6BD4;&#x4F8B; , &#x6240;&#x4EE5;&#xFF0C; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>R</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">R^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span> &#x8D8A;&#x63A5;&#x8FD1; 1 &#x8D8A;&#x597D;&#x3002;</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>R</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">R^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E09;&#x79CD;&#x65B9;&#x5F0F;&#x6765;&#x8C03;&#x7528;&#xFF0C;&#x4E00;&#x79CD;&#x662F;&#x76F4;&#x63A5;&#x4ECE;metrics&#x4E2D;&#x5BFC;&#x5165;r2_score&#xFF0C;&#x8F93;&#x5165;&#x9884;&#x6D4B;&#x503C;&#x548C;&#x771F;&#x5B9E;&#x503C;&#x540E;&#x6253;&#x5206;&#x3002;&#x7B2C;&#x4E8C;&#x79CD;&#x662F;&#x76F4;&#x63A5;&#x4ECE;&#x7EBF;&#x6027;&#x56DE;&#x5F52;LinearRegression&#x7684;&#x63A5;&#x53E3;score&#x6765;&#x8FDB;&#x884C;&#x8C03;&#x7528;&#x3002;&#x7B2C;&#x4E09;&#x79CD;&#x662F;&#x5728;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;&#x4E2D;&#xFF0C;&#x8F93;&#x5165;&quot;r2&quot;&#x6765;&#x8C03;&#x7528;  </p>
+<pre class="language-"><code class="lang-python">metrics<span class="token punctuation">.</span>r2_score<span class="token punctuation">(</span>y_true<span class="token punctuation">,</span> 
+                 y_pred<span class="token punctuation">,</span> 
+                 sample_weight<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> 
+                 multioutput<span class="token operator">=</span><span class="token string">&apos;uniform_average&apos;</span>
+                <span class="token punctuation">)</span>
+</code></pre>
+<pre class="language-"><code class="lang-python">
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>metrics <span class="token keyword">import</span> r2_score
+
+y_true <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span>
+y_pred <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1.3</span><span class="token punctuation">,</span><span class="token number">2.5</span><span class="token punctuation">,</span><span class="token number">3.7</span><span class="token punctuation">]</span>
+r2_score<span class="token punctuation">(</span>y_true<span class="token punctuation">,</span>y_pred<span class="token punctuation">)</span>
+</code></pre>
+<footer class="page-footer"><span class="copyright">  </span><span class="footer-modification">Update time&#xFF1A;
+2020-08-04 
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="sklearn.metrics.mean_absolute_error用法.html" class="navigation navigation-prev " aria-label="Previous page: sklearn.metrics.mean_absolute_error用法">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="sklearn.metrics.explained_variance_score用法.html" class="navigation navigation-next " aria-label="Next page: sklearn.metrics.explained_variance_score用法">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"sklearn.metrics.r2_score用法","level":"1.3.3","depth":2,"next":{"title":"sklearn.metrics.explained_variance_score用法","level":"1.3.4","depth":2,"path":"Chapter2/sklearn.metrics.explained_variance_score用法.md","ref":"Chapter2/sklearn.metrics.explained_variance_score用法.md","articles":[]},"previous":{"title":"sklearn.metrics.mean_absolute_error用法","level":"1.3.2","depth":2,"path":"Chapter2/sklearn.metrics.mean_absolute_error用法.md","ref":"Chapter2/sklearn.metrics.mean_absolute_error用法.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-highlight","-livereload","search-plus@^0.0.11","simple-page-toc@^0.1.1","disqus@^0.1.0","prism@^2.1.0","prism-themes@^0.0.2","theme-comscore","anchors@^0.7.1","ace@^0.3.2","emphasize@^1.1.0","katex@^1.1.3","splitter@^0.0.8","expandable-chapters","local-video@^1.0.1","anchor-navigation-ex@0.1.8","custom-favicon","todo@^0.1.3","hide-element","copy-code-button","tbfed-pagefooter","advanced-emoji","lightbox","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":" ","modify_label":"Update time：","modify_format":"YYYY-MM-DD "},"prism":{"css":["prism-themes/themes/prism-vs.css"]},"disqus":{"useIdentifier":false,"shortName":"HG1227"},"styles":{"website":"styles/website.css"},"emphasize":{},"ace":{},"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"todo":{},"splitter":{},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"isRewritePageTitle":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right"},"favicon":"favicon.ico","lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"prism-themes":{},"custom-favicon":{},"local-video":{},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"template":"ace","unindent":true,"edit":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{},"search-plus":{}},"theme":"default","author":"HHG","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"readme.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python 学习记录","language":"zh-hans","output.name":"site","links":{"sidebar":{"Home":""}},"gitbook":"*","description":"。"},"file":{"path":"Chapter2/sklearn.metrics.r2_score用法.md","mtime":"2020-08-04T14:40:24.500Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-20T03:19:39.807Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ace/ace/ace.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ace/ace.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-local-video/video.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

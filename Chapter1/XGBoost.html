@@ -1,0 +1,1896 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>XGBoost · python 学习记录</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="HHG">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-vs.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-ace/ace.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-emphasize/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-local-video/video-js.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="模型融合stacking.html" />
+    
+    
+    <link rel="prev" href="回归大家族.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    常用模型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="决策树.html">
+            
+                <a href="决策树.html">
+            
+                    
+                    决策树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="随机森林.html">
+            
+                <a href="随机森林.html">
+            
+                    
+                    随机森林
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="主成分分析PCA.html">
+            
+                <a href="主成分分析PCA.html">
+            
+                    
+                    主成分分析PCA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="逻辑回归.html">
+            
+                <a href="逻辑回归.html">
+            
+                    
+                    逻辑回归
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="聚类算法K-Means.html">
+            
+                <a href="聚类算法K-Means.html">
+            
+                    
+                    聚类算法K-Means
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="支持向量机.html">
+            
+                <a href="支持向量机.html">
+            
+                    
+                    支持向量机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="朴素贝叶斯.html">
+            
+                <a href="朴素贝叶斯.html">
+            
+                    
+                    朴素贝叶斯
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="回归大家族.html">
+            
+                <a href="回归大家族.html">
+            
+                    
+                    回归大家族
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.9" data-path="XGBoost.html">
+            
+                <a href="XGBoost.html">
+            
+                    
+                    XGBoost
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="模型融合stacking.html">
+            
+                <a href="模型融合stacking.html">
+            
+                    
+                    模型融合stacking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="模型融合Blending.html">
+            
+                <a href="模型融合Blending.html">
+            
+                    
+                    模型融合Blending
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Chapter2/">
+            
+                <a href="../Chapter2/">
+            
+                    
+                    sklearn.metrics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Chapter2/sklearn.metrics.mean_squared_error用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.mean_squared_error用法.html">
+            
+                    
+                    sklearn.metrics.mean_squared_error用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Chapter2/sklearn.metrics.mean_absolute_error用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.mean_absolute_error用法.html">
+            
+                    
+                    sklearn.metrics.mean_absolute_error用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Chapter2/sklearn.metrics.r2_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.r2_score用法.html">
+            
+                    
+                    sklearn.metrics.r2_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Chapter2/sklearn.metrics.explained_variance_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.explained_variance_score用法.html">
+            
+                    
+                    sklearn.metrics.explained_variance_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../Chapter2/标准差计算.html">
+            
+                <a href="../Chapter2/标准差计算.html">
+            
+                    
+                    标准差计算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../Chapter2/sklearn.metrics.confusion_matrix用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.confusion_matrix用法.html">
+            
+                    
+                    sklearn.metrics.confusion_matrix用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../Chapter2/sklearn.metrics.accuracy_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.accuracy_score用法.html">
+            
+                    
+                    sklearn.metrics.accuracy_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../Chapter2/sklearn.metrics.precision_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.precision_score用法.html">
+            
+                    
+                    sklearn.metrics.precision_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../Chapter2/sklearn.metrics.recall_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.recall_score用法.html">
+            
+                    
+                    sklearn.metrics.recall_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../Chapter2/sklearn.metrics.f1_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.f1_score用法.html">
+            
+                    
+                    sklearn.metrics.f1_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="../Chapter2/sklearn.metrics.roc_curve用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.roc_curve用法.html">
+            
+                    
+                    sklearn.metrics.roc_curve用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="../Chapter2/ROC曲线下的面积auc.html">
+            
+                <a href="../Chapter2/ROC曲线下的面积auc.html">
+            
+                    
+                    ROC曲线下的面积auc
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13" data-path="../Chapter2/sklearn.metrics.roc_auc_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.roc_auc_score用法.html">
+            
+                    
+                    sklearn.metrics.roc_auc_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Chapter3/">
+            
+                <a href="../Chapter3/">
+            
+                    
+                    数据处理 Preprocessing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../Chapter3/preprocessing.MinMaxScaler用法.html">
+            
+                <a href="../Chapter3/preprocessing.MinMaxScaler用法.html">
+            
+                    
+                    preprocessing.MinMaxScaler用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../Chapter3/preprocessing.StandardScaler用法.html">
+            
+                <a href="../Chapter3/preprocessing.StandardScaler用法.html">
+            
+                    
+                    preprocessing.StandardScaler用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../Chapter3/preprocessing.Binarizer用法.html">
+            
+                <a href="../Chapter3/preprocessing.Binarizer用法.html">
+            
+                    
+                    preprocessing.Binarizer用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../Chapter3/preprocessing.KBinsDiscretizer用法.html">
+            
+                <a href="../Chapter3/preprocessing.KBinsDiscretizer用法.html">
+            
+                    
+                    preprocessing.KBinsDiscretizer用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../Chapter3/preprocessing.LabelEncoder用法.html">
+            
+                <a href="../Chapter3/preprocessing.LabelEncoder用法.html">
+            
+                    
+                    preprocessing.LabelEncoder用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../Chapter3/preprocessing.OneHotEncoder用法.html">
+            
+                <a href="../Chapter3/preprocessing.OneHotEncoder用法.html">
+            
+                    
+                    preprocessing.OneHotEncoder用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Chapter4/">
+            
+                <a href="../Chapter4/">
+            
+                    
+                    缺失值处理 sklearn.impute
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../Chapter4/impute.SimpleImputer用法.html">
+            
+                <a href="../Chapter4/impute.SimpleImputer用法.html">
+            
+                    
+                    impute.SimpleImputer用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Chapter5/">
+            
+                <a href="../Chapter5/">
+            
+                    
+                    特征选择 feature_selection
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../Chapter5/feature_selection.VarianceThreshold 用法.html">
+            
+                <a href="../Chapter5/feature_selection.VarianceThreshold 用法.html">
+            
+                    
+                    feature_selection.VarianceThreshold用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../Chapter5/feature_selection.SelectKBest用法.html">
+            
+                <a href="../Chapter5/feature_selection.SelectKBest用法.html">
+            
+                    
+                    feature_selection.SelectKBest用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../Chapter5/feature_selection.chi2用法.html">
+            
+                <a href="../Chapter5/feature_selection.chi2用法.html">
+            
+                    
+                    feature_selection.chi2用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../Chapter5/feature_selection.f_classif用法.html">
+            
+                <a href="../Chapter5/feature_selection.f_classif用法.html">
+            
+                    
+                    feature_selection.f_classif用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../Chapter5/feature_selection.f_regression用法.html">
+            
+                <a href="../Chapter5/feature_selection.f_regression用法.html">
+            
+                    
+                    feature_selection.f_regression用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../Chapter5/feature_selection.mutual_info_classif用法.html">
+            
+                <a href="../Chapter5/feature_selection.mutual_info_classif用法.html">
+            
+                    
+                    feature_selection.mutual_info_classif用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../Chapter5/feature_selection.mutual_info_regression用法.html">
+            
+                <a href="../Chapter5/feature_selection.mutual_info_regression用法.html">
+            
+                    
+                    feature_selection.mutual_info_regression用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../Chapter5/过滤法总结.html">
+            
+                <a href="../Chapter5/过滤法总结.html">
+            
+                    
+                    过滤法总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="../Chapter5/feature_selection.SelectFromModel用法.html">
+            
+                <a href="../Chapter5/feature_selection.SelectFromModel用法.html">
+            
+                    
+                    feature_selection.SelectFromModel用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="../Chapter5/feature_selection.RFE用法.html">
+            
+                <a href="../Chapter5/feature_selection.RFE用法.html">
+            
+                    
+                    feature_selection.RFE用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../model_selection/">
+            
+                <a href="../model_selection/">
+            
+                    
+                    模型选择 model_selection
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../model_selection/数据集划分train_test_split.html">
+            
+                <a href="../model_selection/数据集划分train_test_split.html">
+            
+                    
+                    数据集划分train_test_split
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../model_selection/数据集划分K折交叉验证KFold.html">
+            
+                <a href="../model_selection/数据集划分K折交叉验证KFold.html">
+            
+                    
+                    数据集划分K折交叉验证KFold
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../model_selection/数据集划分K折交叉验证StratifiedKFold.html">
+            
+                <a href="../model_selection/数据集划分K折交叉验证StratifiedKFold.html">
+            
+                    
+                    数据集划分K折交叉验证StratifiedKFold
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../model_selection/随机数据集划分ShuffleSplit.html">
+            
+                <a href="../model_selection/随机数据集划分ShuffleSplit.html">
+            
+                    
+                    随机数据集划分ShuffleSplit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../model_selection/随机分层数据集划分StratifiedShuffleSplit.html">
+            
+                <a href="../model_selection/随机分层数据集划分StratifiedShuffleSplit.html">
+            
+                    
+                    随机分层数据集划分StratifiedShuffleSplit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../model_selection/交叉验证cross_val_score.html">
+            
+                <a href="../model_selection/交叉验证cross_val_score.html">
+            
+                    
+                    交叉验证cross_val_score
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../model_selection/学习曲线learning_curve.html">
+            
+                <a href="../model_selection/学习曲线learning_curve.html">
+            
+                    
+                    学习曲线learning_curve
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="../model_selection/验证曲线validation_curve.html">
+            
+                <a href="../model_selection/验证曲线validation_curve.html">
+            
+                    
+                    验证曲线validation_curve
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../pipeline/">
+            
+                <a href="../pipeline/">
+            
+                    
+                    pipeline
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../pipeline/Pipeline.html">
+            
+                <a href="../pipeline/Pipeline.html">
+            
+                    
+                    Pipeline
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../pipeline/make_pipeline.html">
+            
+                <a href="../pipeline/make_pipeline.html">
+            
+                    
+                    make_pipeline
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../compose/">
+            
+                <a href="../compose/">
+            
+                    
+                    compose
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../compose/ColumnTransformer.html">
+            
+                <a href="../compose/ColumnTransformer.html">
+            
+                    
+                    ColumnTransformer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../mlxtend库/">
+            
+                <a href="../mlxtend库/">
+            
+                    
+                    mlxtend库
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../mlxtend库/StackingRegressor.html">
+            
+                <a href="../mlxtend库/StackingRegressor.html">
+            
+                    
+                    StackingRegressor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../mlxtend库/StackingClassifier.html">
+            
+                <a href="../mlxtend库/StackingClassifier.html">
+            
+                    
+                    StackingClassifier
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../mlxtend库/feature_selection/">
+            
+                <a href="../mlxtend库/feature_selection/">
+            
+                    
+                    feature_selection
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.3.1" data-path="../mlxtend库/feature_selection/SequentialFeatureSelector.html">
+            
+                <a href="../mlxtend库/feature_selection/SequentialFeatureSelector.html">
+            
+                    
+                    SequentialFeatureSelector
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3.2" data-path="../mlxtend库/feature_selection/ExhaustiveFeatureSelector.html">
+            
+                <a href="../mlxtend库/feature_selection/ExhaustiveFeatureSelector.html">
+            
+                    
+                    ExhaustiveFeatureSelector
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >XGBoost</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><a href="#xgboost">XGBoost</a></li><ul><li><a href="#xgboost&#x5E93;">xgboost&#x5E93;</a></li><li><a href="#plotting">Plotting</a></li><li><a href="#scikit-learn-api">Scikit-Learn API</a></li><li><a href="#xgboost-&#x4EA4;&#x53C9;&#x9A8C;&#x51FD;&#x6570;">xgboost &#x4EA4;&#x53C9;&#x9A8C;&#x51FD;&#x6570;</a></li><li><a href="#xgboost&#x6A21;&#x578B;&#x7684;&#x4FDD;&#x5B58;&#x548C;&#x8C03;&#x7528;">XGBoost&#x6A21;&#x578B;&#x7684;&#x4FDD;&#x5B58;&#x548C;&#x8C03;&#x7528;</a></li><ul><li><a href="#&#x4F7F;&#x7528;pickle&#x4FDD;&#x5B58;&#x548C;&#x8C03;&#x7528;&#x6A21;&#x578B;">&#x4F7F;&#x7528;Pickle&#x4FDD;&#x5B58;&#x548C;&#x8C03;&#x7528;&#x6A21;&#x578B;</a></li><li><a href="#&#x4F7F;&#x7528;joblib&#x4FDD;&#x5B58;&#x548C;&#x8C03;&#x7528;&#x6A21;&#x578B;">&#x4F7F;&#x7528;Joblib&#x4FDD;&#x5B58;&#x548C;&#x8C03;&#x7528;&#x6A21;&#x578B;</a></li></ul><li><a href="#&#x5206;&#x7C7B;&#x6848;&#x4F8B;&#xFF1A;xgb&#x4E2D;&#x7684;&#x6837;&#x672C;&#x4E0D;&#x5747;&#x8861;&#x95EE;&#x9898;">&#x5206;&#x7C7B;&#x6848;&#x4F8B;&#xFF1A;XGB&#x4E2D;&#x7684;&#x6837;&#x672C;&#x4E0D;&#x5747;&#x8861;&#x95EE;&#x9898;</a></li><li><a href="#xgboost&#x7C7B;&#x4E2D;&#x7684;&#x5176;&#x4ED6;&#x53C2;&#x6570;&#x548C;&#x529F;&#x80FD;">XGBoost&#x7C7B;&#x4E2D;&#x7684;&#x5176;&#x4ED6;&#x53C2;&#x6570;&#x548C;&#x529F;&#x80FD;</a></li><li><a href="#&#x53C2;&#x8003;">&#x53C2;&#x8003;</a></li></ul></ul></div><a href="#xgboost" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="xgboost"><a name="xgboost" class="anchor-navigation-ex-anchor" href="#xgboost"><i class="fa fa-link" aria-hidden="true"></i></a>XGBoost</h1>
+<h2 id="xgboost&#x5E93;"><a name="xgboost&#x5E93;" class="anchor-navigation-ex-anchor" href="#xgboost&#x5E93;"><i class="fa fa-link" aria-hidden="true"></i></a>xgboost&#x5E93;</h2>
+<p>&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x53EF;&#x4EE5;&#x6765;&#x4F7F;&#x7528;&#x6211;&#x4EEC;&#x7684;xgboost&#x5E93;&#x3002;&#x7B2C;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x662F;&#x76F4;&#x63A5;&#x4F7F;&#x7528;xgboost&#x5E93;&#x81EA;&#x5DF1;&#x7684;&#x5EFA;&#x6A21;&#x6D41;&#x7A0B;  </p>
+<p><a href="img/image-20200821104035125.png" data-lightbox="84a30d09-cfd7-4f40-83ab-946a105fb615" data-title="image-20200821104035125"><img src="img/image-20200821104035125.png" alt="image-20200821104035125"></a></p>
+<p>&#x5176;&#x4E2D;&#x6700;&#x6838;&#x5FC3;&#x7684;&#xFF0C;&#x662F;<code>DMtarix</code>&#x8FD9;&#x4E2A;&#x8BFB;&#x53D6;&#x6570;&#x636E;&#x7684;&#x7C7B;&#xFF0C;&#x4EE5;&#x53CA;<code>train()</code>&#x8FD9;&#x4E2A;&#x7528;&#x4E8E;&#x8BAD;&#x7EC3;&#x7684;&#x7C7B;&#x3002;&#x4E0E;sklearn&#x628A;&#x6240;&#x6709;&#x7684;&#x53C2;&#x6570;&#x90FD;&#x5199;&#x5728;&#x7C7B;&#x4E2D;&#x7684;&#x65B9;&#x5F0F;&#x4E0D;&#x540C;&#xFF0C;xgboost&#x5E93;&#x4E2D;&#x5FC5;&#x987B;&#x5148;&#x4F7F;&#x7528;&#x5B57;&#x5178;&#x8BBE;&#x5B9A;&#x53C2;&#x6570;&#x96C6;&#xFF0C;&#x518D;&#x4F7F;&#x7528;<code>train</code>&#x6765;&#x5C06;&#x53C2;&#x6570;&#x53CA;&#x8F93;&#x5165;&#xFF0C;&#x7136;&#x540E;&#x8FDB;&#x884C;&#x8BAD;&#x7EC3;&#x3002;&#x4F1A;&#x8FD9;&#x6837;&#x8BBE;&#x8BA1;&#x7684;&#x539F;&#x56E0;&#xFF0C;&#x662F;&#x56E0;&#x4E3A;XGB&#x6240;&#x6D89;&#x53CA;&#x5230;&#x7684;&#x53C2;&#x6570;&#x5B9E;&#x5728;&#x592A;&#x591A;&#xFF0C;&#x5168;&#x90E8;&#x5199;&#x5728;<code>xgb.train()</code>&#x4E2D;&#x592A;&#x957F;&#x4E5F;&#x5BB9;&#x6613;&#x51FA;&#x9519;&#x3002;&#x5728;&#x8FD9;&#x91CC;&#xFF0C;&#x51C6;&#x5907;&#x4E86;<code>params</code>&#x53EF;&#x80FD;&#x7684;&#x53D6;&#x503C;&#x4EE5;&#x53CA;<code>xgboost.train</code>&#x7684;&#x5217;&#x8868;  </p>
+<pre class="language-"><code class="lang-python">params <span class="token punctuation">{</span>eta<span class="token punctuation">,</span>  gamma<span class="token punctuation">,</span> max_depth<span class="token punctuation">,</span> 
+        min_child_weight<span class="token punctuation">,</span> max_delta_step<span class="token punctuation">,</span> subsample<span class="token punctuation">,</span> 
+        colsample_bytree<span class="token punctuation">,</span>colsample_bylevel<span class="token punctuation">,</span> 
+        colsample_bynode<span class="token punctuation">,</span> <span class="token keyword">lambda</span><span class="token punctuation">,</span> alpha<span class="token punctuation">,</span> 
+        tree_method string<span class="token punctuation">,</span> sketch_eps<span class="token punctuation">,</span> scale_pos_weight<span class="token punctuation">,</span> 
+        updater<span class="token punctuation">,</span>refresh_leaf<span class="token punctuation">,</span> process_type<span class="token punctuation">,</span> grow_policy<span class="token punctuation">,</span> 
+        max_leaves<span class="token punctuation">,</span> max_bin<span class="token punctuation">,</span> predictor<span class="token punctuation">,</span> num_parallel_tree<span class="token punctuation">}</span>
+</code></pre>
+<pre class="language-"><code class="lang-python">xgboost<span class="token punctuation">.</span>train <span class="token punctuation">(</span>params<span class="token punctuation">,</span> dtrain<span class="token punctuation">,</span> num_boost_round<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">,</span> 
+               evals<span class="token operator">=</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> obj<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> feval<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> 
+               maximize<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span>early_stopping_rounds<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> 
+               evals_result<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> verbose_eval<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> 
+               xgb_model<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> callbacks<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span>
+               learning_rates<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class="language-"><code class="lang-python"><span class="token keyword">class</span> <span class="token class-name">xgboost</span><span class="token punctuation">.</span>DMatrix<span class="token punctuation">(</span>data<span class="token punctuation">,</span> 
+                      label<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> 
+                      weight<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> 
+                      base_margin<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> 
+                      missing<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> 
+                      silent<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> 
+                      feature_names<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> 
+                      feature_types<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> 
+                      nthread<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span>
+</code></pre>
+<p><em>property</em> <code>feature_names</code><a href="https://xgboost.readthedocs.io/en/latest/python/python_api.html#xgboost.DMatrix.feature_names" target="_blank">&#xB6;</a></p>
+<p>Get feature names (column labels).</p>
+<ul>
+<li><p>Returns</p>
+<p><strong>feature_names</strong></p>
+</li>
+<li><p>Return type</p>
+<p><a href="https://docs.python.org/3.6/library/stdtypes.html#list" target="_blank">list</a> or <a href="https://docs.python.org/3.6/library/constants.html#None" target="_blank">None</a></p>
+</li>
+</ul>
+<p><em>property</em> <code>feature_types</code><a href="https://xgboost.readthedocs.io/en/latest/python/python_api.html#xgboost.DMatrix.feature_types" target="_blank">&#xB6;</a></p>
+<p>Get feature types (column types).</p>
+<ul>
+<li><p>Returns</p>
+<p><strong>feature_types</strong></p>
+</li>
+<li><p>Return type</p>
+<p><a href="https://docs.python.org/3.6/library/stdtypes.html#list" target="_blank">list</a> or <a href="https://docs.python.org/3.6/library/constants.html#None" target="_blank">None</a></p>
+</li>
+</ul>
+<p><code>get_label</code>()<a href="https://xgboost.readthedocs.io/en/latest/python/python_api.html#xgboost.DMatrix.get_label" target="_blank">&#xB6;</a></p>
+<p>Get the label of the DMatrix.</p>
+<ul>
+<li><p>Returns</p>
+<p><strong>label</strong></p>
+</li>
+<li><p>Return type</p>
+<p>array</p>
+</li>
+</ul>
+<p><code>num_col</code>()<a href="https://xgboost.readthedocs.io/en/latest/python/python_api.html#xgboost.DMatrix.num_col" target="_blank">&#xB6;</a></p>
+<p>Get the number of columns (features) in the DMatrix.</p>
+<ul>
+<li><p>Returns</p>
+<p><strong>number of columns</strong></p>
+</li>
+<li><p>Return type</p>
+<p><a href="https://docs.python.org/3.6/library/functions.html#int" target="_blank">int</a></p>
+</li>
+</ul>
+<p><code>predict</code>(<em>data</em>, <em>output_margin<strong>=</strong>False</em>, <em>ntree_limit<strong>=</strong>0</em>, <em>pred_leaf<strong>=</strong>False</em>, <em>pred_contribs<strong>=</strong>False</em>, <em>approx_contribs<strong>=</strong>False</em>, <em>pred_interactions<strong>=</strong>False</em>, <em>validate_features<strong>=</strong>True</em>, <em>training<strong>=</strong>False</em>)<a href="https://xgboost.readthedocs.io/en/latest/python/python_api.html#xgboost.Booster.predict" target="_blank">&#xB6;</a></p>
+<p>Predict with data.</p>
+<p>Returns</p>
+<ul>
+<li><strong>prediction</strong></li>
+</ul>
+<p>Return type</p>
+<ul>
+<li>numpy array</li>
+</ul>
+<h2 id="plotting"><a name="plotting" class="anchor-navigation-ex-anchor" href="#plotting"><i class="fa fa-link" aria-hidden="true"></i></a>Plotting</h2>
+<p>&#x60A8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7ED8;&#x56FE;&#x6A21;&#x5757;&#x6765;&#x7ED8;&#x5236;&#x91CD;&#x8981;&#x6027;&#x548C;&#x8F93;&#x51FA;&#x6811;&#x3002;</p>
+<p>To plot importance, use <a href="https://xgboost.readthedocs.io/en/latest/python/python_api.html#xgboost.plot_importance" target="_blank"><code>xgboost.plot_importance()</code></a>. This function requires <code>matplotlib</code> to be installed.</p>
+<pre class="language-"><code class="lang-python">num_round <span class="token operator">=</span> <span class="token number">10</span>
+bst <span class="token operator">=</span> xgb<span class="token punctuation">.</span>train<span class="token punctuation">(</span>param<span class="token punctuation">,</span> dtrain<span class="token punctuation">,</span> num_round<span class="token punctuation">,</span> evallist<span class="token punctuation">)</span>
+xgb<span class="token punctuation">.</span>plot_importance<span class="token punctuation">(</span>bst<span class="token punctuation">)</span>
+</code></pre>
+<p>To plot the output tree via <code>matplotlib</code>, use <a href="https://xgboost.readthedocs.io/en/latest/python/python_api.html#xgboost.plot_tree" target="_blank"><code>xgboost.plot_tree()</code></a>, specifying the ordinal number of the target tree. This function requires <code>graphviz</code> and <code>matplotlib</code>.</p>
+<pre class="language-"><code class="lang-python">xgb<span class="token punctuation">.</span>plot_tree<span class="token punctuation">(</span>bst<span class="token punctuation">,</span> num_trees<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
+</code></pre>
+<p>When you use <code>IPython</code>, you can use the <a href="https://xgboost.readthedocs.io/en/latest/python/python_api.html#xgboost.to_graphviz" target="_blank"><code>xgboost.to_graphviz()</code></a> function, which converts the target tree to a <code>graphviz</code> instance. The <code>graphviz</code> instance is automatically rendered in <code>IPython</code>.</p>
+<pre class="language-"><code class="lang-python">xgb<span class="token punctuation">.</span>to_graphviz<span class="token punctuation">(</span>bst<span class="token punctuation">,</span> num_trees<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="scikit-learn-api"><a name="scikit-learn-api" class="anchor-navigation-ex-anchor" href="#scikit-learn-api"><i class="fa fa-link" aria-hidden="true"></i></a>Scikit-Learn API</h2>
+<pre class="language-"><code class="lang-python"><span class="token keyword">class</span> <span class="token class-name">xgboost</span><span class="token punctuation">.</span>XGBRegressor<span class="token punctuation">(</span>objective<span class="token operator">=</span><span class="token string">&apos;reg:squarederror&apos;</span>
+                           <span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span>
+</code></pre>
+<p><strong>Parameters</strong> :</p>
+<ul>
+<li><p>&#x63D0;&#x5347;&#x96C6;&#x6210;&#x7B97;&#x6CD5;&#xFF1A;&#x91CD;&#x8981;&#x53C2;&#x6570; <code>n_estimators</code>   ,<strong><code>n_estimators</code></strong> (<a href="https://docs.python.org/3.6/library/functions.html#int" target="_blank"><em>int</em></a>)  : &#x96C6;&#x6210;&#x4E2D;&#x5F31;&#x8BC4;&#x4F30;&#x5668;&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x6216;&#x5219;&#x5F31;&#x5B66;&#x4E60;&#x5668;&#x7684;&#x6700;&#x5927;&#x8FED;&#x4EE3;&#x6B21;&#x6570;&#xFF0C;&#x9ED8;&#x8BA4; 100&#xFF0C;</p>
+<p>| &#x53C2;&#x6570;&#x542B;&#x4E49;                     | xgb.train()       | xgb.XGBRegressor()    |
+| ---------------------------- | ----------------- | --------------------- |
+| &#x96C6;&#x6210;&#x4E2D;&#x5F31;&#x8BC4;&#x4F30;&#x5668;&#x7684;&#x6570;&#x91CF;         | num_round&#xFF0C;&#x9ED8;&#x8BA4;10 | n_estimators&#xFF0C;&#x9ED8;&#x8BA4;100 |
+| &#x8BAD;&#x7EC3;&#x4E2D;&#x662F;&#x5426;&#x6253;&#x5370;&#x6BCF;&#x6B21;&#x8BAD;&#x7EC3;&#x7684;&#x7ED3;&#x679C; | slient&#xFF0C;&#x9ED8;&#x8BA4;False | slient&#xFF0C;&#x9ED8;&#x8BA4;True      |</p>
+</li>
+<li><p>&#x6709;&#x653E;&#x56DE;&#x968F;&#x673A;&#x62BD;&#x6837;&#xFF1A;&#x91CD;&#x8981;&#x53C2;&#x6570;<code>subsample</code>,  <strong><code>subsample</code></strong> (<a href="https://docs.python.org/3.6/library/functions.html#float" target="_blank"><em>float</em></a>)  &#xFF1A; &#x968F;&#x673A;&#x62BD;&#x6837;&#x7684;&#x65F6;&#x5019;&#x62BD;&#x53D6;&#x7684;&#x6837;&#x672C;&#x6BD4;&#x4F8B;&#xFF0C;&#x9ED8;&#x8BA4;1, &#x8303;&#x56F4;(0,1] &#x3002;&#xFF08;&#x6570;&#x636E;&#x91CF;&#x5C0F;&#x65F6;&#xFF0C;&#x53D6;&#x9ED8;&#x8BA4;&#x503C;&#x5373;&#x53EF;&#xFF09;</p>
+<p>| &#x53C2;&#x6570;&#x542B;&#x4E49;                                | xgb.train()      | xgb.XGBRegressor() |
+| --------------------------------------- | ---------------- | ------------------ |
+| &#x968F;&#x673A;&#x62BD;&#x6837;&#x7684;&#x65F6;&#x5019;&#x62BD;&#x53D6;&#x7684;&#x6837;&#x672C;&#x6BD4;&#x4F8B;&#xFF0C;&#x8303;&#x56F4;(0,1] | subsample&#xFF0C;&#x9ED8;&#x8BA4;1 | subsample&#xFF0C;&#x9ED8;&#x8BA4;1   |</p>
+</li>
+</ul>
+<ul>
+<li><p>&#x8FED;&#x4EE3;&#x51B3;&#x7B56;&#x6811;&#xFF1A;&#x91CD;&#x8981;&#x53C2;&#x6570;<code>eta</code>,   &#x4F7F;&#x7528;&#x53C2;&#x6570; <code>learning_rate</code>&#x6765;&#x5E72;&#x6D89;&#x6211;&#x4EEC;&#x7684;&#x5B66;&#x4E60;&#x901F;&#x7387;&#xFF1A;  </p>
+<p>| &#x53C2;&#x6570;&#x542B;&#x4E49;                                                    | xgb.train()                | xgb.XGBRegressor()                   |
+| ----------------------------------------------------------- | -------------------------- | ------------------------------------ |
+| &#x96C6;&#x6210;&#x4E2D;&#x7684;&#x5B66;&#x4E60;&#x7387;&#xFF0C;&#x53C8;&#x79F0;&#x4E3A;&#x6B65;&#x957F; &#x4EE5;&#x63A7;&#x5236;&#x8FED;&#x4EE3;&#x901F;&#x7387;&#xFF0C;&#x5E38;&#x7528;&#x4E8E;&#x9632;&#x6B62;&#x8FC7;&#x62DF;&#x5408; | eta&#xFF0C;&#x9ED8;&#x8BA4;0.3 &#x53D6;&#x503C;&#x8303;&#x56F4;[0,1] | learning_rate&#xFF0C;&#x9ED8;&#x8BA4;0.1 &#x53D6;&#x503C;&#x8303;&#x56F4;[0,1] |</p>
+<p><strong><code>learning_rate</code></strong> (<a href="https://docs.python.org/3.6/library/functions.html#float" target="_blank"><em>float</em></a>)  &#xFF1A;&#x96C6;&#x6210;&#x5B66;&#x4E60;&#x4E2D;&#x7684;&#x5B66;&#x4E60;&#x7387;&#xFF0C;&#x53C8;&#x79F0;&#x4E3A;&#x6B65;&#x957F;&#x4EE5;&#x63A7;&#x5236;&#x8FED;&#x4EE3;&#x901F;&#x7387;&#xFF0C;&#x9632;&#x6B62;&#x8FC7;&#x62DF;&#x5408;&#xFF0C;&#x4E5F;&#x79F0;&#x4E4B;&#x4E3A;&#x6BCF;&#x4E2A;&#x5F31;&#x5B66;&#x4E60;&#x5668;&#x7684;&#x6743;&#x91CD;&#x7F29;&#x51CF;&#x7CFB;&#x6570;&#xFF0C;&#x53D6;&#x503C;&#x8303;&#x56F4; &#xFF08;0,1] , &#x53D6;&#x8F83;&#x5C0F;&#x7684;&#x503C;&#x610F;&#x5473;&#x7740;&#x8FBE;&#x5230;&#x4E00;&#x5B9A;&#x7684;&#x5B66;&#x4E60;&#x6548;&#x679C;&#xFF0C;&#x9700;&#x8981;&#x66F4;&#x591A;&#x7684;&#x8FED;&#x4EE3;&#x6B21;&#x6570;&#x548C;&#x66F4;&#x591A;&#x7684;&#x5F31;&#x5B66;&#x4E60;&#x5668;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A; 0.1&#x3002;</p>
+<p>&#x901A;&#x5E38;&#xFF0C;&#x4E0D;&#x8C03;&#x6574; &#xFF0C;&#x5373;&#x4FBF;&#x8C03;&#x6574;&#xFF0C;&#x4E00;&#x822C;&#x5B83;&#x4E5F;&#x4F1A;&#x5728;[0.01,0.2]&#x4E4B;&#x95F4;&#x53D8;&#x52A8;  </p>
+<p>&#x901A;&#x5E38;&#x7528;&#x5B66;&#x4E60;&#x7387;&#x548C;&#x5F31;&#x5B66;&#x4E60;&#x5668;&#x7684;&#x6700;&#x5927;&#x8FED;&#x4EE3;&#x6B21;&#x6570;&#x4E00;&#x8D77;&#x6765;&#x51B3;&#x5B9A;&#x7B97;&#x6CD5;&#x7684;&#x62DF;&#x5408;&#x6548;&#x679C;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x4E24;&#x4E2A;&#x53C2;&#x6570; <strong><code>n_estimators</code></strong> &#x548C; <strong><code>learning_rate</code></strong> &#x8981;&#x4E00;&#x8D77;&#x8C03;&#x53C2;&#x3002;</p>
+</li>
+</ul>
+<ul>
+<li><p>&#x9009;&#x62E9;&#x5F31;&#x8BC4;&#x4F30;&#x5668;&#xFF1A;&#x91CD;&#x8981;&#x53C2;&#x6570; <code>booster</code>   &#x53C2;&#x6570;&#x201C;booster&quot;&#x6765;&#x63A7;&#x5236;&#x6211;&#x4EEC;&#x7A76;&#x7ADF;&#x4F7F;&#x7528;&#x600E;&#x6837;&#x7684;&#x5F31;&#x8BC4;&#x4F30;&#x5668;  </p>
+<p>| xgb.train() &amp; params                                         | xgb.XGBRegressor()                                           |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| xgb_model                                                    | booster                                                      |
+| &#x4F7F;&#x7528;&#x54EA;&#x79CD;&#x5F31;&#x8BC4;&#x4F30;&#x5668;&#x3002;&#x53EF;&#x4EE5;&#x8F93;&#x5165;<code>gbtree</code>&#xFF0C; gblinear&#x6216;dart&#x3002;&#x8F93;&#x5165;&#x7684;&#x8BC4;&#x4F30;&#x5668;&#x4E0D;&#x540C;&#xFF0C;&#x4F7F;&#x7528; &#x7684;params&#x53C2;&#x6570;&#x4E5F;&#x4E0D;&#x540C;&#xFF0C;&#x6BCF;&#x79CD;&#x8BC4;&#x4F30;&#x5668;&#x90FD;&#x6709;&#x81EA; &#x5DF1;&#x7684;params&#x5217;&#x8868;&#x3002;&#x8BC4;&#x4F30;&#x5668;&#x5FC5;&#x987B;&#x4E8E;param&#x53C2; &#x6570;&#x76F8;&#x5339;&#x914D;&#xFF0C;&#x5426;&#x5219;&#x62A5;&#x9519;&#x3002; | &#x4F7F;&#x7528;&#x54EA;&#x79CD;&#x5F31;&#x8BC4;&#x4F30;&#x5668;&#x3002;&#x53EF;&#x4EE5;&#x8F93;&#x5165;<code>gbtree</code>&#xFF0C;<code>gblinear</code>&#x6216;<code>dart</code>&#x3002; gbtree&#x4EE3;&#x8868;&#x68AF;&#x5EA6;&#x63D0;&#x5347;&#x6811;&#xFF0C;dart&#x662F;Dropouts meet Multiple Additive Regression Trees&#xFF0C;&#x53EF;&#x8BD1;&#x4E3A;&#x629B;&#x5F03;&#x63D0;&#x5347;&#x6811;&#xFF0C;&#x5728;&#x5EFA;&#x6811;&#x7684;&#x8FC7; &#x7A0B;&#x4E2D;&#x4F1A;&#x629B;&#x5F03;&#x4E00;&#x90E8;&#x5206;&#x6811;&#xFF0C;&#x6BD4;&#x68AF;&#x5EA6;&#x63D0;&#x5347;&#x6811;&#x6709;&#x66F4;&#x597D;&#x7684;&#x9632;&#x8FC7;&#x62DF;&#x5408;&#x529F;&#x80FD;&#x3002; &#x8F93;&#x5165;gblinear&#x4F7F;&#x7528;&#x7EBF;&#x6027;&#x6A21;&#x578B;&#x3002; |</p>
+</li>
+<li><p>XGB&#x7684;&#x76EE;&#x6807;&#x51FD;&#x6570;&#xFF1A;&#x91CD;&#x8981;&#x53C2;&#x6570;<code>objective</code> ,  <strong><code>objective</code></strong> (<em>string</em> <em>or</em> <em>callable</em>) : &#x6307;&#x5B9A;&#x8981;&#x4F7F;&#x7528;&#x7684;&#x5B66;&#x4E60;&#x4EFB;&#x52A1;&#x548C;&#x76F8;&#x5E94;&#x7684;&#x5B66;&#x4E60;&#x76EE;&#x6807;&#x6216;&#x81EA;&#x5B9A;&#x4E49;&#x76EE;&#x6807;&#x51FD;&#x6570; &#x3002;</p>
+<p>&#x4F7F;&#x7528;&#x53C2;&#x6570;&#x201C;objective&quot;&#x6765;&#x786E;&#x5B9A;&#x6211;&#x4EEC;&#x76EE;&#x6807;&#x51FD;&#x6570;&#x7684;&#x7B2C;&#x4E00;&#x90E8;&#x5206;&#x4E2D;&#x7684; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mrow><mo fence="true">(</mo><msub><mi>y</mi><mrow><mi>i</mi></mrow></msub><mo separator="true">,</mo><msub><mover accent="true"><mrow><mi>y</mi></mrow><mo>^</mo></mover><mrow><mi>i</mi></mrow></msub><mo fence="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">l\left(y_{i}, \hat{y}_{i}\right)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="minner textstyle uncramped"><span class="mopen style-wrap reset-textstyle textstyle uncramped" style="top:0em;">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mpunct">,</span><span class="mord"><span class="mord accent"><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord textstyle cramped"><span class="mord mathit" style="margin-right:0.03588em;">y</span></span></span><span style="top:0em;margin-left:0.11112em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="accent-body"><span>^</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose style-wrap reset-textstyle textstyle uncramped" style="top:0em;">)</span></span></span></span></span>&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8861;&#x91CF;&#x635F;&#x5931;&#x7684;&#x90E8;&#x5206;  </p>
+<p>| xgb.train()              | xgb.XGBRegressor()        | xgb.XGBClassifier()            |
+| ------------------------ | ------------------------- | ------------------------------ |
+| obj&#xFF1A;&#x9ED8;&#x8BA4;binary:logistic | objective&#xFF1A;&#x9ED8;&#x8BA4;reg:linear | objective&#xFF1A;&#x9ED8;&#x8BA4;binary:logistic |</p>
+<p>&#x5E38;&#x7528;&#x7684;&#x9009;&#x62E9;&#x6709;&#xFF1A;  </p>
+<p>| &#x8F93;&#x5165;               | &#x9009;&#x7528;&#x7684;&#x635F;&#x5931;&#x51FD;&#x6570;                                         |
+| ------------------ | ------------------------------------------------------ |
+| <code>reg:linear</code>      | &#x4F7F;&#x7528;&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x7684;&#x635F;&#x5931;&#x51FD;&#x6570;&#xFF0C;&#x5747;&#x65B9;&#x8BEF;&#x5DEE;&#xFF0C;&#x56DE;&#x5F52;&#x65F6;&#x4F7F;&#x7528;           |
+| <code>binary:logistic</code> | &#x4F7F;&#x7528;&#x903B;&#x8F91;&#x56DE;&#x5F52;&#x7684;&#x635F;&#x5931;&#x51FD;&#x6570;&#xFF0C;&#x5BF9;&#x6570;&#x635F;&#x5931;log_loss&#xFF0C;&#x4E8C;&#x5206;&#x7C7B;&#x65F6;&#x4F7F;&#x7528; |
+| <code>binary:hinge</code>    | &#x4F7F;&#x7528;&#x652F;&#x6301;&#x5411;&#x91CF;&#x673A;&#x7684;&#x635F;&#x5931;&#x51FD;&#x6570;&#xFF0C;Hinge Loss&#xFF0C;&#x4E8C;&#x5206;&#x7C7B;&#x65F6;&#x4F7F;&#x7528;     |
+| <code>multi:softmax</code>   | &#x4F7F;&#x7528; softmax &#x635F;&#x5931;&#x51FD;&#x6570;&#xFF0C;&#x591A;&#x5206;&#x7C7B;&#x65F6;&#x4F7F;&#x7528;                    |</p>
+</li>
+</ul>
+<p>&#x5BF9;&#x4E8E;&#x6BCF;&#x4E00;&#x4E2A;&#x6837;&#x672C;&#x800C;&#x8A00;&#x7684;&#x53F6;&#x5B50;&#x6743;&#x91CD;&#xFF0C;&#x7136;&#x800C;&#x5728;&#x4E00;&#x4E2A;&#x53F6;&#x5B50;&#x8282;&#x70B9;&#x4E0A;&#x7684;&#x6240;&#x6709;&#x6837;&#x672C;&#x6240;&#x5BF9;&#x5E94;&#x7684;&#x53F6;&#x5B50;&#x6743;&#x91CD;&#x662F;&#x76F8;&#x540C;&#x7684;&#x3002;&#x8BBE;&#x4E00;&#x68F5;&#x6811;&#x4E0A;&#x603B;&#x5171;&#x5305;&#x542B;&#x4E86;  <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">T</span></span></span></span> &#x4E2A;&#x53F6;&#x5B50;&#x8282;&#x70B9;&#xFF0C;&#x5176;&#x4E2D;&#x6BCF;&#x4E2A;&#x53F6;&#x5B50;&#x8282;&#x70B9;&#x7684;&#x7D22;&#x5F15;&#x4E3A; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span>&#xFF0C;&#x5219;&#x8FD9;&#x4E2A;&#x53F6;&#x5B50;&#x8282;&#x70B9;&#x4E0A;&#x7684;&#x6837;&#x672C;&#x6743;&#x91CD;&#x662F;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">&#x3A9;</mi><mo>(</mo><mi>f</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">\Omega(f)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">&#x3A9;</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mclose">)</span></span></span></span> &#x3002;&#x4F9D;&#x636E;&#x8FD9;&#x4E2A;&#xFF0C;&#x6211;&#x4EEC;&#x5B9A;&#x4E49;&#x6A21;&#x578B;&#x7684;&#x590D;&#x6742;&#x5EA6; &#x4E3A;&#xFF08;&#x6CE8;&#x610F;&#x8FD9;&#x4E0D;&#x662F;&#x552F;&#x4E00;&#x53EF;&#x80FD;&#x7684;&#x5B9A;&#x4E49;&#xFF0C;&#x6211;&#x4EEC;&#x5F53;&#x7136;&#x8FD8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5176;&#x4ED6;&#x7684;&#x5B9A;&#x4E49;&#xFF0C;&#x53EA;&#x8981;&#x6EE1;&#x8DB3;&#x53F6;&#x5B50;&#x8D8A;&#x591A;/&#x6DF1;&#x5EA6;&#x8D8A;&#x5927;&#xFF0C;&#x590D;&#x6742;&#x5EA6;&#x8D8A;&#x5927;&#x7684;&#x7406;&#x8BBA;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x51B3;&#x5B9A;&#x6211;&#x4EEC;&#x7684; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">&#x3A9;</mi><mo>(</mo><mi>f</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">\Omega(f)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">&#x3A9;</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mclose">)</span></span></span></span>&#x8981;&#x662F;&#x4E00;&#x4E2A;&#x600E;&#x6837;&#x7684;&#x5F0F;&#x5B50;&#xFF09;&#xFF1A;<br><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">&#x3A9;</mi><mo>(</mo><mi>f</mi><mo>)</mo><mo>=</mo><mi>&#x3B3;</mi><mi>T</mi><mo>+</mo><mtext><mtext>&#xA0;</mtext><mi mathvariant="normal">&#x6B63;</mi><mi mathvariant="normal">&#x5219;</mi><mi mathvariant="normal">&#x9879;</mi><mtext>&#xA0;</mtext></mtext><mo>(</mo><mtext><mi mathvariant="normal">R</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">z</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">n</mi></mtext><mo>)</mo></mrow><annotation encoding="application/x-tex">
+\Omega(f)=\gamma T+\text { &#x6B63;&#x5219;&#x9879; }(\text {Regularization})
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathrm">&#x3A9;</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.05556em;">&#x3B3;</span><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="mbin">+</span><span class="mord text displaystyle textstyle uncramped"><span class="mord mathrm">&#xA0;</span><span class="mord mathrm cjk_fallback">&#x6B63;&#x5219;&#x9879;</span><span class="mord mathrm">&#xA0;</span></span><span class="mopen">(</span><span class="mord text displaystyle textstyle uncramped"><span class="mord mathrm">Regularization</span></span><span class="mclose">)</span></span></span></span></span>
+&#x5982; &#x679C; &#x4F7F; &#x7528; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">L2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">L</span><span class="mord mathrm">2</span></span></span></span> &#x6B63; &#x5219; &#x9879;    :
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtable><mtr><mtd><mrow><mo>=</mo><mi>&#x3B3;</mi><mi>T</mi><mo>+</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mi>&#x3BB;</mi><mi mathvariant="normal">&#x2225;</mi><mi>w</mi><msup><mi mathvariant="normal">&#x2225;</mi><mrow><mn>2</mn></mrow></msup></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mi>&#x3B3;</mi><mi>T</mi><mo>+</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mi>&#x3BB;</mi><msubsup><mo>&#x2211;</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>T</mi></mrow></msubsup><msubsup><mi>w</mi><mrow><mi>j</mi></mrow><mrow><mn>2</mn></mrow></msubsup></mrow></mtd></mtr></mtable></mrow><annotation encoding="application/x-tex">
+\begin{array}{l}
+=\gamma T+\frac{1}{2} \lambda\|w\|^{2} \\
+=\gamma T+\frac{1}{2} \lambda \sum_{j=1}^{T} w_{j}^{2}
+\end{array}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:2.8747765000000003em;"></span><span class="strut bottom" style="height:5.249553000000001em;vertical-align:-2.3747765000000003em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord"><span class="mtable"><span class="arraycolsep" style="width:0.5em;"></span><span class="col-align-l"><span class="vlist"><span style="top:-1.5533365000000003em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.05556em;">&#x3B3;</span><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="mbin">+</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathrm">2</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mord mathit">&#x3BB;</span><span class="mord mathrm">&#x2225;</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mord"><span class="mord mathrm">&#x2225;</span><span class="msupsub"><span class="vlist"><span style="top:-0.413em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathrm mtight">2</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span><span style="top:0.9609995000000005em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.05556em;">&#x3B3;</span><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="mbin">+</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathrm">2</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mord mathit">&#x3BB;</span><span class="mop op-limits"><span class="vlist"><span style="top:1.1776689999999999em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mathrm mtight">1</span></span></span></span><span style="top:-0.000005000000000254801em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span><span class="mop op-symbol large-op">&#x2211;</span></span></span><span style="top:-1.2500050000000005em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathit mtight" style="margin-right:0.13889em;">T</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mord"><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist"><span style="top:0.24700000000000003em;margin-left:-0.02691em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span></span></span></span><span style="top:-0.41300000000000003em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathrm mtight">2</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="arraycolsep" style="width:0.5em;"></span></span></span></span></span></span></span>
+&#x5982; &#x679C; &#x4F7F; &#x7528; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">L1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">L</span><span class="mord mathrm">1</span></span></span></span> &#x6B63; &#x5219; &#x9879;    :
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtable><mtr><mtd><mrow><mo>=</mo><mi>&#x3B3;</mi><mi>T</mi><mo>+</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mi>&#x3B1;</mi><mi mathvariant="normal">&#x2223;</mi><mi>w</mi><mi mathvariant="normal">&#x2223;</mi></mrow></mtd></mtr><mtr><mtd><mrow><mo>=</mo><mi>&#x3B3;</mi><mi>T</mi><mo>+</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mi>&#x3B1;</mi><msubsup><mo>&#x2211;</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>T</mi></mrow></msubsup><mrow><mo fence="true">&#x2223;</mo><msub><mi>w</mi><mrow><mi>j</mi></mrow></msub><mo fence="true">&#x2223;</mo></mrow></mrow></mtd></mtr></mtable></mrow><annotation encoding="application/x-tex">
+\begin{array}{l}
+=\gamma T+\frac{1}{2} \alpha|w| \\
+=\gamma T+\frac{1}{2} \alpha \sum_{j=1}^{T}\left|w_{j}\right|
+\end{array}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:2.8747765000000003em;"></span><span class="strut bottom" style="height:5.249553000000001em;vertical-align:-2.3747765000000003em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord"><span class="mtable"><span class="arraycolsep" style="width:0.5em;"></span><span class="col-align-l"><span class="vlist"><span style="top:-1.5533365000000003em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.05556em;">&#x3B3;</span><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="mbin">+</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathrm">2</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mord mathit" style="margin-right:0.0037em;">&#x3B1;</span><span class="mord mathrm">&#x2223;</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mord mathrm">&#x2223;</span></span></span><span style="top:0.9609995000000005em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.05556em;">&#x3B3;</span><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="mbin">+</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathrm">2</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mord mathit" style="margin-right:0.0037em;">&#x3B1;</span><span class="mop op-limits"><span class="vlist"><span style="top:1.1776689999999999em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mathrm mtight">1</span></span></span></span><span style="top:-0.000005000000000254801em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span><span class="mop op-symbol large-op">&#x2211;</span></span></span><span style="top:-1.2500050000000005em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathit mtight" style="margin-right:0.13889em;">T</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="minner displaystyle textstyle uncramped"><span class="mopen style-wrap reset-textstyle textstyle uncramped" style="top:0em;">&#x2223;</span><span class="mord"><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.02691em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose style-wrap reset-textstyle textstyle uncramped" style="top:0em;">&#x2223;</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="arraycolsep" style="width:0.5em;"></span></span></span></span></span></span></span>
+&#x8FD8; &#x53EF; &#x4EE5; &#x4E24; &#x4E2A; &#x4E00; &#x8D77; &#x4F7F; &#x7528; &#xFF1A;<br><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>=</mo><mi>&#x3B3;</mi><mi>T</mi><mo>+</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mi>&#x3B1;</mi><msubsup><mo>&#x2211;</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>T</mi></mrow></msubsup><mrow><mo fence="true">&#x2223;</mo><msub><mi>w</mi><mrow><mi>j</mi></mrow></msub><mo fence="true">&#x2223;</mo></mrow><mo>+</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mi>&#x3BB;</mi><msubsup><mo>&#x2211;</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>T</mi></mrow></msubsup><msubsup><mi>w</mi><mrow><mi>j</mi></mrow><mrow><mn>2</mn></mrow></msubsup></mrow><annotation encoding="application/x-tex">
+=\gamma T+\frac{1}{2} \alpha \sum_{j=1}^{T}\left|w_{j}\right|+\frac{1}{2} \lambda \sum_{j=1}^{T} w_{j}^{2}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.8283360000000006em;"></span><span class="strut bottom" style="height:3.2421130000000007em;vertical-align:-1.4137769999999998em;"></span><span class="base displaystyle textstyle uncramped"><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.05556em;">&#x3B3;</span><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="mbin">+</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathrm">2</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mord mathit" style="margin-right:0.0037em;">&#x3B1;</span><span class="mop op-limits"><span class="vlist"><span style="top:1.1776689999999999em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mathrm mtight">1</span></span></span></span><span style="top:-0.000005000000000254801em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span><span class="mop op-symbol large-op">&#x2211;</span></span></span><span style="top:-1.2500050000000005em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathit mtight" style="margin-right:0.13889em;">T</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="minner displaystyle textstyle uncramped"><span class="mopen style-wrap reset-textstyle textstyle uncramped" style="top:0em;">&#x2223;</span><span class="mord"><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.02691em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose style-wrap reset-textstyle textstyle uncramped" style="top:0em;">&#x2223;</span></span><span class="mbin">+</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathrm">2</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mord mathit">&#x3BB;</span><span class="mop op-limits"><span class="vlist"><span style="top:1.1776689999999999em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mathrm mtight">1</span></span></span></span><span style="top:-0.000005000000000254801em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span><span class="mop op-symbol large-op">&#x2211;</span></span></span><span style="top:-1.2500050000000005em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathit mtight" style="margin-right:0.13889em;">T</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mord"><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist"><span style="top:0.24700000000000003em;margin-left:-0.02691em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span></span></span></span><span style="top:-0.41300000000000003em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathrm mtight">2</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span></span>
+&#x8FD9;&#x4E2A;&#x7ED3;&#x6784;&#x4E2D;&#x6709;&#x4E24;&#x90E8;&#x5206;&#x5185;&#x5BB9;&#xFF0C;&#x4E00;&#x90E8;&#x5206;&#x662F;&#x63A7;&#x5236;&#x6811;&#x7ED3;&#x6784;&#x7684; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3B3;</mi><mi>T</mi></mrow><annotation encoding="application/x-tex">\gamma T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05556em;">&#x3B3;</span><span class="mord mathit" style="margin-right:0.13889em;">T</span></span></span></span>&#xFF0C;&#x53E6;&#x4E00;&#x90E8;&#x5206;&#x5219;&#x662F;&#x6211;&#x4EEC;&#x7684;&#x6B63;&#x5219;&#x9879;&#x3002;&#x53F6;&#x5B50;&#x6570;&#x91CF; &#x53EF;&#x4EE5;&#x4EE3;&#x8868;&#x6574;&#x4E2A;&#x6811;&#x7ED3;&#x6784;&#xFF0C;&#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#x5728;XGBoost&#x4E2D;&#x6240;&#x6709;&#x7684;&#x6811;&#x90FD;&#x662F;CART&#x6811;&#xFF08;&#x4E8C;&#x53C9;&#x6811;&#xFF09;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x53F6;&#x5B50;&#x7684;&#x6570;&#x91CF; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">T</span></span></span></span> &#x5224;&#x65AD;&#x51FA;&#x6811;&#x7684;&#x6DF1;&#x5EA6;&#xFF0C; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3B3;</mi></mrow><annotation encoding="application/x-tex">\gamma </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05556em;">&#x3B3;</span></span></span></span>&#x800C;&#x662F;&#x6211;&#x4EEC;&#x81EA;&#x5B9A;&#x7684;&#x63A7;&#x5236;&#x53F6;&#x5B50;&#x6570;&#x91CF;&#x7684;&#x53C2;&#x6570;  &#x3002;</p>
+<p>&#x6839;&#x636E;&#x6211;&#x4EEC;&#x4EE5;&#x5F80;&#x7684;&#x7ECF;&#x9A8C;&#xFF0C;&#x6211;&#x4EEC;&#x5F80;&#x5F80;&#x8BA4;&#x4E3A;&#x4E24;&#x79CD;&#x6B63;&#x5219;&#x5316;&#x8FBE;&#x5230;&#x7684;&#x6548;&#x679C;&#x662F;&#x76F8;&#x4F3C;&#x7684;&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;&#x7EC6;&#x8282;&#x4E0D;&#x540C;  &#x3002;</p>
+<ul>
+<li><p>&#x53C2;&#x6570;&#x5316;&#x51B3;&#x7B56;&#x6811; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>k</mi></mrow></msub><mo>(</mo><mi>x</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">f_{k}(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span></span></span></span> (&#x590D;&#x6742;&#x5EA6;&#x51FD;&#x6570;)&#xFF1A;&#x53C2;&#x6570;alpha&#xFF0C;lambda  &#x6B63;&#x5219;&#x5316;&#x7CFB;&#x6570;&#x5206;&#x522B;&#x5BF9;&#x5E94;&#x7684;&#x53C2;&#x6570;&#xFF1A;  </p>
+<ul>
+<li><strong><code>reg_alpha</code></strong> (<a href="https://docs.python.org/3.6/library/functions.html#float" target="_blank"><em>float</em></a> <em>(<strong>xgb&apos;s alpha</strong>)</em>) : L1&#x6B63;&#x5219;&#x9879;&#x7684;&#x53C2;&#x6570; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3B1;</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.0037em;">&#x3B1;</span></span></span></span> , &#x9ED8;&#x8BA4;0&#xFF0C;&#x53D6;&#x503C;&#x8303;&#x56F4;[0, +&#x221E;]</li>
+<li><strong><code>reg_lambda</code></strong> (<a href="https://docs.python.org/3.6/library/functions.html#float" target="_blank"><em>float</em></a> <em>(<strong>xgb&apos;s lambda</strong>)</em>) : L2&#x6B63;&#x5219;&#x9879;&#x7684;&#x53C2;&#x6570; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3BB;</mi></mrow><annotation encoding="application/x-tex">\lambda</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">&#x3BB;</span></span></span></span> , &#x9ED8;&#x8BA4;1&#xFF0C;&#x53D6;&#x503C;&#x8303;&#x56F4;[0, +&#x221E;]</li>
+</ul>
+<p>&#xFF08;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5176;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4E24;&#x4E2A;&#x540C;&#x65F6;&#x4F7F;&#x7528;&#xFF09;&#x6B63;&#x5219;&#x5316;&#x7CFB;&#x6570;&#x5206;&#x522B;&#x5BF9;&#x5E94;&#x7684;&#x53C2;&#x6570;&#xFF1A;  </p>
+<p>| &#x53C2;&#x6570;&#x542B;&#x4E49;               | xgb.train()                    | xgb.XGBRegressor()                 |
+| :--------------------- | :----------------------------- | :--------------------------------- |
+| L1&#x6B63;&#x5219;&#x9879;&#x7684;&#x53C2;&#x6570; \alpha  | alpha&#xFF0C;&#x9ED8;&#x8BA4;0&#xFF0C;&#x53D6;&#x503C;&#x8303;&#x56F4;[0, +&#x221E;]  | reg_alpha&#xFF0C;&#x9ED8;&#x8BA4;0&#xFF0C;&#x53D6;&#x503C;&#x8303;&#x56F4;[0, +&#x221E;]  |
+| L2&#x6B63;&#x5219;&#x9879;&#x7684;&#x53C2;&#x6570; \lambda | lambda&#xFF0C;&#x9ED8;&#x8BA4;1&#xFF0C;&#x53D6;&#x503C;&#x8303;&#x56F4;[0, +&#x221E;] | reg_lambda&#xFF0C;&#x9ED8;&#x8BA4;1&#xFF0C;&#x53D6;&#x503C;&#x8303;&#x56F4;[0, +&#x221E;] |</p>
+</li>
+<li><p>&#x8BA9;&#x6811;&#x505C;&#x6B62;&#x751F;&#x957F;&#xFF1A;&#x91CD;&#x8981;&#x53C2;&#x6570;<code>gamma</code>,   <strong><code>gamma</code></strong> (<a href="https://docs.python.org/3.6/library/functions.html#float" target="_blank"><em>float</em></a>)  : &#x590D;&#x6742;&#x5EA6;&#x7684;&#x60E9;&#x7F5A;&#x9879; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3B3;</mi></mrow><annotation encoding="application/x-tex">\gamma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05556em;">&#x3B3;</span></span></span></span> , &#x9ED8;&#x8BA4;0&#xFF0C;&#x53D6;&#x503C;&#x8303;&#x56F4;[0, +&#x221E;]&#x3002;</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3B3;</mi></mrow><annotation encoding="application/x-tex">\gamma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05556em;">&#x3B3;</span></span></span></span> &#x53C8;&#x88AB;&#x79F0;&#x4E4B;&#x4E3A;&#x662F;&#x201C;&#x590D;&#x6742;&#x6027;&#x63A7;&#x5236;&#x201D;&#xFF08;complexity control&#xFF09;&#xFF0C;&#x6240;&#x4EE5; &#x662F;&#x6211;&#x4EEC;&#x7528;&#x6765;&#x9632;&#x6B62;&#x8FC7;&#x62DF;&#x5408;&#x7684;&#x91CD;&#x8981;&#x53C2;&#x6570;&#x3002;&#x5B9E;&#x8DF5;&#x8BC1;&#x660E;&#xFF0C; &#x662F;&#x5BF9;&#x68AF;&#x5EA6;&#x63D0;&#x5347;&#x6811;&#x5F71;&#x54CD;&#x6700;&#x5927;&#x7684;&#x53C2;&#x6570;&#x4E4B;&#x4E00;&#xFF0C;&#x5176;&#x6548;&#x679C;&#x4E1D;&#x6BEB;&#x4E0D;&#x900A;&#x8272;&#x4E8E; <code>n_estimators</code> &#x548C;&#x9632;&#x6B62;&#x8FC7;&#x62DF;&#x5408;&#x7684;&#x795E;&#x5668;<code>max_depth</code> &#x3002;&#x540C;&#x65F6;&#xFF0C;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3B3;</mi></mrow><annotation encoding="application/x-tex">\gamma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05556em;">&#x3B3;</span></span></span></span>  &#x8FD8;&#x662F;&#x6211;&#x4EEC;&#x8BA9;&#x6811;&#x505C;&#x6B62;&#x751F;&#x957F;&#x7684;&#x91CD;&#x8981;&#x53C2;&#x6570;.</p>
+<p>| &#x53C2;&#x6570;&#x542B;&#x4E49;       | xgb.train()                   | xgb.XGBRegressor()            |
+| -------------- | ----------------------------- | ----------------------------- |
+| &#x590D;&#x6742;&#x5EA6;&#x7684;&#x60E9;&#x7F5A;&#x9879; | gamma&#xFF0C;&#x9ED8;&#x8BA4;0&#xFF0C;&#x53D6;&#x503C;&#x8303;&#x56F4;[0, +&#x221E;] | gamma&#xFF0C;&#x9ED8;&#x8BA4;0&#xFF0C;&#x53D6;&#x503C;&#x8303;&#x56F4;[0, +&#x221E;] |</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3B3;</mi></mrow><annotation encoding="application/x-tex">\gamma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05556em;">&#x3B3;</span></span></span></span>&#x5927;&#x4E8E;0&#x7684;&#xFF0C;&#x5373;&#x53EA;&#x8981;&#x76EE;&#x6807;&#x51FD;&#x6570;&#x8FD8;&#x80FD;&#x591F;&#x7EE7;&#x7EED;&#x51CF;&#x5C0F;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x5141;&#x8BB8;&#x6811;&#x7EE7;&#x7EED;&#x8FDB;&#x884C;&#x5206;&#x679D;  , <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3B3;</mi></mrow><annotation encoding="application/x-tex">\gamma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05556em;">&#x3B3;</span></span></span></span>  &#x8BBE;&#x5B9A;&#x8D8A;&#x5927;&#xFF0C;&#x7B97;&#x6CD5;&#x5C31;&#x8D8A;&#x4FDD;&#x5B88;&#xFF0C;&#x6811;&#x7684;&#x53F6;&#x5B50;&#x6570;&#x91CF;&#x5C31;&#x8D8A;&#x5C11;&#xFF0C;&#x6A21;&#x578B;&#x7684;&#x590D;&#x6742;&#x5EA6;&#x5C31;&#x8D8A;&#x4F4E;  </p>
+</li>
+<li><p><strong><code>max_depth</code></strong> (<a href="https://docs.python.org/3.6/library/functions.html#int" target="_blank"><em>int</em></a>) : &#x6811;&#x7684;&#x6700;&#x5927;&#x6DF1;&#x5EA6;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A; 6 . Maximum tree depth for base learners</p>
+</li>
+</ul>
+<p>&#x8FC7;&#x62DF;&#x5408;&#xFF1A;&#x526A;&#x679D;&#x53C2;&#x6570;&#x4E0E;&#x56DE;&#x5F52;&#x6A21;&#x578B;&#x8C03;&#x53C2;  </p>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;&#x542B;&#x4E49;</th>
+<th>xgb.train()</th>
+<th>xgb.XGBRegressor()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x6811;&#x7684;&#x6700;&#x5927;&#x6DF1;&#x5EA6;</td>
+<td>max_depth&#xFF0C;&#x9ED8;&#x8BA4;6</td>
+<td>max_depth&#xFF0C;&#x9ED8;&#x8BA4;6</td>
+</tr>
+<tr>
+<td>&#x6BCF;&#x6B21;&#x751F;&#x6210;&#x6811;&#x65F6;&#x968F;&#x673A;&#x62BD;&#x6837;&#x7279;&#x5F81;&#x7684;&#x6BD4;&#x4F8B;</td>
+<td>colsample_bytree&#xFF0C;&#x9ED8;&#x8BA4;1</td>
+<td>colsample_bytree&#xFF0C;&#x9ED8;&#x8BA4;1</td>
+</tr>
+<tr>
+<td>&#x6BCF;&#x6B21;&#x751F;&#x6210;&#x6811;&#x7684;&#x4E00;&#x5C42;&#x65F6; &#x968F;&#x673A;&#x62BD;&#x6837;&#x7279;&#x5F81;&#x7684;&#x6BD4;&#x4F8B;</td>
+<td>colsample_bylevel&#xFF0C;&#x9ED8;&#x8BA4;1</td>
+<td>colsample_bylevel&#xFF0C;&#x9ED8;&#x8BA4;1</td>
+</tr>
+<tr>
+<td>&#x6BCF;&#x6B21;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x53F6;&#x5B50;&#x8282;&#x70B9;&#x65F6; &#x968F;&#x673A;&#x62BD;&#x6837;&#x7279;&#x5F81;&#x7684;&#x6BD4;&#x4F8B;</td>
+<td>colsample_bynode&#xFF0C;&#x9ED8;&#x8BA4;1</td>
+<td>N.A.</td>
+</tr>
+<tr>
+<td>&#x4E00;&#x4E2A;&#x53F6;&#x5B50;&#x8282;&#x70B9;&#x4E0A;&#x6240;&#x9700;&#x8981;&#x7684;&#x6700;&#x5C0F; &#x5373;&#x53F6;&#x5B50;&#x8282;&#x70B9;&#x4E0A;&#x7684;&#x4E8C;&#x9636;&#x5BFC;&#x6570;&#x4E4B;&#x548C; &#x7C7B;&#x4F3C;&#x4E8E;&#x6837;&#x672C;&#x6743;&#x91CD;</td>
+<td>min_child_weight&#xFF0C;&#x9ED8;&#x8BA4;1</td>
+<td>min_child_weight&#xFF0C;&#x9ED8;&#x8BA4; 1</td>
+</tr>
+</tbody>
+</table>
+<p>&#x8FD9;&#x4E9B;&#x53C2;&#x6570;&#x4E2D;&#xFF0C;&#x6811;&#x7684;&#x6700;&#x5927;&#x6DF1;&#x5EA6;&#x662F;&#x51B3;&#x7B56;&#x6811;&#x4E2D;&#x7684;&#x526A;&#x679D;&#x6CD5;&#x5B9D;&#xFF0C;&#x7B97;&#x662F;&#x6700;&#x5E38;&#x7528;&#x7684;&#x526A;&#x679D;&#x53C2;&#x6570; .</p>
+<p>&#x4E09;&#x4E2A;&#x968F;&#x673A;&#x62BD;&#x6837;&#x7279;&#x5F81;&#x7684;&#x53C2;&#x6570;&#x4E2D;&#xFF0C;&#x524D;&#x4E24;&#x4E2A;&#x6BD4;&#x8F83;&#x5E38;&#x7528;  &#x3002;</p>
+<p>&#x53C2;&#x6570; <code>min_child_weight</code>&#x4E0D;&#x592A;&#x5E38;&#x7528;  &#x3002;</p>
+<p>&#x901A;&#x5E38;&#x5F53;&#x6211;&#x4EEC;&#x83B7;&#x5F97;&#x4E86;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x96C6;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x5148;&#x4F7F;&#x7528;&#x7F51;&#x683C;&#x641C;&#x7D22;&#x627E;&#x51FA;&#x6BD4;&#x8F83;&#x5408;&#x9002;&#x7684; <code>n_estimators</code>&#x548C; <code>eta</code>&#x7EC4;&#x5408;&#xFF0C;&#x7136;&#x540E;&#x4F7F;&#x7528;<code>gamma</code>&#x6216;&#x8005; <code>max_depth</code>&#x89C2;&#x5BDF;&#x6A21;&#x578B;&#x5904;&#x4E8E;&#x4EC0;&#x4E48;&#x6837;&#x7684;&#x72B6;&#x6001;&#xFF08;&#x8FC7;&#x62DF;&#x5408;&#x8FD8;&#x662F;&#x6B20;&#x62DF;&#x5408;&#xFF0C;&#x5904;&#x4E8E;&#x65B9;&#x5DEE;-&#x504F;&#x5DEE;&#x56FE;&#x50CF;&#x7684;&#x5DE6;&#x8FB9;&#x8FD8;&#x662F;&#x53F3;&#x8FB9;&#xFF1F;&#xFF09;&#xFF0C;&#x6700;&#x540E;&#x518D;&#x51B3;&#x5B9A;&#x662F;&#x5426;&#x8981;&#x8FDB;&#x884C;&#x526A;&#x679D;&#x3002;&#x901A;&#x5E38;&#x6765;&#x8BF4;&#xFF0C;&#x5BF9;&#x4E8E;XGB&#x6A21;&#x578B;&#xFF0C;&#x5927;&#x591A;&#x6570;&#x65F6;&#x5019;&#x90FD;&#x662F;&#x9700;&#x8981;&#x526A;&#x679D;&#x7684;&#x3002;&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x5C31;&#x6765;&#x770B;&#x770B;&#x4F7F;&#x7528; <code>xgb.cv</code>&#x8FD9;&#x4E2A;&#x7C7B;&#x6765;&#x8FDB;&#x884C;&#x526A;&#x679D;&#x8C03;&#x53C2;&#xFF0C;&#x4EE5;&#x8C03;&#x6574;&#x51FA;&#x4E00;&#x7EC4;&#x6CDB;&#x5316;&#x80FD;&#x529B;&#x5F88;&#x5F3A;&#x7684;&#x53C2;&#x6570;  &#x3002;</p>
+<h2 id="xgboost-&#x4EA4;&#x53C9;&#x9A8C;&#x51FD;&#x6570;"><a name="xgboost-&#x4EA4;&#x53C9;&#x9A8C;&#x51FD;&#x6570;" class="anchor-navigation-ex-anchor" href="#xgboost-&#x4EA4;&#x53C9;&#x9A8C;&#x51FD;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>xgboost &#x4EA4;&#x53C9;&#x9A8C;&#x51FD;&#x6570;</h2>
+<p>xgboost &#x5E93;&#x4E2D;&#x7684;&#x7C7B; <code>xgboost.cv()</code></p>
+<pre class="language-"><code class="lang-python">xgboost<span class="token punctuation">.</span>cv <span class="token punctuation">(</span>params<span class="token punctuation">,</span> 
+            dtrain<span class="token punctuation">,</span> 
+            num_boost_round<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">,</span> 
+            nfold<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span> 
+            stratified<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> 
+            folds<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> 
+            metrics<span class="token operator">=</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
+            obj<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span>
+            feval<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> 
+            maximize<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> 
+            early_stopping_rounds<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> 
+            fpreproc<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> as_pandas<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> 
+            verbose_eval<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span>
+            show_stdv<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> 
+            seed<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>
+            callbacks<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> 
+            shuffle<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+</code></pre>
+<p>&#x81EA;&#x5E26;&#x7684;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;&#x51FD;&#x6570;&#x5BF9; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3BB;</mi></mrow><annotation encoding="application/x-tex">\lambda</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">&#x3BB;</span></span></span></span> &#x8FDB;&#x884C;&#x8C03;&#x53C2;&#x3002;</p>
+<p>Returns</p>
+<ul>
+<li><strong>evaluation history</strong></li>
+</ul>
+<p>Return type</p>
+<ul>
+<li><a href="https://docs.python.org/3.6/library/stdtypes.html#list" target="_blank">list</a>(string)</li>
+</ul>
+<pre class="language-"><code class="lang-python"><span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>datasets <span class="token keyword">import</span> load_boston
+<span class="token keyword">import</span> xgboost <span class="token keyword">as</span> xgb
+<span class="token keyword">import</span> time
+<span class="token keyword">import</span> datetime
+
+data <span class="token operator">=</span> load_boston<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+X <span class="token operator">=</span> data<span class="token punctuation">.</span>data
+y <span class="token operator">=</span> data<span class="token punctuation">.</span>target
+
+
+<span class="token comment">#&#x4E3A;&#x4E86;&#x4FBF;&#x6377;&#xFF0C;&#x4F7F;&#x7528;&#x5168;&#x6570;&#x636E;</span>
+dfull <span class="token operator">=</span> xgb<span class="token punctuation">.</span>DMatrix<span class="token punctuation">(</span>X<span class="token punctuation">,</span>y<span class="token punctuation">)</span>
+</code></pre>
+<pre class="language-"><code class="lang-python"><span class="token comment">#&#x8BBE;&#x5B9A;&#x53C2;&#x6570;</span>
+param1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&apos;silent&apos;</span><span class="token punctuation">:</span><span class="token boolean">True</span><span class="token punctuation">,</span><span class="token string">&apos;obj&apos;</span><span class="token punctuation">:</span><span class="token string">&apos;reg:linear&apos;</span><span class="token punctuation">,</span><span class="token string">&quot;gamma&quot;</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">}</span>
+num_round <span class="token operator">=</span> <span class="token number">180</span>
+n_fold<span class="token operator">=</span><span class="token number">5</span>
+<span class="token comment">#&#x4F7F;&#x7528;&#x7C7B;xgb.cv</span>
+time0 <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+cvresult1 <span class="token operator">=</span> xgb<span class="token punctuation">.</span>cv<span class="token punctuation">(</span>param1<span class="token punctuation">,</span> dfull<span class="token punctuation">,</span> num_round<span class="token punctuation">,</span>n_fold<span class="token punctuation">)</span>
+</code></pre>
+<pre class="language-"><code class="lang-python"><span class="token comment">#&#x770B;&#x770B;&#x7C7B;xgb.cv&#x751F;&#x6210;&#x4E86;&#x4EC0;&#x4E48;&#x7ED3;&#x679C;&#xFF1F;</span>
+cvresult1
+</code></pre>
+<p><a href="img/image-20200820213944764.png" data-lightbox="5166ea6b-3542-4356-9a96-7d05bca60852" data-title="image-20200820213944764"><img src="img/image-20200820213944764.png" alt="image-20200820213944764"></a></p>
+<pre class="language-"><code class="lang-python"><span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+
+plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>grid<span class="token punctuation">(</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">181</span><span class="token punctuation">)</span><span class="token punctuation">,</span>cvresult1<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>c<span class="token operator">=</span><span class="token string">&quot;red&quot;</span><span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">&quot;train,gamma=0&quot;</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">181</span><span class="token punctuation">)</span><span class="token punctuation">,</span>cvresult1<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span>c<span class="token operator">=</span><span class="token string">&quot;orange&quot;</span><span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">&quot;test,gamma=0&quot;</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>legend<span class="token punctuation">(</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p><a href="img/image-20200820214045781.png" data-lightbox="9d948fcf-34b0-4ed0-ad19-71b4bdcc7771" data-title="image-20200820214045781"><img src="img/image-20200820214045781.png" alt="image-20200820214045781"></a></p>
+<p><code>xgboost</code> &#x4E2D;&#x56DE;&#x5F52;&#x6A21;&#x578B;&#x7684;&#x9ED8;&#x8BA4;&#x6A21;&#x578B;&#x8BC4;&#x4F30;&#x6307;&#x6807;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;  </p>
+<p>&#x4E3A;&#x4E86;&#x4F7F;&#x7528;xgboost.cv&#xFF0C;&#x6211;&#x4EEC;&#x5FC5;&#x987B;&#x8981;&#x719F;&#x6089;xgboost&#x81EA;&#x5E26;&#x7684;&#x6A21;&#x578B;&#x8BC4;&#x4F30;&#x6307;&#x6807;&#x3002;xgboost&#x5728;&#x5EFA;&#x5E93;&#x7684;&#x65F6;&#x5019;&#x672C;&#x7740;&#x5927;&#x800C;&#x5168;&#x7684;&#x76EE;&#x6807;&#xFF0C;&#x548C;sklearn&#x7C7B;&#x4F3C;&#xFF0C;&#x5305;&#x62EC;&#x4E86;&#x5927;&#x7EA6;20&#x4E2A;&#x6A21;&#x578B;&#x8BC4;&#x4F30;&#x6307;&#x6807;&#xFF0C;&#x7136;&#x800C;&#x7528;&#x4E8E;&#x56DE;&#x5F52;&#x548C;&#x5206;&#x7C7B;&#x7684;&#x5176;&#x5B9E;&#x53EA;&#x6709;&#x51E0;&#x4E2A;&#xFF0C;&#x5927;&#x90E8;&#x5206;&#x662F;&#x7528;&#x4E8E;&#x4E00;&#x4E9B;&#x66F4;&#x52A0;&#x9AD8;&#x7EA7;&#x7684;
+&#x529F;&#x80FD;&#x6BD4;&#x5982;ranking&#x3002;&#x6765;&#x770B;&#x7528;&#x4E8E;&#x56DE;&#x5F52;&#x548C;&#x5206;&#x7C7B;&#x7684;&#x8BC4;&#x4F30;&#x6307;&#x6807;&#x90FD;&#x6709;&#x54EA;&#x4E9B;  </p>
+<table>
+<thead>
+<tr>
+<th>&#x6307;&#x6807;</th>
+<th>&#x542B;&#x4E49;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rmse</td>
+<td>&#x56DE;&#x5F52;&#x7528;&#xFF0C;&#x8C03;&#x6574;&#x540E;&#x7684;&#x5747;&#x65B9;&#x8BEF;&#x5DEE;</td>
+</tr>
+<tr>
+<td>mae</td>
+<td>&#x56DE;&#x5F52;&#x7528;&#xFF0C;&#x7EDD;&#x5BF9;&#x5E73;&#x5747;&#x8BEF;&#x5DEE;</td>
+</tr>
+<tr>
+<td>logloss</td>
+<td>&#x4E8C;&#x5206;&#x7C7B;&#x7528;&#xFF0C;&#x5BF9;&#x6570;&#x635F;&#x5931;</td>
+</tr>
+<tr>
+<td>mlogloss</td>
+<td>&#x591A;&#x5206;&#x7C7B;&#x7528;&#xFF0C;&#x5BF9;&#x6570;&#x635F;&#x5931;</td>
+</tr>
+<tr>
+<td>error</td>
+<td>&#x5206;&#x7C7B;&#x7528;&#xFF0C;&#x5206;&#x7C7B;&#x8BEF;&#x5DEE;&#xFF0C;&#x7B49;&#x4E8E;1-&#x51C6;&#x786E;&#x7387;</td>
+</tr>
+<tr>
+<td>auc</td>
+<td>&#x5206;&#x7C7B;&#x7528;&#xFF0C;AUC&#x9762;&#x79EF;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x82E5;&#x9700;&#x8981;&#x4FEE;&#x6539;&#x8BC4;&#x4EF7;&#x6307;&#x6807;&#xFF0C;&#x53EF;&#x4EE5;&#x4FEE;&#x6539; <code>param</code> &#x4E2D;&#x7684; <code>eval_metric</code> &#x53C2;&#x6570;&#x3002;</p>
+<pre class="language-"><code class="lang-python">param1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&apos;silent&apos;</span><span class="token punctuation">:</span><span class="token boolean">True</span><span class="token punctuation">,</span><span class="token string">&apos;obj&apos;</span><span class="token punctuation">:</span><span class="token string">&apos;reg:linear&apos;</span><span class="token punctuation">,</span><span class="token string">&quot;gamma&quot;</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token string">&quot;eval_metric&quot;</span><span class="token punctuation">:</span><span class="token string">&quot;mae&quot;</span><span class="token punctuation">}</span>
+cvresult1 <span class="token operator">=</span> xgb<span class="token punctuation">.</span>cv<span class="token punctuation">(</span>param1<span class="token punctuation">,</span> dfull<span class="token punctuation">,</span> num_round<span class="token punctuation">,</span>n_fold<span class="token punctuation">)</span>
+</code></pre>
+<p>&#x81EA;&#x5E26;&#x7684;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;&#x8C03;&#x6574; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3B3;</mi></mrow><annotation encoding="application/x-tex">\gamma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05556em;">&#x3B3;</span></span></span></span>  &#x7684;&#x503C;&#xFF1A;</p>
+<pre class="language-"><code class="lang-python">param1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&apos;silent&apos;</span><span class="token punctuation">:</span><span class="token boolean">True</span><span class="token punctuation">,</span><span class="token string">&apos;obj&apos;</span><span class="token punctuation">:</span><span class="token string">&apos;reg:linear&apos;</span><span class="token punctuation">,</span><span class="token string">&quot;gamma&quot;</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">}</span>
+param2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&apos;silent&apos;</span><span class="token punctuation">:</span><span class="token boolean">True</span><span class="token punctuation">,</span><span class="token string">&apos;obj&apos;</span><span class="token punctuation">:</span><span class="token string">&apos;reg:linear&apos;</span><span class="token punctuation">,</span><span class="token string">&quot;gamma&quot;</span><span class="token punctuation">:</span><span class="token number">20</span><span class="token punctuation">}</span>
+num_round <span class="token operator">=</span> <span class="token number">180</span>
+n_fold<span class="token operator">=</span><span class="token number">5</span>
+cvresult1 <span class="token operator">=</span> xgb<span class="token punctuation">.</span>cv<span class="token punctuation">(</span>param1<span class="token punctuation">,</span> dfull<span class="token punctuation">,</span> num_round<span class="token punctuation">,</span>n_fold<span class="token punctuation">)</span>
+cvresult2 <span class="token operator">=</span> xgb<span class="token punctuation">.</span>cv<span class="token punctuation">(</span>param2<span class="token punctuation">,</span> dfull<span class="token punctuation">,</span> num_round<span class="token punctuation">,</span>n_fold<span class="token punctuation">)</span>
+
+plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>grid<span class="token punctuation">(</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">181</span><span class="token punctuation">)</span><span class="token punctuation">,</span>cvresult1<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>c<span class="token operator">=</span><span class="token string">&quot;red&quot;</span><span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">&quot;train,gamma=0&quot;</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">181</span><span class="token punctuation">)</span><span class="token punctuation">,</span>cvresult1<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span>c<span class="token operator">=</span><span class="token string">&quot;orange&quot;</span><span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">&quot;test,gamma=0&quot;</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">181</span><span class="token punctuation">)</span><span class="token punctuation">,</span>cvresult2<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>c<span class="token operator">=</span><span class="token string">&quot;green&quot;</span><span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">&quot;train,gamma=20&quot;</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">181</span><span class="token punctuation">)</span><span class="token punctuation">,</span>cvresult2<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span>c<span class="token operator">=</span><span class="token string">&quot;blue&quot;</span><span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">&quot;test,gamma=20&quot;</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>legend<span class="token punctuation">(</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p><a href="img/image-20200820215148075.png" data-lightbox="9ba10698-c29e-4fdd-99ad-f8caa8bfba35" data-title="image-20200820215148075"><img src="img/image-20200820215148075.png" alt="image-20200820215148075"></a></p>
+<p>&#x4ECE;&#x8FD9;&#x91CC;&#xFF0C;&#x4F60;&#x770B;&#x51FA;gamma&#x662F;&#x5982;&#x4F55;&#x63A7;&#x5236;&#x8FC7;&#x62DF;&#x5408;&#x4E86;&#x5417;&#xFF1F;  </p>
+<p>&#x63A7;&#x5236;&#x8BAD;&#x7EC3;&#x96C6;&#x4E0A;&#x7684;&#x6570;&#x636E;&#x96C6; - &#x964D;&#x4F4E;&#x8BAD;&#x7EC3;&#x96C6;&#x7684;&#x8868;&#x73B0;&#x3002;&#x63D0;&#x9AD8;&#x4E86;&#x6A21;&#x578B;&#x7684;&#x6CDB;&#x5316;&#x80FD;&#x529B;&#x3002;</p>
+<p>&#x4E0B;&#x56FE;&#x4E2D;&#x7684;&#x7B2C;&#x4E09;&#x79CD;&#x3002;</p>
+<p>&#x8BAD;&#x7EC3;&#x96C6;&#x4E0A;&#x7684;&#x8868;&#x73B0;&#x5C55;&#x793A;&#x4E86;&#x6A21;&#x578B;&#x7684;&#x5B66;&#x4E60;&#x80FD;&#x529B;&#xFF0C;&#x6D4B;&#x8BD5;&#x96C6;&#x4E0A;&#x7684;&#x8868;&#x73B0;&#x5C55;&#x793A;&#x4E86;&#x6A21;&#x578B;&#x7684;&#x6CDB;&#x5316;&#x80FD;&#x529B;&#xFF0C;&#x901A;&#x5E38;&#x6A21;&#x578B;&#x5728;&#x6D4B;&#x8BD5;&#x96C6;&#x4E0A;&#x7684;&#x8868;&#x73B0;&#x4E0D;&#x592A;&#x53EF;&#x80FD;&#x8D85;&#x8FC7;&#x8BAD;&#x7EC3;&#x96C6;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x6211;&#x4EEC;&#x7684;&#x6D4B;&#x8BD5;&#x96C6;&#x7684;&#x5B66;&#x4E60;&#x66F2;&#x7EBF;&#x80FD;&#x591F;&#x52AA;&#x529B;&#x903C;&#x8FD1;&#x6211;&#x4EEC;&#x7684;&#x8BAD;&#x7EC3;&#x96C6;&#x7684;&#x5B66;&#x4E60;&#x66F2;&#x7EBF;  &#x3002;</p>
+<p><a href="img/image-20200820215343858.png" data-lightbox="bd2f2ae9-1005-4dd0-af02-1017549aa7fc" data-title="image-20200820215343858"><img src="img/image-20200820215343858.png" alt="image-20200820215343858"></a></p>
+<p>&#x6848;&#x4F8B;</p>
+<pre class="language-"><code class="lang-python">param1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&apos;silent&apos;</span><span class="token punctuation">:</span><span class="token boolean">True</span>
+<span class="token punctuation">,</span><span class="token string">&apos;obj&apos;</span><span class="token punctuation">:</span><span class="token string">&apos;reg:linear&apos;</span>
+<span class="token punctuation">,</span><span class="token string">&quot;subsample&quot;</span><span class="token punctuation">:</span><span class="token number">1</span>
+<span class="token punctuation">,</span><span class="token string">&quot;max_depth&quot;</span><span class="token punctuation">:</span><span class="token number">6</span>
+<span class="token punctuation">,</span><span class="token string">&quot;eta&quot;</span><span class="token punctuation">:</span><span class="token number">0.3</span>
+<span class="token punctuation">,</span><span class="token string">&quot;gamma&quot;</span><span class="token punctuation">:</span><span class="token number">0</span>
+<span class="token punctuation">,</span><span class="token string">&quot;lambda&quot;</span><span class="token punctuation">:</span><span class="token number">1</span>
+<span class="token punctuation">,</span><span class="token string">&quot;alpha&quot;</span><span class="token punctuation">:</span><span class="token number">0</span>
+<span class="token punctuation">,</span><span class="token string">&quot;colsample_bytree&quot;</span><span class="token punctuation">:</span><span class="token number">1</span>
+<span class="token punctuation">,</span><span class="token string">&quot;colsample_bylevel&quot;</span><span class="token punctuation">:</span><span class="token number">1</span>
+<span class="token punctuation">,</span><span class="token string">&quot;colsample_bynode&quot;</span><span class="token punctuation">:</span><span class="token number">1</span>
+<span class="token punctuation">,</span><span class="token string">&quot;nfold&quot;</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">}</span>
+num_round <span class="token operator">=</span> <span class="token number">200</span>
+cvresult1 <span class="token operator">=</span> xgb<span class="token punctuation">.</span>cv<span class="token punctuation">(</span>param1<span class="token punctuation">,</span> dfull<span class="token punctuation">,</span> num_round<span class="token punctuation">)</span>
+
+
+
+<span class="token comment">#&#x8C03;&#x53C2;&#x7ED3;&#x679C;1</span>
+param2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&apos;silent&apos;</span><span class="token punctuation">:</span><span class="token boolean">True</span>
+<span class="token punctuation">,</span><span class="token string">&apos;obj&apos;</span><span class="token punctuation">:</span><span class="token string">&apos;reg:linear&apos;</span>
+<span class="token punctuation">,</span><span class="token string">&quot;subsample&quot;</span><span class="token punctuation">:</span><span class="token number">1</span>
+<span class="token punctuation">,</span><span class="token string">&quot;eta&quot;</span><span class="token punctuation">:</span><span class="token number">0.05</span>
+<span class="token punctuation">,</span><span class="token string">&quot;gamma&quot;</span><span class="token punctuation">:</span><span class="token number">20</span>
+<span class="token punctuation">,</span><span class="token string">&quot;lambda&quot;</span><span class="token punctuation">:</span><span class="token number">3.5</span>
+<span class="token punctuation">,</span><span class="token string">&quot;alpha&quot;</span><span class="token punctuation">:</span><span class="token number">0.2</span>
+<span class="token punctuation">,</span><span class="token string">&quot;max_depth&quot;</span><span class="token punctuation">:</span><span class="token number">4</span>
+<span class="token punctuation">,</span><span class="token string">&quot;colsample_bytree&quot;</span><span class="token punctuation">:</span><span class="token number">0.4</span>
+<span class="token punctuation">,</span><span class="token string">&quot;colsample_bylevel&quot;</span><span class="token punctuation">:</span><span class="token number">0.6</span>
+<span class="token punctuation">,</span><span class="token string">&quot;colsample_bynode&quot;</span><span class="token punctuation">:</span><span class="token number">1</span>
+<span class="token punctuation">,</span><span class="token string">&quot;nfold&quot;</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">}</span>
+<span class="token comment">#&#x8C03;&#x53C2;&#x7ED3;&#x679C;2</span>
+param3 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&apos;silent&apos;</span><span class="token punctuation">:</span><span class="token boolean">True</span>
+<span class="token punctuation">,</span><span class="token string">&apos;obj&apos;</span><span class="token punctuation">:</span><span class="token string">&apos;reg:linear&apos;</span>
+<span class="token punctuation">,</span><span class="token string">&quot;max_depth&quot;</span><span class="token punctuation">:</span><span class="token number">2</span>
+<span class="token punctuation">,</span><span class="token string">&quot;eta&quot;</span><span class="token punctuation">:</span><span class="token number">0.05</span>
+<span class="token punctuation">,</span><span class="token string">&quot;gamma&quot;</span><span class="token punctuation">:</span><span class="token number">0</span>
+<span class="token punctuation">,</span><span class="token string">&quot;lambda&quot;</span><span class="token punctuation">:</span><span class="token number">1</span>
+<span class="token punctuation">,</span><span class="token string">&quot;alpha&quot;</span><span class="token punctuation">:</span><span class="token number">0</span>
+<span class="token punctuation">,</span><span class="token string">&quot;colsample_bytree&quot;</span><span class="token punctuation">:</span><span class="token number">1</span>
+<span class="token punctuation">,</span><span class="token string">&quot;colsample_bylevel&quot;</span><span class="token punctuation">:</span><span class="token number">0.4</span>
+<span class="token punctuation">,</span><span class="token string">&quot;colsample_bynode&quot;</span><span class="token punctuation">:</span><span class="token number">1</span>
+<span class="token punctuation">,</span><span class="token string">&quot;nfold&quot;</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">}</span>
+
+cvresult2 <span class="token operator">=</span> xgb<span class="token punctuation">.</span>cv<span class="token punctuation">(</span>param2<span class="token punctuation">,</span> dfull<span class="token punctuation">,</span> num_round<span class="token punctuation">)</span>
+ax<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">201</span><span class="token punctuation">)</span><span class="token punctuation">,</span>cvresult2<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>c<span class="token operator">=</span><span class="token string">&quot;green&quot;</span><span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">&quot;train,final&quot;</span><span class="token punctuation">)</span>
+ax<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">201</span><span class="token punctuation">)</span><span class="token punctuation">,</span>cvresult2<span class="token punctuation">.</span>iloc<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span>c<span class="token operator">=</span><span class="token string">&quot;blue&quot;</span><span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">&quot;test,final&quot;</span><span class="token punctuation">)</span>
+ax<span class="token punctuation">.</span>legend<span class="token punctuation">(</span>fontsize<span class="token operator">=</span><span class="token string">&quot;xx-large&quot;</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>&#x8C03;&#x53C2;&#x7684;&#x65F6;&#x5019;&#x53C2;&#x6570;&#x7684;&#x987A;&#x5E8F;&#x4F1A;&#x5F71;&#x54CD;&#x8C03;&#x53C2;&#x7ED3;&#x679C;&#x5417;&#xFF1F;</p>
+<p>&#x4F1A;&#x5F71;&#x54CD;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x73B0;&#x5B9E;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x4F18;&#x5148;&#x8C03;&#x6574;&#x90A3;&#x4E9B;&#x5BF9;&#x6A21;&#x578B;&#x5F71;&#x54CD;&#x5DE8;&#x5927;&#x7684;&#x53C2;&#x6570;&#x3002;&#x5728;&#x8FD9;&#x91CC;&#xFF0C;&#x5EFA;&#x8BAE;&#x7684;&#x526A;&#x679D;&#x4E0A;&#x7684;&#x8C03;&#x53C2;&#x987A;&#x5E8F;&#x662F;&#xFF1A;<code>n_estimators</code>&#x4E0E; <code>eta</code>&#x5171;&#x540C;&#x8C03;&#x8282;&#xFF0C;<code>gamma</code>&#x6216;&#x8005;<code>max_depth</code>&#xFF0C;&#x91C7;&#x6837;&#x548C;&#x62BD;&#x6837;&#x53C2;&#x6570;&#xFF08;&#x7EB5;&#x5411;&#x62BD;&#x6837;&#x5F71;&#x54CD;&#x66F4;&#x5927;&#xFF09;&#xFF0C;&#x6700;&#x540E;&#x624D;&#x662F;&#x6B63;&#x5219;&#x5316;
+&#x7684;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x81EA;&#x5DF1;&#x7684;&#x9700;&#x6C42;&#x6765;&#x8FDB;&#x884C;&#x8C03;&#x6574;  </p>
+<p> &#x8C03;&#x53C2;&#x4E4B;&#x540E;&#x6D4B;&#x8BD5;&#x96C6;&#x4E0A;&#x7684;&#x6548;&#x679C;&#x8FD8;&#x6CA1;&#x6709;&#x539F;&#x59CB;&#x8BBE;&#x5B9A;&#x4E0A;&#x7684;&#x6548;&#x679C;&#x597D;&#x600E;&#x4E48;&#x529E;&#xFF1F;</p>
+<p>&#x5982;&#x679C;&#x8C03;&#x53C2;&#x4E4B;&#x540E;&#xFF0C;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;&#x66F2;&#x7EBF;&#x786E;&#x5B9E;&#x663E;&#x793A;&#x6D4B;&#x8BD5;&#x96C6;&#x548C;&#x8BAD;&#x7EC3;&#x96C6;&#x4E0A;&#x7684;&#x6A21;&#x578B;&#x8BC4;&#x4F30;&#x6548;&#x679C;&#x662F;&#x66F4;&#x52A0;&#x63A5;&#x8FD1;&#x7684;&#xFF0C;&#x63A8;&#x8350;&#x4F7F;&#x7528;&#x8C03;&#x53C2;&#x4E4B;&#x540E;&#x7684;&#x6548;&#x679C;&#x3002;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x589E;&#x5F3A;&#x6A21;&#x578B;&#x7684;&#x6CDB;&#x5316;&#x80FD;&#x529B;&#xFF0C;&#x7136;&#x800C;&#x6CDB;&#x5316;&#x80FD;&#x529B;&#x7684;&#x589E;&#x5F3A;&#x5E76;&#x4E0D;&#x4EE3;&#x8868;&#x7740;&#x5728;&#x65B0;&#x6570;&#x636E;&#x96C6;&#x4E0A;&#x6A21;&#x578B;&#x7684;&#x7ED3;&#x679C;&#x4E00;&#x5B9A;&#x4F18;&#x79C0;&#xFF0C;&#x56E0;&#x4E3A;&#x672A;&#x77E5;&#x6570;&#x636E;&#x96C6;
+&#x5E76;&#x975E;&#x4E00;&#x5B9A;&#x7B26;&#x5408;&#x5168;&#x6570;&#x636E;&#x7684;&#x5206;&#x5E03;&#xFF0C;&#x5728;&#x4E00;&#x7EC4;&#x672A;&#x77E5;&#x6570;&#x636E;&#x4E0A;&#x8868;&#x73B0;&#x5341;&#x5206;&#x4F18;&#x79C0;&#xFF0C;&#x4E5F;&#x4E0D;&#x4E00;&#x5B9A;&#x5C31;&#x80FD;&#x591F;&#x5728;&#x5176;&#x4ED6;&#x7684;&#x672A;&#x77E5;&#x6570;&#x636E;&#x96C6;&#x4E0A;&#x8868;&#x73B0;&#x4F18;&#x79C0;&#x3002;&#x56E0;&#x6B64;&#x4E0D;&#x5FC5;&#x8FC7;&#x4E8E;&#x7EA0;&#x7ED3;&#x5728;&#x73B0;&#x6709;&#x7684;&#x6D4B;&#x8BD5;&#x96C6;&#x4E0A;&#x662F;&#x5426;&#x8868;&#x73B0;&#x4F18;&#x79C0;&#x3002;&#x5F53;&#x7136;&#x4E86;&#xFF0C;&#x5728;&#x73B0;&#x6709;&#x6570;&#x636E;&#x4E0A;&#x5982;&#x679C;&#x80FD;&#x591F;&#x5B9E;&#x73B0;&#x8BAD;&#x7EC3;&#x96C6;&#x548C;&#x6D4B;&#x8BD5;&#x96C6;&#x90FD;&#x975E;&#x5E38;&#x4F18;&#x79C0;&#xFF0C;
+&#x90A3;&#x6A21;&#x578B;&#x7684;&#x6CDB;&#x5316;&#x80FD;&#x529B;&#x81EA;&#x7136;&#x4E5F;&#x4F1A;&#x662F;&#x5F88;&#x5F3A;&#x7684;  </p>
+<p><em>property</em> <code>coef_</code></p>
+<p>Coefficients property</p>
+<p>Returns</p>
+<ul>
+<li><strong>coef_</strong></li>
+</ul>
+<p>Return type</p>
+<ul>
+<li>array of shape <code>[n_features]</code> or <code>[n_classes, n_features]</code> </li>
+</ul>
+<p><em>property</em> <code>feature_importances_</code></p>
+<p>Feature importances property</p>
+<p>Returns</p>
+<ul>
+<li><strong>feature<em>importances</em></strong></li>
+</ul>
+<p>Return type</p>
+<ul>
+<li>array of shape <code>[n_features]</code></li>
+</ul>
+<h2 id="xgboost&#x6A21;&#x578B;&#x7684;&#x4FDD;&#x5B58;&#x548C;&#x8C03;&#x7528;"><a name="xgboost&#x6A21;&#x578B;&#x7684;&#x4FDD;&#x5B58;&#x548C;&#x8C03;&#x7528;" class="anchor-navigation-ex-anchor" href="#xgboost&#x6A21;&#x578B;&#x7684;&#x4FDD;&#x5B58;&#x548C;&#x8C03;&#x7528;"><i class="fa fa-link" aria-hidden="true"></i></a>XGBoost&#x6A21;&#x578B;&#x7684;&#x4FDD;&#x5B58;&#x548C;&#x8C03;&#x7528;</h2>
+<p>&#x5728;&#x4F7F;&#x7528;Python&#x8FDB;&#x884C;&#x7F16;&#x7A0B;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x80FD;&#x4F1A;&#x9700;&#x8981;&#x7F16;&#x5199;&#x8F83;&#x4E3A;&#x590D;&#x6742;&#x7684;&#x7A0B;&#x5E8F;&#x6216;&#x8005;&#x5EFA;&#x7ACB;&#x590D;&#x6742;&#x7684;&#x6A21;&#x578B;&#x3002;&#x6BD4;&#x5982;XGBoost&#x6A21;&#x578B;&#xFF0C;&#x8FD9;&#x4E2A;&#x6A21;&#x578B;&#x7684;&#x53C2;&#x6570;&#x590D;&#x6742;&#x7E41;&#x591A;&#xFF0C;&#x5E76;&#x4E14;&#x8C03;&#x53C2;&#x8FC7;&#x7A0B;&#x4E0D;&#x662F;&#x592A;&#x5BB9;&#x6613;&#xFF0C;&#x4E00;&#x65E6;&#x8BAD;&#x7EC3;&#x5B8C;&#x6BD5;&#xFF0C;&#x6211;&#x4EEC;&#x5F80;&#x5F80;&#x5E0C;&#x671B;&#x5C06;&#x8BAD;&#x7EC3;&#x5B8C;&#x6BD5;&#x540E;&#x7684;&#x6A21;&#x578B;&#x4FDD;&#x5B58;&#x4E0B;&#x6765;&#xFF0C;&#x4EE5;&#x4FBF;&#x65E5;&#x540E;&#x7528;&#x4E8E;&#x65B0;&#x7684;&#x6570;&#x636E;&#x96C6;&#x3002;&#x5728;Python&#x4E2D;&#xFF0C;&#x4FDD;&#x5B58;&#x6A21;&#x578B;&#x7684;&#x65B9;&#x6CD5;&#x6709;&#x8BB8;&#x591A;&#x79CD;  &#x3002;</p>
+<h3 id="&#x4F7F;&#x7528;pickle&#x4FDD;&#x5B58;&#x548C;&#x8C03;&#x7528;&#x6A21;&#x578B;"><a name="&#x4F7F;&#x7528;pickle&#x4FDD;&#x5B58;&#x548C;&#x8C03;&#x7528;&#x6A21;&#x578B;" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;pickle&#x4FDD;&#x5B58;&#x548C;&#x8C03;&#x7528;&#x6A21;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F7F;&#x7528;Pickle&#x4FDD;&#x5B58;&#x548C;&#x8C03;&#x7528;&#x6A21;&#x578B;</h3>
+<p><code>pickle</code> &#x662F;python&#x7F16;&#x7A0B;&#x4E2D;&#x6BD4;&#x8F83;&#x6807;&#x51C6;&#x7684;&#x4E00;&#x4E2A;&#x4FDD;&#x5B58;&#x548C;&#x8C03;&#x7528;&#x6A21;&#x578B;&#x7684;&#x5E93;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>pickle</code> &#x548C; <code>open</code> &#x51FD;&#x6570;&#x7684;&#x8FDE;&#x7528;&#xFF0C;&#x6765;&#x5C06;&#x6211;&#x4EEC;&#x7684;&#x6A21;&#x578B;&#x4FDD;&#x5B58;&#x5230;&#x672C;&#x5730;&#x3002;&#x4EE5;&#x521A;&#x624D;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x8C03;&#x6574;&#x597D;&#x7684;&#x53C2;&#x6570;&#x548C;&#x8BAD;&#x7EC3;&#x597D;&#x7684;&#x6A21;&#x578B;&#x4E3A;&#x4F8B;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x6765;&#x4F7F;&#x7528;pickle  </p>
+<pre class="language-"><code class="lang-python"><span class="token keyword">import</span> pickle
+dtrain <span class="token operator">=</span> xgb<span class="token punctuation">.</span>DMatrix<span class="token punctuation">(</span>Xtrain<span class="token punctuation">,</span>Ytrain<span class="token punctuation">)</span>
+<span class="token comment">#&#x8BBE;&#x5B9A;&#x53C2;&#x6570;&#xFF0C;&#x5BF9;&#x6A21;&#x578B;&#x8FDB;&#x884C;&#x8BAD;&#x7EC3;</span>
+param <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&apos;silent&apos;</span><span class="token punctuation">:</span><span class="token boolean">True</span>
+<span class="token punctuation">,</span><span class="token string">&apos;obj&apos;</span><span class="token punctuation">:</span><span class="token string">&apos;reg:linear&apos;</span>
+<span class="token punctuation">,</span><span class="token string">&quot;subsample&quot;</span><span class="token punctuation">:</span><span class="token number">1</span>
+<span class="token punctuation">,</span><span class="token string">&quot;eta&quot;</span><span class="token punctuation">:</span><span class="token number">0.05</span>
+<span class="token punctuation">,</span><span class="token string">&quot;gamma&quot;</span><span class="token punctuation">:</span><span class="token number">20</span>
+<span class="token punctuation">,</span><span class="token string">&quot;lambda&quot;</span><span class="token punctuation">:</span><span class="token number">3.5</span>
+<span class="token punctuation">,</span><span class="token string">&quot;alpha&quot;</span><span class="token punctuation">:</span><span class="token number">0.2</span>
+<span class="token punctuation">,</span><span class="token string">&quot;max_depth&quot;</span><span class="token punctuation">:</span><span class="token number">4</span>
+<span class="token punctuation">,</span><span class="token string">&quot;colsample_bytree&quot;</span><span class="token punctuation">:</span><span class="token number">0.4</span>
+<span class="token punctuation">,</span><span class="token string">&quot;colsample_bylevel&quot;</span><span class="token punctuation">:</span><span class="token number">0.6</span>
+<span class="token punctuation">,</span><span class="token string">&quot;colsample_bynode&quot;</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">}</span>
+num_round <span class="token operator">=</span> <span class="token number">180</span>
+
+
+bst <span class="token operator">=</span> xgb<span class="token punctuation">.</span>train<span class="token punctuation">(</span>param<span class="token punctuation">,</span> dtrain<span class="token punctuation">,</span> num_round<span class="token punctuation">)</span>
+<span class="token comment">#&#x4FDD;&#x5B58;&#x6A21;&#x578B;</span>
+pickle<span class="token punctuation">.</span>dump<span class="token punctuation">(</span>bst<span class="token punctuation">,</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">&quot;xgboostonboston.dat&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;wb&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment">#&#x6CE8;&#x610F;&#xFF0C;open&#x4E2D;&#x6211;&#x4EEC;&#x5F80;&#x5F80;&#x4F7F;&#x7528;w&#x6216;&#x8005;r&#x4F5C;&#x4E3A;&#x8BFB;&#x53D6;&#x7684;&#x6A21;&#x5F0F;&#xFF0C;&#x4F46;&#x5176;&#x5B9E;w&#x4E0E;r&#x53EA;&#x80FD;&#x7528;&#x4E8E;&#x6587;&#x672C;&#x6587;&#x4EF6;&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x5BFC;&#x5165;&#x7684;&#x4E0D;&#x662F;&#x6587;&#x672C;&#x6587;&#x4EF6;&#xFF0C;&#x800C;</span>
+&#x662F;&#x6A21;&#x578B;&#x672C;&#x8EAB;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x4F7F;&#x7528;<span class="token string">&quot;wb&quot;</span>&#x548C;<span class="token string">&quot;rb&quot;</span>&#x4F5C;&#x4E3A;&#x8BFB;&#x53D6;&#x7684;&#x6A21;&#x5F0F;&#x3002;&#x5176;&#x4E2D;wb&#x8868;&#x793A;&#x4EE5;&#x4E8C;&#x8FDB;&#x5236;&#x5199;&#x5165;&#xFF0C;rb&#x8868;&#x793A;&#x4EE5;&#x4E8C;&#x8FDB;&#x5236;&#x8BFB;&#x5165;
+<span class="token comment">#&#x770B;&#x770B;&#x6A21;&#x578B;&#x88AB;&#x4FDD;&#x5B58;&#x5230;&#x4E86;&#x54EA;&#x91CC;&#xFF1F;</span>
+<span class="token keyword">import</span> sys
+sys<span class="token punctuation">.</span>path
+
+
+<span class="token comment">#&#x91CD;&#x65B0;&#x6253;&#x5F00;jupyter lab</span>
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>datasets <span class="token keyword">import</span> load_boston
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>model_selection <span class="token keyword">import</span> train_test_split <span class="token keyword">as</span> TTS
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>metrics <span class="token keyword">import</span> mean_squared_error <span class="token keyword">as</span> MSE
+<span class="token keyword">import</span> pickle
+<span class="token keyword">import</span> xgboost <span class="token keyword">as</span> xgb
+data <span class="token operator">=</span> load_boston<span class="token punctuation">(</span><span class="token punctuation">)</span>
+X <span class="token operator">=</span> data<span class="token punctuation">.</span>data
+y <span class="token operator">=</span> data<span class="token punctuation">.</span>target
+Xtrain<span class="token punctuation">,</span>Xtest<span class="token punctuation">,</span>Ytrain<span class="token punctuation">,</span>Ytest <span class="token operator">=</span> TTS<span class="token punctuation">(</span>X<span class="token punctuation">,</span>y<span class="token punctuation">,</span>test_size<span class="token operator">=</span><span class="token number">0.3</span><span class="token punctuation">,</span>random_state<span class="token operator">=</span><span class="token number">420</span><span class="token punctuation">)</span>
+<span class="token comment">#&#x6CE8;&#x610F;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x4FDD;&#x5B58;&#x7684;&#x6A21;&#x578B;&#x662F;xgboost&#x5E93;&#x4E2D;&#x5EFA;&#x7ACB;&#x7684;&#x6A21;&#x578B;&#xFF0C;&#x5219;&#x5BFC;&#x5165;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x4E5F;&#x5FC5;&#x987B;&#x662F;xgboost&#x5E93;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;</span>
+dtest <span class="token operator">=</span> xgb<span class="token punctuation">.</span>DMatrix<span class="token punctuation">(</span>Xtest<span class="token punctuation">,</span>Ytest<span class="token punctuation">)</span>
+<span class="token comment">#&#x5BFC;&#x5165;&#x6A21;&#x578B;</span>
+loaded_model <span class="token operator">=</span> pickle<span class="token punctuation">.</span>load<span class="token punctuation">(</span><span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">&quot;xgboostonboston.dat&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;rb&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;Loaded model from: xgboostonboston.dat&quot;</span><span class="token punctuation">)</span>
+<span class="token comment">#&#x505A;&#x9884;&#x6D4B;</span>
+ypreds <span class="token operator">=</span> loaded_model<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>dtest<span class="token punctuation">)</span>
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>metrics <span class="token keyword">import</span> mean_squared_error <span class="token keyword">as</span> MSE<span class="token punctuation">,</span> r2_score
+MSE<span class="token punctuation">(</span>Ytest<span class="token punctuation">,</span>ypreds<span class="token punctuation">)</span>
+r2_score<span class="token punctuation">(</span>Ytest<span class="token punctuation">,</span>ypreds<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="&#x4F7F;&#x7528;joblib&#x4FDD;&#x5B58;&#x548C;&#x8C03;&#x7528;&#x6A21;&#x578B;"><a name="&#x4F7F;&#x7528;joblib&#x4FDD;&#x5B58;&#x548C;&#x8C03;&#x7528;&#x6A21;&#x578B;" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;joblib&#x4FDD;&#x5B58;&#x548C;&#x8C03;&#x7528;&#x6A21;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F7F;&#x7528;Joblib&#x4FDD;&#x5B58;&#x548C;&#x8C03;&#x7528;&#x6A21;&#x578B;</h3>
+<p><code>Joblib</code>&#x662F;SciPy&#x751F;&#x6001;&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x5B83;&#x4E3A;Python&#x63D0;&#x4F9B;&#x4FDD;&#x5B58;&#x548C;&#x8C03;&#x7528;&#x7BA1;&#x9053;&#x548C;&#x5BF9;&#x8C61;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x5904;&#x7406;NumPy&#x7ED3;&#x6784;&#x7684;&#x6570;&#x636E;&#x5C24;&#x5176;&#x9AD8;&#x6548;&#xFF0C;&#x5BF9;&#x4E8E;&#x5F88;&#x5927;&#x7684;&#x6570;&#x636E;&#x96C6;&#x548C;&#x5DE8;&#x5927;&#x7684;&#x6A21;&#x578B;&#x975E;&#x5E38;&#x6709;&#x7528;&#x3002;Joblib&#x4E0E;pickle API&#x975E;&#x5E38;&#x76F8;&#x4F3C;&#xFF0C;&#x6765;&#x770B;&#x770B;&#x4EE3;&#x7801;&#xFF1A;  </p>
+<pre class="language-"><code class="lang-python">bst <span class="token operator">=</span> xgb<span class="token punctuation">.</span>train<span class="token punctuation">(</span>param<span class="token punctuation">,</span> dtrain<span class="token punctuation">,</span> num_round<span class="token punctuation">)</span>
+<span class="token keyword">import</span> joblib
+
+<span class="token comment">#&#x540C;&#x6837;&#x53EF;&#x4EE5;&#x770B;&#x770B;&#x6A21;&#x578B;&#x88AB;&#x4FDD;&#x5B58;&#x5230;&#x4E86;&#x54EA;&#x91CC;</span>
+joblib<span class="token punctuation">.</span>dump<span class="token punctuation">(</span>bst<span class="token punctuation">,</span><span class="token string">&quot;xgboost-boston.dat&quot;</span><span class="token punctuation">)</span>
+loaded_model <span class="token operator">=</span> joblib<span class="token punctuation">.</span>load<span class="token punctuation">(</span><span class="token string">&quot;xgboost-boston.dat&quot;</span><span class="token punctuation">)</span>
+ypreds <span class="token operator">=</span> loaded_model<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>dtest<span class="token punctuation">)</span>
+MSE<span class="token punctuation">(</span>Ytest<span class="token punctuation">,</span> ypreds<span class="token punctuation">)</span>
+r2_score<span class="token punctuation">(</span>Ytest<span class="token punctuation">,</span>ypreds<span class="token punctuation">)</span>
+<span class="token comment">#&#x4F7F;&#x7528;sklearn&#x4E2D;&#x7684;&#x6A21;&#x578B;</span>
+<span class="token keyword">from</span> xgboost <span class="token keyword">import</span> XGBRegressor <span class="token keyword">as</span> XGBR
+bst <span class="token operator">=</span> XGBR<span class="token punctuation">(</span>n_estimators<span class="token operator">=</span><span class="token number">200</span>
+            <span class="token punctuation">,</span>eta<span class="token operator">=</span><span class="token number">0.05</span><span class="token punctuation">,</span>gamma<span class="token operator">=</span><span class="token number">20</span>
+            <span class="token punctuation">,</span>reg_lambda<span class="token operator">=</span><span class="token number">3.5</span>
+            <span class="token punctuation">,</span>reg_alpha<span class="token operator">=</span><span class="token number">0.2</span>
+            <span class="token punctuation">,</span>max_depth<span class="token operator">=</span><span class="token number">4</span>
+            <span class="token punctuation">,</span>colsample_bytree<span class="token operator">=</span><span class="token number">0.4</span>
+            <span class="token punctuation">,</span>colsample_bylevel<span class="token operator">=</span><span class="token number">0.6</span><span class="token punctuation">)</span><span class="token punctuation">.</span>fit<span class="token punctuation">(</span>Xtrain<span class="token punctuation">,</span>Ytrain<span class="token punctuation">)</span>
+joblib<span class="token punctuation">.</span>dump<span class="token punctuation">(</span>bst<span class="token punctuation">,</span><span class="token string">&quot;xgboost-boston.dat&quot;</span><span class="token punctuation">)</span>
+loaded_model <span class="token operator">=</span> joblib<span class="token punctuation">.</span>load<span class="token punctuation">(</span><span class="token string">&quot;xgboost-boston.dat&quot;</span><span class="token punctuation">)</span>
+<span class="token comment">#&#x5219;&#x8FD9;&#x91CC;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5BFC;&#x5165;Xtest</span>
+ypreds <span class="token operator">=</span> loaded_model<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>Xtest<span class="token punctuation">)</span>
+MSE<span class="token punctuation">(</span>Ytest<span class="token punctuation">,</span> ypreds<span class="token punctuation">)</span>
+</code></pre>
+<h2 id="&#x5206;&#x7C7B;&#x6848;&#x4F8B;&#xFF1A;xgb&#x4E2D;&#x7684;&#x6837;&#x672C;&#x4E0D;&#x5747;&#x8861;&#x95EE;&#x9898;"><a name="&#x5206;&#x7C7B;&#x6848;&#x4F8B;&#xFF1A;xgb&#x4E2D;&#x7684;&#x6837;&#x672C;&#x4E0D;&#x5747;&#x8861;&#x95EE;&#x9898;" class="anchor-navigation-ex-anchor" href="#&#x5206;&#x7C7B;&#x6848;&#x4F8B;&#xFF1A;xgb&#x4E2D;&#x7684;&#x6837;&#x672C;&#x4E0D;&#x5747;&#x8861;&#x95EE;&#x9898;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5206;&#x7C7B;&#x6848;&#x4F8B;&#xFF1A;XGB&#x4E2D;&#x7684;&#x6837;&#x672C;&#x4E0D;&#x5747;&#x8861;&#x95EE;&#x9898;</h2>
+<p>&#x5B58;&#x5728;&#x5206;&#x7C7B;&#xFF0C;&#x5C31;&#x4F1A;&#x5B58;&#x5728;&#x6837;&#x672C;&#x4E0D;&#x5E73;&#x8861;&#x95EE;&#x9898;&#x5E26;&#x6765;&#x7684;&#x5F71;&#x54CD;&#xFF0C;XGB&#x4E2D;&#x5B58;&#x5728;&#x7740;&#x8C03;&#x8282;&#x6837;&#x672C;&#x4E0D;&#x5E73;&#x8861;&#x7684;&#x53C2;&#x6570; <code>scale_pos_weight</code>&#xFF0C;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x975E;&#x5E38;&#x7C7B;&#x4F3C;&#x4E8E;&#x4E4B;&#x524D;&#x968F;&#x673A;&#x68EE;&#x6797;&#x548C;&#x652F;&#x6301;&#x5411;&#x91CF;&#x673A;&#x4E2D;&#x6211;&#x4EEC;&#x90FD;&#x4F7F;&#x7528;&#x5230;&#x8FC7;&#x7684;class_weight&#x53C2;&#x6570;&#xFF0C;&#x901A;&#x5E38;&#x6211;&#x4EEC;&#x5728;&#x53C2;&#x6570;&#x4E2D;&#x8F93;&#x5165;&#x7684;&#x662F;&#x8D1F;&#x6837;&#x672C;&#x91CF;&#x4E0E;&#x6B63;&#x6837;&#x672C;&#x91CF;&#x4E4B;&#x6BD4;  <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><mtext><mi mathvariant="normal">s</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">m</mi></mtext><mo>(</mo><mtext><mi mathvariant="normal">n</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">g</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">v</mi><mi mathvariant="normal">e</mi><mtext>&#xA0;</mtext><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">c</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">s</mi></mtext><mo>)</mo></mrow><mrow><mtext><mi mathvariant="normal">s</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">m</mi></mtext><mo>(</mo><mtext><mi mathvariant="normal">p</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">v</mi><mi mathvariant="normal">e</mi><mtext>&#xA0;</mtext><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">c</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">s</mi></mtext><mo>)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{\text {sum}(\text {negative instances})}{\text {sum}(\text {positive instances})}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.01em;"></span><span class="strut bottom" style="height:1.53em;vertical-align:-0.52em;"></span><span class="base textstyle uncramped"><span class="mord reset-textstyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.34500000000000003em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord text scriptstyle cramped mtight"><span class="mord mathrm mtight">sum</span></span><span class="mopen mtight">(</span><span class="mord text scriptstyle cramped mtight"><span class="mord mathrm mtight">positive&#xA0;instances</span></span><span class="mclose mtight">)</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.485em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord text scriptstyle uncramped mtight"><span class="mord mathrm mtight">sum</span></span><span class="mopen mtight">(</span><span class="mord text scriptstyle uncramped mtight"><span class="mord mathrm mtight">negative&#xA0;instances</span></span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span></p>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;&#x542B;&#x4E49;</th>
+<th>xgb.train()</th>
+<th>xgb.XGBClassifier()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x63A7;&#x5236;&#x6B63;&#x8D1F;&#x6837;&#x672C;&#x6BD4;&#x4F8B;&#xFF0C;&#x8868;&#x793A;&#x4E3A;&#x8D1F;/&#x6B63;&#x6837;&#x672C;&#x6BD4;&#x4F8B; &#x5728;&#x6837;&#x672C;&#x4E0D;&#x5E73;&#x8861;&#x95EE;&#x9898;&#x4E2D;&#x4F7F;&#x7528;</td>
+<td>scale_pos_weight&#xFF0C;&#x9ED8;&#x8BA4;1</td>
+<td>scale_pos_weight&#xFF0C;&#x9ED8;&#x8BA4;1</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5BFC;&#x5E93;&#xFF0C;&#x521B;&#x5EFA;&#x6837;&#x672C;&#x4E0D;&#x5747;&#x8861;&#x7684;&#x6570;&#x636E;&#x96C6;  </p>
+<pre class="language-"><code class="lang-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">import</span> xgboost <span class="token keyword">as</span> xgb
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+<span class="token keyword">from</span> xgboost <span class="token keyword">import</span> XGBClassifier <span class="token keyword">as</span> XGBC
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>datasets <span class="token keyword">import</span> make_blobs
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>model_selection <span class="token keyword">import</span> train_test_split <span class="token keyword">as</span> TTS
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>metrics <span class="token keyword">import</span> confusion_matrix <span class="token keyword">as</span> cm<span class="token punctuation">,</span> recall_score <span class="token keyword">as</span> recall<span class="token punctuation">,</span> roc_auc_score
+<span class="token keyword">as</span> auc
+class_1 <span class="token operator">=</span> <span class="token number">500</span> <span class="token comment">#&#x7C7B;&#x522B;1&#x6709;500&#x4E2A;&#x6837;&#x672C;</span>
+class_2 <span class="token operator">=</span> <span class="token number">50</span> <span class="token comment">#&#x7C7B;&#x522B;2&#x53EA;&#x6709;50&#x4E2A;</span>
+centers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">2.0</span><span class="token punctuation">,</span> <span class="token number">2.0</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token comment">#&#x8BBE;&#x5B9A;&#x4E24;&#x4E2A;&#x7C7B;&#x522B;&#x7684;&#x4E2D;&#x5FC3;</span>
+clusters_std <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1.5</span><span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">]</span> <span class="token comment">#&#x8BBE;&#x5B9A;&#x4E24;&#x4E2A;&#x7C7B;&#x522B;&#x7684;&#x65B9;&#x5DEE;&#xFF0C;&#x901A;&#x5E38;&#x6765;&#x8BF4;&#xFF0C;&#x6837;&#x672C;&#x91CF;&#x6BD4;&#x8F83;&#x5927;&#x7684;&#x7C7B;&#x522B;&#x4F1A;&#x66F4;&#x52A0;&#x677E;&#x6563;</span>
+X<span class="token punctuation">,</span> y <span class="token operator">=</span> make_blobs<span class="token punctuation">(</span>n_samples<span class="token operator">=</span><span class="token punctuation">[</span>class_1<span class="token punctuation">,</span> class_2<span class="token punctuation">]</span><span class="token punctuation">,</span>
+centers<span class="token operator">=</span>centers<span class="token punctuation">,</span>
+cluster_std<span class="token operator">=</span>clusters_std<span class="token punctuation">,</span>
+random_state<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> shuffle<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+Xtrain<span class="token punctuation">,</span> Xtest<span class="token punctuation">,</span> Ytrain<span class="token punctuation">,</span> Ytest <span class="token operator">=</span> TTS<span class="token punctuation">(</span>X<span class="token punctuation">,</span>y<span class="token punctuation">,</span>test_size<span class="token operator">=</span><span class="token number">0.3</span><span class="token punctuation">,</span>random_state<span class="token operator">=</span><span class="token number">420</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span>y <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">/</span> y<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token comment">#&#x4E0D;&#x5E73;&#x8861;&#x6837;&#x672C;&#x7684;&#x6BD4;&#x7387;</span>
+</code></pre>
+<p>&#x5728;&#x6570;&#x636E;&#x96C6;&#x4E0A;&#x5EFA;&#x6A21;&#xFF1A;sklearn&#x6A21;&#x5F0F;  </p>
+<pre class="language-"><code class="lang-python"><span class="token comment">#&#x5728;sklearn&#x4E0B;&#x5EFA;&#x6A21;#</span>
+clf <span class="token operator">=</span> XGBC<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>fit<span class="token punctuation">(</span>Xtrain<span class="token punctuation">,</span>Ytrain<span class="token punctuation">)</span>
+ypred <span class="token operator">=</span> clf<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>Xtest<span class="token punctuation">)</span>
+clf<span class="token punctuation">.</span>score<span class="token punctuation">(</span>Xtest<span class="token punctuation">,</span>Ytest<span class="token punctuation">)</span>
+cm<span class="token punctuation">(</span>Ytest<span class="token punctuation">,</span>ypred<span class="token punctuation">,</span>labels<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+recall<span class="token punctuation">(</span>Ytest<span class="token punctuation">,</span>ypred<span class="token punctuation">)</span>
+auc<span class="token punctuation">(</span>Ytest<span class="token punctuation">,</span>clf<span class="token punctuation">.</span>predict_proba<span class="token punctuation">(</span>Xtest<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment">#&#x8D1F;/&#x6B63;&#x6837;&#x672C;&#x6BD4;&#x4F8B;</span>
+clf_ <span class="token operator">=</span> XGBC<span class="token punctuation">(</span>scale_pos_weight<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">.</span>fit<span class="token punctuation">(</span>Xtrain<span class="token punctuation">,</span>Ytrain<span class="token punctuation">)</span>
+ypred_ <span class="token operator">=</span> clf_<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>Xtest<span class="token punctuation">)</span>
+clf_<span class="token punctuation">.</span>score<span class="token punctuation">(</span>Xtest<span class="token punctuation">,</span>Ytest<span class="token punctuation">)</span>
+cm<span class="token punctuation">(</span>Ytest<span class="token punctuation">,</span>ypred_<span class="token punctuation">,</span>labels<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+recall<span class="token punctuation">(</span>Ytest<span class="token punctuation">,</span>ypred_<span class="token punctuation">)</span>
+auc<span class="token punctuation">(</span>Ytest<span class="token punctuation">,</span>clf_<span class="token punctuation">.</span>predict_proba<span class="token punctuation">(</span>Xtest<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment">#&#x968F;&#x7740;&#x6837;&#x672C;&#x6743;&#x91CD;&#x9010;&#x6E10;&#x589E;&#x52A0;&#xFF0C;&#x6A21;&#x578B;&#x7684;recall,auc&#x548C;&#x51C6;&#x786E;&#x7387;&#x5982;&#x4F55;&#x53D8;&#x5316;&#xFF1F;</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+    clf_ <span class="token operator">=</span> XGBC<span class="token punctuation">(</span>scale_pos_weight<span class="token operator">=</span>i<span class="token punctuation">)</span><span class="token punctuation">.</span>fit<span class="token punctuation">(</span>Xtrain<span class="token punctuation">,</span>Ytrain<span class="token punctuation">)</span>
+    ypred_ <span class="token operator">=</span> clf_<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>Xtest<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;\tAccuracy:{}&quot;</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>clf_<span class="token punctuation">.</span>score<span class="token punctuation">(</span>Xtest<span class="token punctuation">,</span>Ytest<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;\tRecall:{}&quot;</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>recall<span class="token punctuation">(</span>Ytest<span class="token punctuation">,</span>ypred_<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;\tAUC:{}&quot;</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>auc<span class="token punctuation">(</span>Ytest<span class="token punctuation">,</span>clf_<span class="token punctuation">.</span>predict_proba<span class="token punctuation">(</span>Xtest<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>&#x5728;&#x6570;&#x636E;&#x96C6;&#x4E0A;&#x5EFA;&#x6A21;&#xFF1A;xgboost&#x6A21;&#x5F0F;  </p>
+<pre class="language-"><code class="lang-python">dtrain <span class="token operator">=</span> xgb<span class="token punctuation">.</span>DMatrix<span class="token punctuation">(</span>Xtrain<span class="token punctuation">,</span>Ytrain<span class="token punctuation">)</span>
+dtest <span class="token operator">=</span> xgb<span class="token punctuation">.</span>DMatrix<span class="token punctuation">(</span>Xtest<span class="token punctuation">,</span>Ytest<span class="token punctuation">)</span>
+<span class="token comment">#&#x770B;&#x770B;xgboost&#x5E93;&#x81EA;&#x5E26;&#x7684;predict&#x63A5;&#x53E3;</span>
+param<span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&apos;silent&apos;</span><span class="token punctuation">:</span><span class="token boolean">True</span><span class="token punctuation">,</span><span class="token string">&apos;objective&apos;</span><span class="token punctuation">:</span><span class="token string">&apos;binary:logistic&apos;</span><span class="token punctuation">,</span><span class="token string">&quot;eta&quot;</span><span class="token punctuation">:</span><span class="token number">0.1</span><span class="token punctuation">,</span><span class="token string">&quot;scale_pos_weight&quot;</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">}</span>
+num_round <span class="token operator">=</span> <span class="token number">100</span>
+bst <span class="token operator">=</span> xgb<span class="token punctuation">.</span>train<span class="token punctuation">(</span>param<span class="token punctuation">,</span> dtrain<span class="token punctuation">,</span> num_round<span class="token punctuation">)</span>
+preds <span class="token operator">=</span> bst<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>dtest<span class="token punctuation">)</span>
+<span class="token comment">#&#x770B;&#x770B;preds&#x8FD4;&#x56DE;&#x4E86;&#x4EC0;&#x4E48;&#xFF1F;</span>
+preds
+<span class="token comment">#&#x81EA;&#x5DF1;&#x8BBE;&#x5B9A;&#x9608;&#x503C;</span>
+ypred <span class="token operator">=</span> preds<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span>
+ypred<span class="token punctuation">[</span>preds <span class="token operator">&gt;</span> <span class="token number">0.5</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+ypred<span class="token punctuation">[</span>ypred <span class="token operator">!=</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token comment">#&#x5199;&#x660E;&#x53C2;&#x6570;</span>
+scale_pos_weight <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">]</span>
+names <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&quot;negative vs positive: 1&quot;</span>
+        <span class="token punctuation">,</span><span class="token string">&quot;negative vs positive: 5&quot;</span>
+        <span class="token punctuation">,</span><span class="token string">&quot;negative vs positive: 10&quot;</span><span class="token punctuation">]</span>
+<span class="token comment">#&#x5BFC;&#x5165;&#x6A21;&#x578B;&#x8BC4;&#x4F30;&#x6307;&#x6807;</span>
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>metrics <span class="token keyword">import</span> accuracy_score <span class="token keyword">as</span> accuracy<span class="token punctuation">,</span> recall_score <span class="token keyword">as</span> recall<span class="token punctuation">,</span>
+roc_auc_score <span class="token keyword">as</span> auc
+<span class="token keyword">for</span> name<span class="token punctuation">,</span>i <span class="token keyword">in</span> <span class="token builtin">zip</span><span class="token punctuation">(</span>names<span class="token punctuation">,</span>scale_pos_weight<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    param<span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&apos;silent&apos;</span><span class="token punctuation">:</span><span class="token boolean">True</span><span class="token punctuation">,</span><span class="token string">&apos;objective&apos;</span><span class="token punctuation">:</span><span class="token string">&apos;binary:logistic&apos;</span>
+            <span class="token punctuation">,</span><span class="token string">&quot;eta&quot;</span><span class="token punctuation">:</span><span class="token number">0.1</span><span class="token punctuation">,</span><span class="token string">&quot;scale_pos_weight&quot;</span><span class="token punctuation">:</span>i<span class="token punctuation">}</span>
+    clf <span class="token operator">=</span> xgb<span class="token punctuation">.</span>train<span class="token punctuation">(</span>param<span class="token punctuation">,</span> dtrain<span class="token punctuation">,</span> num_round<span class="token punctuation">)</span>
+    preds <span class="token operator">=</span> clf<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>dtest<span class="token punctuation">)</span>  <span class="token comment">#&#x8FD4;&#x56DE;&#x7684;&#x65F6;&#x6837;&#x672C;&#x7684;&#x6982;&#x7387;</span>
+    ypred <span class="token operator">=</span> preds<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    ypred<span class="token punctuation">[</span>preds <span class="token operator">&gt;</span> <span class="token number">0.5</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>  <span class="token comment">#&#x91C7;&#x7528;&#x5E03;&#x5C14;&#x7D22;&#x5F15;&#xFF0C;&#x4E3A;&#x4E0D;&#x540C;&#x6982;&#x7387;&#x7684;&#x6837;&#x672C;&#x6DFB;&#x52A0;&#x5BF9;&#x5E94;&#x7684;&#x6807;&#x7B7E;</span>
+    ypred<span class="token punctuation">[</span>ypred <span class="token operator">!=</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;\tAccuracy:{}&quot;</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>accuracy<span class="token punctuation">(</span>Ytest<span class="token punctuation">,</span>ypred<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;\tRecall:{}&quot;</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>recall<span class="token punctuation">(</span>Ytest<span class="token punctuation">,</span>ypred<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;\tAUC:{}&quot;</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>auc<span class="token punctuation">(</span>Ytest<span class="token punctuation">,</span>preds<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class="language-"><code class="lang-python"><span class="token comment">#&#x5F53;&#x7136;&#x6211;&#x4EEC;&#x4E5F;&#x53EF;&#x4EE5;&#x5C1D;&#x8BD5;&#x4E0D;&#x540C;&#x7684;&#x9608;&#x503C;</span>
+<span class="token keyword">for</span> name<span class="token punctuation">,</span>i <span class="token keyword">in</span> <span class="token builtin">zip</span><span class="token punctuation">(</span>names<span class="token punctuation">,</span>scale_pos_weight<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> thres <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token number">0.3</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">,</span><span class="token number">0.7</span><span class="token punctuation">,</span><span class="token number">0.9</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        param<span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&apos;silent&apos;</span><span class="token punctuation">:</span><span class="token boolean">True</span><span class="token punctuation">,</span><span class="token string">&apos;objective&apos;</span><span class="token punctuation">:</span><span class="token string">&apos;binary:logistic&apos;</span>
+                <span class="token punctuation">,</span><span class="token string">&quot;eta&quot;</span><span class="token punctuation">:</span><span class="token number">0.1</span><span class="token punctuation">,</span><span class="token string">&quot;scale_pos_weight&quot;</span><span class="token punctuation">:</span>i<span class="token punctuation">}</span>
+        clf <span class="token operator">=</span> xgb<span class="token punctuation">.</span>train<span class="token punctuation">(</span>param<span class="token punctuation">,</span> dtrain<span class="token punctuation">,</span> num_round<span class="token punctuation">)</span>
+        preds <span class="token operator">=</span> clf<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>dtest<span class="token punctuation">)</span>
+        ypred <span class="token operator">=</span> preds<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        ypred<span class="token punctuation">[</span>preds <span class="token operator">&gt;</span> thres<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+        ypred<span class="token punctuation">[</span>ypred <span class="token operator">!=</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;{},thresholds:{}&quot;</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>thres<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;\tAccuracy:{}&quot;</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>accuracy<span class="token punctuation">(</span>Ytest<span class="token punctuation">,</span>ypred<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;\tRecall:{}&quot;</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>recall<span class="token punctuation">(</span>Ytest<span class="token punctuation">,</span>ypred<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;\tAUC:{}&quot;</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>auc<span class="token punctuation">(</span>Ytest<span class="token punctuation">,</span>preds<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="xgboost&#x7C7B;&#x4E2D;&#x7684;&#x5176;&#x4ED6;&#x53C2;&#x6570;&#x548C;&#x529F;&#x80FD;"><a name="xgboost&#x7C7B;&#x4E2D;&#x7684;&#x5176;&#x4ED6;&#x53C2;&#x6570;&#x548C;&#x529F;&#x80FD;" class="anchor-navigation-ex-anchor" href="#xgboost&#x7C7B;&#x4E2D;&#x7684;&#x5176;&#x4ED6;&#x53C2;&#x6570;&#x548C;&#x529F;&#x80FD;"><i class="fa fa-link" aria-hidden="true"></i></a>XGBoost&#x7C7B;&#x4E2D;&#x7684;&#x5176;&#x4ED6;&#x53C2;&#x6570;&#x548C;&#x529F;&#x80FD;</h2>
+<p><a href="img/image-20200821102614968.png" data-lightbox="d31554a2-f0a8-4abf-92b5-fb25a766c7af" data-title="image-20200821102614968"><img src="img/image-20200821102614968.png" alt="image-20200821102614968"></a></p>
+<ul>
+<li><p>&#x66F4;&#x591A;&#x8BA1;&#x7B97;&#x8D44;&#x6E90;&#xFF1A;<code>n_jobs</code>
+nthread&#x548C;n_jobs&#x90FD;&#x662F;&#x7B97;&#x6CD5;&#x8FD0;&#x884C;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x7EBF;&#x7A0B;&#xFF0C;&#x4E0E;sklearn&#x4E2D;&#x89C4;&#x5219;&#x4E00;&#x6837;&#xFF0C;&#x8F93;&#x5165;&#x6574;&#x6570;&#x8868;&#x793A;&#x4F7F;&#x7528;&#x7684;&#x7EBF;&#x7A0B;&#xFF0C;&#x8F93;&#x5165;-1&#x8868;&#x793A;&#x4F7F;&#x7528;&#x8BA1;&#x7B97;&#x673A;&#x5168;&#x90E8;&#x7684;&#x8BA1;&#x7B97;&#x8D44;&#x6E90;&#x3002;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x7684;&#x6570;&#x636E;&#x91CF;&#x5F88;&#x5927;&#xFF0C;&#x5219;&#x6211;&#x4EEC;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x6765;&#x4E3A;&#x6211;&#x4EEC;&#x8C03;&#x7528;&#x66F4;&#x591A;&#x7EBF;&#x7A0B;  </p>
+</li>
+<li><p>&#x964D;&#x4F4E;&#x5B66;&#x4E60;&#x96BE;&#x5EA6;&#xFF1A;<code>base_score</code>
+base_score&#x662F;&#x4E00;&#x4E2A;&#x6BD4;&#x8F83;&#x5BB9;&#x6613;&#x88AB;&#x6DF7;&#x6DC6;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x5B83;&#x88AB;&#x53EB;&#x505A;&#x5168;&#x5C40;&#x504F;&#x5DEE;&#xFF0C;&#x5728;&#x5206;&#x7C7B;&#x95EE;&#x9898;&#x4E2D;&#xFF0C;&#x5B83;&#x662F;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x5173;&#x6CE8;&#x7684;&#x5206;&#x7C7B;&#x7684;&#x5148;&#x9A8C;&#x6982;&#x7387;&#x3002;&#x6BD4;&#x5982;&#x8BF4;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x6709;1000&#x4E2A;&#x6837;&#x672C;&#xFF0C;&#x5176;&#x4E2D;300&#x4E2A;&#x6B63;&#x6837;&#x672C;&#xFF0C;700&#x4E2A;&#x8D1F;&#x6837;&#x672C;&#xFF0C;&#x5219;base_score&#x5C31;&#x662F;0.3&#x3002;&#x5BF9;&#x4E8E;&#x56DE;&#x5F52;&#x6765;&#x8BF4;&#xFF0C;&#x8FD9;&#x4E2A;&#x5206;&#x6570;&#x9ED8;&#x8BA4;0.5&#xFF0C;&#x4F46;&#x5176;&#x5B9E;&#x8FD9;&#x4E2A;&#x5206;&#x6570;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#x5E76;&#x4E0D;&#x6709;&#x6548;&#x3002;&#x8BB8;&#x591A;&#x4F7F;&#x7528;XGBoost&#x7684;&#x4EBA;&#x5DF2;&#x7ECF;&#x63D0;&#x51FA;&#xFF0C;&#x5F53;&#x4F7F;&#x7528;&#x56DE;&#x5F52;&#x7684;&#x65F6;&#x5019;base_score&#x7684;&#x9ED8;&#x8BA4;&#x5E94;&#x8BE5;&#x662F;&#x6807;&#x7B7E;&#x7684;&#x5747;&#x503C;&#xFF0C;&#x4E0D;&#x8FC7;&#x73B0;&#x5728;xgboost&#x5E93;&#x5C1A;&#x672A;&#x5BF9;&#x6B64;&#x505A;&#x51FA;&#x6539;&#x8FDB;&#x3002;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x6211;&#x4EEC;&#x4FBF;&#x662F;&#x5728;&#x544A;&#x8BC9;&#x6A21;&#x578B;&#x4E00;&#x4E9B;&#x6211;&#x4EEC;&#x4E86;&#x89E3;&#x4F46;&#x6A21;&#x578B;&#x4E0D;&#x4E00;&#x5B9A;&#x80FD;&#x591F;&#x4ECE;&#x6570;&#x636E;&#x4E2D;&#x5B66;&#x4E60;&#x5230;&#x7684;&#x4FE1;&#x606F;&#x3002;&#x901A;&#x5E38;&#x6211;&#x4EEC;&#x4E0D;&#x4F1A;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x4F46;&#x5BF9;&#x4E8E;&#x4E25;&#x91CD;&#x7684;&#x6837;&#x672C;&#x4E0D;&#x5747;&#x8861;&#x95EE;&#x9898;&#xFF0C;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x6B63;&#x786E;&#x7684;base_score&#x53D6;&#x503C;&#x662F;&#x5F88;&#x6709;&#x5FC5;&#x8981;&#x7684;&#x3002;  </p>
+</li>
+<li><p>&#x751F;&#x6210;&#x6811;&#x7684;&#x968F;&#x673A;&#x6A21;&#x5F0F;&#xFF1A;<code>random_state</code>
+&#x5728;xgb&#x5E93;&#x548C;sklearn&#x4E2D;&#xFF0C;&#x90FD;&#x5B58;&#x5728;&#x7A7A;&#x503C;&#x751F;&#x6210;&#x6811;&#x7684;&#x968F;&#x673A;&#x6A21;&#x5F0F;&#x7684;&#x53C2;&#x6570;random_state&#x3002;&#x5728;&#x4E4B;&#x524D;&#x7684;&#x526A;&#x679D;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x63D0;&#x5230;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x968F;
+&#x673A;&#x62BD;&#x6837;&#x6837;&#x672C;&#xFF0C;&#x968F;&#x673A;&#x62BD;&#x6837;&#x7279;&#x5F81;&#x6765;&#x51CF;&#x8F7B;&#x8FC7;&#x62DF;&#x5408;&#x7684;&#x5F71;&#x54CD;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5176;&#x4ED6;&#x53C2;&#x6570;&#x6765;&#x5F71;&#x54CD;&#x968F;&#x673A;&#x62BD;&#x6837;&#x7684;&#x6BD4;&#x4F8B;&#xFF0C;&#x5374;&#x65E0;&#x6CD5;&#x5BF9;&#x968F;&#x673A;&#x62BD;&#x6837;
+&#x5E72;&#x6D89;&#x66F4;&#x591A;&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;&#x771F;&#x6B63;&#x7684;&#x968F;&#x673A;&#x6027;&#x8FD8;&#x662F;&#x7531;&#x6A21;&#x578B;&#x81EA;&#x5DF1;&#x751F;&#x6210;&#x7684;&#x3002;&#x5982;&#x679C;&#x5E0C;&#x671B;&#x63A7;&#x5236;&#x8FD9;&#x79CD;&#x968F;&#x673A;&#x6027;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;random_state&#x53C2;&#x6570;&#x4E2D;&#x8F93;
+&#x5165;&#x56FA;&#x5B9A;&#x6574;&#x6570;&#x3002;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;xgb&#x5E93;&#x548C;sklearn&#x5E93;&#x4E2D;&#xFF0C;&#x5728;random_state&#x53C2;&#x6570;&#x4E2D;&#x8F93;&#x5165;&#x540C;&#x4E00;&#x4E2A;&#x6574;&#x6570;&#x672A;&#x5FC5;&#x8868;&#x793A;&#x540C;&#x4E00;&#x4E2A;&#x968F;&#x673A;&#x6A21;
+&#x5F0F;&#xFF0C;&#x4E0D;&#x4E00;&#x5B9A;&#x4F1A;&#x5F97;&#x5230;&#x76F8;&#x540C;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x56E0;&#x6B64;&#x5BFC;&#x81F4;&#x6A21;&#x578B;&#x7684;feature_importances&#x4E5F;&#x4F1A;&#x4E0D;&#x4E00;&#x81F4;&#x3002;  </p>
+</li>
+<li><p>&#x81EA;&#x52A8;&#x5904;&#x7406;&#x7F3A;&#x5931;&#x503C;&#xFF1A;<code>missing</code></p>
+<p>XGBoost&#x88AB;&#x8BBE;&#x8BA1;&#x6210;&#x662F;&#x80FD;&#x591F;&#x81EA;&#x52A8;&#x5904;&#x7406;&#x7F3A;&#x5931;&#x503C;&#x7684;&#x6A21;&#x578B;&#xFF0C;&#x8FD9;&#x4E2A;&#x8BBE;&#x8BA1;&#x7684;&#x521D;&#x8877;&#x5176;&#x5B9E;&#x662F;&#x4E3A;&#x4E86;&#x8BA9;XGBoost&#x80FD;&#x591F;&#x5904;&#x7406;&#x7A00;&#x758F;&#x77E9;&#x9635;&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;&#x53C2;&#x6570;missing&#x4E2D;&#x8F93;&#x5165;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x6BD4;&#x5982;np.nan&#xFF0C;&#x6216;&#x6570;&#x636E;&#x7684;&#x4EFB;&#x610F;&#x53D6;&#x503C;&#xFF0C;&#x8868;&#x793A;&#x5C06;&#x6240;&#x6709;&#x542B;&#x6709;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x6570;&#x636E;&#x4F5C;&#x4E3A;&#x7A7A;&#x503C;&#x5904;&#x7406;&#x3002;XGBoost&#x4F1A;&#x5C06;&#x6240;&#x6709;&#x7684;&#x7A7A;&#x503C;&#x5F53;&#x4F5C;&#x7A00;&#x758F;&#x77E9;&#x9635;&#x4E2D;&#x7684;0&#x6765;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x4F7F;&#x7528;XGBoost&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x4E5F;&#x53EF;&#x4EE5;&#x4E0D;&#x5904;&#x7406;&#x7F3A;&#x5931;&#x503C;&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x901A;&#x5E38;&#x6765;&#x8BF4;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x4E86;&#x89E3;&#x4E1A;&#x52A1;&#x5E76;&#x4E14;&#x4E86;&#x89E3;&#x7F3A;&#x5931;&#x503C;&#x7684;&#x6765;&#x6E90;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x662F;&#x5E0C;&#x671B;&#x624B;&#x52A8;&#x586B;&#x8865;&#x7F3A;&#x5931;&#x503C;&#x3002;  </p>
+</li>
+</ul>
+<h2 id="&#x53C2;&#x8003;"><a name="&#x53C2;&#x8003;" class="anchor-navigation-ex-anchor" href="#&#x53C2;&#x8003;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x53C2;&#x8003;</h2>
+<ul>
+<li><a href="https://xgboost.readthedocs.io/en/latest/python/python_api.html" target="_blank">XGBoost</a> </li>
+</ul>
+<footer class="page-footer"><span class="copyright">  </span><span class="footer-modification">Update time&#xFF1A;
+2020-08-21 
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="回归大家族.html" class="navigation navigation-prev " aria-label="Previous page: 回归大家族">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="模型融合stacking.html" class="navigation navigation-next " aria-label="Next page: 模型融合stacking">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"XGBoost","level":"1.2.9","depth":2,"next":{"title":"模型融合stacking","level":"1.2.10","depth":2,"path":"Chapter1/模型融合stacking.md","ref":"Chapter1/模型融合stacking.md","articles":[]},"previous":{"title":"回归大家族","level":"1.2.8","depth":2,"path":"Chapter1/回归大家族.md","ref":"Chapter1/回归大家族.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-highlight","-livereload","search-plus@^0.0.11","simple-page-toc@^0.1.1","disqus@^0.1.0","prism@^2.1.0","prism-themes@^0.0.2","theme-comscore","anchors@^0.7.1","ace@^0.3.2","emphasize@^1.1.0","katex@^1.1.3","splitter@^0.0.8","expandable-chapters","local-video@^1.0.1","anchor-navigation-ex@0.1.8","custom-favicon","todo@^0.1.3","hide-element","copy-code-button","tbfed-pagefooter","advanced-emoji","lightbox","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":" ","modify_label":"Update time：","modify_format":"YYYY-MM-DD "},"prism":{"css":["prism-themes/themes/prism-vs.css"]},"disqus":{"useIdentifier":false,"shortName":"HG1227"},"styles":{"website":"styles/website.css"},"emphasize":{},"ace":{},"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"todo":{},"splitter":{},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"isRewritePageTitle":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right"},"favicon":"favicon.ico","lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"prism-themes":{},"custom-favicon":{},"local-video":{},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"template":"ace","unindent":true,"edit":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{},"search-plus":{}},"theme":"default","author":"HHG","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"readme.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python 学习记录","language":"zh-hans","output.name":"site","links":{"sidebar":{"Home":""}},"gitbook":"*","description":"。"},"file":{"path":"Chapter1/XGBoost.md","mtime":"2020-08-21T02:58:45.779Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-20T03:19:39.807Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ace/ace/ace.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ace/ace.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-local-video/video.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

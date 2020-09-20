@@ -1,0 +1,1343 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>主成分分析PCA · python 学习记录</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="HHG">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-vs.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-ace/ace.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-emphasize/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-local-video/video-js.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="逻辑回归.html" />
+    
+    
+    <link rel="prev" href="随机森林.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    常用模型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="决策树.html">
+            
+                <a href="决策树.html">
+            
+                    
+                    决策树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="随机森林.html">
+            
+                <a href="随机森林.html">
+            
+                    
+                    随机森林
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.3" data-path="主成分分析PCA.html">
+            
+                <a href="主成分分析PCA.html">
+            
+                    
+                    主成分分析PCA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="逻辑回归.html">
+            
+                <a href="逻辑回归.html">
+            
+                    
+                    逻辑回归
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="聚类算法K-Means.html">
+            
+                <a href="聚类算法K-Means.html">
+            
+                    
+                    聚类算法K-Means
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="支持向量机.html">
+            
+                <a href="支持向量机.html">
+            
+                    
+                    支持向量机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="朴素贝叶斯.html">
+            
+                <a href="朴素贝叶斯.html">
+            
+                    
+                    朴素贝叶斯
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="回归大家族.html">
+            
+                <a href="回归大家族.html">
+            
+                    
+                    回归大家族
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="XGBoost.html">
+            
+                <a href="XGBoost.html">
+            
+                    
+                    XGBoost
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="模型融合stacking.html">
+            
+                <a href="模型融合stacking.html">
+            
+                    
+                    模型融合stacking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="模型融合Blending.html">
+            
+                <a href="模型融合Blending.html">
+            
+                    
+                    模型融合Blending
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Chapter2/">
+            
+                <a href="../Chapter2/">
+            
+                    
+                    sklearn.metrics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Chapter2/sklearn.metrics.mean_squared_error用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.mean_squared_error用法.html">
+            
+                    
+                    sklearn.metrics.mean_squared_error用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Chapter2/sklearn.metrics.mean_absolute_error用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.mean_absolute_error用法.html">
+            
+                    
+                    sklearn.metrics.mean_absolute_error用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Chapter2/sklearn.metrics.r2_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.r2_score用法.html">
+            
+                    
+                    sklearn.metrics.r2_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Chapter2/sklearn.metrics.explained_variance_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.explained_variance_score用法.html">
+            
+                    
+                    sklearn.metrics.explained_variance_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../Chapter2/标准差计算.html">
+            
+                <a href="../Chapter2/标准差计算.html">
+            
+                    
+                    标准差计算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../Chapter2/sklearn.metrics.confusion_matrix用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.confusion_matrix用法.html">
+            
+                    
+                    sklearn.metrics.confusion_matrix用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../Chapter2/sklearn.metrics.accuracy_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.accuracy_score用法.html">
+            
+                    
+                    sklearn.metrics.accuracy_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../Chapter2/sklearn.metrics.precision_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.precision_score用法.html">
+            
+                    
+                    sklearn.metrics.precision_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../Chapter2/sklearn.metrics.recall_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.recall_score用法.html">
+            
+                    
+                    sklearn.metrics.recall_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../Chapter2/sklearn.metrics.f1_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.f1_score用法.html">
+            
+                    
+                    sklearn.metrics.f1_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="../Chapter2/sklearn.metrics.roc_curve用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.roc_curve用法.html">
+            
+                    
+                    sklearn.metrics.roc_curve用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="../Chapter2/ROC曲线下的面积auc.html">
+            
+                <a href="../Chapter2/ROC曲线下的面积auc.html">
+            
+                    
+                    ROC曲线下的面积auc
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13" data-path="../Chapter2/sklearn.metrics.roc_auc_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.roc_auc_score用法.html">
+            
+                    
+                    sklearn.metrics.roc_auc_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Chapter3/">
+            
+                <a href="../Chapter3/">
+            
+                    
+                    数据处理 Preprocessing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../Chapter3/preprocessing.MinMaxScaler用法.html">
+            
+                <a href="../Chapter3/preprocessing.MinMaxScaler用法.html">
+            
+                    
+                    preprocessing.MinMaxScaler用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../Chapter3/preprocessing.StandardScaler用法.html">
+            
+                <a href="../Chapter3/preprocessing.StandardScaler用法.html">
+            
+                    
+                    preprocessing.StandardScaler用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../Chapter3/preprocessing.Binarizer用法.html">
+            
+                <a href="../Chapter3/preprocessing.Binarizer用法.html">
+            
+                    
+                    preprocessing.Binarizer用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../Chapter3/preprocessing.KBinsDiscretizer用法.html">
+            
+                <a href="../Chapter3/preprocessing.KBinsDiscretizer用法.html">
+            
+                    
+                    preprocessing.KBinsDiscretizer用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../Chapter3/preprocessing.LabelEncoder用法.html">
+            
+                <a href="../Chapter3/preprocessing.LabelEncoder用法.html">
+            
+                    
+                    preprocessing.LabelEncoder用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../Chapter3/preprocessing.OneHotEncoder用法.html">
+            
+                <a href="../Chapter3/preprocessing.OneHotEncoder用法.html">
+            
+                    
+                    preprocessing.OneHotEncoder用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Chapter4/">
+            
+                <a href="../Chapter4/">
+            
+                    
+                    缺失值处理 sklearn.impute
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../Chapter4/impute.SimpleImputer用法.html">
+            
+                <a href="../Chapter4/impute.SimpleImputer用法.html">
+            
+                    
+                    impute.SimpleImputer用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Chapter5/">
+            
+                <a href="../Chapter5/">
+            
+                    
+                    特征选择 feature_selection
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../Chapter5/feature_selection.VarianceThreshold 用法.html">
+            
+                <a href="../Chapter5/feature_selection.VarianceThreshold 用法.html">
+            
+                    
+                    feature_selection.VarianceThreshold用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../Chapter5/feature_selection.SelectKBest用法.html">
+            
+                <a href="../Chapter5/feature_selection.SelectKBest用法.html">
+            
+                    
+                    feature_selection.SelectKBest用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../Chapter5/feature_selection.chi2用法.html">
+            
+                <a href="../Chapter5/feature_selection.chi2用法.html">
+            
+                    
+                    feature_selection.chi2用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../Chapter5/feature_selection.f_classif用法.html">
+            
+                <a href="../Chapter5/feature_selection.f_classif用法.html">
+            
+                    
+                    feature_selection.f_classif用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../Chapter5/feature_selection.f_regression用法.html">
+            
+                <a href="../Chapter5/feature_selection.f_regression用法.html">
+            
+                    
+                    feature_selection.f_regression用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../Chapter5/feature_selection.mutual_info_classif用法.html">
+            
+                <a href="../Chapter5/feature_selection.mutual_info_classif用法.html">
+            
+                    
+                    feature_selection.mutual_info_classif用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../Chapter5/feature_selection.mutual_info_regression用法.html">
+            
+                <a href="../Chapter5/feature_selection.mutual_info_regression用法.html">
+            
+                    
+                    feature_selection.mutual_info_regression用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../Chapter5/过滤法总结.html">
+            
+                <a href="../Chapter5/过滤法总结.html">
+            
+                    
+                    过滤法总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="../Chapter5/feature_selection.SelectFromModel用法.html">
+            
+                <a href="../Chapter5/feature_selection.SelectFromModel用法.html">
+            
+                    
+                    feature_selection.SelectFromModel用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="../Chapter5/feature_selection.RFE用法.html">
+            
+                <a href="../Chapter5/feature_selection.RFE用法.html">
+            
+                    
+                    feature_selection.RFE用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../model_selection/">
+            
+                <a href="../model_selection/">
+            
+                    
+                    模型选择 model_selection
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../model_selection/数据集划分train_test_split.html">
+            
+                <a href="../model_selection/数据集划分train_test_split.html">
+            
+                    
+                    数据集划分train_test_split
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../model_selection/数据集划分K折交叉验证KFold.html">
+            
+                <a href="../model_selection/数据集划分K折交叉验证KFold.html">
+            
+                    
+                    数据集划分K折交叉验证KFold
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../model_selection/数据集划分K折交叉验证StratifiedKFold.html">
+            
+                <a href="../model_selection/数据集划分K折交叉验证StratifiedKFold.html">
+            
+                    
+                    数据集划分K折交叉验证StratifiedKFold
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../model_selection/随机数据集划分ShuffleSplit.html">
+            
+                <a href="../model_selection/随机数据集划分ShuffleSplit.html">
+            
+                    
+                    随机数据集划分ShuffleSplit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../model_selection/随机分层数据集划分StratifiedShuffleSplit.html">
+            
+                <a href="../model_selection/随机分层数据集划分StratifiedShuffleSplit.html">
+            
+                    
+                    随机分层数据集划分StratifiedShuffleSplit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../model_selection/交叉验证cross_val_score.html">
+            
+                <a href="../model_selection/交叉验证cross_val_score.html">
+            
+                    
+                    交叉验证cross_val_score
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../model_selection/学习曲线learning_curve.html">
+            
+                <a href="../model_selection/学习曲线learning_curve.html">
+            
+                    
+                    学习曲线learning_curve
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="../model_selection/验证曲线validation_curve.html">
+            
+                <a href="../model_selection/验证曲线validation_curve.html">
+            
+                    
+                    验证曲线validation_curve
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../pipeline/">
+            
+                <a href="../pipeline/">
+            
+                    
+                    pipeline
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../pipeline/Pipeline.html">
+            
+                <a href="../pipeline/Pipeline.html">
+            
+                    
+                    Pipeline
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../pipeline/make_pipeline.html">
+            
+                <a href="../pipeline/make_pipeline.html">
+            
+                    
+                    make_pipeline
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../compose/">
+            
+                <a href="../compose/">
+            
+                    
+                    compose
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../compose/ColumnTransformer.html">
+            
+                <a href="../compose/ColumnTransformer.html">
+            
+                    
+                    ColumnTransformer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../mlxtend库/">
+            
+                <a href="../mlxtend库/">
+            
+                    
+                    mlxtend库
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../mlxtend库/StackingRegressor.html">
+            
+                <a href="../mlxtend库/StackingRegressor.html">
+            
+                    
+                    StackingRegressor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../mlxtend库/StackingClassifier.html">
+            
+                <a href="../mlxtend库/StackingClassifier.html">
+            
+                    
+                    StackingClassifier
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../mlxtend库/feature_selection/">
+            
+                <a href="../mlxtend库/feature_selection/">
+            
+                    
+                    feature_selection
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.3.1" data-path="../mlxtend库/feature_selection/SequentialFeatureSelector.html">
+            
+                <a href="../mlxtend库/feature_selection/SequentialFeatureSelector.html">
+            
+                    
+                    SequentialFeatureSelector
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3.2" data-path="../mlxtend库/feature_selection/ExhaustiveFeatureSelector.html">
+            
+                <a href="../mlxtend库/feature_selection/ExhaustiveFeatureSelector.html">
+            
+                    
+                    ExhaustiveFeatureSelector
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >主成分分析PCA</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><a href="#&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;pca">&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;PCA</a></li><ul><li><a href="#pca">PCA</a></li><li><a href="#&#x91CD;&#x8981;&#x53C2;&#x6570;">&#x91CD;&#x8981;&#x53C2;&#x6570;</a></li><li><a href="#&#x91CD;&#x8981;&#x5C5E;&#x6027;">&#x91CD;&#x8981;&#x5C5E;&#x6027;</a></li><li><a href="#&#x91CD;&#x8981;&#x63A5;&#x53E3;">&#x91CD;&#x8981;&#x63A5;&#x53E3;</a></li><li><a href="#pca-&#x53C2;&#x6570;&#x5217;&#x8868;">PCA &#x53C2;&#x6570;&#x5217;&#x8868;</a></li><li><a href="#pca-&#x5C5E;&#x6027;&#x5217;&#x8868;">PCA &#x5C5E;&#x6027;&#x5217;&#x8868;</a></li><li><a href="#pca-&#x63A5;&#x53E3;&#x5217;&#x8868;">PCA &#x63A5;&#x53E3;&#x5217;&#x8868;</a></li></ul></ul></div><a href="#&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;pca" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;pca"><a name="&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;pca" class="anchor-navigation-ex-anchor" href="#&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;pca"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;PCA</h1>
+<p>&#x7EF4;&#x5EA6;&#x6307;&#x7684;&#x662F;&#x6837;&#x672C;&#x7684;&#x6570;&#x91CF;&#x6216;&#x7279;&#x5F81;&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x4E00;&#x822C;&#x65E0;&#x7279;&#x522B;&#x8BF4;&#x660E;&#xFF0C;&#x6307;&#x7684;&#x90FD;&#x662F;&#x7279;&#x5F81;&#x7684;&#x6570;
+&#x91CF;  &#x3002;</p>
+<p>&#x964D;&#x7EF4;&#x7B97;&#x6CD5;&#x4E2D;&#x7684;&#x201D;&#x964D;&#x7EF4;&#x201C;&#xFF0C;&#x6307;&#x7684;&#x662F;&#x964D;&#x4F4E;&#x7279;&#x5F81;&#x77E9;&#x9635;&#x4E2D;&#x7279;&#x5F81;&#x7684;&#x6570;&#x91CF;&#x3002;  </p>
+<h2 id="pca"><a name="pca" class="anchor-navigation-ex-anchor" href="#pca"><i class="fa fa-link" aria-hidden="true"></i></a>PCA</h2>
+<p>&#x5728;&#x964D;&#x7EF4;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x51CF;&#x5C11;&#x7279;&#x5F81;&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x5220;&#x9664;&#x6570;&#x636E;&#xFF0C;&#x6570;&#x636E;&#x91CF;&#x53D8;&#x5C11;&#x5219;&#x8868;&#x793A;&#x6A21;&#x578B;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x7684;&#x4FE1;&#x606F;&#x4F1A;&#x53D8;&#x5C11;&#xFF0C;&#x6A21;&#x578B;&#x7684;&#x8868;&#x73B0;&#x53EF;&#x80FD;&#x4F1A;&#x56E0;&#x6B64;&#x53D7;&#x5F71;&#x54CD;&#x3002;&#x540C;&#x65F6;&#xFF0C;&#x5728;&#x9AD8;&#x7EF4;&#x6570;&#x636E;&#x4E2D;&#xFF0C;&#x5FC5;&#x7136;&#x6709;&#x4E00;&#x4E9B;&#x7279;&#x5F81;&#x662F;&#x4E0D;&#x5E26;&#x6709;&#x6709;&#x6548;&#x7684;&#x4FE1;&#x606F;&#x7684;&#xFF08;&#x6BD4;&#x5982;&#x566A;&#x97F3;&#xFF09;&#xFF0C;&#x6216;&#x8005;&#x6709;&#x4E00;&#x4E9B;&#x7279;&#x5F81;&#x5E26;&#x6709;&#x7684;&#x4FE1;&#x606F;&#x548C;&#x5176;&#x4ED6;&#x4E00;&#x4E9B;&#x7279;&#x5F81;&#x662F;&#x91CD;&#x590D;&#x7684;&#xFF08;&#x6BD4;&#x5982;&#x4E00;&#x4E9B;&#x7279;&#x5F81;&#x53EF;&#x80FD;&#x4F1A;&#x7EBF;&#x6027;&#x76F8;&#x5173;&#xFF09;&#x3002;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x80FD;&#x591F;&#x627E;&#x51FA;&#x4E00;&#x79CD;&#x529E;&#x6CD5;&#x6765;&#x5E2E;&#x52A9;&#x6211;&#x4EEC;&#x8861;&#x91CF;&#x7279;&#x5F81;&#x4E0A;&#x6240;&#x5E26;&#x7684;&#x4FE1;&#x606F;&#x91CF;&#xFF0C;&#x8BA9;&#x6211;&#x4EEC;&#x5728;&#x964D;&#x7EF4;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x80FD;&#x591F;&#x5373;&#x51CF;&#x5C11;&#x7279;&#x5F81;&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x53C8;&#x4FDD;&#x7559;&#x5927;&#x90E8;&#x5206;&#x6709;&#x6548;&#x4FE1;&#x606F;&#x2014;&#x2014;&#x5C06;&#x90A3;&#x4E9B;&#x5E26;&#x6709;&#x91CD;&#x590D;&#x4FE1;&#x606F;&#x7684;&#x7279;&#x5F81;&#x5408;&#x5E76;&#xFF0C;&#x5E76;&#x5220;&#x9664;&#x90A3;&#x4E9B;&#x5E26;&#x65E0;&#x6548;&#x4FE1;&#x606F;&#x7684;&#x7279;&#x5F81;&#x7B49;&#x7B49;&#x2014;&#x2014;&#x9010;&#x6E10;&#x521B;&#x9020;&#x51FA;&#x80FD;&#x591F;&#x4EE3;&#x8868;&#x539F;&#x7279;&#x5F81;&#x77E9;&#x9635;&#x5927;&#x90E8;&#x5206;&#x4FE1;&#x606F;&#x7684;&#xFF0C;&#x7279;&#x5F81;&#x66F4;&#x5C11;&#x7684;&#xFF0C;&#x65B0;&#x7279;&#x5F81;&#x77E9;&#x9635;  &#x3002;</p>
+<p>&#x5728;&#x964D;&#x7EF4;&#x4E2D;&#xFF0C;PCA &#x4F7F;&#x7528;&#x7684;&#x4FE1;&#x606F;&#x91CF;&#x8861;&#x91CF;&#x6307;&#x6807;&#xFF0C;&#x5C31;&#x662F;<strong>&#x6837;&#x672C;&#x65B9;&#x5DEE;</strong>&#xFF0C;&#x53C8;&#x79F0;<strong>&#x53EF;&#x89E3;&#x91CA;&#x6027;&#x65B9;&#x5DEE;</strong>&#xFF0C;&#x65B9;&#x5DEE;&#x8D8A;&#x5927;&#xFF0C;&#x7279;&#x5F81;&#x6240;&#x5E26;&#x7684;&#x4FE1;&#x606F;&#x91CF;&#x8D8A;&#x591A;&#x3002; </p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>V</mi><mi>a</mi><mi>r</mi><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mi>n</mi><mo>&#x2212;</mo><mn>1</mn></mrow></mfrac><msubsup><mo>&#x2211;</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>n</mi></mrow></msubsup><msup><mrow><mo fence="true">(</mo><msub><mi>x</mi><mrow><mi>i</mi></mrow></msub><mo>&#x2212;</mo><mover accent="true"><mrow><mi>x</mi></mrow><mo>^</mo></mover><mo fence="true">)</mo></mrow><mrow><mn>2</mn></mrow></msup></mrow><annotation encoding="application/x-tex">
+Var=\frac{1}{n-1} \sum_{i=1}^{n}\left(x_{i}-\hat{x}\right)^{2}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.845108em;"></span><span class="strut bottom" style="height:1.2484389999999999em;vertical-align:-0.403331em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.22222em;">V</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mrel">=</span><span class="mord reset-textstyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">n</span><span class="mbin mtight">&#x2212;</span><span class="mord mathrm mtight">1</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathrm mtight">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mop"><span class="mop op-symbol small-op" style="top:-0.0000050000000000050004em;">&#x2211;</span><span class="msupsub"><span class="vlist"><span style="top:0.30001em;margin-left:0em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">i</span><span class="mrel mtight">=</span><span class="mord mathrm mtight">1</span></span></span></span><span style="top:-0.364em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathit mtight">n</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="minner"><span class="minner textstyle uncramped"><span class="mopen style-wrap reset-textstyle textstyle uncramped" style="top:0em;">(</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mbin">&#x2212;</span><span class="mord accent"><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord textstyle cramped"><span class="mord mathit">x</span></span></span><span style="top:0em;margin-left:0.05556em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="accent-body"><span>^</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose style-wrap reset-textstyle textstyle uncramped" style="top:0em;">)</span></span><span class="msupsub"><span class="vlist"><span style="top:-0.364em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathrm mtight">2</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>
+ Var&#x4EE3;&#x8868;&#x4E00;&#x4E2A;&#x7279;&#x5F81;&#x7684;&#x65B9;&#x5DEE;&#xFF0C;n&#x4EE3;&#x8868;&#x6837;&#x672C;&#x91CF;&#xFF0C;xi&#x4EE3;&#x8868;&#x4E00;&#x4E2A;&#x7279;&#x5F81;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x6837;&#x672C;&#x53D6;&#x503C;&#xFF0C;xhat&#x4EE3;&#x8868;&#x8FD9;&#x4E00;&#x5217;&#x6837;&#x672C;&#x7684;&#x5747;&#x503C;&#x3002;  </p>
+<pre class="language-"><code class="lang-python"><span class="token keyword">class</span> <span class="token class-name">sklearn</span><span class="token punctuation">.</span>decomposition<span class="token punctuation">.</span>PCA <span class="token punctuation">(</span>n_components<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> 
+                                 copy<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> 
+                                 whiten<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> 
+                                 svd_solver<span class="token operator">=</span>&#x2019;auto&#x2019;<span class="token punctuation">,</span> 
+                                 tol<span class="token operator">=</span><span class="token number">0.0</span><span class="token punctuation">,</span>
+                                 iterated_power<span class="token operator">=</span>&#x2019;auto&#x2019;<span class="token punctuation">,</span> 
+                                 random_state<span class="token operator">=</span><span class="token boolean">None</span>
+                                <span class="token punctuation">)</span>
+</code></pre>
+<blockquote>
+<p>&#x601D;&#x8003;&#xFF1A;PCA&#x548C;&#x7279;&#x5F81;&#x9009;&#x62E9;&#x6280;&#x672F;&#x90FD;&#x662F;&#x7279;&#x5F81;&#x5DE5;&#x7A0B;&#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x5B83;&#x4EEC;&#x6709;&#x4EC0;&#x4E48;&#x4E0D;&#x540C;&#xFF1F;</p>
+<p>&#x7279;&#x5F81;&#x5DE5;&#x7A0B;&#x4E2D;&#x6709;&#x4E09;&#x79CD;&#x65B9;&#x5F0F;&#xFF1A;&#x7279;&#x5F81;&#x63D0;&#x53D6;&#xFF0C;&#x7279;&#x5F81;&#x521B;&#x9020;&#x548C;&#x7279;&#x5F81;&#x9009;&#x62E9;&#x3002;&#x4ED4;&#x7EC6;&#x89C2;&#x5BDF;&#x4E0A;&#x9762;&#x7684;&#x964D;&#x7EF4;&#x4F8B;&#x5B50;&#x548C;&#x4E0A;&#x5468;&#x6211;&#x4EEC;&#x8BB2;&#x89E3;&#x8FC7;&#x7684;&#x7279;&#x5F81; &#x9009;&#x62E9;&#xFF0C;&#x4F60;&#x53D1;&#x73B0;&#x6709;&#x4EC0;&#x4E48;&#x4E0D;&#x540C;&#x4E86;&#x5417;? </p>
+<p>&#x7279;&#x5F81;&#x9009;&#x62E9;&#x662F;&#x4ECE;&#x5DF2;&#x5B58;&#x5728;&#x7684;&#x7279;&#x5F81;&#x4E2D;&#x9009;&#x53D6;&#x643A;&#x5E26;&#x4FE1;&#x606F;&#x6700;&#x591A;&#x7684;&#xFF0C;&#x9009;&#x5B8C;&#x4E4B;&#x540E;&#x7684;&#x7279;&#x5F81;&#x4F9D;&#x7136;&#x5177;&#x6709;&#x53EF;&#x89E3;&#x91CA;&#x6027;&#xFF0C;&#x6211;&#x4EEC;&#x4F9D;&#x7136;&#x77E5;&#x9053;&#x8FD9;&#x4E2A;&#x7279; &#x5F81;&#x5728;&#x539F;&#x6570;&#x636E;&#x7684;&#x54EA;&#x4E2A;&#x4F4D;&#x7F6E;&#xFF0C;&#x4EE3;&#x8868;&#x7740;&#x539F;&#x6570;&#x636E;&#x4E0A;&#x7684;&#x4EC0;&#x4E48;&#x542B;&#x4E49;&#x3002; </p>
+<p>&#x800C; PCA&#xFF0C;&#x662F;&#x5C06;&#x5DF2;&#x5B58;&#x5728;&#x7684;&#x7279;&#x5F81;&#x8FDB;&#x884C;&#x538B;&#x7F29;&#xFF0C;&#x964D;&#x7EF4;&#x5B8C;&#x6BD5;&#x540E;&#x7684;&#x7279;&#x5F81;&#x4E0D;&#x662F;&#x539F;&#x672C;&#x7684;&#x7279;&#x5F81;&#x77E9;&#x9635;&#x4E2D;&#x7684;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x7279;&#x5F81;&#xFF0C;&#x800C;&#x662F;&#x901A;&#x8FC7;&#x67D0; &#x4E9B;&#x65B9;&#x5F0F;&#x7EC4;&#x5408;&#x8D77;&#x6765;&#x7684;&#x65B0;&#x7279;&#x5F81;&#x3002;&#x901A;&#x5E38;&#x6765;&#x8BF4;&#xFF0C;&#x5728;&#x65B0;&#x7684;&#x7279;&#x5F81;&#x77E9;&#x9635;&#x751F;&#x6210;&#x4E4B;&#x524D;&#xFF0C;&#x6211;&#x4EEC;&#x65E0;&#x6CD5;&#x77E5;&#x6653; PCA &#x90FD;&#x5EFA;&#x7ACB;&#x4E86;&#x600E;&#x6837;&#x7684;&#x65B0;&#x7279;&#x5F81;&#x5411; &#x91CF;&#xFF0C;&#x65B0;&#x7279;&#x5F81;&#x77E9;&#x9635;&#x751F;&#x6210;&#x4E4B;&#x540E;&#x4E5F;&#x4E0D;&#x5177;&#x6709;&#x53EF;&#x8BFB;&#x6027;&#xFF0C;&#x6211;&#x4EEC;&#x65E0;&#x6CD5;&#x5224;&#x65AD;&#x65B0;&#x7279;&#x5F81;&#x77E9;&#x9635;&#x7684;&#x7279;&#x5F81;&#x662F;&#x4ECE;&#x539F;&#x6570;&#x636E;&#x4E2D;&#x7684;&#x4EC0;&#x4E48;&#x7279;&#x5F81;&#x7EC4;&#x5408;&#x800C; &#x6765;&#xFF0C;&#x65B0;&#x7279;&#x5F81;&#x867D;&#x7136;&#x5E26;&#x6709;&#x539F;&#x59CB;&#x6570;&#x636E;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x5374;&#x5DF2;&#x7ECF;&#x4E0D;&#x662F;&#x539F;&#x6570;&#x636E;&#x4E0A;&#x4EE3;&#x8868;&#x7740;&#x7684;&#x542B;&#x4E49;&#x4E86;&#x3002;&#x4EE5; PCA &#x4E3A;&#x4EE3;&#x8868;&#x7684;&#x964D;&#x7EF4;&#x7B97;&#x6CD5;&#x56E0;&#x6B64;&#x662F; &#x7279;&#x5F81;&#x521B;&#x9020;&#xFF08;feature creation&#xFF0C;&#x6216;feature construction&#xFF09;&#x7684;&#x4E00;&#x79CD;&#x3002; </p>
+<p>&#x53EF;&#x4EE5;&#x60F3;&#x89C1;&#xFF0C;PCA &#x4E00;&#x822C;&#x4E0D;&#x9002;&#x7528;&#x4E8E;&#x63A2;&#x7D22;&#x7279;&#x5F81;&#x548C;&#x6807;&#x7B7E;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#x7684;&#x6A21;&#x578B;&#xFF08;&#x5982;&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#xFF09;&#xFF0C;&#x56E0;&#x4E3A;&#x65E0;&#x6CD5;&#x89E3;&#x91CA;&#x7684;&#x65B0;&#x7279;&#x5F81;&#x548C;&#x6807; &#x7B7E;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#x4E0D;&#x5177;&#x6709;&#x610F;&#x4E49;&#x3002;&#x5728;&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x6A21;&#x578B;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x7279;&#x5F81;&#x9009;&#x62E9;</p>
+</blockquote>
+<h2 id="&#x91CD;&#x8981;&#x53C2;&#x6570;"><a name="&#x91CD;&#x8981;&#x53C2;&#x6570;" class="anchor-navigation-ex-anchor" href="#&#x91CD;&#x8981;&#x53C2;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x91CD;&#x8981;&#x53C2;&#x6570;</h2>
+<p><code>n_components</code></p>
+<p><code>n_components</code> &#x662F;&#x6211;&#x4EEC;&#x964D;&#x7EF4;&#x540E;&#x9700;&#x8981;&#x7684;&#x7EF4;&#x5EA6;&#xFF0C;&#x5373;&#x964D;&#x7EF4;&#x540E;&#x9700;&#x8981;&#x4FDD;&#x7559;&#x7684;&#x7279;&#x5F81;&#x6570;&#x91CF;  &#x3002;</p>
+<p><strong>&#x9009;&#x62E9;&#x6700;&#x597D;&#x7684;n_components&#xFF1A;&#x7D2F;&#x79EF;&#x53EF;&#x89E3;&#x91CA;&#x65B9;&#x5DEE;&#x8D21;&#x732E;&#x7387;&#x66F2;&#x7EBF;  &#x3002;</strong></p>
+<p>&#x5F53;&#x53C2;&#x6570;n_components&#x4E2D;&#x4E0D;&#x586B;&#x5199;&#x4EFB;&#x4F55;&#x503C;&#xFF0C;&#x5219;&#x9ED8;&#x8BA4;&#x8FD4;&#x56DE;min(X.shape)&#x4E2A;&#x7279;&#x5F81;&#xFF0C;&#x4E00;&#x822C;&#x6765;&#x8BF4;&#xFF0C;&#x6837;&#x672C;&#x91CF;&#x90FD;&#x4F1A;&#x5927;&#x4E8E;&#x7279;&#x5F81;&#x6570;&#x76EE;&#xFF0C;&#x6240;&#x4EE5;&#x4EC0;&#x4E48;&#x90FD;&#x4E0D;&#x586B;&#x5C31;&#x76F8;&#x5F53;&#x4E8E;&#x8F6C;&#x6362;&#x4E86;&#x65B0;&#x7279;&#x5F81;&#x7A7A;&#x95F4;&#xFF0C;&#x4F46;&#x6CA1;&#x6709;&#x51CF;&#x5C11;&#x7279;&#x5F81;&#x7684;&#x4E2A;&#x6570;&#x3002;&#x4E00;&#x822C;&#x6765;&#x8BF4;&#xFF0C;&#x4E0D;&#x4F1A;&#x4F7F;&#x7528;&#x8FD9;&#x79CD;&#x8F93;&#x5165;&#x65B9;&#x5F0F;&#x3002;&#x4F46;&#x6211;&#x4EEC;&#x5374;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8FD9;&#x79CD;&#x8F93;&#x5165;&#x65B9;&#x5F0F;&#x6765;&#x753B;&#x51FA;&#x7D2F;&#x8BA1;&#x53EF;&#x89E3;&#x91CA;&#x65B9;&#x5DEE;&#x8D21;&#x732E;&#x7387;&#x66F2;&#x7EBF;&#xFF0C;&#x4EE5;&#x6B64;&#x9009;&#x62E9;&#x6700;&#x597D;&#x7684;n_components&#x7684;&#x6574;&#x6570;&#x53D6;&#x503C;&#x3002;&#x7D2F;&#x79EF;&#x53EF;&#x89E3;&#x91CA;&#x65B9;&#x5DEE;&#x8D21;&#x732E;&#x7387;&#x66F2;&#x7EBF;&#x662F;&#x4E00;&#x6761;&#x4EE5;&#x964D;&#x7EF4;&#x540E;&#x4FDD;&#x7559;&#x7684;&#x7279;&#x5F81;&#x4E2A;&#x6570;&#x4E3A;&#x6A2A;&#x5750;&#x6807;&#xFF0C;&#x964D;&#x7EF4;&#x540E;&#x65B0;&#x7279;&#x5F81;&#x77E9;&#x9635;&#x6355;&#x6349;&#x5230;&#x7684;&#x53EF;&#x89E3;&#x91CA;&#x65B9;&#x5DEE;&#x8D21;&#x732E;&#x7387;&#x4E3A;&#x7EB5;&#x5750;&#x6807;&#x7684;&#x66F2;&#x7EBF;&#xFF0C;&#x80FD;&#x591F;&#x5E2E;&#x52A9;&#x6211;&#x4EEC;&#x51B3;&#x5B9A;n_components&#x6700;&#x597D;&#x7684;&#x53D6;&#x503C;&#x3002;  </p>
+<pre class="language-"><code class="lang-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+pca_line <span class="token operator">=</span> PCA<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>fit<span class="token punctuation">(</span>X<span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>cumsum<span class="token punctuation">(</span>pca_line<span class="token punctuation">.</span>explained_variance_ratio_<span class="token punctuation">)</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>xticks<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">#&#x8FD9;&#x662F;&#x4E3A;&#x4E86;&#x9650;&#x5236;&#x5750;&#x6807;&#x8F74;&#x663E;&#x793A;&#x4E3A;&#x6574;&#x6570;</span>
+plt<span class="token punctuation">.</span>xlabel<span class="token punctuation">(</span><span class="token string">&quot;number of components after dimension reduction&quot;</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">&quot;cumulative explained variance ratio&quot;</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p><br></p>
+<p><strong>&#x6700;&#x5927;&#x4F3C;&#x7136;&#x4F30;&#x8BA1;&#x81EA;&#x9009;&#x8D85;&#x53C2;&#x6570;</strong>  </p>
+<p>&#x9664;&#x4E86;&#x8F93;&#x5165;&#x6574;&#x6570;&#xFF0C;n_components&#x8FD8;&#x6709;&#x54EA;&#x4E9B;&#x9009;&#x62E9;&#x5462;&#xFF1F;&#x6570;&#x5B66;&#x5927;&#x795E;Minka, T.P.&#x5728;&#x9EBB;&#x7701;&#x7406;&#x5DE5;&#x5B66;&#x9662;&#x5A92;&#x4F53;&#x5B9E;&#x9A8C;&#x5BA4;&#x505A;&#x7814;&#x7A76;&#x65F6;&#x627E;&#x51FA;&#x4E86;&#x8BA9;PCA&#x7528;&#x6700;&#x5927;&#x4F3C;&#x7136;&#x4F30;&#x8BA1;(maximum likelihood
+estimation)&#x81EA;&#x9009;&#x8D85;&#x53C2;&#x6570;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x8F93;&#x5165;<code>mle</code> &#x4F5C;&#x4E3A;n_components&#x7684;&#x53C2;&#x6570;&#x8F93;&#x5165;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x8C03;&#x7528;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;  </p>
+<pre class="language-"><code class="lang-python">pca_mle <span class="token operator">=</span> PCA<span class="token punctuation">(</span>n_components<span class="token operator">=</span><span class="token string">&quot;mle&quot;</span><span class="token punctuation">)</span>
+pca_mle <span class="token operator">=</span> pca_mle<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>X<span class="token punctuation">)</span>
+X_mle <span class="token operator">=</span> pca_mle<span class="token punctuation">.</span>transform<span class="token punctuation">(</span>X<span class="token punctuation">)</span>
+</code></pre>
+<p><br></p>
+<p><strong>&#x6309;&#x4FE1;&#x606F;&#x91CF;&#x5360;&#x6BD4;&#x9009;&#x8D85;&#x53C2;&#x6570;</strong>  </p>
+<p>&#x8F93;&#x5165;[0,1]&#x4E4B;&#x95F4;&#x7684;&#x6D6E;&#x70B9;&#x6570;&#xFF0C;&#x5E76;&#x4E14;&#x8BA9;&#x53C2;&#x6570; <code>svd_solver</code> ==&apos;full&apos;&#xFF0C;&#x8868;&#x793A;&#x5E0C;&#x671B;&#x964D;&#x7EF4;&#x540E;&#x7684;&#x603B;&#x89E3;&#x91CA;&#x6027;&#x65B9;&#x5DEE;&#x5360;&#x6BD4;&#x5927;&#x4E8E;n_components&#x6307;&#x5B9A;&#x7684;&#x767E;&#x5206;&#x6BD4;&#xFF0C;&#x5373;&#x662F;&#x8BF4;&#xFF0C;&#x5E0C;&#x671B;&#x4FDD;&#x7559;&#x767E;&#x5206;&#x4E4B;&#x591A;&#x5C11;&#x7684;&#x4FE1;&#x606F;&#x91CF;&#x3002;&#x6BD4;&#x5982;&#x8BF4;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x4FDD;&#x7559;97%&#x7684;&#x4FE1;&#x606F;&#x91CF;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x8F93;&#x5165;n_components = 0.97&#xFF0C;PCA&#x4F1A;&#x81EA;&#x52A8;&#x9009;&#x51FA;&#x80FD;&#x591F;&#x8BA9;&#x4FDD;&#x7559;&#x7684;&#x4FE1;&#x606F;&#x91CF;&#x8D85;&#x8FC7;97%&#x7684;&#x7279;&#x5F81;&#x6570;&#x91CF;&#x3002;  </p>
+<pre class="language-"><code class="lang-python">pca_f <span class="token operator">=</span> PCA<span class="token punctuation">(</span>n_components<span class="token operator">=</span><span class="token number">0.97</span><span class="token punctuation">,</span>svd_solver<span class="token operator">=</span><span class="token string">&quot;full&quot;</span><span class="token punctuation">)</span>
+pca_f <span class="token operator">=</span> pca_f<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>X<span class="token punctuation">)</span>
+X_f <span class="token operator">=</span> pca_f<span class="token punctuation">.</span>transform<span class="token punctuation">(</span>X<span class="token punctuation">)</span>
+pca_f<span class="token punctuation">.</span>explained_variance_ratio_
+</code></pre>
+<p><br></p>
+<p><code>svd_solver</code> &#x4E0E; <code>random_state</code></p>
+<p>&#x53C2;&#x6570;<code>svd_solver</code>&#x662F;&#x5728;&#x964D;&#x7EF4;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x7528;&#x6765;&#x63A7;&#x5236;&#x77E9;&#x9635;&#x5206;&#x89E3;&#x7684;&#x4E00;&#x4E9B;&#x7EC6;&#x8282;&#x7684;&#x53C2;&#x6570;&#x3002;&#x6709;&#x56DB;&#x79CD;&#x6A21;&#x5F0F;&#x53EF;&#x9009;&#xFF1A;<code>auto</code>, <code>full</code>, <code>arpack</code>,<code>randomized</code>&#xFF0C;&#x9ED8;&#x8BA4;&#x201D;auto&quot;&#x3002;  </p>
+<p>&#x901A;&#x5E38;&#x6211;&#x4EEC;&#x5C31;&#x9009;&#x7528;<code>auto</code>&#xFF0C;&#x4E0D;&#x5FC5;&#x5BF9;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x7EA0;&#x7ED3;&#x592A;&#x591A;  </p>
+<h2 id="&#x91CD;&#x8981;&#x5C5E;&#x6027;"><a name="&#x91CD;&#x8981;&#x5C5E;&#x6027;" class="anchor-navigation-ex-anchor" href="#&#x91CD;&#x8981;&#x5C5E;&#x6027;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x91CD;&#x8981;&#x5C5E;&#x6027;</h2>
+<p><code>components_</code></p>
+<p><code>explained_variance_</code></p>
+<p><code>explained_variance_ratio_</code>  </p>
+<p>PCA&#x662F;&#x5C06;&#x5DF2;&#x5B58;&#x5728;&#x7684;&#x7279;&#x5F81;&#x8FDB;&#x884C;&#x538B;&#x7F29;&#xFF0C;&#x964D;&#x7EF4;&#x5B8C;&#x6BD5;&#x540E;&#x7684;&#x7279;&#x5F81;&#x4E0D;&#x662F;&#x539F;&#x672C;&#x7684;&#x7279;&#x5F81;&#x77E9;&#x9635;&#x4E2D;&#x7684;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x7279;&#x5F81;&#xFF0C;&#x800C;&#x662F;&#x901A;&#x8FC7;&#x67D0;&#x4E9B;&#x65B9;&#x5F0F;&#x7EC4;&#x5408;&#x8D77;&#x6765;&#x7684;&#x65B0;&#x7279;&#x5F81;&#x3002;&#x901A;&#x5E38;&#x6765;&#x8BF4;&#xFF0C;&#x5728;&#x65B0;&#x7684;&#x7279;&#x5F81;&#x77E9;&#x9635;&#x751F;&#x6210;&#x4E4B;&#x524D;&#xFF0C;&#x6211;&#x4EEC;&#x65E0;&#x6CD5;&#x77E5;&#x6653;PCA&#x90FD;&#x5EFA;&#x7ACB;&#x4E86;&#x600E;&#x6837;&#x7684;&#x65B0;&#x7279;&#x5F81;&#x5411;&#x91CF;&#xFF0C;&#x65B0;&#x7279;&#x5F81;&#x77E9;&#x9635;&#x751F;&#x6210;&#x4E4B;&#x540E;&#x4E5F;&#x4E0D;&#x5177;&#x6709;&#x53EF;&#x8BFB;&#x6027;&#xFF0C;&#x6211;&#x4EEC;&#x65E0;&#x6CD5;&#x5224;&#x65AD;&#x65B0;&#x7279;&#x5F81;&#x77E9;&#x9635;&#x7684;&#x7279;&#x5F81;&#x662F;&#x4ECE;&#x539F;&#x6570;&#x636E;&#x4E2D;&#x7684;&#x4EC0;&#x4E48;&#x7279;&#x5F81;&#x7EC4;&#x5408;&#x800C;&#x6765;&#xFF0C;&#x65B0;&#x7279;&#x5F81;&#x867D;&#x7136;&#x5E26;&#x6709;&#x539F;&#x59CB;&#x6570;&#x636E;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x5374;&#x5DF2;&#x7ECF;&#x4E0D;&#x662F;&#x539F;&#x6570;&#x636E;&#x4E0A;&#x4EE3;&#x8868;&#x7740;&#x7684;&#x542B;&#x4E49;&#x4E86;  </p>
+<p>&#x4F46;&#x662F;&#x5176;&#x5B9E;&#xFF0C;&#x5728;&#x77E9;&#x9635;&#x5206;&#x89E3;&#x65F6;&#xFF0C;PCA&#x662F;&#x6709;&#x76EE;&#x6807;&#x7684;&#xFF1A;&#x5728;&#x539F;&#x6709;&#x7279;&#x5F81;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#xFF0C;&#x627E;&#x51FA;&#x80FD;&#x591F;&#x8BA9;&#x4FE1;&#x606F;&#x5C3D;&#x91CF;&#x805A;&#x96C6;&#x7684;&#x65B0;&#x7279;&#x5F81;&#x5411;&#x91CF;&#x3002;&#x5728;sklearn&#x4F7F;&#x7528;&#x7684;PCA&#x548C;SVD&#x8054;&#x5408;&#x7684;&#x964D;&#x7EF4;&#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x8FD9;&#x4E9B;&#x65B0;&#x7279;&#x5F81;&#x5411;&#x91CF;&#x7EC4;&#x6210;&#x7684;&#x65B0;&#x7279;&#x5F81;&#x7A7A;&#x95F4;&#x5176;&#x5B9E;&#x5C31;&#x662F;V(k,n)&#x3002;&#x5F53;V(k,n)&#x662F;&#x6570;&#x5B57;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x65E0;&#x6CD5;&#x5224;&#x65AD;V(k,n)&#x548C;&#x539F;&#x6709;&#x7684;&#x7279;&#x5F81;&#x7A76;&#x7ADF;&#x6709;&#x7740;&#x600E;&#x6837;&#x5343;&#x4E1D;&#x4E07;&#x7F15;&#x7684;&#x6570;&#x5B66;&#x8054;&#x7CFB;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x5982;&#x679C;&#x539F;&#x7279;&#x5F81;&#x77E9;&#x9635;&#x662F;&#x56FE;&#x50CF;&#xFF0C;V(k,n)&#x8FD9;&#x4E2A;&#x7A7A;&#x95F4;&#x77E9;&#x9635;&#x4E5F;&#x53EF;&#x4EE5;&#x88AB;&#x53EF;&#x89C6;&#x5316;&#x7684;&#x8BDD;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E24;&#x5F20;&#x56FE;&#x6765;&#x6BD4;&#x8F83;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x65B0;&#x7279;&#x5F81;&#x7A7A;&#x95F4;&#x7A76;&#x7ADF;&#x4ECE;&#x539F;&#x59CB;&#x6570;&#x636E;&#x91CC;&#x63D0;&#x53D6;&#x4E86;&#x4EC0;&#x4E48;&#x91CD;&#x8981;&#x7684;&#x4FE1;&#x606F;  </p>
+<h2 id="&#x91CD;&#x8981;&#x63A5;&#x53E3;"><a name="&#x91CD;&#x8981;&#x63A5;&#x53E3;" class="anchor-navigation-ex-anchor" href="#&#x91CD;&#x8981;&#x63A5;&#x53E3;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x91CD;&#x8981;&#x63A5;&#x53E3;</h2>
+<p><code>inverse_transform</code></p>
+<p>&#x63A5;&#x53E3;inverse_transform&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x6211;&#x4EEC;&#x5F52;&#x4E00;&#x5316;&#xFF0C;&#x6807;&#x51C6;&#x5316;&#xFF0C;&#x751A;&#x81F3;&#x505A;&#x8FC7;&#x54D1;&#x53D8;&#x91CF;&#x7684;&#x7279;&#x5F81;&#x77E9;&#x9635;&#x8FD8;&#x539F;&#x56DE;&#x539F;&#x59CB;&#x6570;&#x636E;&#x4E2D;&#x7684;&#x7279;&#x5F81;&#x77E9;&#x9635; , &#x8FD9;&#x51E0;&#x4E4E;&#x5728;&#x5411;&#x6211;&#x4EEC;&#x6697;&#x793A;&#xFF0C;&#x4EFB;&#x4F55;&#x6709;inverse_transform&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x7684;&#x8FC7;&#x7A0B;&#x90FD;&#x662F;&#x53EF;&#x9006;&#x7684;&#x3002;PCA &#x5E94;&#x8BE5;&#x4E5F;&#x662F;&#x5982;&#x6B64;&#x3002;  </p>
+<h2 id="pca-&#x53C2;&#x6570;&#x5217;&#x8868;"><a name="pca-&#x53C2;&#x6570;&#x5217;&#x8868;" class="anchor-navigation-ex-anchor" href="#pca-&#x53C2;&#x6570;&#x5217;&#x8868;"><i class="fa fa-link" aria-hidden="true"></i></a>PCA &#x53C2;&#x6570;&#x5217;&#x8868;</h2>
+<center>
+    <a href="https://raw.githubusercontent.com/HG1227/image/master/img_tuchuang/20200105162327.png" data-lightbox="c6af0426-a3a3-4c74-8057-1046a3155e96" data-title="undefined" target="_blank"><img src="https://raw.githubusercontent.com/HG1227/image/master/img_tuchuang/20200105162327.png" alt="undefined"></a>
+</center>
+
+<center>
+    <a href="https://raw.githubusercontent.com/HG1227/image/master/img_tuchuang/20200105162353.png" data-lightbox="754dcc62-92f1-4f53-baca-76ba69d6d7e2" data-title="undefined" target="_blank"><img src="https://raw.githubusercontent.com/HG1227/image/master/img_tuchuang/20200105162353.png" alt="undefined"></a>
+</center>
+
+<center>
+    <a href="https://raw.githubusercontent.com/HG1227/image/master/img_tuchuang/20200105162420.png" data-lightbox="ebec32cf-3e5d-4c0f-9d45-4a2eedc7b953" data-title="undefined" target="_blank"><img src="https://raw.githubusercontent.com/HG1227/image/master/img_tuchuang/20200105162420.png" alt="undefined"></a>
+</center>
+
+
+
+<h2 id="pca-&#x5C5E;&#x6027;&#x5217;&#x8868;"><a name="pca-&#x5C5E;&#x6027;&#x5217;&#x8868;" class="anchor-navigation-ex-anchor" href="#pca-&#x5C5E;&#x6027;&#x5217;&#x8868;"><i class="fa fa-link" aria-hidden="true"></i></a>PCA &#x5C5E;&#x6027;&#x5217;&#x8868;</h2>
+<center>
+    <a href="https://raw.githubusercontent.com/HG1227/image/master/img_tuchuang/20200105162454.png" data-lightbox="22aa0d68-1d19-4c7e-a718-f7239e8b5f89" data-title="undefined" target="_blank"><img src="https://raw.githubusercontent.com/HG1227/image/master/img_tuchuang/20200105162454.png" alt="undefined"></a>
+</center>
+
+<h2 id="pca-&#x63A5;&#x53E3;&#x5217;&#x8868;"><a name="pca-&#x63A5;&#x53E3;&#x5217;&#x8868;" class="anchor-navigation-ex-anchor" href="#pca-&#x63A5;&#x53E3;&#x5217;&#x8868;"><i class="fa fa-link" aria-hidden="true"></i></a>PCA &#x63A5;&#x53E3;&#x5217;&#x8868;</h2>
+<center>
+    <a href="https://raw.githubusercontent.com/HG1227/image/master/img_tuchuang/20200105162536.png" data-lightbox="933bde41-0490-41ea-bec0-74bb24e44c37" data-title="undefined" target="_blank"><img src="https://raw.githubusercontent.com/HG1227/image/master/img_tuchuang/20200105162536.png" alt="undefined"></a>
+</center>
+
+
+<footer class="page-footer"><span class="copyright">  </span><span class="footer-modification">Update time&#xFF1A;
+2020-05-23 
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="随机森林.html" class="navigation navigation-prev " aria-label="Previous page: 随机森林">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="逻辑回归.html" class="navigation navigation-next " aria-label="Next page: 逻辑回归">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"主成分分析PCA","level":"1.2.3","depth":2,"next":{"title":"逻辑回归","level":"1.2.4","depth":2,"path":"Chapter1/逻辑回归.md","ref":"Chapter1/逻辑回归.md","articles":[]},"previous":{"title":"随机森林","level":"1.2.2","depth":2,"path":"Chapter1/随机森林.md","ref":"Chapter1/随机森林.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-highlight","-livereload","search-plus@^0.0.11","simple-page-toc@^0.1.1","disqus@^0.1.0","prism@^2.1.0","prism-themes@^0.0.2","theme-comscore","anchors@^0.7.1","ace@^0.3.2","emphasize@^1.1.0","katex@^1.1.3","splitter@^0.0.8","expandable-chapters","local-video@^1.0.1","anchor-navigation-ex@0.1.8","custom-favicon","todo@^0.1.3","hide-element","copy-code-button","tbfed-pagefooter","advanced-emoji","lightbox","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":" ","modify_label":"Update time：","modify_format":"YYYY-MM-DD "},"prism":{"css":["prism-themes/themes/prism-vs.css"]},"disqus":{"useIdentifier":false,"shortName":"HG1227"},"styles":{"website":"styles/website.css"},"emphasize":{},"ace":{},"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"todo":{},"splitter":{},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"isRewritePageTitle":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right"},"favicon":"favicon.ico","lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"prism-themes":{},"custom-favicon":{},"local-video":{},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"template":"ace","unindent":true,"edit":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{},"search-plus":{}},"theme":"default","author":"HHG","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"readme.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python 学习记录","language":"zh-hans","output.name":"site","links":{"sidebar":{"Home":""}},"gitbook":"*","description":"。"},"file":{"path":"Chapter1/主成分分析PCA.md","mtime":"2020-05-23T07:57:11.250Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-20T03:19:39.807Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ace/ace/ace.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ace/ace.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-local-video/video.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

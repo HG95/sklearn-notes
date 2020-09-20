@@ -1,0 +1,1480 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>决策树 · python 学习记录</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="HHG">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-vs.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-ace/ace.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-emphasize/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-local-video/video-js.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="随机森林.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    常用模型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.2.1" data-path="决策树.html">
+            
+                <a href="决策树.html">
+            
+                    
+                    决策树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="随机森林.html">
+            
+                <a href="随机森林.html">
+            
+                    
+                    随机森林
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="主成分分析PCA.html">
+            
+                <a href="主成分分析PCA.html">
+            
+                    
+                    主成分分析PCA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="逻辑回归.html">
+            
+                <a href="逻辑回归.html">
+            
+                    
+                    逻辑回归
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="聚类算法K-Means.html">
+            
+                <a href="聚类算法K-Means.html">
+            
+                    
+                    聚类算法K-Means
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="支持向量机.html">
+            
+                <a href="支持向量机.html">
+            
+                    
+                    支持向量机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="朴素贝叶斯.html">
+            
+                <a href="朴素贝叶斯.html">
+            
+                    
+                    朴素贝叶斯
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="回归大家族.html">
+            
+                <a href="回归大家族.html">
+            
+                    
+                    回归大家族
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="XGBoost.html">
+            
+                <a href="XGBoost.html">
+            
+                    
+                    XGBoost
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="模型融合stacking.html">
+            
+                <a href="模型融合stacking.html">
+            
+                    
+                    模型融合stacking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="模型融合Blending.html">
+            
+                <a href="模型融合Blending.html">
+            
+                    
+                    模型融合Blending
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Chapter2/">
+            
+                <a href="../Chapter2/">
+            
+                    
+                    sklearn.metrics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Chapter2/sklearn.metrics.mean_squared_error用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.mean_squared_error用法.html">
+            
+                    
+                    sklearn.metrics.mean_squared_error用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Chapter2/sklearn.metrics.mean_absolute_error用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.mean_absolute_error用法.html">
+            
+                    
+                    sklearn.metrics.mean_absolute_error用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Chapter2/sklearn.metrics.r2_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.r2_score用法.html">
+            
+                    
+                    sklearn.metrics.r2_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Chapter2/sklearn.metrics.explained_variance_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.explained_variance_score用法.html">
+            
+                    
+                    sklearn.metrics.explained_variance_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../Chapter2/标准差计算.html">
+            
+                <a href="../Chapter2/标准差计算.html">
+            
+                    
+                    标准差计算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../Chapter2/sklearn.metrics.confusion_matrix用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.confusion_matrix用法.html">
+            
+                    
+                    sklearn.metrics.confusion_matrix用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../Chapter2/sklearn.metrics.accuracy_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.accuracy_score用法.html">
+            
+                    
+                    sklearn.metrics.accuracy_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../Chapter2/sklearn.metrics.precision_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.precision_score用法.html">
+            
+                    
+                    sklearn.metrics.precision_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../Chapter2/sklearn.metrics.recall_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.recall_score用法.html">
+            
+                    
+                    sklearn.metrics.recall_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../Chapter2/sklearn.metrics.f1_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.f1_score用法.html">
+            
+                    
+                    sklearn.metrics.f1_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="../Chapter2/sklearn.metrics.roc_curve用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.roc_curve用法.html">
+            
+                    
+                    sklearn.metrics.roc_curve用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="../Chapter2/ROC曲线下的面积auc.html">
+            
+                <a href="../Chapter2/ROC曲线下的面积auc.html">
+            
+                    
+                    ROC曲线下的面积auc
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13" data-path="../Chapter2/sklearn.metrics.roc_auc_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.roc_auc_score用法.html">
+            
+                    
+                    sklearn.metrics.roc_auc_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Chapter3/">
+            
+                <a href="../Chapter3/">
+            
+                    
+                    数据处理 Preprocessing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../Chapter3/preprocessing.MinMaxScaler用法.html">
+            
+                <a href="../Chapter3/preprocessing.MinMaxScaler用法.html">
+            
+                    
+                    preprocessing.MinMaxScaler用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../Chapter3/preprocessing.StandardScaler用法.html">
+            
+                <a href="../Chapter3/preprocessing.StandardScaler用法.html">
+            
+                    
+                    preprocessing.StandardScaler用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../Chapter3/preprocessing.Binarizer用法.html">
+            
+                <a href="../Chapter3/preprocessing.Binarizer用法.html">
+            
+                    
+                    preprocessing.Binarizer用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../Chapter3/preprocessing.KBinsDiscretizer用法.html">
+            
+                <a href="../Chapter3/preprocessing.KBinsDiscretizer用法.html">
+            
+                    
+                    preprocessing.KBinsDiscretizer用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../Chapter3/preprocessing.LabelEncoder用法.html">
+            
+                <a href="../Chapter3/preprocessing.LabelEncoder用法.html">
+            
+                    
+                    preprocessing.LabelEncoder用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../Chapter3/preprocessing.OneHotEncoder用法.html">
+            
+                <a href="../Chapter3/preprocessing.OneHotEncoder用法.html">
+            
+                    
+                    preprocessing.OneHotEncoder用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Chapter4/">
+            
+                <a href="../Chapter4/">
+            
+                    
+                    缺失值处理 sklearn.impute
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../Chapter4/impute.SimpleImputer用法.html">
+            
+                <a href="../Chapter4/impute.SimpleImputer用法.html">
+            
+                    
+                    impute.SimpleImputer用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Chapter5/">
+            
+                <a href="../Chapter5/">
+            
+                    
+                    特征选择 feature_selection
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../Chapter5/feature_selection.VarianceThreshold 用法.html">
+            
+                <a href="../Chapter5/feature_selection.VarianceThreshold 用法.html">
+            
+                    
+                    feature_selection.VarianceThreshold用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../Chapter5/feature_selection.SelectKBest用法.html">
+            
+                <a href="../Chapter5/feature_selection.SelectKBest用法.html">
+            
+                    
+                    feature_selection.SelectKBest用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../Chapter5/feature_selection.chi2用法.html">
+            
+                <a href="../Chapter5/feature_selection.chi2用法.html">
+            
+                    
+                    feature_selection.chi2用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../Chapter5/feature_selection.f_classif用法.html">
+            
+                <a href="../Chapter5/feature_selection.f_classif用法.html">
+            
+                    
+                    feature_selection.f_classif用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../Chapter5/feature_selection.f_regression用法.html">
+            
+                <a href="../Chapter5/feature_selection.f_regression用法.html">
+            
+                    
+                    feature_selection.f_regression用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../Chapter5/feature_selection.mutual_info_classif用法.html">
+            
+                <a href="../Chapter5/feature_selection.mutual_info_classif用法.html">
+            
+                    
+                    feature_selection.mutual_info_classif用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../Chapter5/feature_selection.mutual_info_regression用法.html">
+            
+                <a href="../Chapter5/feature_selection.mutual_info_regression用法.html">
+            
+                    
+                    feature_selection.mutual_info_regression用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../Chapter5/过滤法总结.html">
+            
+                <a href="../Chapter5/过滤法总结.html">
+            
+                    
+                    过滤法总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="../Chapter5/feature_selection.SelectFromModel用法.html">
+            
+                <a href="../Chapter5/feature_selection.SelectFromModel用法.html">
+            
+                    
+                    feature_selection.SelectFromModel用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="../Chapter5/feature_selection.RFE用法.html">
+            
+                <a href="../Chapter5/feature_selection.RFE用法.html">
+            
+                    
+                    feature_selection.RFE用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../model_selection/">
+            
+                <a href="../model_selection/">
+            
+                    
+                    模型选择 model_selection
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../model_selection/数据集划分train_test_split.html">
+            
+                <a href="../model_selection/数据集划分train_test_split.html">
+            
+                    
+                    数据集划分train_test_split
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../model_selection/数据集划分K折交叉验证KFold.html">
+            
+                <a href="../model_selection/数据集划分K折交叉验证KFold.html">
+            
+                    
+                    数据集划分K折交叉验证KFold
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../model_selection/数据集划分K折交叉验证StratifiedKFold.html">
+            
+                <a href="../model_selection/数据集划分K折交叉验证StratifiedKFold.html">
+            
+                    
+                    数据集划分K折交叉验证StratifiedKFold
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../model_selection/随机数据集划分ShuffleSplit.html">
+            
+                <a href="../model_selection/随机数据集划分ShuffleSplit.html">
+            
+                    
+                    随机数据集划分ShuffleSplit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../model_selection/随机分层数据集划分StratifiedShuffleSplit.html">
+            
+                <a href="../model_selection/随机分层数据集划分StratifiedShuffleSplit.html">
+            
+                    
+                    随机分层数据集划分StratifiedShuffleSplit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../model_selection/交叉验证cross_val_score.html">
+            
+                <a href="../model_selection/交叉验证cross_val_score.html">
+            
+                    
+                    交叉验证cross_val_score
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../model_selection/学习曲线learning_curve.html">
+            
+                <a href="../model_selection/学习曲线learning_curve.html">
+            
+                    
+                    学习曲线learning_curve
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="../model_selection/验证曲线validation_curve.html">
+            
+                <a href="../model_selection/验证曲线validation_curve.html">
+            
+                    
+                    验证曲线validation_curve
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../pipeline/">
+            
+                <a href="../pipeline/">
+            
+                    
+                    pipeline
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../pipeline/Pipeline.html">
+            
+                <a href="../pipeline/Pipeline.html">
+            
+                    
+                    Pipeline
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../pipeline/make_pipeline.html">
+            
+                <a href="../pipeline/make_pipeline.html">
+            
+                    
+                    make_pipeline
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../compose/">
+            
+                <a href="../compose/">
+            
+                    
+                    compose
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../compose/ColumnTransformer.html">
+            
+                <a href="../compose/ColumnTransformer.html">
+            
+                    
+                    ColumnTransformer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../mlxtend库/">
+            
+                <a href="../mlxtend库/">
+            
+                    
+                    mlxtend库
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../mlxtend库/StackingRegressor.html">
+            
+                <a href="../mlxtend库/StackingRegressor.html">
+            
+                    
+                    StackingRegressor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../mlxtend库/StackingClassifier.html">
+            
+                <a href="../mlxtend库/StackingClassifier.html">
+            
+                    
+                    StackingClassifier
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../mlxtend库/feature_selection/">
+            
+                <a href="../mlxtend库/feature_selection/">
+            
+                    
+                    feature_selection
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.3.1" data-path="../mlxtend库/feature_selection/SequentialFeatureSelector.html">
+            
+                <a href="../mlxtend库/feature_selection/SequentialFeatureSelector.html">
+            
+                    
+                    SequentialFeatureSelector
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3.2" data-path="../mlxtend库/feature_selection/ExhaustiveFeatureSelector.html">
+            
+                <a href="../mlxtend库/feature_selection/ExhaustiveFeatureSelector.html">
+            
+                    
+                    ExhaustiveFeatureSelector
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >决策树</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><a href="#&#x51B3;&#x7B56;&#x6811;">&#x51B3;&#x7B56;&#x6811;</a></li><li><a href="#sklearn&#x4E2D;&#x7684;&#x51B3;&#x7B56;&#x6811;">sklearn&#x4E2D;&#x7684;&#x51B3;&#x7B56;&#x6811;</a></li><li><a href="#decisiontreeclassifier">DecisionTreeClassifier</a></li><ul><li><a href="#&#x91CD;&#x8981;&#x53C2;&#x6570;">&#x91CD;&#x8981;&#x53C2;&#x6570;</a></li><ul><li><a href="#criterion">criterion</a></li><li><a href="#randomstate--splitter">random_state &amp; splitter</a></li><li><a href="#maxdepth">max_depth</a></li><li><a href="#minsamplesleaf--minsamplessplit">min_samples_leaf &amp; min_samples_split</a></li><li><a href="#maxfeatures--minimpuritydecrease">max_features &amp; min_impurity_decrease</a></li><li><a href="#classweight--minweightfractionleaf">class_weight &amp; min_weight_fraction_leaf</a></li></ul><li><a href="#&#x91CD;&#x8981;&#x5C5E;&#x6027;&#x548C;&#x63A5;&#x53E3;">&#x91CD;&#x8981;&#x5C5E;&#x6027;&#x548C;&#x63A5;&#x53E3;</a></li><ul><li><a href="#featureimportances">featureimportances</a></li><li><a href="#apply&#x548C;predict">apply&#x548C;predict</a></li></ul></ul><li><a href="#decisiontreeregressor">DecisionTreeRegressor</a></li><ul><li><a href="#&#x91CD;&#x8981;&#x53C2;&#x6570;&#xFF0C;&#x5C5E;&#x6027;&#x53CA;&#x63A5;&#x53E3;">&#x91CD;&#x8981;&#x53C2;&#x6570;&#xFF0C;&#x5C5E;&#x6027;&#x53CA;&#x63A5;&#x53E3;</a></li><ul><li><a href="#criterion">criterion</a></li></ul></ul><li><a href="#&#x51B3;&#x7B56;&#x6811;&#x7684;&#x4F18;&#x7F3A;&#x70B9;">&#x51B3;&#x7B56;&#x6811;&#x7684;&#x4F18;&#x7F3A;&#x70B9;</a></li><ul><li><a href="#&#x51B3;&#x7B56;&#x6811;&#x4F18;&#x70B9;">&#x51B3;&#x7B56;&#x6811;&#x4F18;&#x70B9;</a></li><li><a href="#&#x51B3;&#x7B56;&#x6811;&#x7684;&#x7F3A;&#x70B9;">&#x51B3;&#x7B56;&#x6811;&#x7684;&#x7F3A;&#x70B9;</a></li></ul><li><a href="#&#x9644;&#x5F55;">&#x9644;&#x5F55;</a></li><ul><li><a href="#&#x5206;&#x7C7B;&#x6811;&#x53C2;&#x6570;&#x5217;&#x8868;">&#x5206;&#x7C7B;&#x6811;&#x53C2;&#x6570;&#x5217;&#x8868;</a></li><li><a href="#&#x5206;&#x7C7B;&#x6811;&#x5C5E;&#x6027;&#x5217;&#x8868;">&#x5206;&#x7C7B;&#x6811;&#x5C5E;&#x6027;&#x5217;&#x8868;</a></li><li><a href="#&#x5206;&#x7C7B;&#x6811;&#x63A5;&#x53E3;&#x5217;&#x8868;">&#x5206;&#x7C7B;&#x6811;&#x63A5;&#x53E3;&#x5217;&#x8868;</a></li></ul></ul></div><a href="#&#x51B3;&#x7B56;&#x6811;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x51B3;&#x7B56;&#x6811;"><a name="&#x51B3;&#x7B56;&#x6811;" class="anchor-navigation-ex-anchor" href="#&#x51B3;&#x7B56;&#x6811;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x51B3;&#x7B56;&#x6811;</h1>
+<p>&#x51B3;&#x7B56;&#x6811;&#xFF08;Decision Tree&#xFF09;&#x662F;&#x4E00;&#x79CD;&#x975E;&#x53C2;&#x6570;&#x7684;&#x6709;&#x76D1;&#x7763;&#x5B66;&#x4E60;&#x65B9;&#x6CD5;&#xFF0C;&#x5B83;&#x80FD;&#x591F;&#x4ECE;&#x4E00;&#x7CFB;&#x5217;&#x6709;&#x7279;&#x5F81;&#x548C;&#x6807;&#x7B7E;&#x7684;&#x6570;&#x636E;&#x4E2D;&#x603B;&#x7ED3;&#x51FA;&#x51B3;&#x7B56;&#x89C4;
+&#x5219;&#xFF0C;&#x5E76;&#x7528;&#x6811;&#x72B6;&#x56FE;&#x7684;&#x7ED3;&#x6784;&#x6765;&#x5448;&#x73B0;&#x8FD9;&#x4E9B;&#x89C4;&#x5219;&#xFF0C;&#x4EE5;&#x89E3;&#x51B3;&#x5206;&#x7C7B;&#x548C;&#x56DE;&#x5F52;&#x95EE;&#x9898;  &#x3002;</p>
+<p><strong>&#x51B3;&#x7B56;&#x6811;&#x7B97;&#x6CD5;&#x7684;&#x6838;&#x5FC3;&#x662F;&#x8981;&#x89E3;&#x51B3;&#x4E24;&#x4E2A;&#x95EE;&#x9898;&#xFF1A;</strong>  </p>
+<p>1&#xFF09;&#x5982;&#x4F55;&#x4ECE;&#x6570;&#x636E;&#x8868;&#x4E2D;&#x627E;&#x51FA;&#x6700;&#x4F73;&#x8282;&#x70B9;&#x548C;&#x6700;&#x4F73;&#x5206;&#x679D;&#xFF1F;
+2&#xFF09;&#x5982;&#x4F55;&#x8BA9;&#x51B3;&#x7B56;&#x6811;&#x505C;&#x6B62;&#x751F;&#x957F;&#xFF0C;&#x9632;&#x6B62;&#x8FC7;&#x62DF;&#x5408;&#xFF1F;  </p>
+<h1 id="sklearn&#x4E2D;&#x7684;&#x51B3;&#x7B56;&#x6811;"><a name="sklearn&#x4E2D;&#x7684;&#x51B3;&#x7B56;&#x6811;" class="anchor-navigation-ex-anchor" href="#sklearn&#x4E2D;&#x7684;&#x51B3;&#x7B56;&#x6811;"><i class="fa fa-link" aria-hidden="true"></i></a>sklearn&#x4E2D;&#x7684;&#x51B3;&#x7B56;&#x6811;</h1>
+<ul>
+<li>&#x6A21;&#x5757; <code>sklearn.tree</code></li>
+</ul>
+<p>sklearn  &#x4E2D;&#x51B3;&#x7B56;&#x6811;&#x7684;&#x7C7B;&#x90FD;&#x5728; &#x201D;tree&#x201C; &#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#x4E4B;&#x4E0B;&#x3002;&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#x603B;&#x5171;&#x5305;&#x542B;&#x4E94;&#x4E2A;&#x7C7B;  </p>
+<table>
+<thead>
+<tr>
+<th>tree.DecisionTreeClassifier</th>
+<th>&#x5206;&#x7C7B;&#x6811;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tree.DecisionTreeRegressor</td>
+<td>&#x56DE;&#x5F52;&#x6811;</td>
+</tr>
+<tr>
+<td>tree.export_graphviz</td>
+<td>&#x5C06;&#x751F;&#x6210;&#x7684;&#x51B3;&#x7B56;&#x6811;&#x5BFC;&#x51FA;&#x4E3A;DOT&#x683C;&#x5F0F;&#xFF0C;&#x753B;&#x56FE;&#x4E13;&#x7528;</td>
+</tr>
+<tr>
+<td>tree.ExtraTreeClassifier</td>
+<td>&#x9AD8;&#x968F;&#x673A;&#x7248;&#x672C;&#x7684;&#x5206;&#x7C7B;&#x6811;</td>
+</tr>
+<tr>
+<td>tree.ExtraTreeRegressor</td>
+<td>&#x9AD8;&#x968F;&#x673A;&#x7248;&#x672C;&#x7684;&#x56DE;&#x5F52;&#x6811;</td>
+</tr>
+</tbody>
+</table>
+<h1 id="decisiontreeclassifier"><a name="decisiontreeclassifier" class="anchor-navigation-ex-anchor" href="#decisiontreeclassifier"><i class="fa fa-link" aria-hidden="true"></i></a>DecisionTreeClassifier</h1>
+<pre class="language-"><code class="lang-python"><span class="token keyword">class</span> <span class="token class-name">sklearn</span><span class="token punctuation">.</span>tree<span class="token punctuation">.</span>DecisionTreeClassifier<span class="token punctuation">(</span>criterion<span class="token operator">=</span><span class="token string">&apos;gini&apos;</span><span class="token punctuation">,</span> 
+                                          splitter<span class="token operator">=</span><span class="token string">&apos;best&apos;</span><span class="token punctuation">,</span> 
+                                          max_depth<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> 
+                                          min_samples_split<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> 
+                                          min_samples_leaf<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> 
+                                          min_weight_fraction_leaf<span class="token operator">=</span><span class="token number">0.0</span><span class="token punctuation">,</span> 
+                                          max_features<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> 
+                                          random_state<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> 
+                                          max_leaf_nodes<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> 
+                                          min_impurity_decrease<span class="token operator">=</span><span class="token number">0.0</span><span class="token punctuation">,</span> 
+                                          min_impurity_split<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> 
+                                          class_weight<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> 
+                                          presort<span class="token operator">=</span><span class="token string">&apos;deprecated&apos;</span><span class="token punctuation">,</span> 
+                                          ccp_alpha<span class="token operator">=</span><span class="token number">0.0</span>
+                                         <span class="token punctuation">)</span>
+</code></pre>
+<h2 id="&#x91CD;&#x8981;&#x53C2;&#x6570;"><a name="&#x91CD;&#x8981;&#x53C2;&#x6570;" class="anchor-navigation-ex-anchor" href="#&#x91CD;&#x8981;&#x53C2;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x91CD;&#x8981;&#x53C2;&#x6570;</h2>
+<h3 id="criterion"><a name="criterion" class="anchor-navigation-ex-anchor" href="#criterion"><i class="fa fa-link" aria-hidden="true"></i></a>criterion</h3>
+<p>&#x4E3A;&#x4E86;&#x8981;&#x5C06;&#x8868;&#x683C;&#x8F6C;&#x5316;&#x4E3A;&#x4E00;&#x68F5;&#x6811;&#xFF0C;&#x51B3;&#x7B56;&#x6811;&#x9700;&#x8981;&#x627E;&#x51FA;&#x6700;&#x4F73;&#x8282;&#x70B9;&#x548C;&#x6700;&#x4F73;&#x7684;&#x5206;&#x679D;&#x65B9;&#x6CD5;&#xFF0C;&#x5BF9;&#x5206;&#x7C7B;&#x6811;&#x6765;&#x8BF4;&#xFF0C;&#x8861;&#x91CF;&#x8FD9;&#x4E2A;&#x201C;&#x6700;&#x4F73;&#x201D;&#x7684;&#x6307;&#x6807;
+&#x53EB;&#x505A;&#x201C;&#x4E0D;&#x7EAF;&#x5EA6;&#x201D;&#x3002;&#x901A;&#x5E38;&#x6765;&#x8BF4;&#xFF0C;&#x4E0D;&#x7EAF;&#x5EA6;&#x8D8A;&#x4F4E;&#xFF0C;&#x51B3;&#x7B56;&#x6811;&#x5BF9;&#x8BAD;&#x7EC3;&#x96C6;&#x7684;&#x62DF;&#x5408;&#x8D8A;&#x597D;  &#x3002;</p>
+<p>&#x4E0D;&#x7EAF;&#x5EA6;&#x57FA;&#x4E8E;&#x8282;&#x70B9;&#x6765;&#x8BA1;&#x7B97;&#xFF0C;&#x6811;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x90FD;&#x4F1A;&#x6709;&#x4E00;&#x4E2A;&#x4E0D;&#x7EAF;&#x5EA6;&#xFF0C;&#x5E76;&#x4E14;&#x5B50;&#x8282;&#x70B9;&#x7684;&#x4E0D;&#x7EAF;&#x5EA6;&#x4E00;&#x5B9A;&#x662F;&#x4F4E;&#x4E8E;&#x7236;&#x8282;&#x70B9;&#x7684;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;
+&#x8BF4;&#xFF0C;&#x5728;&#x540C;&#x4E00;&#x68F5;&#x51B3;&#x7B56;&#x6811;&#x4E0A;&#xFF0C;&#x53F6;&#x5B50;&#x8282;&#x70B9;&#x7684;&#x4E0D;&#x7EAF;&#x5EA6;&#x4E00;&#x5B9A;&#x662F;&#x6700;&#x4F4E;&#x7684;  &#x3002;</p>
+<p>Criterion&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x6B63;&#x662F;&#x7528;&#x6765;&#x51B3;&#x5B9A;&#x4E0D;&#x7EAF;&#x5EA6;&#x7684;&#x8BA1;&#x7B97;&#x65B9;&#x6CD5;&#x7684;&#x3002;sklearn&#x63D0;&#x4F9B;&#x4E86;&#x4E24;&#x79CD;&#x9009;&#x62E9;  </p>
+<p>1&#xFF09;&#x8F93;&#x5165;&#x201D;entropy&#x201C;&#xFF0C;&#x4F7F;&#x7528;&#x4FE1;&#x606F;&#x71B5;&#xFF08;Entropy )</p>
+<p>2&#xFF09;&#x8F93;&#x5165;&#x201D;gini&#x201C;&#xFF0C;&#x4F7F;&#x7528;&#x57FA;&#x5C3C;&#x7CFB;&#x6570;&#xFF08;Gini Impurity  )</p>
+<p>&#x6BD4;&#x8D77;&#x57FA;&#x5C3C;&#x7CFB;&#x6570;&#xFF0C;&#x4FE1;&#x606F;&#x71B5;&#x5BF9;&#x4E0D;&#x7EAF;&#x5EA6;&#x66F4;&#x52A0;&#x654F;&#x611F;&#xFF0C;&#x5BF9;&#x4E0D;&#x7EAF;&#x5EA6;&#x7684;&#x60E9;&#x7F5A;&#x6700;&#x5F3A;&#x3002;&#x4F46;&#x662F;&#x5728;&#x5B9E;&#x9645;&#x4F7F;&#x7528;&#x4E2D;&#xFF0C;&#x4FE1;&#x606F;&#x71B5;&#x548C;&#x57FA;&#x5C3C;&#x7CFB;&#x6570;&#x7684;&#x6548;&#x679C;&#x57FA;
+&#x672C;&#x76F8;&#x540C;&#x3002;&#x4FE1;&#x606F;&#x71B5;&#x7684;&#x8BA1;&#x7B97;&#x6BD4;&#x57FA;&#x5C3C;&#x7CFB;&#x6570;&#x7F13;&#x6162;&#x4E00;&#x4E9B;&#xFF0C;&#x56E0;&#x4E3A;&#x57FA;&#x5C3C;&#x7CFB;&#x6570;&#x7684;&#x8BA1;&#x7B97;&#x4E0D;&#x6D89;&#x53CA;&#x5BF9;&#x6570;&#x3002;&#x53E6;&#x5916;&#xFF0C;&#x56E0;&#x4E3A;&#x4FE1;&#x606F;&#x71B5;&#x5BF9;&#x4E0D;&#x7EAF;&#x5EA6;&#x66F4;&#x52A0;&#x654F;
+&#x611F;&#xFF0C;&#x6240;&#x4EE5;&#x4FE1;&#x606F;&#x71B5;&#x4F5C;&#x4E3A;&#x6307;&#x6807;&#x65F6;&#xFF0C;&#x51B3;&#x7B56;&#x6811;&#x7684;&#x751F;&#x957F;&#x4F1A;&#x66F4;&#x52A0;&#x201C;&#x7CBE;&#x7EC6;&#x201D;&#xFF0C;&#x56E0;&#x6B64;&#x5BF9;&#x4E8E;&#x9AD8;&#x7EF4;&#x6570;&#x636E;&#x6216;&#x8005;&#x566A;&#x97F3;&#x5F88;&#x591A;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x4FE1;&#x606F;&#x71B5;&#x5F88;&#x5BB9;&#x6613;
+&#x8FC7;&#x62DF;&#x5408;&#xFF0C;&#x57FA;&#x5C3C;&#x7CFB;&#x6570;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#x6548;&#x679C;&#x5F80;&#x5F80;&#x6BD4;&#x8F83;&#x597D;&#x3002;&#x5F53;&#x6A21;&#x578B;&#x62DF;&#x5408;&#x7A0B;&#x5EA6;&#x4E0D;&#x8DB3;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5373;&#x5F53;&#x6A21;&#x578B;&#x5728;&#x8BAD;&#x7EC3;&#x96C6;&#x548C;&#x6D4B;&#x8BD5;&#x96C6;&#x4E0A;&#x90FD;&#x8868;
+&#x73B0;&#x4E0D;&#x592A;&#x597D;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F7F;&#x7528;&#x4FE1;&#x606F;&#x71B5;  &#x3002;</p>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;</th>
+<th>criterion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x5982;&#x4F55;&#x5F71;&#x54CD;&#x6A21;&#x578B;?</td>
+<td>&#x786E;&#x5B9A;&#x4E0D;&#x7EAF;&#x5EA6;&#x7684;&#x8BA1;&#x7B97;&#x65B9;&#x6CD5;&#xFF0C;&#x5E2E;&#x5FD9;&#x627E;&#x51FA;&#x6700;&#x4F73;&#x8282;&#x70B9;&#x548C;&#x6700;&#x4F73;&#x5206;&#x679D;&#xFF0C;&#x4E0D;&#x7EAF;&#x5EA6;&#x8D8A;&#x4F4E;&#xFF0C;&#x51B3;&#x7B56;&#x6811;&#x5BF9;&#x8BAD;&#x7EC3;&#x96C6; &#x7684;&#x62DF;&#x5408;&#x8D8A;&#x597D;</td>
+</tr>
+<tr>
+<td>&#x53EF;&#x80FD;&#x7684;&#x8F93;&#x5165;&#x6709;&#x54EA; &#x4E9B;&#xFF1F;</td>
+<td>&#x4E0D;&#x586B;&#x9ED8;&#x8BA4;&#x57FA;&#x5C3C;&#x7CFB;&#x6570;&#xFF0C;&#x586B;&#x5199;gini&#x4F7F;&#x7528;&#x57FA;&#x5C3C;&#x7CFB;&#x6570;&#xFF0C;&#x586B;&#x5199;entropy&#x4F7F;&#x7528;&#x4FE1;&#x606F;&#x589E;&#x76CA;</td>
+</tr>
+<tr>
+<td>&#x600E;&#x6837;&#x9009;&#x53D6;&#x53C2;&#x6570;&#xFF1F;</td>
+<td>&#x901A;&#x5E38;&#x5C31;&#x4F7F;&#x7528;&#x57FA;&#x5C3C;&#x7CFB;&#x6570; &#x6570;&#x636E;&#x7EF4;&#x5EA6;&#x5F88;&#x5927;&#xFF0C;&#x566A;&#x97F3;&#x5F88;&#x5927;&#x65F6;&#x4F7F;&#x7528;&#x57FA;&#x5C3C;&#x7CFB;&#x6570; &#x7EF4;&#x5EA6;&#x4F4E;&#xFF0C;&#x6570;&#x636E;&#x6BD4;&#x8F83;&#x6E05;&#x6670;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4FE1;&#x606F;&#x71B5;&#x548C;&#x57FA;&#x5C3C;&#x7CFB;&#x6570;&#x6CA1;&#x533A;&#x522B; &#x5F53;&#x51B3;&#x7B56;&#x6811;&#x7684;&#x62DF;&#x5408;&#x7A0B;&#x5EA6;&#x4E0D;&#x591F;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F7F;&#x7528;&#x4FE1;&#x606F;&#x71B5; &#x4E24;&#x4E2A;&#x90FD;&#x8BD5;&#x8BD5;&#xFF0C;&#x4E0D;&#x597D;&#x5C31;&#x6362;&#x53E6;&#x5916;&#x4E00;&#x4E2A;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="randomstate--splitter"><a name="randomstate--splitter" class="anchor-navigation-ex-anchor" href="#randomstate--splitter"><i class="fa fa-link" aria-hidden="true"></i></a>random_state &amp; splitter</h3>
+<p>random_state&#x7528;&#x6765;&#x8BBE;&#x7F6E;&#x5206;&#x679D;&#x4E2D;&#x7684;&#x968F;&#x673A;&#x6A21;&#x5F0F;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x9ED8;&#x8BA4;None&#xFF0C;&#x5728;&#x9AD8;&#x7EF4;&#x5EA6;&#x65F6;&#x968F;&#x673A;&#x6027;&#x4F1A;&#x8868;&#x73B0;&#x66F4;&#x660E;&#x663E;&#xFF0C;&#x4F4E;&#x7EF4;&#x5EA6;&#x7684;&#x6570;&#x636E;
+&#xFF08;&#x6BD4;&#x5982;&#x9E22;&#x5C3E;&#x82B1;&#x6570;&#x636E;&#x96C6;&#xFF09;&#xFF0C;&#x968F;&#x673A;&#x6027;&#x51E0;&#x4E4E;&#x4E0D;&#x4F1A;&#x663E;&#x73B0;&#x3002;&#x8F93;&#x5165;&#x4EFB;&#x610F;&#x6574;&#x6570;&#xFF0C;&#x4F1A;&#x4E00;&#x76F4;&#x957F;&#x51FA;&#x540C;&#x4E00;&#x68F5;&#x6811;&#xFF0C;&#x8BA9;&#x6A21;&#x578B;&#x7A33;&#x5B9A;&#x4E0B;&#x6765;  </p>
+<p>splitter&#x4E5F;&#x662F;&#x7528;&#x6765;&#x63A7;&#x5236;&#x51B3;&#x7B56;&#x6811;&#x4E2D;&#x7684;&#x968F;&#x673A;&#x9009;&#x9879;&#x7684;&#xFF0C;&#x6709;&#x4E24;&#x79CD;&#x8F93;&#x5165;&#x503C;&#xFF0C;&#x8F93;&#x5165;&#x201D;best&quot;&#xFF0C;&#x51B3;&#x7B56;&#x6811;&#x5728;&#x5206;&#x679D;&#x65F6;&#x867D;&#x7136;&#x968F;&#x673A;&#xFF0C;&#x4F46;&#x662F;&#x8FD8;&#x662F;&#x4F1A;
+&#x4F18;&#x5148;&#x9009;&#x62E9;&#x66F4;&#x91CD;&#x8981;&#x7684;&#x7279;&#x5F81;&#x8FDB;&#x884C;&#x5206;&#x679D;&#xFF08;&#x91CD;&#x8981;&#x6027;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5C5E;&#x6027;feature<em>importances</em>&#x67E5;&#x770B;&#xFF09;&#xFF0C;&#x8F93;&#x5165;&#x201C;random&quot;&#xFF0C;&#x51B3;&#x7B56;&#x6811;&#x5728;
+&#x5206;&#x679D;&#x65F6;&#x4F1A;&#x66F4;&#x52A0;&#x968F;&#x673A;&#xFF0C;&#x6811;&#x4F1A;&#x56E0;&#x4E3A;&#x542B;&#x6709;&#x66F4;&#x591A;&#x7684;&#x4E0D;&#x5FC5;&#x8981;&#x4FE1;&#x606F;&#x800C;&#x66F4;&#x6DF1;&#x66F4;&#x5927;&#xFF0C;&#x5E76;&#x56E0;&#x8FD9;&#x4E9B;&#x4E0D;&#x5FC5;&#x8981;&#x4FE1;&#x606F;&#x800C;&#x964D;&#x4F4E;&#x5BF9;&#x8BAD;&#x7EC3;&#x96C6;&#x7684;&#x62DF;&#x5408;&#x3002;&#x8FD9;
+&#x4E5F;&#x662F;&#x9632;&#x6B62;&#x8FC7;&#x62DF;&#x5408;&#x7684;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#x3002;&#x5F53;&#x4F60;&#x9884;&#x6D4B;&#x5230;&#x4F60;&#x7684;&#x6A21;&#x578B;&#x4F1A;&#x8FC7;&#x62DF;&#x5408;&#xFF0C;&#x7528;&#x8FD9;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#x6765;&#x5E2E;&#x52A9;&#x4F60;&#x964D;&#x4F4E;&#x6811;&#x5EFA;&#x6210;&#x4E4B;&#x540E;&#x8FC7;&#x62DF;&#x5408;&#x7684;&#x53EF;&#x80FD;
+&#x6027;&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x6811;&#x4E00;&#x65E6;&#x5EFA;&#x6210;&#xFF0C;&#x4F9D;&#x7136;&#x662F;&#x4F7F;&#x7528;&#x526A;&#x679D;&#x53C2;&#x6570;&#x6765;&#x9632;&#x6B62;&#x8FC7;&#x62DF;&#x5408;  &#x3002;</p>
+<p> &#x526A;&#x679D;&#x53C2;&#x6570;</p>
+<p>&#x5728;&#x4E0D;&#x52A0;&#x9650;&#x5236;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4E00;&#x68F5;&#x51B3;&#x7B56;&#x6811;&#x4F1A;&#x751F;&#x957F;&#x5230;&#x8861;&#x91CF;&#x4E0D;&#x7EAF;&#x5EA6;&#x7684;&#x6307;&#x6807;&#x6700;&#x4F18;&#xFF0C;&#x6216;&#x8005;&#x6CA1;&#x6709;&#x66F4;&#x591A;&#x7684;&#x7279;&#x5F81;&#x53EF;&#x7528;&#x4E3A;&#x6B62;&#x3002;&#x8FD9;&#x6837;&#x7684;&#x51B3;&#x7B56;&#x6811;
+&#x5F80;&#x5F80;&#x4F1A;&#x8FC7;&#x62DF;&#x5408;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5B83;&#x4F1A;&#x5728;&#x8BAD;&#x7EC3;&#x96C6;&#x4E0A;&#x8868;&#x73B0;&#x5F88;&#x597D;&#xFF0C;&#x5728;&#x6D4B;&#x8BD5;&#x96C6;&#x4E0A;&#x5374;&#x8868;&#x73B0;&#x7CDF;&#x7CD5;&#x3002;&#x6211;&#x4EEC;&#x6536;&#x96C6;&#x7684;&#x6837;&#x672C;&#x6570;&#x636E;&#x4E0D;&#x53EF;&#x80FD;&#x548C;&#x6574;&#x4F53;
+&#x7684;&#x72B6;&#x51B5;&#x5B8C;&#x5168;&#x4E00;&#x81F4;&#xFF0C;&#x56E0;&#x6B64;&#x5F53;&#x4E00;&#x68F5;&#x51B3;&#x7B56;&#x6811;&#x5BF9;&#x8BAD;&#x7EC3;&#x6570;&#x636E;&#x6709;&#x4E86;&#x8FC7;&#x4E8E;&#x4F18;&#x79C0;&#x7684;&#x89E3;&#x91CA;&#x6027;&#xFF0C;&#x5B83;&#x627E;&#x51FA;&#x7684;&#x89C4;&#x5219;&#x5FC5;&#x7136;&#x5305;&#x542B;&#x4E86;&#x8BAD;&#x7EC3;&#x6837;&#x672C;&#x4E2D;&#x7684;&#x566A;
+&#x58F0;&#xFF0C;&#x5E76;&#x4F7F;&#x5B83;&#x5BF9;&#x672A;&#x77E5;&#x6570;&#x636E;&#x7684;&#x62DF;&#x5408;&#x7A0B;&#x5EA6;&#x4E0D;&#x8DB3;  &#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x8BA9;&#x51B3;&#x7B56;&#x6811;&#x6709;&#x66F4;&#x597D;&#x7684;&#x6CDB;&#x5316;&#x6027;&#xFF0C;&#x6211;&#x4EEC;&#x8981;&#x5BF9;&#x51B3;&#x7B56;&#x6811;&#x8FDB;&#x884C;&#x526A;&#x679D;&#x3002;&#x526A;&#x679D;&#x7B56;&#x7565;&#x5BF9;&#x51B3;&#x7B56;&#x6811;&#x7684;&#x5F71;&#x54CD;&#x5DE8;&#x5927;&#xFF0C;&#x6B63;&#x786E;&#x7684;&#x526A;&#x679D;&#x7B56;&#x7565;&#x662F;&#x4F18;&#x5316;
+&#x51B3;&#x7B56;&#x6811;&#x7B97;&#x6CD5;&#x7684;&#x6838;&#x5FC3;&#x3002;sklearn&#x4E3A;&#x6211;&#x4EEC;&#x63D0;&#x4F9B;&#x4E86;&#x4E0D;&#x540C;&#x7684;&#x526A;&#x679D;&#x7B56;&#x7565;  &#x3002;</p>
+<h3 id="maxdepth"><a name="maxdepth" class="anchor-navigation-ex-anchor" href="#maxdepth"><i class="fa fa-link" aria-hidden="true"></i></a>max_depth</h3>
+<p>&#x9650;&#x5236;&#x6811;&#x7684;&#x6700;&#x5927;&#x6DF1;&#x5EA6;&#xFF0C;&#x8D85;&#x8FC7;&#x8BBE;&#x5B9A;&#x6DF1;&#x5EA6;&#x7684;&#x6811;&#x679D;&#x5168;&#x90E8;&#x526A;&#x6389;
+&#x8FD9;&#x662F;&#x7528;&#x5F97;&#x6700;&#x5E7F;&#x6CDB;&#x7684;&#x526A;&#x679D;&#x53C2;&#x6570;&#xFF0C;&#x5728;&#x9AD8;&#x7EF4;&#x5EA6;&#x4F4E;&#x6837;&#x672C;&#x91CF;&#x65F6;&#x975E;&#x5E38;&#x6709;&#x6548;&#x3002;&#x51B3;&#x7B56;&#x6811;&#x591A;&#x751F;&#x957F;&#x4E00;&#x5C42;&#xFF0C;&#x5BF9;&#x6837;&#x672C;&#x91CF;&#x7684;&#x9700;&#x6C42;&#x4F1A;&#x589E;&#x52A0;&#x4E00;&#x500D;&#xFF0C;&#x6240;
+&#x4EE5;&#x9650;&#x5236;&#x6811;&#x6DF1;&#x5EA6;&#x80FD;&#x591F;&#x6709;&#x6548;&#x5730;&#x9650;&#x5236;&#x8FC7;&#x62DF;&#x5408;&#x3002;&#x5728;&#x96C6;&#x6210;&#x7B97;&#x6CD5;&#x4E2D;&#x4E5F;&#x975E;&#x5E38;&#x5B9E;&#x7528;&#x3002;&#x5B9E;&#x9645;&#x4F7F;&#x7528;&#x65F6;&#xFF0C;&#x5EFA;&#x8BAE;&#x4ECE;=3&#x5F00;&#x59CB;&#x5C1D;&#x8BD5;&#xFF0C;&#x770B;&#x770B;&#x62DF;&#x5408;&#x7684;&#x6548;&#x518D;&#x51B3;&#x5B9A;&#x662F;&#x5426;&#x589E;&#x52A0;&#x8BBE;&#x5B9A;&#x6DF1;&#x5EA6;  &#x3002;</p>
+<h3 id="minsamplesleaf--minsamplessplit"><a name="minsamplesleaf--minsamplessplit" class="anchor-navigation-ex-anchor" href="#minsamplesleaf--minsamplessplit"><i class="fa fa-link" aria-hidden="true"></i></a>min_samples_leaf &amp; min_samples_split</h3>
+<p>min_samples_leaf &#x9650;&#x5B9A;&#xFF0C;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x5728;&#x5206;&#x679D;&#x540E;&#x7684;&#x6BCF;&#x4E2A;&#x5B50;&#x8282;&#x70B9;&#x90FD;&#x5FC5;&#x987B;&#x5305;&#x542B;&#x81F3;&#x5C11;min_samples_leaf&#x4E2A;&#x8BAD;&#x7EC3;&#x6837;&#x672C;&#xFF0C;&#x5426;&#x5219;&#x5206;
+&#x679D;&#x5C31;&#x4E0D;&#x4F1A;&#x53D1;&#x751F;&#xFF0C;&#x6216;&#x8005;&#xFF0C;&#x5206;&#x679D;&#x4F1A;&#x671D;&#x7740;&#x6EE1;&#x8DB3;&#x6BCF;&#x4E2A;&#x5B50;&#x8282;&#x70B9;&#x90FD;&#x5305;&#x542B;min_samples_leaf&#x4E2A;&#x6837;&#x672C;&#x7684;&#x65B9;&#x5411;&#x53BB;&#x53D1;&#x751F;  </p>
+<p>&#x4E00;&#x822C;&#x642D;&#x914D;max_depth&#x4F7F;&#x7528;&#xFF0C;&#x5728;&#x56DE;&#x5F52;&#x6811;&#x4E2D;&#x6709;&#x795E;&#x5947;&#x7684;&#x6548;&#x679C;&#xFF0C;&#x53EF;&#x4EE5;&#x8BA9;&#x6A21;&#x578B;&#x53D8;&#x5F97;&#x66F4;&#x52A0;&#x5E73;&#x6ED1;&#x3002;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x7684;&#x6570;&#x91CF;&#x8BBE;&#x7F6E;&#x5F97;&#x592A;&#x5C0F;&#x4F1A;&#x5F15;
+&#x8D77;&#x8FC7;&#x62DF;&#x5408;&#xFF0C;&#x8BBE;&#x7F6E;&#x5F97;&#x592A;&#x5927;&#x5C31;&#x4F1A;&#x963B;&#x6B62;&#x6A21;&#x578B;&#x5B66;&#x4E60;&#x6570;&#x636E;&#x3002;&#x4E00;&#x822C;&#x6765;&#x8BF4;&#xFF0C;&#x5EFA;&#x8BAE;&#x4ECE;=5&#x5F00;&#x59CB;&#x4F7F;&#x7528;&#x3002;&#x5982;&#x679C;&#x53F6;&#x8282;&#x70B9;&#x4E2D;&#x542B;&#x6709;&#x7684;&#x6837;&#x672C;&#x91CF;&#x53D8;&#x5316;&#x5F88;
+&#x5927;&#xFF0C;&#x5EFA;&#x8BAE;&#x8F93;&#x5165;&#x6D6E;&#x70B9;&#x6570;&#x4F5C;&#x4E3A;&#x6837;&#x672C;&#x91CF;&#x7684;&#x767E;&#x5206;&#x6BD4;&#x6765;&#x4F7F;&#x7528;&#x3002;&#x540C;&#x65F6;&#xFF0C;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x4FDD;&#x8BC1;&#x6BCF;&#x4E2A;&#x53F6;&#x5B50;&#x7684;&#x6700;&#x5C0F;&#x5C3A;&#x5BF8;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x56DE;&#x5F52;&#x95EE;&#x9898;
+&#x4E2D;&#x907F;&#x514D;&#x4F4E;&#x65B9;&#x5DEE;&#xFF0C;&#x8FC7;&#x62DF;&#x5408;&#x7684;&#x53F6;&#x5B50;&#x8282;&#x70B9;&#x51FA;&#x73B0;&#x3002;&#x5BF9;&#x4E8E;&#x7C7B;&#x522B;&#x4E0D;&#x591A;&#x7684;&#x5206;&#x7C7B;&#x95EE;&#x9898;&#xFF0C;=1&#x901A;&#x5E38;&#x5C31;&#x662F;&#x6700;&#x4F73;&#x9009;&#x62E9;  &#x3002;</p>
+<p>min_samples_split&#x9650;&#x5B9A;&#xFF0C;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x5FC5;&#x987B;&#x8981;&#x5305;&#x542B;&#x81F3;&#x5C11;min_samples_split&#x4E2A;&#x8BAD;&#x7EC3;&#x6837;&#x672C;&#xFF0C;&#x8FD9;&#x4E2A;&#x8282;&#x70B9;&#x624D;&#x5141;&#x8BB8;&#x88AB;&#x5206;&#x679D;&#xFF0C;&#x5426;&#x5219;&#x5206;&#x679D;&#x5C31;&#x4E0D;&#x4F1A;&#x53D1;&#x751F;  &#x3002;</p>
+<h3 id="maxfeatures--minimpuritydecrease"><a name="maxfeatures--minimpuritydecrease" class="anchor-navigation-ex-anchor" href="#maxfeatures--minimpuritydecrease"><i class="fa fa-link" aria-hidden="true"></i></a>max_features &amp; min_impurity_decrease</h3>
+<p>max_features&#x9650;&#x5236;&#x5206;&#x679D;&#x65F6;&#x8003;&#x8651;&#x7684;&#x7279;&#x5F81;&#x4E2A;&#x6570;&#xFF0C;&#x8D85;&#x8FC7;&#x9650;&#x5236;&#x4E2A;&#x6570;&#x7684;&#x7279;&#x5F81;&#x90FD;&#x4F1A;&#x88AB;&#x820D;&#x5F03;&#x3002;&#x548C;max_depth&#x5F02;&#x66F2;&#x540C;&#x5DE5;&#xFF0C;
+max_features&#x662F;&#x7528;&#x6765;&#x9650;&#x5236;&#x9AD8;&#x7EF4;&#x5EA6;&#x6570;&#x636E;&#x7684;&#x8FC7;&#x62DF;&#x5408;&#x7684;&#x526A;&#x679D;&#x53C2;&#x6570;&#xFF0C;&#x4F46;&#x5176;&#x65B9;&#x6CD5;&#x6BD4;&#x8F83;&#x66B4;&#x529B;&#xFF0C;&#x662F;&#x76F4;&#x63A5;&#x9650;&#x5236;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7684;&#x7279;&#x5F81;&#x6570;&#x91CF;
+&#x800C;&#x5F3A;&#x884C;&#x4F7F;&#x51B3;&#x7B56;&#x6811;&#x505C;&#x4E0B;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x5728;&#x4E0D;&#x77E5;&#x9053;&#x51B3;&#x7B56;&#x6811;&#x4E2D;&#x7684;&#x5404;&#x4E2A;&#x7279;&#x5F81;&#x7684;&#x91CD;&#x8981;&#x6027;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5F3A;&#x884C;&#x8BBE;&#x5B9A;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x6A21;&#x578B;
+&#x5B66;&#x4E60;&#x4E0D;&#x8DB3;&#x3002;&#x5982;&#x679C;&#x5E0C;&#x671B;&#x901A;&#x8FC7;&#x964D;&#x7EF4;&#x7684;&#x65B9;&#x5F0F;&#x9632;&#x6B62;&#x8FC7;&#x62DF;&#x5408;&#xFF0C;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;PCA&#xFF0C;ICA&#x6216;&#x8005;&#x7279;&#x5F81;&#x9009;&#x62E9;&#x6A21;&#x5757;&#x4E2D;&#x7684;&#x964D;&#x7EF4;&#x7B97;&#x6CD5;&#x3002;</p>
+<p>min_impurity_decrease&#x9650;&#x5236;&#x4FE1;&#x606F;&#x589E;&#x76CA;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x4FE1;&#x606F;&#x589E;&#x76CA;&#x5C0F;&#x4E8E;&#x8BBE;&#x5B9A;&#x6570;&#x503C;&#x7684;&#x5206;&#x679D;&#x4E0D;&#x4F1A;&#x53D1;&#x751F;&#x3002;&#x8FD9;&#x662F;&#x5728;0.19&#x7248;&#x672C;&#x4E2D;&#x66F4;&#x65B0;&#x7684;
+&#x529F;&#x80FD;&#xFF0C;&#x5728;0.19&#x7248;&#x672C;&#x4E4B;&#x524D;&#x65F6;&#x4F7F;&#x7528;min_impurity_split&#x3002;  </p>
+<p><strong>&#x76EE;&#x6807;&#x6743;&#x91CD;&#x53C2;&#x6570;</strong>  </p>
+<h3 id="classweight--minweightfractionleaf"><a name="classweight--minweightfractionleaf" class="anchor-navigation-ex-anchor" href="#classweight--minweightfractionleaf"><i class="fa fa-link" aria-hidden="true"></i></a>class_weight &amp; min_weight_fraction_leaf</h3>
+<p>&#x5B8C;&#x6210;&#x6837;&#x672C;&#x6807;&#x7B7E;&#x5E73;&#x8861;&#x7684;&#x53C2;&#x6570;&#x3002;&#x6837;&#x672C;&#x4E0D;&#x5E73;&#x8861;&#x662F;&#x6307;&#x5728;&#x4E00;&#x7EC4;&#x6570;&#x636E;&#x96C6;&#x4E2D;&#xFF0C;&#x6807;&#x7B7E;&#x7684;&#x4E00;&#x7C7B;&#x5929;&#x751F;&#x5360;&#x6709;&#x5F88;&#x5927;&#x7684;&#x6BD4;&#x4F8B;&#x3002;&#x6BD4;&#x5982;&#x8BF4;&#xFF0C;&#x5728;&#x94F6;&#x884C;&#x8981;
+&#x5224;&#x65AD;&#x201C;&#x4E00;&#x4E2A;&#x529E;&#x4E86;&#x4FE1;&#x7528;&#x5361;&#x7684;&#x4EBA;&#x662F;&#x5426;&#x4F1A;&#x8FDD;&#x7EA6;&#x201D;&#xFF0C;&#x5C31;&#x662F;&#x662F;vs&#x5426;&#xFF08;1%&#xFF1A;99%&#xFF09;&#x7684;&#x6BD4;&#x4F8B;&#x3002;&#x8FD9;&#x79CD;&#x5206;&#x7C7B;&#x72B6;&#x51B5;&#x4E0B;&#xFF0C;&#x5373;&#x4FBF;&#x6A21;&#x578B;&#x4EC0;&#x4E48;&#x4E5F;&#x4E0D;
+&#x505A;&#xFF0C;&#x5168;&#x628A;&#x7ED3;&#x679C;&#x9884;&#x6D4B;&#x6210;&#x201C;&#x5426;&#x201D;&#xFF0C;&#x6B63;&#x786E;&#x7387;&#x4E5F;&#x80FD;&#x6709;99%&#x3002;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x8981;&#x4F7F;&#x7528; class_weight &#x53C2;&#x6570;&#x5BF9;&#x6837;&#x672C;&#x6807;&#x7B7E;&#x8FDB;&#x884C;&#x4E00;&#x5B9A;&#x7684;&#x5747;&#x8861;&#xFF0C;&#x7ED9;
+&#x5C11;&#x91CF;&#x7684;&#x6807;&#x7B7E;&#x66F4;&#x591A;&#x7684;&#x6743;&#x91CD;&#xFF0C;&#x8BA9;&#x6A21;&#x578B;&#x66F4;&#x504F;&#x5411;&#x5C11;&#x6570;&#x7C7B;&#xFF0C;&#x5411;&#x6355;&#x83B7;&#x5C11;&#x6570;&#x7C7B;&#x7684;&#x65B9;&#x5411;&#x5EFA;&#x6A21;&#x3002;&#x8BE5;&#x53C2;&#x6570;&#x9ED8;&#x8BA4;None&#xFF0C;&#x6B64;&#x6A21;&#x5F0F;&#x8868;&#x793A;&#x81EA;&#x52A8;&#x7ED9;
+&#x4E0E;&#x6570;&#x636E;&#x96C6;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x6807;&#x7B7E;&#x76F8;&#x540C;&#x7684;&#x6743;&#x91CD;&#x3002;</p>
+<p>&#x6709;&#x4E86;&#x6743;&#x91CD;&#x4E4B;&#x540E;&#xFF0C;&#x6837;&#x672C;&#x91CF;&#x5C31;&#x4E0D;&#x518D;&#x662F;&#x5355;&#x7EAF;&#x5730;&#x8BB0;&#x5F55;&#x6570;&#x76EE;&#xFF0C;&#x800C;&#x662F;&#x53D7;&#x8F93;&#x5165;&#x7684;&#x6743;&#x91CD;&#x5F71;&#x54CD;&#x4E86;&#xFF0C;&#x56E0;&#x6B64;&#x8FD9;&#x65F6;&#x5019;&#x526A;&#x679D;&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x642D;&#x914D;<code>min_
+weight_fraction_leaf</code>&#x8FD9;&#x4E2A;&#x57FA;&#x4E8E;&#x6743;&#x91CD;&#x7684;&#x526A;&#x679D;&#x53C2;&#x6570;&#x6765;&#x4F7F;&#x7528;&#x3002;&#x53E6;&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x57FA;&#x4E8E;&#x6743;&#x91CD;&#x7684;&#x526A;&#x679D;&#x53C2;&#x6570;&#xFF08;&#x4F8B;&#x5982;<code>min_weight_
+fraction_leaf</code>&#xFF09;&#x5C06;&#x6BD4;&#x4E0D;&#x77E5;&#x9053;&#x6837;&#x672C;&#x6743;&#x91CD;&#x7684;&#x6807;&#x51C6;&#xFF08;&#x6BD4;&#x5982;min_samples_leaf&#xFF09;&#x66F4;&#x5C11;&#x504F;&#x5411;&#x4E3B;&#x5BFC;&#x7C7B;&#x3002;&#x5982;&#x679C;&#x6837;&#x672C;&#x662F;&#x52A0;&#x6743;&#x7684;&#xFF0C;&#x5219;&#x4F7F;&#x7528;&#x57FA;&#x4E8E;&#x6743;&#x91CD;&#x7684;&#x9884;&#x4FEE;&#x526A;&#x6807;&#x51C6;&#x6765;&#x66F4;&#x5BB9;&#x6613;&#x4F18;&#x5316;&#x6811;&#x7ED3;&#x6784;&#xFF0C;&#x8FD9;&#x786E;&#x4FDD;&#x53F6;&#x8282;&#x70B9;&#x81F3;&#x5C11;&#x5305;&#x542B;&#x6837;&#x672C;&#x6743;&#x91CD;&#x7684;&#x603B;&#x548C;&#x7684;&#x4E00;&#x5C0F;&#x90E8;&#x5206;  </p>
+<h2 id="&#x91CD;&#x8981;&#x5C5E;&#x6027;&#x548C;&#x63A5;&#x53E3;"><a name="&#x91CD;&#x8981;&#x5C5E;&#x6027;&#x548C;&#x63A5;&#x53E3;" class="anchor-navigation-ex-anchor" href="#&#x91CD;&#x8981;&#x5C5E;&#x6027;&#x548C;&#x63A5;&#x53E3;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x91CD;&#x8981;&#x5C5E;&#x6027;&#x548C;&#x63A5;&#x53E3;</h2>
+<h3 id="featureimportances"><a name="featureimportances" class="anchor-navigation-ex-anchor" href="#featureimportances"><i class="fa fa-link" aria-hidden="true"></i></a>featureimportances</h3>
+<p>&#x5C5E;&#x6027;&#x662F;&#x5728;&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x4E4B;&#x540E;&#xFF0C;&#x80FD;&#x591F;&#x8C03;&#x7528;&#x67E5;&#x770B;&#x7684;&#x6A21;&#x578B;&#x7684;&#x5404;&#x79CD;&#x6027;&#x8D28;&#x3002;&#x5BF9;&#x51B3;&#x7B56;&#x6811;&#x6765;&#x8BF4;&#xFF0C;&#x6700;&#x91CD;&#x8981;&#x7684;&#x662F;feature<em>importances</em>&#xFF0C;&#x80FD;&#x591F;&#x67E5;&#x770B;&#x5404;&#x4E2A;&#x7279;&#x5F81;&#x5BF9;&#x6A21;&#x578B;&#x7684;&#x91CD;&#x8981;&#x6027;  </p>
+<h3 id="apply&#x548C;predict"><a name="apply&#x548C;predict" class="anchor-navigation-ex-anchor" href="#apply&#x548C;predict"><i class="fa fa-link" aria-hidden="true"></i></a>apply&#x548C;predict</h3>
+<p>sklearn&#x4E2D;&#x8BB8;&#x591A;&#x7B97;&#x6CD5;&#x7684;&#x63A5;&#x53E3;&#x90FD;&#x662F;&#x76F8;&#x4F3C;&#x7684;&#xFF0C;&#x6BD4;&#x5982;&#x8BF4;&#x6211;&#x4EEC;&#x4E4B;&#x524D;&#x5DF2;&#x7ECF;&#x7528;&#x5230;&#x7684;fit&#x548C;score&#xFF0C;&#x51E0;&#x4E4E;&#x5BF9;&#x6BCF;&#x4E2A;&#x7B97;&#x6CD5;&#x90FD;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x3002;&#x9664;&#x4E86;
+&#x8FD9;&#x4E24;&#x4E2A;&#x63A5;&#x53E3;&#x4E4B;&#x5916;&#xFF0C;&#x51B3;&#x7B56;&#x6811;&#x6700;&#x5E38;&#x7528;&#x7684;&#x63A5;&#x53E3;&#x8FD8;&#x6709;apply&#x548C;predict&#x3002;apply&#x4E2D;&#x8F93;&#x5165;&#x6D4B;&#x8BD5;&#x96C6;&#x8FD4;&#x56DE;&#x6BCF;&#x4E2A;&#x6D4B;&#x8BD5;&#x6837;&#x672C;&#x6240;&#x5728;&#x7684;&#x53F6;&#x5B50;&#x8282;
+&#x70B9;&#x7684;&#x7D22;&#x5F15;&#xFF0C;predict&#x8F93;&#x5165;&#x6D4B;&#x8BD5;&#x96C6;&#x8FD4;&#x56DE;&#x6BCF;&#x4E2A;&#x6D4B;&#x8BD5;&#x6837;&#x672C;&#x7684;&#x6807;&#x7B7E;  &#x3002;</p>
+<p><strong>&#x6240;&#x6709;&#x63A5;&#x53E3;&#x4E2D;&#x8981;&#x6C42;&#x8F93;&#x5165;X_train&#x548C;X_test&#x7684;&#x90E8;&#x5206;&#xFF0C;&#x8F93;&#x5165;&#x7684;&#x7279;&#x5F81;&#x77E9;&#x9635;&#x5FC5;&#x987B;&#x81F3;&#x5C11;&#x662F;&#x4E00;&#x4E2A;&#x4E8C;&#x7EF4;&#x77E9;&#x9635;&#x3002;sklearn&#x4E0D;&#x63A5;&#x53D7;&#x4EFB;&#x4F55;&#x4E00;&#x7EF4;&#x77E9;&#x9635;&#x4F5C;&#x4E3A;&#x7279;&#x5F81;&#x77E9;&#x9635;&#x88AB;&#x8F93;&#x5165;  &#x3002;</strong></p>
+<p><br></p>
+<h1 id="decisiontreeregressor"><a name="decisiontreeregressor" class="anchor-navigation-ex-anchor" href="#decisiontreeregressor"><i class="fa fa-link" aria-hidden="true"></i></a>DecisionTreeRegressor</h1>
+<pre class="language-"><code class="lang-python"><span class="token keyword">class</span> <span class="token class-name">sklearn</span><span class="token punctuation">.</span>tree<span class="token punctuation">.</span>DecisionTreeRegressor<span class="token punctuation">(</span>criterion<span class="token operator">=</span><span class="token string">&apos;mse&apos;</span><span class="token punctuation">,</span> 
+                                         splitter<span class="token operator">=</span><span class="token string">&apos;best&apos;</span><span class="token punctuation">,</span> 
+                                         max_depth<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> 
+                                         min_samples_split<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> 
+                                         min_samples_leaf<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> 
+                                         min_weight_fraction_leaf<span class="token operator">=</span><span class="token number">0.0</span><span class="token punctuation">,</span> 
+                                         max_features<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> 
+                                         random_state<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> 
+                                         max_leaf_nodes<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> 
+                                         min_impurity_decrease<span class="token operator">=</span><span class="token number">0.0</span><span class="token punctuation">,</span> 
+                                         min_impurity_split<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> 
+                                         presort<span class="token operator">=</span><span class="token string">&apos;deprecated&apos;</span><span class="token punctuation">,</span> 
+                                         ccp_alpha<span class="token operator">=</span><span class="token number">0.0</span>
+                                        <span class="token punctuation">)</span>
+</code></pre>
+<p>&#x51E0;&#x4E4E;&#x6240;&#x6709;&#x53C2;&#x6570;&#xFF0C;&#x5C5E;&#x6027;&#x53CA;&#x63A5;&#x53E3;&#x90FD;&#x548C;&#x5206;&#x7C7B;&#x6811;&#x4E00;&#x6A21;&#x4E00;&#x6837;&#x3002;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x5728;&#x56DE;&#x5F52;&#x6811;&#x79CD;&#xFF0C;&#x6CA1;&#x6709;&#x6807;&#x7B7E;&#x5206;&#x5E03;&#x662F;&#x5426;&#x5747;&#x8861;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x56E0;
+&#x6B64;&#x6CA1;&#x6709;class_weight&#x8FD9;&#x6837;&#x7684;&#x53C2;&#x6570;  &#x3002;</p>
+<h2 id="&#x91CD;&#x8981;&#x53C2;&#x6570;&#xFF0C;&#x5C5E;&#x6027;&#x53CA;&#x63A5;&#x53E3;"><a name="&#x91CD;&#x8981;&#x53C2;&#x6570;&#xFF0C;&#x5C5E;&#x6027;&#x53CA;&#x63A5;&#x53E3;" class="anchor-navigation-ex-anchor" href="#&#x91CD;&#x8981;&#x53C2;&#x6570;&#xFF0C;&#x5C5E;&#x6027;&#x53CA;&#x63A5;&#x53E3;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x91CD;&#x8981;&#x53C2;&#x6570;&#xFF0C;&#x5C5E;&#x6027;&#x53CA;&#x63A5;&#x53E3;</h2>
+<h3 id="criterion"><a name="criterion" class="anchor-navigation-ex-anchor" href="#criterion"><i class="fa fa-link" aria-hidden="true"></i></a>criterion</h3>
+<p>&#x56DE;&#x5F52;&#x6811;&#x8861;&#x91CF;&#x5206;&#x679D;&#x8D28;&#x91CF;&#x7684;&#x6307;&#x6807;&#xFF0C;&#x652F;&#x6301;&#x7684;&#x6807;&#x51C6;&#x6709;&#x4E09;&#x79CD;  &#xFF1A;</p>
+<p>1&#xFF09;&#x8F93;&#x5165; &quot;mse&quot; &#x4F7F;&#x7528;&#x5747;&#x65B9;&#x8BEF;&#x5DEE; mean squared error(MSE)&#xFF0C;&#x7236;&#x8282;&#x70B9;&#x548C;&#x53F6;&#x5B50;&#x8282;&#x70B9;&#x4E4B;&#x95F4;&#x7684;&#x5747;&#x65B9;&#x8BEF;&#x5DEE;&#x7684;&#x5DEE;&#x989D;&#x5C06;&#x88AB;&#x7528;&#x6765;&#x4F5C;&#x4E3A;&#x7279;&#x5F81;&#x9009;&#x62E9;&#x7684;&#x6807;&#x51C6;&#xFF0C;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x901A;&#x8FC7;&#x4F7F;&#x7528;&#x53F6;&#x5B50;&#x8282;&#x70B9;&#x7684;&#x5747;&#x503C;&#x6765;&#x6700;&#x5C0F;&#x5316; L2 &#x635F;&#x5931;</p>
+<p>2&#xFF09;&#x8F93;&#x5165; &#x201C;friedman_mse&#x201D; &#x4F7F;&#x7528;&#x8D39;&#x5C14;&#x5FB7;&#x66FC;&#x5747;&#x65B9;&#x8BEF;&#x5DEE;&#xFF0C;&#x8FD9;&#x79CD;&#x6307;&#x6807;&#x4F7F;&#x7528;&#x5F17;&#x91CC;&#x5FB7;&#x66FC;&#x9488;&#x5BF9;&#x6F5C;&#x5728;&#x5206;&#x679D;&#x4E2D;&#x7684;&#x95EE;&#x9898;&#x6539;&#x8FDB;&#x540E;&#x7684;&#x5747;&#x65B9;&#x8BEF;&#x5DEE;</p>
+<p>3&#xFF09;&#x8F93;&#x5165; &quot;mae&quot; &#x4F7F;&#x7528;&#x7EDD;&#x5BF9;&#x5E73;&#x5747;&#x8BEF;&#x5DEE;MAE&#xFF08;mean absolute error&#xFF09;&#xFF0C;&#x8FD9;&#x79CD;&#x6307;&#x6807;&#x4F7F;&#x7528;&#x53F6;&#x8282;&#x70B9;&#x7684;&#x4E2D;&#x503C;&#x6765;&#x6700;&#x5C0F;&#x5316; L1 &#x635F;&#x5931;</p>
+<p>&#x5C5E;&#x6027;&#x4E2D;&#x6700;&#x91CD;&#x8981;&#x7684;&#x4F9D;&#x7136;&#x662F;feature<em>importances</em>&#xFF0C;&#x63A5;&#x53E3;&#x4F9D;&#x7136;&#x662F;apply, fit, predict, score&#x6700;&#x6838;&#x5FC3;&#x3002;</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi><mi>S</mi><mi>E</mi><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mi>N</mi></mrow></mfrac><msubsup><mo>&#x2211;</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>N</mi></mrow></msubsup><msup><mrow><mo fence="true">(</mo><msub><mi>f</mi><mrow><mi>i</mi></mrow></msub><mo>&#x2212;</mo><msub><mi>y</mi><mrow><mi>i</mi></mrow></msub><mo fence="true">)</mo></mrow><mrow><mn>2</mn></mrow></msup></mrow><annotation encoding="application/x-tex">
+
+M S E=\frac{1}{N} \sum_{i=1}^{N}\left(f_{i}-y_{i}\right)^{2}
+
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.845108em;"></span><span class="strut bottom" style="height:1.190108em;vertical-align:-0.345em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">M</span><span class="mord mathit" style="margin-right:0.05764em;">S</span><span class="mord mathit" style="margin-right:0.05764em;">E</span><span class="mrel">=</span><span class="mord reset-textstyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.10903em;">N</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathrm mtight">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mop"><span class="mop op-symbol small-op" style="top:-0.0000050000000000050004em;">&#x2211;</span><span class="msupsub"><span class="vlist"><span style="top:0.30001em;margin-left:0em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">i</span><span class="mrel mtight">=</span><span class="mord mathrm mtight">1</span></span></span></span><span style="top:-0.364em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathit mtight" style="margin-right:0.10903em;">N</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="minner"><span class="minner textstyle uncramped"><span class="mopen style-wrap reset-textstyle textstyle uncramped" style="top:0em;">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mbin">&#x2212;</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose style-wrap reset-textstyle textstyle uncramped" style="top:0em;">)</span></span><span class="msupsub"><span class="vlist"><span style="top:-0.364em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathrm mtight">2</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span></p>
+<p>&#x5176;&#x4E2D;N&#x662F;&#x6837;&#x672C;&#x6570;&#x91CF;&#xFF0C;i&#x662F;&#x6BCF;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x6837;&#x672C;&#xFF0C;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mi>i</mi></mrow><annotation encoding="application/x-tex">fi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mord mathit">i</span></span></span></span> &#x662F;&#x6A21;&#x578B;&#x56DE;&#x5F52;&#x51FA;&#x7684;&#x6570;&#x503C;&#xFF0C;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi><mi>i</mi></mrow><annotation encoding="application/x-tex">yi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mord mathit">i</span></span></span></span> &#x662F;&#x6837;&#x672C;&#x70B9;i&#x5B9E;&#x9645;&#x7684;&#x6570;&#x503C;&#x6807;&#x7B7E;&#x3002;&#x6240;&#x4EE5;MSE&#x7684;&#x672C;&#x8D28;&#xFF0C;&#x5176;&#x5B9E;&#x662F;&#x6837;&#x672C;&#x771F;&#x5B9E;&#x6570;&#x636E;&#x4E0E;&#x56DE;&#x5F52;&#x7ED3;&#x679C;&#x7684;&#x5DEE;&#x5F02;&#x3002;&#x5728;&#x56DE;&#x5F52;&#x6811;&#x4E2D;&#xFF0C;MSE&#x4E0D;&#x53EA;&#x662F;&#x6211;&#x4EEC;&#x7684;&#x5206;&#x679D;&#x8D28;&#x91CF;&#x8861;&#x91CF;&#x6307;&#x6807;&#xFF0C;&#x4E5F;&#x662F;&#x6211;&#x4EEC;&#x6700;&#x5E38;&#x7528;&#x7684;&#x8861;&#x91CF;&#x56DE;&#x5F52;&#x6811;&#x56DE;&#x5F52;&#x8D28;&#x91CF;&#x7684;&#x6307;&#x6807;&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x5728;&#x4F7F;&#x7528;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;&#xFF0C;&#x6216;&#x8005;&#x5176;&#x4ED6;&#x65B9;&#x5F0F;&#x83B7;&#x53D6;&#x56DE;&#x5F52;&#x6811;&#x7684;&#x7ED3;&#x679C;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x5F80;&#x5F80;&#x9009;&#x62E9;&#x5747;&#x65B9;&#x8BEF;&#x5DEE;&#x4F5C;&#x4E3A;&#x6211;&#x4EEC;&#x7684;&#x8BC4;&#x4F30;&#xFF08;&#x5728;&#x5206;&#x7C7B;&#x6811;&#x4E2D;&#x8FD9;&#x4E2A;&#x6307;&#x6807;&#x662F;score&#x4EE3;&#x8868;&#x7684;&#x9884;&#x6D4B;&#x51C6;&#x786E;&#x7387;&#xFF09;&#x3002;&#x5728;&#x56DE;&#x5F52;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x8FFD;&#x6C42;&#x7684;&#x662F;&#xFF0C;MSE&#x8D8A;&#x5C0F;&#x8D8A;&#x597D;&#x3002;  </p>
+<p>&#x7136;&#x800C;&#xFF0C;<strong>&#x56DE;&#x5F52;&#x6811;&#x7684;&#x63A5;&#x53E3;score&#x8FD4;&#x56DE;&#x7684;&#x662F;R&#x5E73;&#x65B9;&#xFF0C;&#x5E76;&#x4E0D;&#x662F;MSE</strong>&#x3002;R&#x5E73;&#x65B9;&#x88AB;&#x5B9A;&#x4E49;&#x5982;&#x4E0B;&#xFF1A;  </p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>R</mi><mrow><mn>2</mn></mrow></msup><mo>=</mo><mn>1</mn><mo>&#x2212;</mo><mfrac><mrow><mi>u</mi></mrow><mrow><mi>v</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">
+R^{2}=1-\frac{u}{v}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.1591079999999998em;vertical-align:-0.345em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathrm mtight">2</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mrel">=</span><span class="mord mathrm">1</span><span class="mbin">&#x2212;</span><span class="mord reset-textstyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03588em;">v</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathit mtight">u</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span></p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>u</mi><mo>=</mo><msubsup><mo>&#x2211;</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>N</mi></mrow></msubsup><msup><mrow><mo fence="true">(</mo><msub><mi>f</mi><mrow><mi>i</mi></mrow></msub><mo>&#x2212;</mo><msub><mi>y</mi><mrow><mi>i</mi></mrow></msub><mo fence="true">)</mo></mrow><mrow><mn>2</mn></mrow></msup><mspace width="1em"></mspace><mi>v</mi><mo>=</mo><msubsup><mo>&#x2211;</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>N</mi></mrow></msubsup><msup><mrow><mo fence="true">(</mo><msub><mi>y</mi><mrow><mi>i</mi></mrow></msub><mo>&#x2212;</mo><mover accent="true"><mrow><mi>y</mi></mrow><mo>^</mo></mover><mo fence="true">)</mo></mrow><mrow><mn>2</mn></mrow></msup></mrow><annotation encoding="application/x-tex">
+u=\sum_{i=1}^{N}\left(f_{i}-y_{i}\right)^{2} \quad v=\sum_{i=1}^{N}\left(y_{i}-\hat{y}\right)^{2}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8423309999999999em;"></span><span class="strut bottom" style="height:1.142341em;vertical-align:-0.30001em;"></span><span class="base textstyle uncramped"><span class="mord mathit">u</span><span class="mrel">=</span><span class="mop"><span class="mop op-symbol small-op" style="top:-0.0000050000000000050004em;">&#x2211;</span><span class="msupsub"><span class="vlist"><span style="top:0.30001em;margin-left:0em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">i</span><span class="mrel mtight">=</span><span class="mord mathrm mtight">1</span></span></span></span><span style="top:-0.364em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathit mtight" style="margin-right:0.10903em;">N</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="minner"><span class="minner textstyle uncramped"><span class="mopen style-wrap reset-textstyle textstyle uncramped" style="top:0em;">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mbin">&#x2212;</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose style-wrap reset-textstyle textstyle uncramped" style="top:0em;">)</span></span><span class="msupsub"><span class="vlist"><span style="top:-0.364em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathrm mtight">2</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord mathit"><span class="mspace quad"></span><span class="mord mathit" style="margin-right:0.03588em;">v</span></span><span class="mrel">=</span><span class="mop"><span class="mop op-symbol small-op" style="top:-0.0000050000000000050004em;">&#x2211;</span><span class="msupsub"><span class="vlist"><span style="top:0.30001em;margin-left:0em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">i</span><span class="mrel mtight">=</span><span class="mord mathrm mtight">1</span></span></span></span><span style="top:-0.364em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathit mtight" style="margin-right:0.10903em;">N</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="minner"><span class="minner textstyle uncramped"><span class="mopen style-wrap reset-textstyle textstyle uncramped" style="top:0em;">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mbin">&#x2212;</span><span class="mord accent"><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord textstyle cramped"><span class="mord mathit" style="margin-right:0.03588em;">y</span></span></span><span style="top:0em;margin-left:0.11112em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="accent-body"><span>^</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose style-wrap reset-textstyle textstyle uncramped" style="top:0em;">)</span></span><span class="msupsub"><span class="vlist"><span style="top:-0.364em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathrm mtight">2</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span></p>
+<p>&#x5176;&#x4E2D; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>u</mi></mrow><annotation encoding="application/x-tex">u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">u</span></span></span></span> &#x662F;&#x6B8B;&#x5DEE;&#x5E73;&#x65B9;&#x548C;&#xFF08;MSE * N&#xFF09;&#xFF0C;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>v</mi></mrow><annotation encoding="application/x-tex">v</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">v</span></span></span></span> &#x662F;&#x603B;&#x5E73;&#x65B9;&#x548C;&#xFF0C;N &#x662F;&#x6837;&#x672C;&#x6570;&#x91CF;&#xFF0C;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span> &#x662F;&#x6BCF;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x6837;&#x672C;&#xFF0C;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mi>i</mi></mrow><annotation encoding="application/x-tex">fi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mord mathit">i</span></span></span></span> &#x662F;&#x6A21;&#x578B;&#x56DE;&#x5F52;&#x51FA;&#x7684;&#x6570;&#x503C;&#xFF0C;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi><mi>i</mi></mrow><annotation encoding="application/x-tex">yi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mord mathit">i</span></span></span></span> &#x662F;&#x6837;&#x672C;&#x70B9;i&#x5B9E;&#x9645;&#x7684;&#x6570;&#x503C;&#x6807;&#x7B7E;&#x3002;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mi>y</mi><mo>^</mo></mover></mrow><annotation encoding="application/x-tex">\hat y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord accent"><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord mathit" style="margin-right:0.03588em;">y</span></span><span style="top:0em;margin-left:0.11112em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="accent-body"><span>^</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span> &#x662F;&#x771F;&#x5B9E;&#x6570;&#x503C;&#x6807;&#x7B7E;&#x7684;&#x5E73;&#x5747;&#x6570;&#x3002;R &#x5E73;&#x65B9;&#x53EF;&#x4EE5;&#x4E3A;&#x6B63;&#x4E3A;&#x8D1F;&#xFF08;&#x5982;&#x679C;&#x6A21;&#x578B;&#x7684;&#x6B8B;&#x5DEE;&#x5E73;&#x65B9;&#x548C;&#x8FDC;&#x8FDC;&#x5927;&#x4E8E;&#x6A21;&#x578B;&#x7684;&#x603B;&#x5E73;&#x65B9;&#x548C;&#xFF0C;&#x6A21;&#x578B;&#x975E;&#x5E38;&#x7CDF;&#x7CD5;&#xFF0C;R&#x5E73;&#x65B9;&#x5C31;&#x4F1A;&#x4E3A;&#x8D1F;&#xFF09;&#xFF0C;&#x800C;&#x5747;&#x65B9;&#x8BEF;&#x5DEE;&#x6C38;&#x8FDC;&#x4E3A;&#x6B63;  </p>
+<p>&#x503C;&#x5F97;&#x4E00;&#x63D0;&#x7684;&#x662F;&#xFF0C;<strong>&#x867D;&#x7136;&#x5747;&#x65B9;&#x8BEF;&#x5DEE;&#x6C38;&#x8FDC;&#x4E3A;&#x6B63;&#xFF0C;&#x4F46;&#x662F;sklearn&#x5F53;&#x4E2D;&#x4F7F;&#x7528;&#x5747;&#x65B9;&#x8BEF;&#x5DEE;&#x4F5C;&#x4E3A;&#x8BC4;&#x5224;&#x6807;&#x51C6;&#x65F6;&#xFF0C;&#x5374;&#x662F;&#x8BA1;&#x7B97;&#x201D;&#x8D1F;&#x5747;&#x65B9;&#x8BEF;</strong>
+<strong>&#x5DEE;&#x201C;&#xFF08;neg_mean_squared_error&#xFF09;</strong>&#x3002;&#x8FD9;&#x662F;&#x56E0;&#x4E3A;sklearn&#x5728;&#x8BA1;&#x7B97;&#x6A21;&#x578B;&#x8BC4;&#x4F30;&#x6307;&#x6807;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x8003;&#x8651;&#x6307;&#x6807;&#x672C;&#x8EAB;&#x7684;&#x6027;&#x8D28;&#xFF0C;&#x5747;&#x65B9;&#x8BEF;&#x5DEE;&#x672C;&#x8EAB;&#x662F;&#x4E00;&#x79CD;&#x8BEF;&#x5DEE;&#xFF0C;&#x6240;&#x4EE5;&#x88AB;sklearn&#x5212;&#x5206;&#x4E3A;&#x6A21;&#x578B;&#x7684;&#x4E00;&#x79CD;&#x635F;&#x5931;(loss)&#xFF0C;&#x56E0;&#x6B64;&#x5728;sklearn&#x5F53;&#x4E2D;&#xFF0C;&#x90FD;&#x4EE5;&#x8D1F;&#x6570;&#x8868;&#x793A;&#x3002;&#x771F;&#x6B63;&#x7684;&#x5747;&#x65B9;&#x8BEF;&#x5DEE;MSE&#x7684;&#x6570;&#x503C;&#xFF0C;&#x5176;&#x5B9E;&#x5C31;&#x662F; neg_mean_squared_error &#x53BB;&#x6389;&#x8D1F;&#x53F7;&#x7684;&#x6570;&#x5B57;  &#x3002;</p>
+<h1 id="&#x51B3;&#x7B56;&#x6811;&#x7684;&#x4F18;&#x7F3A;&#x70B9;"><a name="&#x51B3;&#x7B56;&#x6811;&#x7684;&#x4F18;&#x7F3A;&#x70B9;" class="anchor-navigation-ex-anchor" href="#&#x51B3;&#x7B56;&#x6811;&#x7684;&#x4F18;&#x7F3A;&#x70B9;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x51B3;&#x7B56;&#x6811;&#x7684;&#x4F18;&#x7F3A;&#x70B9;</h1>
+<h2 id="&#x51B3;&#x7B56;&#x6811;&#x4F18;&#x70B9;"><a name="&#x51B3;&#x7B56;&#x6811;&#x4F18;&#x70B9;" class="anchor-navigation-ex-anchor" href="#&#x51B3;&#x7B56;&#x6811;&#x4F18;&#x70B9;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x51B3;&#x7B56;&#x6811;&#x4F18;&#x70B9;</h2>
+<ol>
+<li>&#x6613;&#x4E8E;&#x7406;&#x89E3;&#x548C;&#x89E3;&#x91CA;&#xFF0C;&#x56E0;&#x4E3A;&#x6811;&#x6728;&#x53EF;&#x4EE5;&#x753B;&#x51FA;&#x6765;&#x88AB;&#x770B;&#x89C1;</li>
+<li>&#x9700;&#x8981;&#x5F88;&#x5C11;&#x7684;&#x6570;&#x636E;&#x51C6;&#x5907;&#x3002;&#x5176;&#x4ED6;&#x5F88;&#x591A;&#x7B97;&#x6CD5;&#x901A;&#x5E38;&#x90FD;&#x9700;&#x8981;&#x6570;&#x636E;&#x89C4;&#x8303;&#x5316;&#xFF0C;&#x9700;&#x8981;&#x521B;&#x5EFA;&#x865A;&#x62DF;&#x53D8;&#x91CF;&#x5E76;&#x5220;&#x9664;&#x7A7A;&#x503C;&#x7B49;&#x3002;&#x4F46;&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;
+sklearn &#x4E2D;&#x7684;&#x51B3;&#x7B56;&#x6811;&#x6A21;&#x5757;&#x4E0D;&#x652F;&#x6301;&#x5BF9;&#x7F3A;&#x5931;&#x503C;&#x7684;&#x5904;&#x7406;&#x3002;</li>
+<li>&#x4F7F;&#x7528;&#x6811;&#x7684;&#x6210;&#x672C;&#xFF08;&#x6BD4;&#x5982;&#x8BF4;&#xFF0C;&#x5728;&#x9884;&#x6D4B;&#x6570;&#x636E;&#x7684;&#x65F6;&#x5019;&#xFF09;&#x662F;&#x7528;&#x4E8E;&#x8BAD;&#x7EC3;&#x6811;&#x7684;&#x6570;&#x636E;&#x70B9;&#x7684;&#x6570;&#x91CF;&#x7684;&#x5BF9;&#x6570;&#xFF0C;&#x76F8;&#x6BD4;&#x4E8E;&#x5176;&#x4ED6;&#x7B97;&#x6CD5;&#xFF0C;&#x8FD9;&#x662F;
+&#x4E00;&#x4E2A;&#x5F88;&#x4F4E;&#x7684;&#x6210;&#x672C;&#x3002;</li>
+<li>&#x80FD;&#x591F;&#x540C;&#x65F6;&#x5904;&#x7406;&#x6570;&#x5B57;&#x548C;&#x5206;&#x7C7B;&#x6570;&#x636E;&#xFF0C;&#x65E2;&#x53EF;&#x4EE5;&#x505A;&#x56DE;&#x5F52;&#x53C8;&#x53EF;&#x4EE5;&#x505A;&#x5206;&#x7C7B;&#x3002;&#x5176;&#x4ED6;&#x6280;&#x672F;&#x901A;&#x5E38;&#x4E13;&#x95E8;&#x7528;&#x4E8E;&#x5206;&#x6790;&#x4EC5;&#x5177;&#x6709;&#x4E00;&#x79CD;&#x53D8;&#x91CF;&#x7C7B;
+&#x578B;&#x7684;&#x6570;&#x636E;&#x96C6;&#x3002;</li>
+<li>&#x80FD;&#x591F;&#x5904;&#x7406;&#x591A;&#x8F93;&#x51FA;&#x95EE;&#x9898;&#xFF0C;&#x5373;&#x542B;&#x6709;&#x591A;&#x4E2A;&#x6807;&#x7B7E;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x6CE8;&#x610F;&#x4E0E;&#x4E00;&#x4E2A;&#x6807;&#x7B7E;&#x4E2D;&#x542B;&#x6709;&#x591A;&#x79CD;&#x6807;&#x7B7E;&#x5206;&#x7C7B;&#x7684;&#x95EE;&#x9898;&#x533A;&#x522B;&#x5F00;</li>
+<li>&#x662F;&#x4E00;&#x4E2A;&#x767D;&#x76D2;&#x6A21;&#x578B;&#xFF0C;&#x7ED3;&#x679C;&#x5F88;&#x5BB9;&#x6613;&#x80FD;&#x591F;&#x88AB;&#x89E3;&#x91CA;&#x3002;&#x5982;&#x679C;&#x5728;&#x6A21;&#x578B;&#x4E2D;&#x53EF;&#x4EE5;&#x89C2;&#x5BDF;&#x5230;&#x7ED9;&#x5B9A;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5E03;&#x5C14;&#x903B;&#x8F91;&#x8F7B;&#x677E;
+&#x89E3;&#x91CA;&#x6761;&#x4EF6;&#x3002;&#x76F8;&#x53CD;&#xFF0C;&#x5728;&#x9ED1;&#x76D2;&#x6A21;&#x578B;&#x4E2D;&#xFF08;&#x4F8B;&#x5982;&#xFF0C;&#x5728;&#x4EBA;&#x5DE5;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x4E2D;&#xFF09;&#xFF0C;&#x7ED3;&#x679C;&#x53EF;&#x80FD;&#x66F4;&#x96BE;&#x4EE5;&#x89E3;&#x91CA;&#x3002;</li>
+<li>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7EDF;&#x8BA1;&#x6D4B;&#x8BD5;&#x9A8C;&#x8BC1;&#x6A21;&#x578B;&#xFF0C;&#x8FD9;&#x8BA9;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8003;&#x8651;&#x6A21;&#x578B;&#x7684;&#x53EF;&#x9760;&#x6027;&#x3002;</li>
+<li>&#x5373;&#x4F7F;&#x5176;&#x5047;&#x8BBE;&#x5728;&#x67D0;&#x79CD;&#x7A0B;&#x5EA6;&#x4E0A;&#x8FDD;&#x53CD;&#x4E86;&#x751F;&#x6210;&#x6570;&#x636E;&#x7684;&#x771F;&#x5B9E;&#x6A21;&#x578B;&#xFF0C;&#x4E5F;&#x80FD;&#x591F;&#x8868;&#x73B0;&#x826F;&#x597D;  </li>
+</ol>
+<h2 id="&#x51B3;&#x7B56;&#x6811;&#x7684;&#x7F3A;&#x70B9;"><a name="&#x51B3;&#x7B56;&#x6811;&#x7684;&#x7F3A;&#x70B9;" class="anchor-navigation-ex-anchor" href="#&#x51B3;&#x7B56;&#x6811;&#x7684;&#x7F3A;&#x70B9;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x51B3;&#x7B56;&#x6811;&#x7684;&#x7F3A;&#x70B9;</h2>
+<ol>
+<li>&#x51B3;&#x7B56;&#x6811;&#x5B66;&#x4E60;&#x8005;&#x53EF;&#x80FD;&#x521B;&#x5EFA;&#x8FC7;&#x4E8E;&#x590D;&#x6742;&#x7684;&#x6811;&#xFF0C;&#x8FD9;&#x4E9B;&#x6811;&#x4E0D;&#x80FD;&#x5F88;&#x597D;&#x5730;&#x63A8;&#x5E7F;&#x6570;&#x636E;&#x3002;&#x8FD9;&#x79F0;&#x4E3A;&#x8FC7;&#x5EA6;&#x62DF;&#x5408;&#x3002;&#x4FEE;&#x526A;&#xFF0C;&#x8BBE;&#x7F6E;&#x53F6;&#x8282;&#x70B9;&#x6240;
+&#x9700;&#x7684;&#x6700;&#x5C0F;&#x6837;&#x672C;&#x6570;&#x6216;&#x8BBE;&#x7F6E;&#x6811;&#x7684;&#x6700;&#x5927;&#x6DF1;&#x5EA6;&#x7B49;&#x673A;&#x5236;&#x662F;&#x907F;&#x514D;&#x6B64;&#x95EE;&#x9898;&#x6240;&#x5FC5;&#x9700;&#x7684;&#xFF0C;&#x800C;&#x8FD9;&#x4E9B;&#x53C2;&#x6570;&#x7684;&#x6574;&#x5408;&#x548C;&#x8C03;&#x6574;&#x5BF9;&#x521D;&#x5B66;&#x8005;&#x6765;&#x8BF4;
+&#x4F1A;&#x6BD4;&#x8F83;&#x6666;&#x6DA9;</li>
+<li>&#x51B3;&#x7B56;&#x6811;&#x53EF;&#x80FD;&#x4E0D;&#x7A33;&#x5B9A;&#xFF0C;&#x6570;&#x636E;&#x4E2D;&#x5FAE;&#x5C0F;&#x7684;&#x53D8;&#x5316;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x751F;&#x6210;&#x5B8C;&#x5168;&#x4E0D;&#x540C;&#x7684;&#x6811;&#xFF0C;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x96C6;&#x6210;&#x7B97;&#x6CD5;&#x6765;&#x89E3;&#x51B3;&#x3002;
+&#x51B3;&#x7B56;&#x6811;&#x7684;&#x5B66;&#x4E60;&#x662F;&#x57FA;&#x4E8E;&#x8D2A;&#x5A6A;&#x7B97;&#x6CD5;&#xFF0C;&#x5B83;&#x9760;&#x4F18;&#x5316;&#x5C40;&#x90E8;&#x6700;&#x4F18;&#xFF08;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x7684;&#x6700;&#x4F18;&#xFF09;&#x6765;&#x8BD5;&#x56FE;&#x8FBE;&#x5230;&#x6574;&#x4F53;&#x7684;&#x6700;&#x4F18;&#xFF0C;&#x4F46;&#x8FD9;&#x79CD;&#x505A;&#x6CD5;
+&#x4E0D;&#x80FD;&#x4FDD;&#x8BC1;&#x8FD4;&#x56DE;&#x5168;&#x5C40;&#x6700;&#x4F18;&#x51B3;&#x7B56;&#x6811;&#x3002;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x4E5F;&#x53EF;&#x4EE5;&#x7531;&#x96C6;&#x6210;&#x7B97;&#x6CD5;&#x6765;&#x89E3;&#x51B3;&#xFF0C;&#x5728;&#x968F;&#x673A;&#x68EE;&#x6797;&#x4E2D;&#xFF0C;&#x7279;&#x5F81;&#x548C;&#x6837;&#x672C;&#x4F1A;&#x5728;&#x5206;&#x679D;&#x8FC7;
+&#x7A0B;&#x4E2D;&#x88AB;&#x968F;&#x673A;&#x91C7;&#x6837;&#x3002;</li>
+<li>&#x6709;&#x4E9B;&#x6982;&#x5FF5;&#x5F88;&#x96BE;&#x5B66;&#x4E60;&#xFF0C;&#x56E0;&#x4E3A;&#x51B3;&#x7B56;&#x6811;&#x4E0D;&#x5BB9;&#x6613;&#x8868;&#x8FBE;&#x5B83;&#x4EEC;&#xFF0C;&#x4F8B;&#x5982;XOR&#xFF0C;&#x5947;&#x5076;&#x6821;&#x9A8C;&#x6216;&#x591A;&#x8DEF;&#x590D;&#x7528;&#x5668;&#x95EE;&#x9898;&#x3002;
+&#x5982;&#x679C;&#x6807;&#x7B7E;&#x4E2D;&#x7684;&#x67D0;&#x4E9B;&#x7C7B;&#x5360;&#x4E3B;&#x5BFC;&#x5730;&#x4F4D;&#xFF0C;&#x51B3;&#x7B56;&#x6811;&#x5B66;&#x4E60;&#x8005;&#x4F1A;&#x521B;&#x5EFA;&#x504F;&#x5411;&#x4E3B;&#x5BFC;&#x7C7B;&#x7684;&#x6811;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5EFA;&#x8BAE;&#x5728;&#x62DF;&#x5408;&#x51B3;&#x7B56;&#x6811;&#x4E4B;&#x524D;&#x5E73;&#x8861;
+&#x6570;&#x636E;&#x96C6;  </li>
+</ol>
+<h1 id="&#x9644;&#x5F55;"><a name="&#x9644;&#x5F55;" class="anchor-navigation-ex-anchor" href="#&#x9644;&#x5F55;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x9644;&#x5F55;</h1>
+<h2 id="&#x5206;&#x7C7B;&#x6811;&#x53C2;&#x6570;&#x5217;&#x8868;"><a name="&#x5206;&#x7C7B;&#x6811;&#x53C2;&#x6570;&#x5217;&#x8868;" class="anchor-navigation-ex-anchor" href="#&#x5206;&#x7C7B;&#x6811;&#x53C2;&#x6570;&#x5217;&#x8868;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5206;&#x7C7B;&#x6811;&#x53C2;&#x6570;&#x5217;&#x8868;</h2>
+<center>
+    <a href="https://raw.githubusercontent.com/HG1227/image/master/img_tuchuang/20200113104912.png" data-lightbox="5ed1790e-0979-4690-940a-464ad356bdc3" data-title="undefined" target="_blank"><img src="https://raw.githubusercontent.com/HG1227/image/master/img_tuchuang/20200113104912.png" alt="undefined"></a>
+</center>
+
+
+
+<h2 id="&#x5206;&#x7C7B;&#x6811;&#x5C5E;&#x6027;&#x5217;&#x8868;"><a name="&#x5206;&#x7C7B;&#x6811;&#x5C5E;&#x6027;&#x5217;&#x8868;" class="anchor-navigation-ex-anchor" href="#&#x5206;&#x7C7B;&#x6811;&#x5C5E;&#x6027;&#x5217;&#x8868;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5206;&#x7C7B;&#x6811;&#x5C5E;&#x6027;&#x5217;&#x8868;</h2>
+<center>
+    <a href="https://raw.githubusercontent.com/HG1227/image/master/img_tuchuang/20200113105315.png" data-lightbox="fce63b9b-6d08-4703-88dd-a9a174d4d7e9" data-title="undefined" target="_blank"><img src="https://raw.githubusercontent.com/HG1227/image/master/img_tuchuang/20200113105315.png" alt="undefined"></a>
+</center>
+
+<h2 id="&#x5206;&#x7C7B;&#x6811;&#x63A5;&#x53E3;&#x5217;&#x8868;"><a name="&#x5206;&#x7C7B;&#x6811;&#x63A5;&#x53E3;&#x5217;&#x8868;" class="anchor-navigation-ex-anchor" href="#&#x5206;&#x7C7B;&#x6811;&#x63A5;&#x53E3;&#x5217;&#x8868;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5206;&#x7C7B;&#x6811;&#x63A5;&#x53E3;&#x5217;&#x8868;</h2>
+<center>
+    <a href="https://raw.githubusercontent.com/HG1227/image/master/img_tuchuang/20200113105406.png" data-lightbox="1ff03eb4-6701-4f96-a82a-4b434d27d9ed" data-title="undefined" target="_blank"><img src="https://raw.githubusercontent.com/HG1227/image/master/img_tuchuang/20200113105406.png" alt="undefined"></a>
+</center>
+
+
+<footer class="page-footer"><span class="copyright">  </span><span class="footer-modification">Update time&#xFF1A;
+2020-05-23 
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 常用模型">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="随机森林.html" class="navigation navigation-next " aria-label="Next page: 随机森林">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"决策树","level":"1.2.1","depth":2,"next":{"title":"随机森林","level":"1.2.2","depth":2,"path":"Chapter1/随机森林.md","ref":"Chapter1/随机森林.md","articles":[]},"previous":{"title":"常用模型","level":"1.2","depth":1,"path":"Chapter1/README.md","ref":"Chapter1/README.md","articles":[{"title":"决策树","level":"1.2.1","depth":2,"path":"Chapter1/决策树.md","ref":"Chapter1/决策树.md","articles":[]},{"title":"随机森林","level":"1.2.2","depth":2,"path":"Chapter1/随机森林.md","ref":"Chapter1/随机森林.md","articles":[]},{"title":"主成分分析PCA","level":"1.2.3","depth":2,"path":"Chapter1/主成分分析PCA.md","ref":"Chapter1/主成分分析PCA.md","articles":[]},{"title":"逻辑回归","level":"1.2.4","depth":2,"path":"Chapter1/逻辑回归.md","ref":"Chapter1/逻辑回归.md","articles":[]},{"title":"聚类算法K-Means","level":"1.2.5","depth":2,"path":"Chapter1/聚类算法K-Means.md","ref":"Chapter1/聚类算法K-Means.md","articles":[]},{"title":"支持向量机","level":"1.2.6","depth":2,"path":"Chapter1/支持向量机.md","ref":"Chapter1/支持向量机.md","articles":[]},{"title":"朴素贝叶斯","level":"1.2.7","depth":2,"path":"Chapter1/朴素贝叶斯.md","ref":"Chapter1/朴素贝叶斯.md","articles":[]},{"title":"回归大家族","level":"1.2.8","depth":2,"path":"Chapter1/回归大家族.md","ref":"Chapter1/回归大家族.md","articles":[]},{"title":"XGBoost","level":"1.2.9","depth":2,"path":"Chapter1/XGBoost.md","ref":"Chapter1/XGBoost.md","articles":[]},{"title":"模型融合stacking","level":"1.2.10","depth":2,"path":"Chapter1/模型融合stacking.md","ref":"Chapter1/模型融合stacking.md","articles":[]},{"title":"模型融合Blending","level":"1.2.11","depth":2,"path":"Chapter1/模型融合Blending.md","ref":"Chapter1/模型融合Blending.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-highlight","-livereload","search-plus@^0.0.11","simple-page-toc@^0.1.1","disqus@^0.1.0","prism@^2.1.0","prism-themes@^0.0.2","theme-comscore","anchors@^0.7.1","ace@^0.3.2","emphasize@^1.1.0","katex@^1.1.3","splitter@^0.0.8","expandable-chapters","local-video@^1.0.1","anchor-navigation-ex@0.1.8","custom-favicon","todo@^0.1.3","hide-element","copy-code-button","tbfed-pagefooter","advanced-emoji","lightbox","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":" ","modify_label":"Update time：","modify_format":"YYYY-MM-DD "},"prism":{"css":["prism-themes/themes/prism-vs.css"]},"disqus":{"useIdentifier":false,"shortName":"HG1227"},"styles":{"website":"styles/website.css"},"emphasize":{},"ace":{},"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"todo":{},"splitter":{},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"isRewritePageTitle":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right"},"favicon":"favicon.ico","lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"prism-themes":{},"custom-favicon":{},"local-video":{},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"template":"ace","unindent":true,"edit":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{},"search-plus":{}},"theme":"default","author":"HHG","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"readme.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python 学习记录","language":"zh-hans","output.name":"site","links":{"sidebar":{"Home":""}},"gitbook":"*","description":"。"},"file":{"path":"Chapter1/决策树.md","mtime":"2020-05-23T07:57:11.251Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-20T03:19:39.807Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ace/ace/ace.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ace/ace.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-local-video/video.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

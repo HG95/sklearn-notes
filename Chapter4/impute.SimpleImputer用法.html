@@ -1,0 +1,1331 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>impute.SimpleImputer用法 · python 学习记录</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="HHG">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-vs.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-ace/ace.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-emphasize/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-local-video/video-js.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../Chapter5/" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Chapter1/">
+            
+                <a href="../Chapter1/">
+            
+                    
+                    常用模型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Chapter1/决策树.html">
+            
+                <a href="../Chapter1/决策树.html">
+            
+                    
+                    决策树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Chapter1/随机森林.html">
+            
+                <a href="../Chapter1/随机森林.html">
+            
+                    
+                    随机森林
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../Chapter1/主成分分析PCA.html">
+            
+                <a href="../Chapter1/主成分分析PCA.html">
+            
+                    
+                    主成分分析PCA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../Chapter1/逻辑回归.html">
+            
+                <a href="../Chapter1/逻辑回归.html">
+            
+                    
+                    逻辑回归
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../Chapter1/聚类算法K-Means.html">
+            
+                <a href="../Chapter1/聚类算法K-Means.html">
+            
+                    
+                    聚类算法K-Means
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../Chapter1/支持向量机.html">
+            
+                <a href="../Chapter1/支持向量机.html">
+            
+                    
+                    支持向量机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../Chapter1/朴素贝叶斯.html">
+            
+                <a href="../Chapter1/朴素贝叶斯.html">
+            
+                    
+                    朴素贝叶斯
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../Chapter1/回归大家族.html">
+            
+                <a href="../Chapter1/回归大家族.html">
+            
+                    
+                    回归大家族
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../Chapter1/XGBoost.html">
+            
+                <a href="../Chapter1/XGBoost.html">
+            
+                    
+                    XGBoost
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../Chapter1/模型融合stacking.html">
+            
+                <a href="../Chapter1/模型融合stacking.html">
+            
+                    
+                    模型融合stacking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../Chapter1/模型融合Blending.html">
+            
+                <a href="../Chapter1/模型融合Blending.html">
+            
+                    
+                    模型融合Blending
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Chapter2/">
+            
+                <a href="../Chapter2/">
+            
+                    
+                    sklearn.metrics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Chapter2/sklearn.metrics.mean_squared_error用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.mean_squared_error用法.html">
+            
+                    
+                    sklearn.metrics.mean_squared_error用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Chapter2/sklearn.metrics.mean_absolute_error用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.mean_absolute_error用法.html">
+            
+                    
+                    sklearn.metrics.mean_absolute_error用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Chapter2/sklearn.metrics.r2_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.r2_score用法.html">
+            
+                    
+                    sklearn.metrics.r2_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Chapter2/sklearn.metrics.explained_variance_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.explained_variance_score用法.html">
+            
+                    
+                    sklearn.metrics.explained_variance_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../Chapter2/标准差计算.html">
+            
+                <a href="../Chapter2/标准差计算.html">
+            
+                    
+                    标准差计算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../Chapter2/sklearn.metrics.confusion_matrix用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.confusion_matrix用法.html">
+            
+                    
+                    sklearn.metrics.confusion_matrix用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../Chapter2/sklearn.metrics.accuracy_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.accuracy_score用法.html">
+            
+                    
+                    sklearn.metrics.accuracy_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../Chapter2/sklearn.metrics.precision_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.precision_score用法.html">
+            
+                    
+                    sklearn.metrics.precision_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../Chapter2/sklearn.metrics.recall_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.recall_score用法.html">
+            
+                    
+                    sklearn.metrics.recall_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../Chapter2/sklearn.metrics.f1_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.f1_score用法.html">
+            
+                    
+                    sklearn.metrics.f1_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="../Chapter2/sklearn.metrics.roc_curve用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.roc_curve用法.html">
+            
+                    
+                    sklearn.metrics.roc_curve用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="../Chapter2/ROC曲线下的面积auc.html">
+            
+                <a href="../Chapter2/ROC曲线下的面积auc.html">
+            
+                    
+                    ROC曲线下的面积auc
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13" data-path="../Chapter2/sklearn.metrics.roc_auc_score用法.html">
+            
+                <a href="../Chapter2/sklearn.metrics.roc_auc_score用法.html">
+            
+                    
+                    sklearn.metrics.roc_auc_score用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Chapter3/">
+            
+                <a href="../Chapter3/">
+            
+                    
+                    数据处理 Preprocessing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../Chapter3/preprocessing.MinMaxScaler用法.html">
+            
+                <a href="../Chapter3/preprocessing.MinMaxScaler用法.html">
+            
+                    
+                    preprocessing.MinMaxScaler用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../Chapter3/preprocessing.StandardScaler用法.html">
+            
+                <a href="../Chapter3/preprocessing.StandardScaler用法.html">
+            
+                    
+                    preprocessing.StandardScaler用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../Chapter3/preprocessing.Binarizer用法.html">
+            
+                <a href="../Chapter3/preprocessing.Binarizer用法.html">
+            
+                    
+                    preprocessing.Binarizer用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../Chapter3/preprocessing.KBinsDiscretizer用法.html">
+            
+                <a href="../Chapter3/preprocessing.KBinsDiscretizer用法.html">
+            
+                    
+                    preprocessing.KBinsDiscretizer用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../Chapter3/preprocessing.LabelEncoder用法.html">
+            
+                <a href="../Chapter3/preprocessing.LabelEncoder用法.html">
+            
+                    
+                    preprocessing.LabelEncoder用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../Chapter3/preprocessing.OneHotEncoder用法.html">
+            
+                <a href="../Chapter3/preprocessing.OneHotEncoder用法.html">
+            
+                    
+                    preprocessing.OneHotEncoder用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    缺失值处理 sklearn.impute
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.5.1" data-path="impute.SimpleImputer用法.html">
+            
+                <a href="impute.SimpleImputer用法.html">
+            
+                    
+                    impute.SimpleImputer用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Chapter5/">
+            
+                <a href="../Chapter5/">
+            
+                    
+                    特征选择 feature_selection
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../Chapter5/feature_selection.VarianceThreshold 用法.html">
+            
+                <a href="../Chapter5/feature_selection.VarianceThreshold 用法.html">
+            
+                    
+                    feature_selection.VarianceThreshold用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../Chapter5/feature_selection.SelectKBest用法.html">
+            
+                <a href="../Chapter5/feature_selection.SelectKBest用法.html">
+            
+                    
+                    feature_selection.SelectKBest用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../Chapter5/feature_selection.chi2用法.html">
+            
+                <a href="../Chapter5/feature_selection.chi2用法.html">
+            
+                    
+                    feature_selection.chi2用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../Chapter5/feature_selection.f_classif用法.html">
+            
+                <a href="../Chapter5/feature_selection.f_classif用法.html">
+            
+                    
+                    feature_selection.f_classif用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../Chapter5/feature_selection.f_regression用法.html">
+            
+                <a href="../Chapter5/feature_selection.f_regression用法.html">
+            
+                    
+                    feature_selection.f_regression用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../Chapter5/feature_selection.mutual_info_classif用法.html">
+            
+                <a href="../Chapter5/feature_selection.mutual_info_classif用法.html">
+            
+                    
+                    feature_selection.mutual_info_classif用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../Chapter5/feature_selection.mutual_info_regression用法.html">
+            
+                <a href="../Chapter5/feature_selection.mutual_info_regression用法.html">
+            
+                    
+                    feature_selection.mutual_info_regression用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../Chapter5/过滤法总结.html">
+            
+                <a href="../Chapter5/过滤法总结.html">
+            
+                    
+                    过滤法总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="../Chapter5/feature_selection.SelectFromModel用法.html">
+            
+                <a href="../Chapter5/feature_selection.SelectFromModel用法.html">
+            
+                    
+                    feature_selection.SelectFromModel用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="../Chapter5/feature_selection.RFE用法.html">
+            
+                <a href="../Chapter5/feature_selection.RFE用法.html">
+            
+                    
+                    feature_selection.RFE用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../model_selection/">
+            
+                <a href="../model_selection/">
+            
+                    
+                    模型选择 model_selection
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../model_selection/数据集划分train_test_split.html">
+            
+                <a href="../model_selection/数据集划分train_test_split.html">
+            
+                    
+                    数据集划分train_test_split
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../model_selection/数据集划分K折交叉验证KFold.html">
+            
+                <a href="../model_selection/数据集划分K折交叉验证KFold.html">
+            
+                    
+                    数据集划分K折交叉验证KFold
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../model_selection/数据集划分K折交叉验证StratifiedKFold.html">
+            
+                <a href="../model_selection/数据集划分K折交叉验证StratifiedKFold.html">
+            
+                    
+                    数据集划分K折交叉验证StratifiedKFold
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../model_selection/随机数据集划分ShuffleSplit.html">
+            
+                <a href="../model_selection/随机数据集划分ShuffleSplit.html">
+            
+                    
+                    随机数据集划分ShuffleSplit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../model_selection/随机分层数据集划分StratifiedShuffleSplit.html">
+            
+                <a href="../model_selection/随机分层数据集划分StratifiedShuffleSplit.html">
+            
+                    
+                    随机分层数据集划分StratifiedShuffleSplit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../model_selection/交叉验证cross_val_score.html">
+            
+                <a href="../model_selection/交叉验证cross_val_score.html">
+            
+                    
+                    交叉验证cross_val_score
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../model_selection/学习曲线learning_curve.html">
+            
+                <a href="../model_selection/学习曲线learning_curve.html">
+            
+                    
+                    学习曲线learning_curve
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="../model_selection/验证曲线validation_curve.html">
+            
+                <a href="../model_selection/验证曲线validation_curve.html">
+            
+                    
+                    验证曲线validation_curve
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../pipeline/">
+            
+                <a href="../pipeline/">
+            
+                    
+                    pipeline
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../pipeline/Pipeline.html">
+            
+                <a href="../pipeline/Pipeline.html">
+            
+                    
+                    Pipeline
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../pipeline/make_pipeline.html">
+            
+                <a href="../pipeline/make_pipeline.html">
+            
+                    
+                    make_pipeline
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../compose/">
+            
+                <a href="../compose/">
+            
+                    
+                    compose
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../compose/ColumnTransformer.html">
+            
+                <a href="../compose/ColumnTransformer.html">
+            
+                    
+                    ColumnTransformer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../mlxtend库/">
+            
+                <a href="../mlxtend库/">
+            
+                    
+                    mlxtend库
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../mlxtend库/StackingRegressor.html">
+            
+                <a href="../mlxtend库/StackingRegressor.html">
+            
+                    
+                    StackingRegressor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../mlxtend库/StackingClassifier.html">
+            
+                <a href="../mlxtend库/StackingClassifier.html">
+            
+                    
+                    StackingClassifier
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../mlxtend库/feature_selection/">
+            
+                <a href="../mlxtend库/feature_selection/">
+            
+                    
+                    feature_selection
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.3.1" data-path="../mlxtend库/feature_selection/SequentialFeatureSelector.html">
+            
+                <a href="../mlxtend库/feature_selection/SequentialFeatureSelector.html">
+            
+                    
+                    SequentialFeatureSelector
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3.2" data-path="../mlxtend库/feature_selection/ExhaustiveFeatureSelector.html">
+            
+                <a href="../mlxtend库/feature_selection/ExhaustiveFeatureSelector.html">
+            
+                    
+                    ExhaustiveFeatureSelector
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >impute.SimpleImputer用法</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><a href="#imputesimpleimputer&#x7528;&#x6CD5;">impute.SimpleImputer&#x7528;&#x6CD5;</a></li><ul><li><a href="#bonus&#xFF1A;&#x7528;pandas&#x548C;numpy&#x8FDB;&#x884C;&#x586B;&#x8865;&#x5176;&#x5B9E;&#x66F4;&#x52A0;&#x7B80;&#x5355;">BONUS&#xFF1A;&#x7528;Pandas&#x548C;Numpy&#x8FDB;&#x884C;&#x586B;&#x8865;&#x5176;&#x5B9E;&#x66F4;&#x52A0;&#x7B80;&#x5355;</a></li></ul></ul></div><a href="#imputesimpleimputer&#x7528;&#x6CD5;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="imputesimpleimputer&#x7528;&#x6CD5;"><a name="imputesimpleimputer&#x7528;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#imputesimpleimputer&#x7528;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>impute.SimpleImputer&#x7528;&#x6CD5;</h1>
+<pre class="language-"><code class="lang-python">sklearn<span class="token punctuation">.</span>impute<span class="token punctuation">.</span>SimpleImputer <span class="token punctuation">(</span>missing_values<span class="token operator">=</span>nan<span class="token punctuation">,</span> 
+                              strategy<span class="token operator">=</span>&#x2019;mean&#x2019;<span class="token punctuation">,</span> 
+                              fill_value<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> 
+                              verbose<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>
+                              copy<span class="token operator">=</span><span class="token boolean">True</span>
+                             <span class="token punctuation">)</span>
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x7C7B;&#x662F;&#x4E13;&#x95E8;&#x7528;&#x6765;&#x586B;&#x8865;&#x7F3A;&#x5931;&#x503C;&#x7684;&#x3002;&#x5B83;&#x5305;&#x62EC;&#x56DB;&#x4E2A;&#x91CD;&#x8981;&#x53C2;&#x6570;&#xFF1A;  </p>
+<p><strong><code>missing_values</code></strong> </p>
+<p>&#x544A;&#x8BC9;SimpleImputer&#xFF0C;&#x6570;&#x636E;&#x4E2D;&#x7684;&#x7F3A;&#x5931;&#x503C;&#x957F;&#x4EC0;&#x4E48;&#x6837;&#xFF0C;&#x9ED8;&#x8BA4;&#x7A7A;&#x503C;np.nan</p>
+<p><strong><code>strategy</code></strong> </p>
+<p>&#x586B;&#x8865;&#x7F3A;&#x5931;&#x503C;&#x7684;&#x7B56;&#x7565;&#xFF0C;&#x9ED8;&#x8BA4;&#x5747;&#x503C;</p>
+<p>&#x8F93;&#x5165;&#x201C;mean&#x201D;&#x4F7F;&#x7528;&#x5747;&#x503C;&#x586B;&#x8865;&#xFF08;<strong>&#x4EC5;&#x5BF9;&#x6570;&#x503C;&#x578B;&#x7279;&#x5F81;&#x53EF;&#x7528;</strong>&#xFF09;</p>
+<p>&#x8F93;&#x5165;&#x201C;median&quot;&#x7528;&#x4E2D;&#x503C;&#x586B;&#x8865;&#xFF08;<strong>&#x4EC5;&#x5BF9;&#x6570;&#x503C;&#x578B;&#x7279;&#x5F81;&#x53EF;&#x7528;</strong>&#xFF09;</p>
+<p>&#x8F93;&#x5165;&quot;most_frequent&#x201D;&#x7528;&#x4F17;&#x6570;&#x586B;&#x8865;&#xFF08;<strong>&#x5BF9;&#x6570;&#x503C;&#x578B;&#x548C;&#x5B57;&#x7B26;&#x578B;&#x7279;&#x5F81;&#x90FD;&#x53EF;&#x7528;</strong>&#xFF09;</p>
+<p>&#x8F93;&#x5165;&#x201C;constant&quot;&#x8868;&#x793A;&#x8BF7;&#x53C2;&#x8003;&#x53C2;&#x6570;&#x201C;fill_value&quot;&#x4E2D;&#x7684;&#x503C;&#xFF08;<strong>&#x5BF9;&#x6570;&#x503C;&#x578B;&#x548C;&#x5B57;&#x7B26;&#x578B;&#x7279;&#x5F81;&#x90FD;&#x53EF;&#x7528;</strong>&#xFF09;</p>
+<p><strong><code>fill_value</code></strong> </p>
+<p>&#x5F53;&#x53C2;&#x6570; startegy &#x4E3A; &#x201D;constant&quot; &#x7684;&#x65F6;&#x5019;&#x53EF;&#x7528;&#xFF0C;&#x53EF;&#x8F93;&#x5165;&#x5B57;&#x7B26;&#x4E32;&#x6216;&#x6570;&#x5B57;&#x8868;&#x793A;&#x8981;&#x586B;&#x5145;&#x7684;&#x503C;&#xFF0C;&#x5E38;&#x7528; 0</p>
+<p><strong>Example</strong></p>
+<pre class="language-"><code class="lang-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+data <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span><span class="token string">r&quot;Narrativedata.csv&quot;</span><span class="token punctuation">,</span>index_col<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+data<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class="language-"><code>    Age    Sex    Embarked    Survived
+0    22.0    male    S    No
+1    38.0    female    C    Yes
+2    26.0    female    S    Yes
+3    35.0    female    S    Yes
+4    35.0    male    S    No
+</code></pre><pre class="language-"><code class="lang-python">data<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class="language-"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>class</span> <span class="token attr-name">&apos;pandas.core.frame.DataFrame&apos;</span><span class="token punctuation">&gt;</span></span>
+Int64Index: 891 entries, 0 to 890
+Data columns (total 4 columns):
+Age         714 non-null float64
+Sex         891 non-null object
+Embarked    889 non-null object
+Survived    891 non-null object
+dtypes: float64(1), object(3)
+memory usage: 34.8+ KB
+</code></pre><pre class="language-"><code class="lang-python">Age <span class="token operator">=</span> data<span class="token punctuation">.</span>loc<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token string">&quot;Age&quot;</span><span class="token punctuation">]</span><span class="token punctuation">.</span>values<span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">#sklearn&#x5F53;&#x4E2D;&#x7279;&#x5F81;&#x77E9;&#x9635;&#x5FC5;&#x987B;&#x662F;&#x4E8C;&#x7EF4;</span>
+
+<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>impute <span class="token keyword">import</span> SimpleImputer
+
+imp_mean <span class="token operator">=</span> SimpleImputer<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">#&#x5B9E;&#x4F8B;&#x5316;&#xFF0C;&#x9ED8;&#x8BA4;&#x5747;&#x503C;&#x586B;&#x8865;</span>
+
+imp_median <span class="token operator">=</span> SimpleImputer<span class="token punctuation">(</span>strategy<span class="token operator">=</span><span class="token string">&quot;median&quot;</span><span class="token punctuation">)</span> <span class="token comment">#&#x7528;&#x4E2D;&#x4F4D;&#x6570;&#x586B;&#x8865;</span>
+
+
+imp_0 <span class="token operator">=</span> SimpleImputer<span class="token punctuation">(</span>strategy<span class="token operator">=</span><span class="token string">&quot;constant&quot;</span><span class="token punctuation">,</span>fill_value<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment">#&#x7528;0&#x586B;&#x8865;</span>
+
+imp_mean <span class="token operator">=</span> imp_mean<span class="token punctuation">.</span>fit_transform<span class="token punctuation">(</span>Age<span class="token punctuation">)</span> <span class="token comment">#fit_transform&#x4E00;&#x6B65;&#x5B8C;&#x6210;&#x8C03;&#x53D6;&#x7ED3;&#x679C;</span>
+imp_median <span class="token operator">=</span> imp_median<span class="token punctuation">.</span>fit_transform<span class="token punctuation">(</span>Age<span class="token punctuation">)</span>
+
+imp_0 <span class="token operator">=</span> imp_0<span class="token punctuation">.</span>fit_transform<span class="token punctuation">(</span>Age<span class="token punctuation">)</span>
+
+imp_mean<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">20</span><span class="token punctuation">]</span>
+imp_median<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">20</span><span class="token punctuation">]</span>
+imp_0<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">20</span><span class="token punctuation">]</span>
+
+<span class="token comment">#&#x5728;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x4E2D;&#x4F4D;&#x6570;&#x586B;&#x8865;Age</span>
+data<span class="token punctuation">.</span>loc<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token string">&quot;Age&quot;</span><span class="token punctuation">]</span> <span class="token operator">=</span> imp_median
+data<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">#&#x4F7F;&#x7528;&#x4F17;&#x6570;&#x586B;&#x8865;Embarked</span>
+Embarked <span class="token operator">=</span> data<span class="token punctuation">.</span>loc<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token string">&quot;Embarked&quot;</span><span class="token punctuation">]</span><span class="token punctuation">.</span>values<span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+imp_mode <span class="token operator">=</span> SimpleImputer<span class="token punctuation">(</span>strategy <span class="token operator">=</span> <span class="token string">&quot;most_frequent&quot;</span><span class="token punctuation">)</span>
+data<span class="token punctuation">.</span>loc<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token string">&quot;Embarked&quot;</span><span class="token punctuation">]</span> <span class="token operator">=</span> imp_mode<span class="token punctuation">.</span>fit_transform<span class="token punctuation">(</span>Embarked<span class="token punctuation">)</span>
+data<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="bonus&#xFF1A;&#x7528;pandas&#x548C;numpy&#x8FDB;&#x884C;&#x586B;&#x8865;&#x5176;&#x5B9E;&#x66F4;&#x52A0;&#x7B80;&#x5355;"><a name="bonus&#xFF1A;&#x7528;pandas&#x548C;numpy&#x8FDB;&#x884C;&#x586B;&#x8865;&#x5176;&#x5B9E;&#x66F4;&#x52A0;&#x7B80;&#x5355;" class="anchor-navigation-ex-anchor" href="#bonus&#xFF1A;&#x7528;pandas&#x548C;numpy&#x8FDB;&#x884C;&#x586B;&#x8865;&#x5176;&#x5B9E;&#x66F4;&#x52A0;&#x7B80;&#x5355;"><i class="fa fa-link" aria-hidden="true"></i></a>BONUS&#xFF1A;&#x7528;Pandas&#x548C;Numpy&#x8FDB;&#x884C;&#x586B;&#x8865;&#x5176;&#x5B9E;&#x66F4;&#x52A0;&#x7B80;&#x5355;</h2>
+<pre class="language-"><code class="lang-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+data <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span><span class="token string">r&quot;Narrativedata.csv&quot;</span><span class="token punctuation">,</span>index_col<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+data<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span>
+data<span class="token punctuation">.</span>loc<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token string">&quot;Age&quot;</span><span class="token punctuation">]</span> <span class="token operator">=</span> data<span class="token punctuation">.</span>loc<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token string">&quot;Age&quot;</span><span class="token punctuation">]</span><span class="token punctuation">.</span>fillna<span class="token punctuation">(</span>data<span class="token punctuation">.</span>loc<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token string">&quot;Age&quot;</span><span class="token punctuation">]</span><span class="token punctuation">.</span>median<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment">#.fillna &#x5728;DataFrame&#x91CC;&#x9762;&#x76F4;&#x63A5;&#x8FDB;&#x884C;&#x586B;&#x8865;</span>
+
+data<span class="token punctuation">.</span>dropna<span class="token punctuation">(</span>axis<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>inplace<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+<span class="token comment">#.dropna(axis=0)&#x5220;&#x9664;&#x6240;&#x6709;&#x6709;&#x7F3A;&#x5931;&#x503C;&#x7684;&#x884C;&#xFF0C;.dropna(axis=1)&#x5220;&#x9664;&#x6240;&#x6709;&#x6709;&#x7F3A;&#x5931;&#x503C;&#x7684;&#x5217;</span>
+<span class="token comment">#&#x53C2;&#x6570;inplace&#xFF0C;&#x4E3A;True&#x8868;&#x793A;&#x5728;&#x539F;&#x6570;&#x636E;&#x96C6;&#x4E0A;&#x8FDB;&#x884C;&#x4FEE;&#x6539;&#xFF0C;&#x4E3A;False&#x8868;&#x793A;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x590D;&#x5236;&#x5BF9;&#x8C61;&#xFF0C;&#x4E0D;&#x4FEE;&#x6539;&#x539F;&#x6570;&#x636E;&#xFF0C;&#x9ED8;&#x8BA4;False</span>
+</code></pre>
+<footer class="page-footer"><span class="copyright">  </span><span class="footer-modification">Update time&#xFF1A;
+2020-05-23 
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 缺失值处理 sklearn.impute">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../Chapter5/" class="navigation navigation-next " aria-label="Next page: 特征选择 feature_selection">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"impute.SimpleImputer用法","level":"1.5.1","depth":2,"next":{"title":"特征选择 feature_selection","level":"1.6","depth":1,"path":"Chapter5/README.md","ref":"Chapter5/README.md","articles":[{"title":"feature_selection.VarianceThreshold用法","level":"1.6.1","depth":2,"path":"Chapter5/feature_selection.VarianceThreshold 用法.md","ref":"Chapter5/feature_selection.VarianceThreshold 用法.md","articles":[]},{"title":"feature_selection.SelectKBest用法","level":"1.6.2","depth":2,"path":"Chapter5/feature_selection.SelectKBest用法.md","ref":"Chapter5/feature_selection.SelectKBest用法.md","articles":[]},{"title":"feature_selection.chi2用法","level":"1.6.3","depth":2,"path":"Chapter5/feature_selection.chi2用法.md","ref":"Chapter5/feature_selection.chi2用法.md","articles":[]},{"title":"feature_selection.f_classif用法","level":"1.6.4","depth":2,"path":"Chapter5/feature_selection.f_classif用法.md","ref":"Chapter5/feature_selection.f_classif用法.md","articles":[]},{"title":"feature_selection.f_regression用法","level":"1.6.5","depth":2,"path":"Chapter5/feature_selection.f_regression用法.md","ref":"Chapter5/feature_selection.f_regression用法.md","articles":[]},{"title":"feature_selection.mutual_info_classif用法","level":"1.6.6","depth":2,"path":"Chapter5/feature_selection.mutual_info_classif用法.md","ref":"Chapter5/feature_selection.mutual_info_classif用法.md","articles":[]},{"title":"feature_selection.mutual_info_regression用法","level":"1.6.7","depth":2,"path":"Chapter5/feature_selection.mutual_info_regression用法.md","ref":"Chapter5/feature_selection.mutual_info_regression用法.md","articles":[]},{"title":"过滤法总结","level":"1.6.8","depth":2,"path":"Chapter5/过滤法总结.md","ref":"Chapter5/过滤法总结.md","articles":[]},{"title":"feature_selection.SelectFromModel用法","level":"1.6.9","depth":2,"path":"Chapter5/feature_selection.SelectFromModel用法.md","ref":"Chapter5/feature_selection.SelectFromModel用法.md","articles":[]},{"title":"feature_selection.RFE用法","level":"1.6.10","depth":2,"path":"Chapter5/feature_selection.RFE用法.md","ref":"Chapter5/feature_selection.RFE用法.md","articles":[]}]},"previous":{"title":"缺失值处理 sklearn.impute","level":"1.5","depth":1,"path":"Chapter4/README.md","ref":"Chapter4/README.md","articles":[{"title":"impute.SimpleImputer用法","level":"1.5.1","depth":2,"path":"Chapter4/impute.SimpleImputer用法.md","ref":"Chapter4/impute.SimpleImputer用法.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-highlight","-livereload","search-plus@^0.0.11","simple-page-toc@^0.1.1","disqus@^0.1.0","prism@^2.1.0","prism-themes@^0.0.2","theme-comscore","anchors@^0.7.1","ace@^0.3.2","emphasize@^1.1.0","katex@^1.1.3","splitter@^0.0.8","expandable-chapters","local-video@^1.0.1","anchor-navigation-ex@0.1.8","custom-favicon","todo@^0.1.3","hide-element","copy-code-button","tbfed-pagefooter","advanced-emoji","lightbox","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":" ","modify_label":"Update time：","modify_format":"YYYY-MM-DD "},"prism":{"css":["prism-themes/themes/prism-vs.css"]},"disqus":{"useIdentifier":false,"shortName":"HG1227"},"styles":{"website":"styles/website.css"},"emphasize":{},"ace":{},"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"todo":{},"splitter":{},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"isRewritePageTitle":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right"},"favicon":"favicon.ico","lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"prism-themes":{},"custom-favicon":{},"local-video":{},"copy-code-button":{},"advanced-emoji":{"embedEmojis":false},"include-codeblock":{"template":"ace","unindent":true,"edit":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"expandable-chapters":{},"search-plus":{}},"theme":"default","author":"HHG","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"readme.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python 学习记录","language":"zh-hans","output.name":"site","links":{"sidebar":{"Home":""}},"gitbook":"*","description":"。"},"file":{"path":"Chapter4/impute.SimpleImputer用法.md","mtime":"2020-05-23T07:57:11.277Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-20T03:19:39.807Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ace/ace/ace.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ace/ace.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-local-video/video.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+
